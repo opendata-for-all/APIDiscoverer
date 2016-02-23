@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ASCII"?>
+<swagger:Api xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:swagger="http://swagger.io/core" swagger="2.0" host="apis-guru.github.io" basePath="/api-models/api/v1">
+  <info title="APIs.guru" description="Wikipedia for Web APIs. Repository of API specs in OpenAPI(fka Swagger) 2.0 format." version="1.0">
+    <contact name="APIs.guru" url="http://APIs.guru" email="founders@apis.guru"/>
+    <license name="CC0 1.0" url="https://github.com/APIs-guru/api-models#licenses"/>
+  </info>
+  <schemes>https</schemes>
+  <schemes>http</schemes>
+  <produces>application/json</produces>
+  <paths pattern="/list.json">
+    <get description="List all APIs in collection" operationId="listAPIs">
+      <responses code="200"/>
+    </get>
+  </paths>
+  <definitions type="object" name="ApiVersion">
+    <properties format="date-time" description="Timestamp when this version was added" type="string" name="added"/>
+    <properties format="url" description="URL of Swagger spec in YAML format" type="string" name="swaggerYamlUrl"/>
+    <properties format="date-time" description="Timestamp when this version was updated" type="string" name="updated"/>
+    <properties format="url" description="URL of Swagger spec in JSON format" type="string" name="swaggerUrl"/>
+    <properties description="Copy of `info` section from Swagger spec" type="object" name="info"/>
+  </definitions>
+  <definitions description="List of API details.&#xA;It consist of JSON object with API IDs(`&lt;provider>[:&lt;service>]`) as keys.&#xA;" type="object" name="APIs"/>
+  <definitions description="Meta information about API" type="object" name="API">
+    <properties format="date-time" description="Timestamp when this API was first added to collection" type="string" name="added"/>
+    <properties description="List supported versions of API" type="object" name="versions"/>
+    <properties description="Recommended version" type="string" name="preferred"/>
+  </definitions>
+  <externaldocs url="https://github.com/APIs-guru/api-models/blob/master/API.md"/>
+</swagger:Api>

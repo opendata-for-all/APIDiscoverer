@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ASCII"?>
+<swagger:Api xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:swagger="http://swagger.io/core" swagger="2" host="api.trade.gov" basePath="/">
+  <info title="International Trade Administration Trade Events API" description="The Trade Events API provides data on events for U.S. businesses interested in selling their products and services overseas. These events include industry conferences, webinars, lectures and trade missions organized by the U.S. Dept. of Commerce. Developers can use this API to keep businesses aware of the latest events in their industry or location." version="1.0"/>
+  <schemes>http</schemes>
+  <produces>application/json</produces>
+  <paths pattern="/trade_events/search">
+    <get summary="Trade Events" description="Provides information on industry conferences, webinars, lectures and trade missions organized by the U.S. Dept. of Commerce" operationId="trade-events">
+      <tags>Trade</tags>
+      <tags> Events</tags>
+      <tags> Conferences</tags>
+      <tags> Webinars</tags>
+      <parameters name="keyword" description="Searches for a match within the event_name and description fields." required="true" type="string" format="string"/>
+      <parameters name="industry" description="Searches for specific controlled industry names" required="true" type="string" format="string"/>
+      <parameters name="countries" description="Returns office locations based on ISO alpha-2 country codes." type="string" format="string"/>
+      <parameters name="size" description="The size parameter allows you to configure the maximum amount of hits to be returned. " type="string" format="string"/>
+      <parameters name="offset" description="The offset parameter defines the offset from the first result you want to fetch." type="string" format="string"/>
+      <responses code="200"/>
+    </get>
+  </paths>
+  <definitions name="Event">
+    <properties description="Unique identifier for post" type="string" name="id"/>
+    <properties description="name given for the event" type="string" name="event_name"/>
+    <properties description="The type of the event (controlled value)" type="string" name="event_type"/>
+    <properties description="start date of the event (default sort)" type="string" name="start_date"/>
+    <properties description="end date of the event" type="string" name="end_date"/>
+    <properties description="cost of the event" type="string" name="cost"/>
+    <properties description="URL for registration page" type="string" name="registration_link"/>
+    <properties description="title of the registration URL" type="string" name="registration_title"/>
+    <properties description="text describing the event" type="string" name="description"/>
+    <properties description="industry category assigned to the event" type="string" name="industry"/>
+    <properties description="URL for the event" type="string" name="url"/>
+    <properties description="place where event is held" type="string" name="venue"/>
+    <properties description="city where event is held" type="string" name="city"/>
+    <properties description="state where event is held" type="string" name="state"/>
+    <properties description="country where event is held" type="string" name="country"/>
+    <properties description="first name of the contact" type="string" name="first_name"/>
+    <properties description="last name of the contact" type="string" name="last_name"/>
+    <properties description="contactu2019s organization" type="string" name="post"/>
+    <properties description="contactu2019s job title" type="string" name="person_title"/>
+    <properties description="contactu2019s phone number" type="string" name="phone"/>
+    <properties description="contactu2019s email address" type="string" name="email"/>
+  </definitions>
+</swagger:Api>

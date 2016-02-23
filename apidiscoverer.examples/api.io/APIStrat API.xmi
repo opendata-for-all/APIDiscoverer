@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="ASCII"?>
+<swagger:Api xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:swagger="http://swagger.io/core" swagger="2.0" host="api.austin2015.apistrat.com" basePath="/">
+  <info title="APIStrat Austin" description="This is the API for the API Strategy &amp; Practice conference in Austin, TX, providing programmatic access to the schedule, speakers, and sponsors" version="v1"/>
+  <schemes>http</schemes>
+  <produces>application/json</produces>
+  <paths pattern="/schedule/day/one/">
+    <get summary="pulls schedule for day one" description="pulls schedule for day one" operationId="getScheduleDayOne">
+      <tags>Available APIStrat API Endpoints</tags>
+      <responses code="200"/>
+    </get>
+  </paths>
+  <paths pattern="/schedule/day/two/">
+    <get summary="pulls schedule for day one" description="pulls schedule for day one" operationId="getScheduleDayTwo">
+      <tags>Available APIStrat API Endpoints</tags>
+      <responses code="200"/>
+    </get>
+  </paths>
+  <paths pattern="/schedule/day/three/">
+    <get summary="pulls schedule for day one" description="pulls schedule for day one" operationId="getScheduleDayThree">
+      <tags>Available APIStrat API Endpoints</tags>
+      <responses code="200"/>
+    </get>
+  </paths>
+  <paths pattern="/schedule/now/">
+    <get summary="pulls what is happending now on schedule" description="pulls what is happending now on schedule" operationId="getScheduleNow">
+      <tags>Available APIStrat API Endpoints</tags>
+      <parameters name="day" description="a day number to override 18,19, or 20" type="string"/>
+      <parameters name="time" description="a time to overrirde now mm/dd/yyyy AM/PM" type="string"/>
+      <responses code="200"/>
+    </get>
+  </paths>
+  <paths pattern="/schedule/search/">
+    <get summary="searches the schedule" description="searches the schedule" operationId="searchSchedule">
+      <tags>Available APIStrat API Endpoints</tags>
+      <parameters name="query" description="a text query to search across schedule" type="string"/>
+      <responses code="200"/>
+    </get>
+  </paths>
+  <paths pattern="/speakers/">
+    <get summary="pulls all speakers" description="pulls all speakers" operationId="getSpeakers">
+      <tags>Available APIStrat API Endpoints</tags>
+      <parameters name="query" description="a text query to search across schedule" type="string"/>
+      <responses code="200"/>
+    </get>
+  </paths>
+  <paths pattern="/sponsors/gold/">
+    <get summary="pulls gold sponsors" description="pulls gold sponsors" operationId="getGoldSponsors">
+      <tags>Available APIStrat API Endpoints</tags>
+      <responses code="200"/>
+    </get>
+  </paths>
+  <paths pattern="/sponsors/silver/">
+    <get summary="pulls silver sponsors" description="pulls silver sponsors" operationId="getSilverSponsors">
+      <tags>Available APIStrat API Endpoints</tags>
+      <responses code="200"/>
+    </get>
+  </paths>
+  <paths pattern="/sponsors/bronze/">
+    <get summary="pulls bronze sponsors" description="pulls bronze sponsors" operationId="getBronzeSponsors">
+      <tags>Available APIStrat API Endpoints</tags>
+      <responses code="200"/>
+    </get>
+  </paths>
+  <definitions name="schedule">
+    <properties description="name of session" type="string" name="name"/>
+    <properties description="location of session" type="string" name="location"/>
+    <properties description="start time for session" type="string" name="start_time"/>
+    <properties description="end time for session" type="string" name="end_time"/>
+    <properties description="speakers for session" name="speakers"/>
+  </definitions>
+  <definitions name="speakers">
+    <properties description="name for speaker" type="string" name="name"/>
+    <properties description="company for speaker" type="string" name="company"/>
+    <properties description="url for speaker" type="string" name="url"/>
+    <properties description="twitter for speaker" type="string" name="twitter"/>
+    <properties description="image for speaker" type="string" name="image"/>
+    <properties description="slug for speaker" type="string" name="slug"/>
+    <properties description="detail page for speaker" type="string" name="detail"/>
+    <properties description="title of talk for speaker" type="string" name="title"/>
+    <properties description="abstract for speaker" type="string" name="abstract"/>
+    <properties description="bio for speaker" type="string" name="bio"/>
+  </definitions>
+  <definitions name="sponsors">
+    <properties description="name of sponsor" type="string" name="name"/>
+    <properties description="link of sponsor" type="string" name="link"/>
+    <properties description="name of sponsor" type="string" name="logo"/>
+  </definitions>
+</swagger:Api>

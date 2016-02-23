@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="ASCII"?>
+<swagger:Api xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:swagger="http://swagger.io/core" swagger="2.0" host="api2.lotadata.com" basePath="/lte.1">
+  <info title="LotaData Events Firehose API" description="Obtain the location-based situational context, affinity tags and relevant correlations in real-time to improve your mobile ad targeting, to increase your app monetization and to enrich your user profiles." version="1.0.0">
+    <contact name="LotaData" url="http://lotadata.com"/>
+  </info>
+  <schemes>https</schemes>
+  <consumes>application/json</consumes>
+  <produces>application/json</produces>
+  <paths pattern="/firehose/">
+    <get description="Obtain situational context, categories, genres, and event keywords" operationId="getFirehose">
+      <tags>Events Context</tags>
+      <produces>application/json</produces>
+      <parameters name="api_key" description="Your API key" required="true" type="string"/>
+      <parameters name="q" description="Keyword to search for" type="string"/>
+      <parameters name="category" description="Normalized category to search for" type="string"/>
+      <parameters name="capacityMin" description="Only include results at venues of min size"/>
+      <parameters name="max" description="Max records per response" format="int32"/>
+      <parameters name="start" description="Returns matching events starting with the specified offset (paging)" format="int32"/>
+      <parameters name="bottomRight" description="SouthWest bounding box corner (lat,lng)" type="string"/>
+      <parameters name="topLeft" description="NorthWest bounding corner (lat,lng)" type="string"/>
+      <parameters name="fromDay" description="events scheduled from this day. (ISO Date)" type="string"/>
+      <parameters name="toDay" description="events scheduled to this day" type="string"/>
+      <parameters name="fromTime" description="events scheduled between this time and toTime. Note: You can search during 6pm to 10pm window spanning multiple days (HH:MM)" type="string"/>
+      <parameters name="toTime" description="events scheduled to start no later than this time (HH:MM)" type="string"/>
+      <parameters name="updated" description="returns events added or refreshed after specified date and time. Timestamp in ISO format." type="string"/>
+      <responses code="200"/>
+      <responses code="400"/>
+      <security/>
+    </get>
+  </paths>
+  <definitions name="Address">
+    <properties type="string" name="country"/>
+    <properties type="string" name="street"/>
+    <properties type="string" name="postalCode"/>
+    <properties type="string" name="locality"/>
+    <properties type="string" name="region"/>
+  </definitions>
+  <definitions name="FirehoseResponse">
+    <properties type="object" name="query">
+      <properties description="Max results restriction for this request" name="max"/>
+      <properties description="Starting offset into matched results" name="start"/>
+      <properties description="Total matches for your query" name="matches"/>
+    </properties>
+    <properties name="events"/>
+    <properties type="string" name="status"/>
+  </definitions>
+  <definitions name="AbstractEvent">
+    <properties description="How many times this event is known to repeat" name="repeats"/>
+    <properties description="Important keywords" name="features"/>
+    <properties description="Location of the event" ref="#/definitions/EventVenue" name="at"/>
+    <properties description="Tier 2 taxonomy node" name="genres"/>
+    <properties description="List of known prices in cents" name="price"/>
+    <properties description="System ID for this event. Shared by other occurrences of the event." type="string" name="id"/>
+    <properties description="Occurrence ID of this event" name="oid"/>
+    <properties description="Normalized tier 1 categories" name="categories"/>
+    <properties type="string" name="title"/>
+    <properties description="Date and time of matched occurrence" type="object" name="when"/>
+    <properties description="Creation or update timestamp in ISO format (GMT)" type="string" name="updated"/>
+  </definitions>
+  <definitions name="ErrorMessage">
+    <required>status</required>
+    <required>message</required>
+    <properties type="object" name="extra"/>
+    <properties type="object" name="detail"/>
+    <properties type="string" name="message"/>
+    <properties format="int32" name="status"/>
+  </definitions>
+  <definitions name="EventVenue">
+    <properties description="GeoJSON point [longitude, latitude]" name="geo"/>
+    <properties ref="#/definitions/Address" name="address"/>
+    <properties description="internal venue id" type="string" name="venueId"/>
+    <properties description="Name of the venue or place" type="string" name="name"/>
+    <properties description="low capacity estimate" name="lowCapacity"/>
+    <properties description="maximum capacity" name="highCapacity"/>
+  </definitions>
+  <securityDefinitions type="apiKey" name="api_key" globalName="internalApiKey"/>
+  <security/>
+</swagger:Api>

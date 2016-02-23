@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="ASCII"?>
+<swagger:Api xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:swagger="http://swagger.io/core" swagger="2" host="api.trade.gov" basePath="/">
+  <info title="International Trade Administration Trade Leads API" description="The Trade Leads API provides contract opportunities for U.S. businesses selling their products and services overseas. These leads come from a variety of sources and we continue to expand the number of leads available." version="1.0"/>
+  <schemes>http</schemes>
+  <produces>application/json</produces>
+  <paths pattern="/trade_leads/search">
+    <get summary="Overseas Contract Opportunities For US Businesses" description="The Trade Leads API provides contract opportunities for U.S. businesses selling their products and services overseas. These leads come from a variety of sources and we continue to expand the number of leads available." operationId="opportunities">
+      <tags>U.S.</tags>
+      <tags> Trade</tags>
+      <tags> Government</tags>
+      <tags> Overseas</tags>
+      <tags> Business</tags>
+      <tags> Contracts</tags>
+      <parameters name="keyword" description="Searches for a match within the event_name and description fields." required="true" type="string" format="string"/>
+      <parameters name="industry" description="Searches for specific controlled industry names" required="true" type="string" format="string"/>
+      <parameters name="countries" description="Returns office locations based on ISO alpha-2 country codes." type="string" format="string"/>
+      <parameters name="size" description="The size parameter allows you to configure the maximum amount of hits to be returned. " type="string" format="string"/>
+      <parameters name="offset" description="The offset parameter defines the offset from the first result you want to fetch." type="string" format="string"/>
+      <responses code="200"/>
+    </get>
+  </paths>
+  <definitions name="Lead">
+    <properties description="Trade lead source" type="string" name="type"/>
+    <properties description="ID of the trade lead" type="string" name="id"/>
+    <properties description="Source of the trade lead, typically an organization" type="string" name="source"/>
+    <properties description="Location of the opportunity" type="string" name="specific_location"/>
+    <properties description="Number for the opportunity" type="string" name="project_number"/>
+    <properties description="Industry category assigned to the opportunity" type="string" name="industry"/>
+    <properties description="Industry category assigned to the opportunity" type="string" name="project_size"/>
+    <properties description="Description of the opportunity" type="string" name="description"/>
+    <properties description="Keywords of the opportunity" type="string" name="tags"/>
+    <properties description="Date lead was posted" type="string" name="publish_date"/>
+    <properties description="Closing date for the lead" type="string" name="end_date"/>
+    <properties description="Funding source of the project" type="string" name="funding_source"/>
+    <properties description="Bank funding the project" type="string" name="borrowing_entity"/>
+    <properties description="Agency responsible for the contract" type="string" name="procurement_organization"/>
+    <properties description="Point of contact" type="string" name="project_pocs"/>
+    <properties description="comments about the project" type="string" name="comments"/>
+    <properties description="Contract officer name" type="string" name="submitting_officer"/>
+    <properties description="Contract officer email" type="string" name="submitting_officer_contact"/>
+    <properties description="URL that pertain to the bid" type="string" name="url"/>
+    <properties description="Status of the lead (note this API only shows open leads)" type="string" name="status"/>
+  </definitions>
+</swagger:Api>
