@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated swagger -->
+      <package
+            uri="http://swagger.io/core"
+            class="som.swagger.core.CorePackage"
+            genModel="model/swagger.genmodel"/>
+   </extension>
+
+</plugin>
