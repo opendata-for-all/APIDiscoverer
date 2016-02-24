@@ -37,18 +37,19 @@ import som.swagger.core.JsonDataType;
  *   <li>{@link som.swagger.core.impl.HeaderImpl#getCollectionFormat <em>Collection Format</em>}</li>
  *   <li>{@link som.swagger.core.impl.HeaderImpl#getItems <em>Items</em>}</li>
  *   <li>{@link som.swagger.core.impl.HeaderImpl#getDefault <em>Default</em>}</li>
- *   <li>{@link som.swagger.core.impl.HeaderImpl#isExlusiveMinimum <em>Exlusive Minimum</em>}</li>
+ *   <li>{@link som.swagger.core.impl.HeaderImpl#isExclusiveMinimum <em>Exclusive Minimum</em>}</li>
  *   <li>{@link som.swagger.core.impl.HeaderImpl#getEnum <em>Enum</em>}</li>
- *   <li>{@link som.swagger.core.impl.HeaderImpl#getMaxIntems <em>Max Intems</em>}</li>
- *   <li>{@link som.swagger.core.impl.HeaderImpl#isUniqueItem <em>Unique Item</em>}</li>
+ *   <li>{@link som.swagger.core.impl.HeaderImpl#getMaxItems <em>Max Items</em>}</li>
+ *   <li>{@link som.swagger.core.impl.HeaderImpl#isUniqueItems <em>Unique Items</em>}</li>
  *   <li>{@link som.swagger.core.impl.HeaderImpl#getPattern <em>Pattern</em>}</li>
- *   <li>{@link som.swagger.core.impl.HeaderImpl#isExlusiveMaximum <em>Exlusive Maximum</em>}</li>
+ *   <li>{@link som.swagger.core.impl.HeaderImpl#isExclusiveMaximum <em>Exclusive Maximum</em>}</li>
  *   <li>{@link som.swagger.core.impl.HeaderImpl#getMinimum <em>Minimum</em>}</li>
  *   <li>{@link som.swagger.core.impl.HeaderImpl#getMinLength <em>Min Length</em>}</li>
  *   <li>{@link som.swagger.core.impl.HeaderImpl#getMaxLength <em>Max Length</em>}</li>
  *   <li>{@link som.swagger.core.impl.HeaderImpl#getMinItems <em>Min Items</em>}</li>
  *   <li>{@link som.swagger.core.impl.HeaderImpl#getMaximum <em>Maximum</em>}</li>
- *   <li>{@link som.swagger.core.impl.HeaderImpl#getMultipleOF <em>Multiple OF</em>}</li>
+ *   <li>{@link som.swagger.core.impl.HeaderImpl#getMultipleOf <em>Multiple Of</em>}</li>
+ *   <li>{@link som.swagger.core.impl.HeaderImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
@@ -165,24 +166,24 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header {
 	protected String default_ = DEFAULT_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isExlusiveMinimum() <em>Exlusive Minimum</em>}' attribute.
+	 * The default value of the '{@link #isExclusiveMinimum() <em>Exclusive Minimum</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isExlusiveMinimum()
+	 * @see #isExclusiveMinimum()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean EXLUSIVE_MINIMUM_EDEFAULT = false;
+	protected static final boolean EXCLUSIVE_MINIMUM_EDEFAULT = false;
 
 	/**
-	 * The cached value of the '{@link #isExlusiveMinimum() <em>Exlusive Minimum</em>}' attribute.
+	 * The cached value of the '{@link #isExclusiveMinimum() <em>Exclusive Minimum</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isExlusiveMinimum()
+	 * @see #isExclusiveMinimum()
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean exlusiveMinimum = EXLUSIVE_MINIMUM_EDEFAULT;
+	protected boolean exclusiveMinimum = EXCLUSIVE_MINIMUM_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getEnum() <em>Enum</em>}' attribute list.
@@ -195,44 +196,44 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header {
 	protected EList<String> enum_;
 
 	/**
-	 * The default value of the '{@link #getMaxIntems() <em>Max Intems</em>}' attribute.
+	 * The default value of the '{@link #getMaxItems() <em>Max Items</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getMaxIntems()
+	 * @see #getMaxItems()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int MAX_INTEMS_EDEFAULT = 0;
+	protected static final int MAX_ITEMS_EDEFAULT = 0;
 
 	/**
-	 * The cached value of the '{@link #getMaxIntems() <em>Max Intems</em>}' attribute.
+	 * The cached value of the '{@link #getMaxItems() <em>Max Items</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getMaxIntems()
+	 * @see #getMaxItems()
 	 * @generated
 	 * @ordered
 	 */
-	protected int maxIntems = MAX_INTEMS_EDEFAULT;
+	protected int maxItems = MAX_ITEMS_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isUniqueItem() <em>Unique Item</em>}' attribute.
+	 * The default value of the '{@link #isUniqueItems() <em>Unique Items</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isUniqueItem()
+	 * @see #isUniqueItems()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean UNIQUE_ITEM_EDEFAULT = false;
+	protected static final boolean UNIQUE_ITEMS_EDEFAULT = false;
 
 	/**
-	 * The cached value of the '{@link #isUniqueItem() <em>Unique Item</em>}' attribute.
+	 * The cached value of the '{@link #isUniqueItems() <em>Unique Items</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isUniqueItem()
+	 * @see #isUniqueItems()
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean uniqueItem = UNIQUE_ITEM_EDEFAULT;
+	protected boolean uniqueItems = UNIQUE_ITEMS_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getPattern() <em>Pattern</em>}' attribute.
@@ -255,24 +256,24 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header {
 	protected String pattern = PATTERN_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isExlusiveMaximum() <em>Exlusive Maximum</em>}' attribute.
+	 * The default value of the '{@link #isExclusiveMaximum() <em>Exclusive Maximum</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isExlusiveMaximum()
+	 * @see #isExclusiveMaximum()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean EXLUSIVE_MAXIMUM_EDEFAULT = false;
+	protected static final boolean EXCLUSIVE_MAXIMUM_EDEFAULT = false;
 
 	/**
-	 * The cached value of the '{@link #isExlusiveMaximum() <em>Exlusive Maximum</em>}' attribute.
+	 * The cached value of the '{@link #isExclusiveMaximum() <em>Exclusive Maximum</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isExlusiveMaximum()
+	 * @see #isExclusiveMaximum()
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean exlusiveMaximum = EXLUSIVE_MAXIMUM_EDEFAULT;
+	protected boolean exclusiveMaximum = EXCLUSIVE_MAXIMUM_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getMinimum() <em>Minimum</em>}' attribute.
@@ -375,24 +376,44 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header {
 	protected int maximum = MAXIMUM_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getMultipleOF() <em>Multiple OF</em>}' attribute.
+	 * The default value of the '{@link #getMultipleOf() <em>Multiple Of</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getMultipleOF()
+	 * @see #getMultipleOf()
 	 * @generated
 	 * @ordered
 	 */
 	protected static final int MULTIPLE_OF_EDEFAULT = 0;
 
 	/**
-	 * The cached value of the '{@link #getMultipleOF() <em>Multiple OF</em>}' attribute.
+	 * The cached value of the '{@link #getMultipleOf() <em>Multiple Of</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getMultipleOF()
+	 * @see #getMultipleOf()
 	 * @generated
 	 * @ordered
 	 */
-	protected int multipleOF = MULTIPLE_OF_EDEFAULT;
+	protected int multipleOf = MULTIPLE_OF_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -566,8 +587,8 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isExlusiveMinimum() {
-		return exlusiveMinimum;
+	public boolean isExclusiveMinimum() {
+		return exclusiveMinimum;
 	}
 
 	/**
@@ -575,11 +596,11 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setExlusiveMinimum(boolean newExlusiveMinimum) {
-		boolean oldExlusiveMinimum = exlusiveMinimum;
-		exlusiveMinimum = newExlusiveMinimum;
+	public void setExclusiveMinimum(boolean newExclusiveMinimum) {
+		boolean oldExclusiveMinimum = exclusiveMinimum;
+		exclusiveMinimum = newExclusiveMinimum;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.HEADER__EXLUSIVE_MINIMUM, oldExlusiveMinimum, exlusiveMinimum));
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.HEADER__EXCLUSIVE_MINIMUM, oldExclusiveMinimum, exclusiveMinimum));
 	}
 
 	/**
@@ -599,8 +620,8 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getMaxIntems() {
-		return maxIntems;
+	public int getMaxItems() {
+		return maxItems;
 	}
 
 	/**
@@ -608,11 +629,11 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setMaxIntems(int newMaxIntems) {
-		int oldMaxIntems = maxIntems;
-		maxIntems = newMaxIntems;
+	public void setMaxItems(int newMaxItems) {
+		int oldMaxItems = maxItems;
+		maxItems = newMaxItems;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.HEADER__MAX_INTEMS, oldMaxIntems, maxIntems));
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.HEADER__MAX_ITEMS, oldMaxItems, maxItems));
 	}
 
 	/**
@@ -620,8 +641,8 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isUniqueItem() {
-		return uniqueItem;
+	public boolean isUniqueItems() {
+		return uniqueItems;
 	}
 
 	/**
@@ -629,11 +650,11 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setUniqueItem(boolean newUniqueItem) {
-		boolean oldUniqueItem = uniqueItem;
-		uniqueItem = newUniqueItem;
+	public void setUniqueItems(boolean newUniqueItems) {
+		boolean oldUniqueItems = uniqueItems;
+		uniqueItems = newUniqueItems;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.HEADER__UNIQUE_ITEM, oldUniqueItem, uniqueItem));
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.HEADER__UNIQUE_ITEMS, oldUniqueItems, uniqueItems));
 	}
 
 	/**
@@ -662,8 +683,8 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isExlusiveMaximum() {
-		return exlusiveMaximum;
+	public boolean isExclusiveMaximum() {
+		return exclusiveMaximum;
 	}
 
 	/**
@@ -671,11 +692,11 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setExlusiveMaximum(boolean newExlusiveMaximum) {
-		boolean oldExlusiveMaximum = exlusiveMaximum;
-		exlusiveMaximum = newExlusiveMaximum;
+	public void setExclusiveMaximum(boolean newExclusiveMaximum) {
+		boolean oldExclusiveMaximum = exclusiveMaximum;
+		exclusiveMaximum = newExclusiveMaximum;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.HEADER__EXLUSIVE_MAXIMUM, oldExlusiveMaximum, exlusiveMaximum));
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.HEADER__EXCLUSIVE_MAXIMUM, oldExclusiveMaximum, exclusiveMaximum));
 	}
 
 	/**
@@ -788,8 +809,8 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getMultipleOF() {
-		return multipleOF;
+	public int getMultipleOf() {
+		return multipleOf;
 	}
 
 	/**
@@ -797,11 +818,32 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setMultipleOF(int newMultipleOF) {
-		int oldMultipleOF = multipleOF;
-		multipleOF = newMultipleOF;
+	public void setMultipleOf(int newMultipleOf) {
+		int oldMultipleOf = multipleOf;
+		multipleOf = newMultipleOf;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.HEADER__MULTIPLE_OF, oldMultipleOF, multipleOF));
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.HEADER__MULTIPLE_OF, oldMultipleOf, multipleOf));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.HEADER__NAME, oldName, name));
 	}
 
 	/**
@@ -838,18 +880,18 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header {
 				return getItems();
 			case CorePackage.HEADER__DEFAULT:
 				return getDefault();
-			case CorePackage.HEADER__EXLUSIVE_MINIMUM:
-				return isExlusiveMinimum();
+			case CorePackage.HEADER__EXCLUSIVE_MINIMUM:
+				return isExclusiveMinimum();
 			case CorePackage.HEADER__ENUM:
 				return getEnum();
-			case CorePackage.HEADER__MAX_INTEMS:
-				return getMaxIntems();
-			case CorePackage.HEADER__UNIQUE_ITEM:
-				return isUniqueItem();
+			case CorePackage.HEADER__MAX_ITEMS:
+				return getMaxItems();
+			case CorePackage.HEADER__UNIQUE_ITEMS:
+				return isUniqueItems();
 			case CorePackage.HEADER__PATTERN:
 				return getPattern();
-			case CorePackage.HEADER__EXLUSIVE_MAXIMUM:
-				return isExlusiveMaximum();
+			case CorePackage.HEADER__EXCLUSIVE_MAXIMUM:
+				return isExclusiveMaximum();
 			case CorePackage.HEADER__MINIMUM:
 				return getMinimum();
 			case CorePackage.HEADER__MIN_LENGTH:
@@ -861,7 +903,9 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header {
 			case CorePackage.HEADER__MAXIMUM:
 				return getMaximum();
 			case CorePackage.HEADER__MULTIPLE_OF:
-				return getMultipleOF();
+				return getMultipleOf();
+			case CorePackage.HEADER__NAME:
+				return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -893,24 +937,24 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header {
 			case CorePackage.HEADER__DEFAULT:
 				setDefault((String)newValue);
 				return;
-			case CorePackage.HEADER__EXLUSIVE_MINIMUM:
-				setExlusiveMinimum((Boolean)newValue);
+			case CorePackage.HEADER__EXCLUSIVE_MINIMUM:
+				setExclusiveMinimum((Boolean)newValue);
 				return;
 			case CorePackage.HEADER__ENUM:
 				getEnum().clear();
 				getEnum().addAll((Collection<? extends String>)newValue);
 				return;
-			case CorePackage.HEADER__MAX_INTEMS:
-				setMaxIntems((Integer)newValue);
+			case CorePackage.HEADER__MAX_ITEMS:
+				setMaxItems((Integer)newValue);
 				return;
-			case CorePackage.HEADER__UNIQUE_ITEM:
-				setUniqueItem((Boolean)newValue);
+			case CorePackage.HEADER__UNIQUE_ITEMS:
+				setUniqueItems((Boolean)newValue);
 				return;
 			case CorePackage.HEADER__PATTERN:
 				setPattern((String)newValue);
 				return;
-			case CorePackage.HEADER__EXLUSIVE_MAXIMUM:
-				setExlusiveMaximum((Boolean)newValue);
+			case CorePackage.HEADER__EXCLUSIVE_MAXIMUM:
+				setExclusiveMaximum((Boolean)newValue);
 				return;
 			case CorePackage.HEADER__MINIMUM:
 				setMinimum((Integer)newValue);
@@ -928,7 +972,10 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header {
 				setMaximum((Integer)newValue);
 				return;
 			case CorePackage.HEADER__MULTIPLE_OF:
-				setMultipleOF((Integer)newValue);
+				setMultipleOf((Integer)newValue);
+				return;
+			case CorePackage.HEADER__NAME:
+				setName((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -960,23 +1007,23 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header {
 			case CorePackage.HEADER__DEFAULT:
 				setDefault(DEFAULT_EDEFAULT);
 				return;
-			case CorePackage.HEADER__EXLUSIVE_MINIMUM:
-				setExlusiveMinimum(EXLUSIVE_MINIMUM_EDEFAULT);
+			case CorePackage.HEADER__EXCLUSIVE_MINIMUM:
+				setExclusiveMinimum(EXCLUSIVE_MINIMUM_EDEFAULT);
 				return;
 			case CorePackage.HEADER__ENUM:
 				getEnum().clear();
 				return;
-			case CorePackage.HEADER__MAX_INTEMS:
-				setMaxIntems(MAX_INTEMS_EDEFAULT);
+			case CorePackage.HEADER__MAX_ITEMS:
+				setMaxItems(MAX_ITEMS_EDEFAULT);
 				return;
-			case CorePackage.HEADER__UNIQUE_ITEM:
-				setUniqueItem(UNIQUE_ITEM_EDEFAULT);
+			case CorePackage.HEADER__UNIQUE_ITEMS:
+				setUniqueItems(UNIQUE_ITEMS_EDEFAULT);
 				return;
 			case CorePackage.HEADER__PATTERN:
 				setPattern(PATTERN_EDEFAULT);
 				return;
-			case CorePackage.HEADER__EXLUSIVE_MAXIMUM:
-				setExlusiveMaximum(EXLUSIVE_MAXIMUM_EDEFAULT);
+			case CorePackage.HEADER__EXCLUSIVE_MAXIMUM:
+				setExclusiveMaximum(EXCLUSIVE_MAXIMUM_EDEFAULT);
 				return;
 			case CorePackage.HEADER__MINIMUM:
 				setMinimum(MINIMUM_EDEFAULT);
@@ -994,7 +1041,10 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header {
 				setMaximum(MAXIMUM_EDEFAULT);
 				return;
 			case CorePackage.HEADER__MULTIPLE_OF:
-				setMultipleOF(MULTIPLE_OF_EDEFAULT);
+				setMultipleOf(MULTIPLE_OF_EDEFAULT);
+				return;
+			case CorePackage.HEADER__NAME:
+				setName(NAME_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -1020,18 +1070,18 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header {
 				return items != null;
 			case CorePackage.HEADER__DEFAULT:
 				return DEFAULT_EDEFAULT == null ? default_ != null : !DEFAULT_EDEFAULT.equals(default_);
-			case CorePackage.HEADER__EXLUSIVE_MINIMUM:
-				return exlusiveMinimum != EXLUSIVE_MINIMUM_EDEFAULT;
+			case CorePackage.HEADER__EXCLUSIVE_MINIMUM:
+				return exclusiveMinimum != EXCLUSIVE_MINIMUM_EDEFAULT;
 			case CorePackage.HEADER__ENUM:
 				return enum_ != null && !enum_.isEmpty();
-			case CorePackage.HEADER__MAX_INTEMS:
-				return maxIntems != MAX_INTEMS_EDEFAULT;
-			case CorePackage.HEADER__UNIQUE_ITEM:
-				return uniqueItem != UNIQUE_ITEM_EDEFAULT;
+			case CorePackage.HEADER__MAX_ITEMS:
+				return maxItems != MAX_ITEMS_EDEFAULT;
+			case CorePackage.HEADER__UNIQUE_ITEMS:
+				return uniqueItems != UNIQUE_ITEMS_EDEFAULT;
 			case CorePackage.HEADER__PATTERN:
 				return PATTERN_EDEFAULT == null ? pattern != null : !PATTERN_EDEFAULT.equals(pattern);
-			case CorePackage.HEADER__EXLUSIVE_MAXIMUM:
-				return exlusiveMaximum != EXLUSIVE_MAXIMUM_EDEFAULT;
+			case CorePackage.HEADER__EXCLUSIVE_MAXIMUM:
+				return exclusiveMaximum != EXCLUSIVE_MAXIMUM_EDEFAULT;
 			case CorePackage.HEADER__MINIMUM:
 				return minimum != MINIMUM_EDEFAULT;
 			case CorePackage.HEADER__MIN_LENGTH:
@@ -1043,7 +1093,9 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header {
 			case CorePackage.HEADER__MAXIMUM:
 				return maximum != MAXIMUM_EDEFAULT;
 			case CorePackage.HEADER__MULTIPLE_OF:
-				return multipleOF != MULTIPLE_OF_EDEFAULT;
+				return multipleOf != MULTIPLE_OF_EDEFAULT;
+			case CorePackage.HEADER__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -1068,18 +1120,18 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header {
 		result.append(collectionFormat);
 		result.append(", default: ");
 		result.append(default_);
-		result.append(", exlusiveMinimum: ");
-		result.append(exlusiveMinimum);
+		result.append(", exclusiveMinimum: ");
+		result.append(exclusiveMinimum);
 		result.append(", enum: ");
 		result.append(enum_);
-		result.append(", maxIntems: ");
-		result.append(maxIntems);
-		result.append(", uniqueItem: ");
-		result.append(uniqueItem);
+		result.append(", maxItems: ");
+		result.append(maxItems);
+		result.append(", uniqueItems: ");
+		result.append(uniqueItems);
 		result.append(", pattern: ");
 		result.append(pattern);
-		result.append(", exlusiveMaximum: ");
-		result.append(exlusiveMaximum);
+		result.append(", exclusiveMaximum: ");
+		result.append(exclusiveMaximum);
 		result.append(", minimum: ");
 		result.append(minimum);
 		result.append(", minLength: ");
@@ -1090,8 +1142,10 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header {
 		result.append(minItems);
 		result.append(", maximum: ");
 		result.append(maximum);
-		result.append(", multipleOF: ");
-		result.append(multipleOF);
+		result.append(", multipleOf: ");
+		result.append(multipleOf);
+		result.append(", name: ");
+		result.append(name);
 		result.append(')');
 		return result.toString();
 	}

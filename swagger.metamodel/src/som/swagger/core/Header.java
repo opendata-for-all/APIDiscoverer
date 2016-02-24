@@ -21,18 +21,19 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link som.swagger.core.Header#getCollectionFormat <em>Collection Format</em>}</li>
  *   <li>{@link som.swagger.core.Header#getItems <em>Items</em>}</li>
  *   <li>{@link som.swagger.core.Header#getDefault <em>Default</em>}</li>
- *   <li>{@link som.swagger.core.Header#isExlusiveMinimum <em>Exlusive Minimum</em>}</li>
+ *   <li>{@link som.swagger.core.Header#isExclusiveMinimum <em>Exclusive Minimum</em>}</li>
  *   <li>{@link som.swagger.core.Header#getEnum <em>Enum</em>}</li>
- *   <li>{@link som.swagger.core.Header#getMaxIntems <em>Max Intems</em>}</li>
- *   <li>{@link som.swagger.core.Header#isUniqueItem <em>Unique Item</em>}</li>
+ *   <li>{@link som.swagger.core.Header#getMaxItems <em>Max Items</em>}</li>
+ *   <li>{@link som.swagger.core.Header#isUniqueItems <em>Unique Items</em>}</li>
  *   <li>{@link som.swagger.core.Header#getPattern <em>Pattern</em>}</li>
- *   <li>{@link som.swagger.core.Header#isExlusiveMaximum <em>Exlusive Maximum</em>}</li>
+ *   <li>{@link som.swagger.core.Header#isExclusiveMaximum <em>Exclusive Maximum</em>}</li>
  *   <li>{@link som.swagger.core.Header#getMinimum <em>Minimum</em>}</li>
  *   <li>{@link som.swagger.core.Header#getMinLength <em>Min Length</em>}</li>
  *   <li>{@link som.swagger.core.Header#getMaxLength <em>Max Length</em>}</li>
  *   <li>{@link som.swagger.core.Header#getMinItems <em>Min Items</em>}</li>
  *   <li>{@link som.swagger.core.Header#getMaximum <em>Maximum</em>}</li>
- *   <li>{@link som.swagger.core.Header#getMultipleOF <em>Multiple OF</em>}</li>
+ *   <li>{@link som.swagger.core.Header#getMultipleOf <em>Multiple Of</em>}</li>
+ *   <li>{@link som.swagger.core.Header#getName <em>Name</em>}</li>
  * </ul>
  *
  * @see som.swagger.core.CorePackage#getHeader()
@@ -203,30 +204,30 @@ public interface Header extends EObject {
 	void setDefault(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Exlusive Minimum</b></em>' attribute.
+	 * Returns the value of the '<em><b>Exclusive Minimum</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Exlusive Minimum</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Exclusive Minimum</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Exlusive Minimum</em>' attribute.
-	 * @see #setExlusiveMinimum(boolean)
-	 * @see som.swagger.core.CorePackage#getHeader_ExlusiveMinimum()
+	 * @return the value of the '<em>Exclusive Minimum</em>' attribute.
+	 * @see #setExclusiveMinimum(boolean)
+	 * @see som.swagger.core.CorePackage#getHeader_ExclusiveMinimum()
 	 * @model
 	 * @generated
 	 */
-	boolean isExlusiveMinimum();
+	boolean isExclusiveMinimum();
 
 	/**
-	 * Sets the value of the '{@link som.swagger.core.Header#isExlusiveMinimum <em>Exlusive Minimum</em>}' attribute.
+	 * Sets the value of the '{@link som.swagger.core.Header#isExclusiveMinimum <em>Exclusive Minimum</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Exlusive Minimum</em>' attribute.
-	 * @see #isExlusiveMinimum()
+	 * @param value the new value of the '<em>Exclusive Minimum</em>' attribute.
+	 * @see #isExclusiveMinimum()
 	 * @generated
 	 */
-	void setExlusiveMinimum(boolean value);
+	void setExclusiveMinimum(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Enum</b></em>' attribute list.
@@ -245,56 +246,56 @@ public interface Header extends EObject {
 	EList<String> getEnum();
 
 	/**
-	 * Returns the value of the '<em><b>Max Intems</b></em>' attribute.
+	 * Returns the value of the '<em><b>Max Items</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Max Intems</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Max Items</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Max Intems</em>' attribute.
-	 * @see #setMaxIntems(int)
-	 * @see som.swagger.core.CorePackage#getHeader_MaxIntems()
+	 * @return the value of the '<em>Max Items</em>' attribute.
+	 * @see #setMaxItems(int)
+	 * @see som.swagger.core.CorePackage#getHeader_MaxItems()
 	 * @model
 	 * @generated
 	 */
-	int getMaxIntems();
+	int getMaxItems();
 
 	/**
-	 * Sets the value of the '{@link som.swagger.core.Header#getMaxIntems <em>Max Intems</em>}' attribute.
+	 * Sets the value of the '{@link som.swagger.core.Header#getMaxItems <em>Max Items</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Max Intems</em>' attribute.
-	 * @see #getMaxIntems()
+	 * @param value the new value of the '<em>Max Items</em>' attribute.
+	 * @see #getMaxItems()
 	 * @generated
 	 */
-	void setMaxIntems(int value);
+	void setMaxItems(int value);
 
 	/**
-	 * Returns the value of the '<em><b>Unique Item</b></em>' attribute.
+	 * Returns the value of the '<em><b>Unique Items</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Unique Item</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Unique Items</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Unique Item</em>' attribute.
-	 * @see #setUniqueItem(boolean)
-	 * @see som.swagger.core.CorePackage#getHeader_UniqueItem()
+	 * @return the value of the '<em>Unique Items</em>' attribute.
+	 * @see #setUniqueItems(boolean)
+	 * @see som.swagger.core.CorePackage#getHeader_UniqueItems()
 	 * @model
 	 * @generated
 	 */
-	boolean isUniqueItem();
+	boolean isUniqueItems();
 
 	/**
-	 * Sets the value of the '{@link som.swagger.core.Header#isUniqueItem <em>Unique Item</em>}' attribute.
+	 * Sets the value of the '{@link som.swagger.core.Header#isUniqueItems <em>Unique Items</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Unique Item</em>' attribute.
-	 * @see #isUniqueItem()
+	 * @param value the new value of the '<em>Unique Items</em>' attribute.
+	 * @see #isUniqueItems()
 	 * @generated
 	 */
-	void setUniqueItem(boolean value);
+	void setUniqueItems(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Pattern</b></em>' attribute.
@@ -323,30 +324,30 @@ public interface Header extends EObject {
 	void setPattern(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Exlusive Maximum</b></em>' attribute.
+	 * Returns the value of the '<em><b>Exclusive Maximum</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Exlusive Maximum</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Exclusive Maximum</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Exlusive Maximum</em>' attribute.
-	 * @see #setExlusiveMaximum(boolean)
-	 * @see som.swagger.core.CorePackage#getHeader_ExlusiveMaximum()
+	 * @return the value of the '<em>Exclusive Maximum</em>' attribute.
+	 * @see #setExclusiveMaximum(boolean)
+	 * @see som.swagger.core.CorePackage#getHeader_ExclusiveMaximum()
 	 * @model
 	 * @generated
 	 */
-	boolean isExlusiveMaximum();
+	boolean isExclusiveMaximum();
 
 	/**
-	 * Sets the value of the '{@link som.swagger.core.Header#isExlusiveMaximum <em>Exlusive Maximum</em>}' attribute.
+	 * Sets the value of the '{@link som.swagger.core.Header#isExclusiveMaximum <em>Exclusive Maximum</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Exlusive Maximum</em>' attribute.
-	 * @see #isExlusiveMaximum()
+	 * @param value the new value of the '<em>Exclusive Maximum</em>' attribute.
+	 * @see #isExclusiveMaximum()
 	 * @generated
 	 */
-	void setExlusiveMaximum(boolean value);
+	void setExclusiveMaximum(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Minimum</b></em>' attribute.
@@ -479,29 +480,55 @@ public interface Header extends EObject {
 	void setMaximum(int value);
 
 	/**
-	 * Returns the value of the '<em><b>Multiple OF</b></em>' attribute.
+	 * Returns the value of the '<em><b>Multiple Of</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Multiple OF</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Multiple Of</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Multiple OF</em>' attribute.
-	 * @see #setMultipleOF(int)
-	 * @see som.swagger.core.CorePackage#getHeader_MultipleOF()
+	 * @return the value of the '<em>Multiple Of</em>' attribute.
+	 * @see #setMultipleOf(int)
+	 * @see som.swagger.core.CorePackage#getHeader_MultipleOf()
 	 * @model
 	 * @generated
 	 */
-	int getMultipleOF();
+	int getMultipleOf();
 
 	/**
-	 * Sets the value of the '{@link som.swagger.core.Header#getMultipleOF <em>Multiple OF</em>}' attribute.
+	 * Sets the value of the '{@link som.swagger.core.Header#getMultipleOf <em>Multiple Of</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Multiple OF</em>' attribute.
-	 * @see #getMultipleOF()
+	 * @param value the new value of the '<em>Multiple Of</em>' attribute.
+	 * @see #getMultipleOf()
 	 * @generated
 	 */
-	void setMultipleOF(int value);
+	void setMultipleOf(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see #setName(String)
+	 * @see som.swagger.core.CorePackage#getHeader_Name()
+	 * @model
+	 * @generated
+	 */
+	String getName();
+
+	/**
+	 * Sets the value of the '{@link som.swagger.core.Header#getName <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * @see #getName()
+	 * @generated
+	 */
+	void setName(String value);
 
 } // Header

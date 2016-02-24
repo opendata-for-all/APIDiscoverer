@@ -1618,7 +1618,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getHeader_ExlusiveMinimum() {
+	public EAttribute getHeader_ExclusiveMinimum() {
 		return (EAttribute)headerEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -1636,7 +1636,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getHeader_MaxIntems() {
+	public EAttribute getHeader_MaxItems() {
 		return (EAttribute)headerEClass.getEStructuralFeatures().get(8);
 	}
 
@@ -1645,7 +1645,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getHeader_UniqueItem() {
+	public EAttribute getHeader_UniqueItems() {
 		return (EAttribute)headerEClass.getEStructuralFeatures().get(9);
 	}
 
@@ -1663,7 +1663,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getHeader_ExlusiveMaximum() {
+	public EAttribute getHeader_ExclusiveMaximum() {
 		return (EAttribute)headerEClass.getEStructuralFeatures().get(11);
 	}
 
@@ -1717,8 +1717,17 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getHeader_MultipleOF() {
+	public EAttribute getHeader_MultipleOf() {
 		return (EAttribute)headerEClass.getEStructuralFeatures().get(17);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getHeader_Name() {
+		return (EAttribute)headerEClass.getEStructuralFeatures().get(18);
 	}
 
 	/**
@@ -2206,18 +2215,19 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 		createEAttribute(headerEClass, HEADER__COLLECTION_FORMAT);
 		createEReference(headerEClass, HEADER__ITEMS);
 		createEAttribute(headerEClass, HEADER__DEFAULT);
-		createEAttribute(headerEClass, HEADER__EXLUSIVE_MINIMUM);
+		createEAttribute(headerEClass, HEADER__EXCLUSIVE_MINIMUM);
 		createEAttribute(headerEClass, HEADER__ENUM);
-		createEAttribute(headerEClass, HEADER__MAX_INTEMS);
-		createEAttribute(headerEClass, HEADER__UNIQUE_ITEM);
+		createEAttribute(headerEClass, HEADER__MAX_ITEMS);
+		createEAttribute(headerEClass, HEADER__UNIQUE_ITEMS);
 		createEAttribute(headerEClass, HEADER__PATTERN);
-		createEAttribute(headerEClass, HEADER__EXLUSIVE_MAXIMUM);
+		createEAttribute(headerEClass, HEADER__EXCLUSIVE_MAXIMUM);
 		createEAttribute(headerEClass, HEADER__MINIMUM);
 		createEAttribute(headerEClass, HEADER__MIN_LENGTH);
 		createEAttribute(headerEClass, HEADER__MAX_LENGTH);
 		createEAttribute(headerEClass, HEADER__MIN_ITEMS);
 		createEAttribute(headerEClass, HEADER__MAXIMUM);
 		createEAttribute(headerEClass, HEADER__MULTIPLE_OF);
+		createEAttribute(headerEClass, HEADER__NAME);
 
 		tagEClass = createEClass(TAG);
 		createEAttribute(tagEClass, TAG__NAME);
@@ -2450,18 +2460,19 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 		initEAttribute(getHeader_CollectionFormat(), this.getCollectionFormat(), "collectionFormat", null, 0, 1, Header.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getHeader_Items(), this.getItems(), null, "items", null, 0, 1, Header.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getHeader_Default(), ecorePackage.getEString(), "default", null, 0, 1, Header.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getHeader_ExlusiveMinimum(), ecorePackage.getEBoolean(), "exlusiveMinimum", null, 0, 1, Header.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getHeader_ExclusiveMinimum(), ecorePackage.getEBoolean(), "exclusiveMinimum", null, 0, 1, Header.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getHeader_Enum(), ecorePackage.getEString(), "enum", null, 0, -1, Header.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getHeader_MaxIntems(), ecorePackage.getEInt(), "maxIntems", null, 0, 1, Header.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getHeader_UniqueItem(), ecorePackage.getEBoolean(), "uniqueItem", null, 0, 1, Header.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getHeader_MaxItems(), ecorePackage.getEInt(), "maxItems", null, 0, 1, Header.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getHeader_UniqueItems(), ecorePackage.getEBoolean(), "uniqueItems", null, 0, 1, Header.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getHeader_Pattern(), ecorePackage.getEString(), "pattern", null, 0, 1, Header.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getHeader_ExlusiveMaximum(), ecorePackage.getEBoolean(), "exlusiveMaximum", null, 0, 1, Header.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getHeader_ExclusiveMaximum(), ecorePackage.getEBoolean(), "exclusiveMaximum", null, 0, 1, Header.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getHeader_Minimum(), ecorePackage.getEInt(), "minimum", null, 0, 1, Header.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getHeader_MinLength(), ecorePackage.getEInt(), "minLength", null, 0, 1, Header.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getHeader_MaxLength(), ecorePackage.getEInt(), "maxLength", null, 0, 1, Header.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getHeader_MinItems(), ecorePackage.getEInt(), "minItems", null, 0, 1, Header.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getHeader_Maximum(), ecorePackage.getEInt(), "maximum", null, 0, 1, Header.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getHeader_MultipleOF(), ecorePackage.getEInt(), "multipleOF", null, 0, 1, Header.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getHeader_MultipleOf(), ecorePackage.getEInt(), "multipleOf", null, 0, 1, Header.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getHeader_Name(), ecorePackage.getEString(), "name", null, 0, 1, Header.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(tagEClass, Tag.class, "Tag", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTag_Name(), ecorePackage.getEString(), "name", null, 0, 1, Tag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

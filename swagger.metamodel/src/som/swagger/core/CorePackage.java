@@ -1619,13 +1619,13 @@ public interface CorePackage extends EPackage {
 	int HEADER__DEFAULT = 5;
 
 	/**
-	 * The feature id for the '<em><b>Exlusive Minimum</b></em>' attribute.
+	 * The feature id for the '<em><b>Exclusive Minimum</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int HEADER__EXLUSIVE_MINIMUM = 6;
+	int HEADER__EXCLUSIVE_MINIMUM = 6;
 
 	/**
 	 * The feature id for the '<em><b>Enum</b></em>' attribute list.
@@ -1637,22 +1637,22 @@ public interface CorePackage extends EPackage {
 	int HEADER__ENUM = 7;
 
 	/**
-	 * The feature id for the '<em><b>Max Intems</b></em>' attribute.
+	 * The feature id for the '<em><b>Max Items</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int HEADER__MAX_INTEMS = 8;
+	int HEADER__MAX_ITEMS = 8;
 
 	/**
-	 * The feature id for the '<em><b>Unique Item</b></em>' attribute.
+	 * The feature id for the '<em><b>Unique Items</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int HEADER__UNIQUE_ITEM = 9;
+	int HEADER__UNIQUE_ITEMS = 9;
 
 	/**
 	 * The feature id for the '<em><b>Pattern</b></em>' attribute.
@@ -1664,13 +1664,13 @@ public interface CorePackage extends EPackage {
 	int HEADER__PATTERN = 10;
 
 	/**
-	 * The feature id for the '<em><b>Exlusive Maximum</b></em>' attribute.
+	 * The feature id for the '<em><b>Exclusive Maximum</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int HEADER__EXLUSIVE_MAXIMUM = 11;
+	int HEADER__EXCLUSIVE_MAXIMUM = 11;
 
 	/**
 	 * The feature id for the '<em><b>Minimum</b></em>' attribute.
@@ -1718,7 +1718,7 @@ public interface CorePackage extends EPackage {
 	int HEADER__MAXIMUM = 16;
 
 	/**
-	 * The feature id for the '<em><b>Multiple OF</b></em>' attribute.
+	 * The feature id for the '<em><b>Multiple Of</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1727,13 +1727,22 @@ public interface CorePackage extends EPackage {
 	int HEADER__MULTIPLE_OF = 17;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HEADER__NAME = 18;
+
+	/**
 	 * The number of structural features of the '<em>Header</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int HEADER_FEATURE_COUNT = 18;
+	int HEADER_FEATURE_COUNT = 19;
 
 	/**
 	 * The number of operations of the '<em>Header</em>' class.
@@ -3760,15 +3769,15 @@ public interface CorePackage extends EPackage {
 	EAttribute getHeader_Default();
 
 	/**
-	 * Returns the meta object for the attribute '{@link som.swagger.core.Header#isExlusiveMinimum <em>Exlusive Minimum</em>}'.
+	 * Returns the meta object for the attribute '{@link som.swagger.core.Header#isExclusiveMinimum <em>Exclusive Minimum</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Exlusive Minimum</em>'.
-	 * @see som.swagger.core.Header#isExlusiveMinimum()
+	 * @return the meta object for the attribute '<em>Exclusive Minimum</em>'.
+	 * @see som.swagger.core.Header#isExclusiveMinimum()
 	 * @see #getHeader()
 	 * @generated
 	 */
-	EAttribute getHeader_ExlusiveMinimum();
+	EAttribute getHeader_ExclusiveMinimum();
 
 	/**
 	 * Returns the meta object for the attribute list '{@link som.swagger.core.Header#getEnum <em>Enum</em>}'.
@@ -3782,26 +3791,26 @@ public interface CorePackage extends EPackage {
 	EAttribute getHeader_Enum();
 
 	/**
-	 * Returns the meta object for the attribute '{@link som.swagger.core.Header#getMaxIntems <em>Max Intems</em>}'.
+	 * Returns the meta object for the attribute '{@link som.swagger.core.Header#getMaxItems <em>Max Items</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Max Intems</em>'.
-	 * @see som.swagger.core.Header#getMaxIntems()
+	 * @return the meta object for the attribute '<em>Max Items</em>'.
+	 * @see som.swagger.core.Header#getMaxItems()
 	 * @see #getHeader()
 	 * @generated
 	 */
-	EAttribute getHeader_MaxIntems();
+	EAttribute getHeader_MaxItems();
 
 	/**
-	 * Returns the meta object for the attribute '{@link som.swagger.core.Header#isUniqueItem <em>Unique Item</em>}'.
+	 * Returns the meta object for the attribute '{@link som.swagger.core.Header#isUniqueItems <em>Unique Items</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Unique Item</em>'.
-	 * @see som.swagger.core.Header#isUniqueItem()
+	 * @return the meta object for the attribute '<em>Unique Items</em>'.
+	 * @see som.swagger.core.Header#isUniqueItems()
 	 * @see #getHeader()
 	 * @generated
 	 */
-	EAttribute getHeader_UniqueItem();
+	EAttribute getHeader_UniqueItems();
 
 	/**
 	 * Returns the meta object for the attribute '{@link som.swagger.core.Header#getPattern <em>Pattern</em>}'.
@@ -3815,15 +3824,15 @@ public interface CorePackage extends EPackage {
 	EAttribute getHeader_Pattern();
 
 	/**
-	 * Returns the meta object for the attribute '{@link som.swagger.core.Header#isExlusiveMaximum <em>Exlusive Maximum</em>}'.
+	 * Returns the meta object for the attribute '{@link som.swagger.core.Header#isExclusiveMaximum <em>Exclusive Maximum</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Exlusive Maximum</em>'.
-	 * @see som.swagger.core.Header#isExlusiveMaximum()
+	 * @return the meta object for the attribute '<em>Exclusive Maximum</em>'.
+	 * @see som.swagger.core.Header#isExclusiveMaximum()
 	 * @see #getHeader()
 	 * @generated
 	 */
-	EAttribute getHeader_ExlusiveMaximum();
+	EAttribute getHeader_ExclusiveMaximum();
 
 	/**
 	 * Returns the meta object for the attribute '{@link som.swagger.core.Header#getMinimum <em>Minimum</em>}'.
@@ -3881,15 +3890,26 @@ public interface CorePackage extends EPackage {
 	EAttribute getHeader_Maximum();
 
 	/**
-	 * Returns the meta object for the attribute '{@link som.swagger.core.Header#getMultipleOF <em>Multiple OF</em>}'.
+	 * Returns the meta object for the attribute '{@link som.swagger.core.Header#getMultipleOf <em>Multiple Of</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Multiple OF</em>'.
-	 * @see som.swagger.core.Header#getMultipleOF()
+	 * @return the meta object for the attribute '<em>Multiple Of</em>'.
+	 * @see som.swagger.core.Header#getMultipleOf()
 	 * @see #getHeader()
 	 * @generated
 	 */
-	EAttribute getHeader_MultipleOF();
+	EAttribute getHeader_MultipleOf();
+
+	/**
+	 * Returns the meta object for the attribute '{@link som.swagger.core.Header#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see som.swagger.core.Header#getName()
+	 * @see #getHeader()
+	 * @generated
+	 */
+	EAttribute getHeader_Name();
 
 	/**
 	 * Returns the meta object for class '{@link som.swagger.core.Tag <em>Tag</em>}'.
@@ -5476,12 +5496,12 @@ public interface CorePackage extends EPackage {
 		EAttribute HEADER__DEFAULT = eINSTANCE.getHeader_Default();
 
 		/**
-		 * The meta object literal for the '<em><b>Exlusive Minimum</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Exclusive Minimum</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute HEADER__EXLUSIVE_MINIMUM = eINSTANCE.getHeader_ExlusiveMinimum();
+		EAttribute HEADER__EXCLUSIVE_MINIMUM = eINSTANCE.getHeader_ExclusiveMinimum();
 
 		/**
 		 * The meta object literal for the '<em><b>Enum</b></em>' attribute list feature.
@@ -5492,20 +5512,20 @@ public interface CorePackage extends EPackage {
 		EAttribute HEADER__ENUM = eINSTANCE.getHeader_Enum();
 
 		/**
-		 * The meta object literal for the '<em><b>Max Intems</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Max Items</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute HEADER__MAX_INTEMS = eINSTANCE.getHeader_MaxIntems();
+		EAttribute HEADER__MAX_ITEMS = eINSTANCE.getHeader_MaxItems();
 
 		/**
-		 * The meta object literal for the '<em><b>Unique Item</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Unique Items</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute HEADER__UNIQUE_ITEM = eINSTANCE.getHeader_UniqueItem();
+		EAttribute HEADER__UNIQUE_ITEMS = eINSTANCE.getHeader_UniqueItems();
 
 		/**
 		 * The meta object literal for the '<em><b>Pattern</b></em>' attribute feature.
@@ -5516,12 +5536,12 @@ public interface CorePackage extends EPackage {
 		EAttribute HEADER__PATTERN = eINSTANCE.getHeader_Pattern();
 
 		/**
-		 * The meta object literal for the '<em><b>Exlusive Maximum</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Exclusive Maximum</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute HEADER__EXLUSIVE_MAXIMUM = eINSTANCE.getHeader_ExlusiveMaximum();
+		EAttribute HEADER__EXCLUSIVE_MAXIMUM = eINSTANCE.getHeader_ExclusiveMaximum();
 
 		/**
 		 * The meta object literal for the '<em><b>Minimum</b></em>' attribute feature.
@@ -5564,12 +5584,20 @@ public interface CorePackage extends EPackage {
 		EAttribute HEADER__MAXIMUM = eINSTANCE.getHeader_Maximum();
 
 		/**
-		 * The meta object literal for the '<em><b>Multiple OF</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Multiple Of</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute HEADER__MULTIPLE_OF = eINSTANCE.getHeader_MultipleOF();
+		EAttribute HEADER__MULTIPLE_OF = eINSTANCE.getHeader_MultipleOf();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute HEADER__NAME = eINSTANCE.getHeader_Name();
 
 		/**
 		 * The meta object literal for the '{@link som.swagger.core.impl.TagImpl <em>Tag</em>}' class.
