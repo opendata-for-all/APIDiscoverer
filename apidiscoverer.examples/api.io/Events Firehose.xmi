@@ -28,50 +28,50 @@
       <security/>
     </get>
   </paths>
-  <definitions name="Address">
-    <properties type="string" name="country"/>
-    <properties type="string" name="street"/>
-    <properties type="string" name="postalCode"/>
-    <properties type="string" name="locality"/>
-    <properties type="string" name="region"/>
-  </definitions>
   <definitions name="FirehoseResponse">
+    <properties type="string" name="status"/>
     <properties type="object" name="query">
+      <properties description="Total matches for your query" name="matches"/>
       <properties description="Max results restriction for this request" name="max"/>
       <properties description="Starting offset into matched results" name="start"/>
-      <properties description="Total matches for your query" name="matches"/>
     </properties>
     <properties name="events"/>
-    <properties type="string" name="status"/>
   </definitions>
   <definitions name="AbstractEvent">
-    <properties description="How many times this event is known to repeat" name="repeats"/>
-    <properties description="Important keywords" name="features"/>
-    <properties description="Location of the event" ref="#/definitions/EventVenue" name="at"/>
-    <properties description="Tier 2 taxonomy node" name="genres"/>
-    <properties description="List of known prices in cents" name="price"/>
     <properties description="System ID for this event. Shared by other occurrences of the event." type="string" name="id"/>
     <properties description="Occurrence ID of this event" name="oid"/>
-    <properties description="Normalized tier 1 categories" name="categories"/>
+    <properties description="How many times this event is known to repeat" name="repeats"/>
     <properties type="string" name="title"/>
+    <properties description="Normalized tier 1 categories" name="categories"/>
+    <properties description="Tier 2 taxonomy node" name="genres"/>
+    <properties description="Important keywords" name="features"/>
+    <properties description="Location of the event" ref="#/definitions/EventVenue" name="at"/>
     <properties description="Date and time of matched occurrence" type="object" name="when"/>
+    <properties description="List of known prices in cents" name="price"/>
     <properties description="Creation or update timestamp in ISO format (GMT)" type="string" name="updated"/>
+  </definitions>
+  <definitions name="EventVenue">
+    <properties description="internal venue id" type="string" name="venueId"/>
+    <properties description="Name of the venue or place" type="string" name="name"/>
+    <properties description="GeoJSON point [longitude, latitude]" name="geo"/>
+    <properties ref="#/definitions/Address" name="address"/>
+    <properties description="low capacity estimate" name="lowCapacity"/>
+    <properties description="maximum capacity" name="highCapacity"/>
+  </definitions>
+  <definitions name="Address">
+    <properties type="string" name="street"/>
+    <properties type="string" name="locality"/>
+    <properties type="string" name="region"/>
+    <properties type="string" name="postalCode"/>
+    <properties type="string" name="country"/>
   </definitions>
   <definitions name="ErrorMessage">
     <required>status</required>
     <required>message</required>
-    <properties type="object" name="extra"/>
-    <properties type="object" name="detail"/>
-    <properties type="string" name="message"/>
     <properties format="int32" name="status"/>
-  </definitions>
-  <definitions name="EventVenue">
-    <properties description="GeoJSON point [longitude, latitude]" name="geo"/>
-    <properties ref="#/definitions/Address" name="address"/>
-    <properties description="internal venue id" type="string" name="venueId"/>
-    <properties description="Name of the venue or place" type="string" name="name"/>
-    <properties description="low capacity estimate" name="lowCapacity"/>
-    <properties description="maximum capacity" name="highCapacity"/>
+    <properties type="string" name="message"/>
+    <properties type="object" name="detail"/>
+    <properties type="object" name="extra"/>
   </definitions>
   <securityDefinitions type="apiKey" name="api_key" globalName="internalApiKey"/>
   <security/>

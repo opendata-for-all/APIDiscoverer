@@ -10,6 +10,9 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.Collections;
 import java.util.Map;
+import java.util.Map.Entry;
+
+import javax.net.ssl.HttpsURLConnection;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EPackage;
@@ -21,6 +24,7 @@ import org.json.JSONObject;
 import org.yaml.snakeyaml.Yaml;
 
 import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.stream.JsonReader;
@@ -45,11 +49,12 @@ public class ExampleSwaggerDiscoverer {
 	 * @throws UnirestException 
 	 */
 	public static void main(String[] args) throws FileNotFoundException, UnirestException {
-		System.setProperty("javax.net.ssl.trustStore","clientTrustStore.key");
+//		System.setProperty("javax.net.ssl.trustStore","clientTrustStore.key");
 
-		System.setProperty("javax.net.ssl.trustStorePassword","qwerty");
+//		System.setProperty("javax.net.ssl.trustStorePassword","qwerty");
 //		ExampleSwaggerDiscoverer.exampleDiscover();
-		apiIODiscover();
+//		apiIODiscover();
+		apiGuruDiscover() ;
 	}
 	
 	/**
@@ -135,18 +140,55 @@ public class ExampleSwaggerDiscoverer {
 //				System.out.println(responseSSL.getBody());
 	
 	}
-	
+	public static void apiGuruDiscover() throws FileNotFoundException, UnirestException {
+		HttpResponse<JsonNode> response = Unirest.get("http://apis-guru.github.io/api-models/api/v1/list.json")
+		  .asJson();
+		JsonParser parser = new JsonParser();
+		JsonObject obj = (JsonObject) parser.parse(response.getBody().toString());
+	for(Entry<String, JsonElement> element : obj.entrySet()){
+	JsonObject api = element.getValue().getAsJsonObject();
+		if (api.has("versions")) {
+			for(Entry<String, JsonElement> version : api.get("versions").getAsJsonObject().entrySet()){
+				String swaggerUrl = version.getValue().getAsJsonObject().get("swaggerUrl").getAsString();
+				swaggerUrl = "http"+swaggerUrl.substring(5);
+				try {
+//					swaggerSpec = Unirest.get(swaggerURL).asString().getBody();
+					String swaggerSpec = encodeFromURL(new URL(swaggerUrl));
+					if(swaggerUrl.endsWith("yaml"))
+						swaggerSpec = convertToJson(swaggerSpec);
+					Api apiModel = SwaggerUtils.getModelFromJson((new JsonParser()).parse(swaggerSpec).getAsJsonObject());
+					SwaggerUtils.saveModel(apiModel, element.getKey()+"v"+version.getKey(), "./api.guru");
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		}
+	}
 	private static String encodeFromURL(URL url) throws Exception {
-		URLConnection uc = url.openConnection();
+		String result = "";
+		if(url.getProtocol().equals("http")){
+		 URLConnection uc = url.openConnection();
 		uc.addRequestProperty("User-Agent", "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0)");
 		BufferedReader in = new BufferedReader(new InputStreamReader(uc.getInputStream()));
 
 		String inputLine;
-		String result = "";
+		
 		while ((inputLine = in.readLine()) != null)
 			result += inputLine+"\n";
 		in.close();
+		}
+		else {
+			 HttpsURLConnection uc = (HttpsURLConnection)url.openConnection();
+				uc.addRequestProperty("User-Agent", "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0)");
+				BufferedReader in = new BufferedReader(new InputStreamReader(uc.getInputStream()));
 
+				String inputLine;
+				result = "";
+				while ((inputLine = in.readLine()) != null)
+					result += inputLine+"\n";
+				in.close();
+		}
 		return result;
 	}
 	private static String convertToJson(String yamlString) {
