@@ -17,7 +17,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="definitions" upperBound="-1"
         eType="#//Schema" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
-        eType="#//Parameter" containment="true"/>
+        eType="#//APIParameter" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="responses" upperBound="-1"
         eType="#//Response" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="securityDefinitions" upperBound="-1"
@@ -28,6 +28,8 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="tag" upperBound="-1" eType="#//Tag"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="primitiveDefinitions" upperBound="-1"
+        eType="#//Schema" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Info">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -56,25 +58,25 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Path">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="pattern" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="put" eType="#//Operation"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="put" eType="#//APIOperation"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="get" eType="#//Operation"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="get" eType="#//APIOperation"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="delete" eType="#//Operation"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="delete" eType="#//APIOperation"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="options" eType="#//Operation"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="options" eType="#//APIOperation"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
-        eType="#//Parameter" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="head" eType="#//Operation"
+        eType="#//APIParameter" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="head" eType="#//APIOperation"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="post" eType="#//Operation"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="post" eType="#//APIOperation"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="patch" eType="#//Operation"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="patch" eType="#//APIOperation"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ref" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Operation">
+  <eClassifiers xsi:type="ecore:EClass" name="APIOperation">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="tags" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="summary" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -86,7 +88,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="produces" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
-        eType="#//Parameter" containment="true"/>
+        eType="#//APIParameter" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="responses" lowerBound="1"
         upperBound="-1" eType="#//Response" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="schemes" upperBound="-1"
@@ -99,7 +101,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="url" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Parameter">
+  <eClassifiers xsi:type="ecore:EClass" name="APIParameter">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="in" eType="#//ParameterLocation"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -185,7 +187,7 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//JsonDataType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
-        eType="#//Schema" containment="true"/>
+        eType="#//Schema"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="example" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="enum" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="externaldocs" eType="#//ExternalDocs"
@@ -194,8 +196,7 @@
         eType="#//Schema" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ref" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="default" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
-        eType="#//Schema" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items" eType="#//Schema"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="additonalProperties" eType="#//Schema"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="discriminator" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -210,7 +211,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="schema" eType="#//Schema"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="headers" upperBound="-1"
-        eType="#//Header"/>
+        eType="#//Header" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="examples" upperBound="-1"
         eType="#//Example" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="code" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -289,6 +290,7 @@
     <eLiterals name="password" value="10"/>
     <eLiterals name="object" value="11"/>
     <eLiterals name="file" value="12"/>
+    <eLiterals name="array" value="13" literal="array"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Example">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mimeType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

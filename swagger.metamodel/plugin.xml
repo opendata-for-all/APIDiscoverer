@@ -10,7 +10,7 @@
       <!-- @generated swagger -->
       <package
             uri="http://swagger.io/core"
-            class="som.swagger.core.CorePackage"
+            class="core.CorePackage"
             genModel="model/swagger.genmodel"/>
    </extension>
 
