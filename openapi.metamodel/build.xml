@@ -9,6 +9,6 @@
           target: default              
          ================================= -->
     <target name="default" description="JAR">
-        <jar destfile="swagger-metamodel.jar" basedir="bin"/>
+        <jar destfile="openapi-metamodel.jar" basedir="bin"/>
     </target>
 </project>
