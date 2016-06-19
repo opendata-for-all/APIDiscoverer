@@ -903,7 +903,7 @@ public interface CorePackage extends EPackage {
 	int API_PARAMETER__MULTIPLE_OF = 19;
 
 	/**
-	 * The feature id for the '<em><b>Schema</b></em>' containment reference.
+	 * The feature id for the '<em><b>Schema</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1464,7 +1464,7 @@ public interface CorePackage extends EPackage {
 	int RESPONSE__DESCRIPTION = 0;
 
 	/**
-	 * The feature id for the '<em><b>Schema</b></em>' containment reference.
+	 * The feature id for the '<em><b>Schema</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -3024,10 +3024,10 @@ public interface CorePackage extends EPackage {
 	EAttribute getAPIParameter_MultipleOf();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link core.APIParameter#getSchema <em>Schema</em>}'.
+	 * Returns the meta object for the reference '{@link core.APIParameter#getSchema <em>Schema</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Schema</em>'.
+	 * @return the meta object for the reference '<em>Schema</em>'.
 	 * @see core.APIParameter#getSchema()
 	 * @see #getAPIParameter()
 	 * @generated
@@ -3637,10 +3637,10 @@ public interface CorePackage extends EPackage {
 	EAttribute getResponse_Description();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link core.Response#getSchema <em>Schema</em>}'.
+	 * Returns the meta object for the reference '{@link core.Response#getSchema <em>Schema</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Schema</em>'.
+	 * @return the meta object for the reference '<em>Schema</em>'.
 	 * @see core.Response#getSchema()
 	 * @see #getResponse()
 	 * @generated
@@ -4954,7 +4954,7 @@ public interface CorePackage extends EPackage {
 		EAttribute API_PARAMETER__MULTIPLE_OF = eINSTANCE.getAPIParameter_MultipleOf();
 
 		/**
-		 * The meta object literal for the '<em><b>Schema</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Schema</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -5408,7 +5408,7 @@ public interface CorePackage extends EPackage {
 		EAttribute RESPONSE__DESCRIPTION = eINSTANCE.getResponse_Description();
 
 		/**
-		 * The meta object literal for the '<em><b>Schema</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Schema</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

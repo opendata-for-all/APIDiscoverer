@@ -453,7 +453,7 @@ public class APIParameterImpl extends MinimalEObjectImpl.Container implements AP
 	protected int multipleOf = MULTIPLE_OF_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getSchema() <em>Schema</em>}' containment reference.
+	 * The cached value of the '{@link #getSchema() <em>Schema</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getSchema()
@@ -979,6 +979,14 @@ public class APIParameterImpl extends MinimalEObjectImpl.Container implements AP
 	 * @generated
 	 */
 	public Schema getSchema() {
+		if (schema != null && schema.eIsProxy()) {
+			InternalEObject oldSchema = (InternalEObject)schema;
+			schema = (Schema)eResolveProxy(oldSchema);
+			if (schema != oldSchema) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CorePackage.API_PARAMETER__SCHEMA, oldSchema, schema));
+			}
+		}
 		return schema;
 	}
 
@@ -987,14 +995,8 @@ public class APIParameterImpl extends MinimalEObjectImpl.Container implements AP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetSchema(Schema newSchema, NotificationChain msgs) {
-		Schema oldSchema = schema;
-		schema = newSchema;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorePackage.API_PARAMETER__SCHEMA, oldSchema, newSchema);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
+	public Schema basicGetSchema() {
+		return schema;
 	}
 
 	/**
@@ -1003,17 +1005,10 @@ public class APIParameterImpl extends MinimalEObjectImpl.Container implements AP
 	 * @generated
 	 */
 	public void setSchema(Schema newSchema) {
-		if (newSchema != schema) {
-			NotificationChain msgs = null;
-			if (schema != null)
-				msgs = ((InternalEObject)schema).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CorePackage.API_PARAMETER__SCHEMA, null, msgs);
-			if (newSchema != null)
-				msgs = ((InternalEObject)newSchema).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CorePackage.API_PARAMETER__SCHEMA, null, msgs);
-			msgs = basicSetSchema(newSchema, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.API_PARAMETER__SCHEMA, newSchema, newSchema));
+		Schema oldSchema = schema;
+		schema = newSchema;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.API_PARAMETER__SCHEMA, oldSchema, schema));
 	}
 
 	/**
@@ -1080,8 +1075,6 @@ public class APIParameterImpl extends MinimalEObjectImpl.Container implements AP
 		switch (featureID) {
 			case CorePackage.API_PARAMETER__ITEMS:
 				return basicSetItems(null, msgs);
-			case CorePackage.API_PARAMETER__SCHEMA:
-				return basicSetSchema(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -1135,7 +1128,8 @@ public class APIParameterImpl extends MinimalEObjectImpl.Container implements AP
 			case CorePackage.API_PARAMETER__MULTIPLE_OF:
 				return getMultipleOf();
 			case CorePackage.API_PARAMETER__SCHEMA:
-				return getSchema();
+				if (resolve) return getSchema();
+				return basicGetSchema();
 			case CorePackage.API_PARAMETER__DEFAULT:
 				return getDefault();
 			case CorePackage.API_PARAMETER__ENUM:

@@ -28,68 +28,68 @@ body {
 
 	<h:body>
 
+
 		<p:layout fullPage="true" styleClass="ui-fluid">
-			<p:layoutUnit id="top" position="north" size="50">
+			<p:layoutUnit id="top" position="north" size="75">
 
-				<p:toolbar>
-					<f:facet name="left">
-						<p:commandButton type="button" value="New" icon="ui-icon-document" />
+			<h:graphicImage library="image" name="apidiscoverer.png" styleClass="logo"
+		alt="APIDiscoverer" />
 
-						<p:commandButton type="button" value="Open"
-							icon="ui-icon-folder-open" />
+				
 
-						<span class="ui-separator"> <span
-							class="ui-icon ui-icon-grip-dotted-vertical" />
-						</span>
-
-						<p:commandButton type="button" title="Save" icon="ui-icon-disk" />
-						<p:commandButton type="button" title="Delete" icon="ui-icon-trash" />
-						<p:commandButton type="button" title="Print" icon="ui-icon-print" />
-					</f:facet>
-
-					<f:facet name="right">
-						<h:form>
-  <p:commandButton id="downloadLink" value="Download" ajax="false" actionListener="#{discovererBean.prepDownload}">
-    <p:fileDownload value="#{discovererBean.download}" />
-  </p:commandButton>
-  <p:commandButton id="downloadEcore" value="Download Schema" ajax="false" actionListener="#{discovererBean.downloadEcore}">
-    <p:fileDownload value="#{discovererBean.ecore}" />
-  </p:commandButton>
+										<h:form >
+		<p:slideMenu style="width:180px;float:right;hight:75px;">
+		<p:menuitem value="Start over"  icon="ui-icon-refresh" onclick="location.reload();"/>
+        <p:submenu label="Download" icon="ui-icon-disk">
+            <p:menuitem value="basic" ajax="false" style="float:right" actionListener="#{discovererBean.prepDownload}" icon="ui-icon-disk" >
+            <p:fileDownload value="#{discovererBean.download}" />
+            </p:menuitem>
+            </p:submenu>
+          
+   
+      
+    
+    </p:slideMenu>
+ 
+ 
 </h:form>
-					</f:facet>
 
-				</p:toolbar>
+			
 			</p:layoutUnit>
 
-			<p:layoutUnit id="bottom" position="south" size="60">
-                   Som research lab
+			<p:layoutUnit id="bottom" position="south" size="30">
+                  <p:link href="http://som-research.uoc.edu/" target="_BLANK"> Som research lab</p:link>
                 </p:layoutUnit>
 
 			<p:layoutUnit id="left" position="west" size="400" resizable="true"
 				closable="false" collapsible="true" header="Records" minSize="200">
-				<p:accordionPanel id="recordsPanel">
-					<p:tab title="Records">
-						<p:outputPanel id="records">
+				
 							<p:dataTable value="#{discovererBean.records}" var="apiRequest"
 								id="recordsTable">
-
-								<p:column>
+									<p:column headerText="Op." style="width:40px">
+									<h:outputText value="#{apiRequest.httpMethod}" />
+								</p:column>		
+								<p:column headerText="URL">
 									<h:outputText value="#{apiRequest.url}" />
 								</p:column>
 
 							</p:dataTable>
-						</p:outputPanel>
-					</p:tab>
-
-
-				</p:accordionPanel>
+					
 			</p:layoutUnit>
 
 			<p:layoutUnit id="right" position="east" size="250"
-				header="Discovered" resizable="true" closable="false"
+				header="Discovered model" resizable="true" closable="false"
 				collapsible="true" style="text-align:center">
 
-
+<p:treeTable id="modelTree" value="#{discovererBean.createTreeTable()}" var="node">
+        <p:column >
+            <h:outputText value="#{node.nodeName}" />
+        </p:column>
+        <p:column width="20">
+            <h:outputText value="#{node.nodeDescription}" />
+        </p:column>
+      
+    </p:treeTable>
 			</p:layoutUnit>
 
 			<p:layoutUnit id="center" position="center">
@@ -124,12 +124,13 @@ body {
 						</p:selectOneButton>
 						<p:outputLabel for="request_body" value="Body"   />
 						<p:inputTextarea id="request_body"  rows="10"  style="width: 100%;" value="#{discovererBean.newAPIRequest.body}"/>
+						<f:facet name="footer">
 						<p:commandButton id="btn_send" value="Send"
-							update="recordsPanel:records responseForm"
-							action="#{discovererBean.sendRequest}">
+							update="recordsTable responseForm mainForm modelTree"
+							action="#{discovererBean.sendRequest}" style="float:right">
 						
-						</p:commandButton>
-						<p:commandButton id="clean" value="New request" update="@parent responseForm" action="#{discovererBean.cleanForms}"/>
+						</p:commandButton></f:facet>
+						
 					</p:panelGrid>
 				</h:form>
 			</p:layoutUnit>

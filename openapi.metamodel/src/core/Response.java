@@ -54,26 +54,26 @@ public interface Response extends EObject {
 	void setDescription(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Schema</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Schema</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Schema</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Schema</em>' containment reference.
+	 * @return the value of the '<em>Schema</em>' reference.
 	 * @see #setSchema(Schema)
 	 * @see core.CorePackage#getResponse_Schema()
-	 * @model containment="true"
+	 * @model
 	 * @generated
 	 */
 	Schema getSchema();
 
 	/**
-	 * Sets the value of the '{@link core.Response#getSchema <em>Schema</em>}' containment reference.
+	 * Sets the value of the '{@link core.Response#getSchema <em>Schema</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Schema</em>' containment reference.
+	 * @param value the new value of the '<em>Schema</em>' reference.
 	 * @see #getSchema()
 	 * @generated
 	 */

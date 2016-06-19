@@ -63,7 +63,7 @@ public class ResponseImpl extends MinimalEObjectImpl.Container implements Respon
 	protected String description = DESCRIPTION_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getSchema() <em>Schema</em>}' containment reference.
+	 * The cached value of the '{@link #getSchema() <em>Schema</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getSchema()
@@ -158,6 +158,14 @@ public class ResponseImpl extends MinimalEObjectImpl.Container implements Respon
 	 * @generated
 	 */
 	public Schema getSchema() {
+		if (schema != null && schema.eIsProxy()) {
+			InternalEObject oldSchema = (InternalEObject)schema;
+			schema = (Schema)eResolveProxy(oldSchema);
+			if (schema != oldSchema) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CorePackage.RESPONSE__SCHEMA, oldSchema, schema));
+			}
+		}
 		return schema;
 	}
 
@@ -166,14 +174,8 @@ public class ResponseImpl extends MinimalEObjectImpl.Container implements Respon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetSchema(Schema newSchema, NotificationChain msgs) {
-		Schema oldSchema = schema;
-		schema = newSchema;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorePackage.RESPONSE__SCHEMA, oldSchema, newSchema);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
+	public Schema basicGetSchema() {
+		return schema;
 	}
 
 	/**
@@ -182,17 +184,10 @@ public class ResponseImpl extends MinimalEObjectImpl.Container implements Respon
 	 * @generated
 	 */
 	public void setSchema(Schema newSchema) {
-		if (newSchema != schema) {
-			NotificationChain msgs = null;
-			if (schema != null)
-				msgs = ((InternalEObject)schema).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CorePackage.RESPONSE__SCHEMA, null, msgs);
-			if (newSchema != null)
-				msgs = ((InternalEObject)newSchema).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CorePackage.RESPONSE__SCHEMA, null, msgs);
-			msgs = basicSetSchema(newSchema, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.RESPONSE__SCHEMA, newSchema, newSchema));
+		Schema oldSchema = schema;
+		schema = newSchema;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.RESPONSE__SCHEMA, oldSchema, schema));
 	}
 
 	/**
@@ -248,8 +243,6 @@ public class ResponseImpl extends MinimalEObjectImpl.Container implements Respon
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case CorePackage.RESPONSE__SCHEMA:
-				return basicSetSchema(null, msgs);
 			case CorePackage.RESPONSE__HEADERS:
 				return ((InternalEList<?>)getHeaders()).basicRemove(otherEnd, msgs);
 			case CorePackage.RESPONSE__EXAMPLES:
@@ -269,7 +262,8 @@ public class ResponseImpl extends MinimalEObjectImpl.Container implements Respon
 			case CorePackage.RESPONSE__DESCRIPTION:
 				return getDescription();
 			case CorePackage.RESPONSE__SCHEMA:
-				return getSchema();
+				if (resolve) return getSchema();
+				return basicGetSchema();
 			case CorePackage.RESPONSE__HEADERS:
 				return getHeaders();
 			case CorePackage.RESPONSE__EXAMPLES:

@@ -10,7 +10,8 @@ public class APIRequest {
 
 	private String url;
 	private HttpMethod httpMethod;
-	private List<Parameter> parameters;
+	private List<Parameter> queryParameters;
+	private List<Parameter> pathParameters;
 	private List<Header> headers;
 	public List<String> paths;
 	private Response response;
@@ -19,9 +20,12 @@ public class APIRequest {
 	private String host;
 	private String path;
 	private String query;
+	private String openAPIPath;
+	private String basePath;
 
 	public APIRequest() {
-		parameters = new ArrayList();
+		queryParameters = new ArrayList();
+		pathParameters = new ArrayList<>();
 		paths = new ArrayList<>();
 	}
 
@@ -32,8 +36,12 @@ public class APIRequest {
 	public void setUrl(String url) throws MalformedURLException {
 
 		this.url = url;
-		discoverURL(url);
+	
 
+	}
+	public void decode() throws MalformedURLException {
+		discoverURL(url);
+		
 	}
 
 	private void discoverURL(String url) throws MalformedURLException {
@@ -43,12 +51,37 @@ public class APIRequest {
 		host = httpURL.getHost();
 		query = httpURL.getQuery();
 		if (query != null && !query.equals(""))
-			discoverParameters();
+			discoverQueryParameters();
 		if (path != null && !path.equals(""))
 			discoverPaths();
 		if (query != null && !query.equals(""))
-			discoverParameters();
+			discoverQueryParameters();
+		basePath = paths.get(0);
+		discoverOpenAPIPath();
 	}
+
+	private void discoverOpenAPIPath() {
+	openAPIPath = "";
+		for (int i = 1; i < paths.size(); i++){
+		if(!isPathParameter(paths.get(i))){
+			openAPIPath += "/";
+			openAPIPath += paths.get(i);
+		}
+		else {
+			openAPIPath += "/{"+getPathParameterName(paths.get(i))+"}";
+		}
+		}
+		
+	}
+	public String getSchemaName() {
+			for (int i = paths.size() -1; i >= 0 ; i--){
+			if(!isPathParameter(paths.get(i))){
+				return paths.get(i);
+			}
+			}
+			return "unkown";
+			
+		}
 
 	private void discoverPaths() {
 		String[] pathParts = path.substring(1).split(Pattern.quote("/"));
@@ -57,16 +90,17 @@ public class APIRequest {
 		}
 	}
 
-	private void discoverParameters() {
+	private void discoverQueryParameters() {
 		String[] params = query.split(Pattern.quote("&"));
 		for (String param : params) {
 			String[] values = param.split(Pattern.quote("="));
 			Parameter parameter = new Parameter();
 			parameter.setName(values[0]);
 			if (values.length == 2) {
-				parameter.setValue(String.class);
+				parameter.setValue(values[1]);
 			} else
-				parameter.setValue(String.class);
+				parameter.setValue("");
+			queryParameters.add(parameter);
 		}
 
 	}
@@ -103,13 +137,7 @@ public class APIRequest {
 		this.body = body;
 	}
 
-	public List<Parameter> getParameters() {
-		return parameters;
-	}
-
-	public void setParameters(List<Parameter> parameters) {
-		this.parameters = parameters;
-	}
+	
 
 	public String getProtocol() {
 		return protocol;
@@ -151,18 +179,24 @@ public class APIRequest {
 		this.paths = paths;
 	}
 
-	public List<String> getPathParameters() {
+	public void discoverPathParameters() {
 		discoverPaths();
-		List<String> result = new ArrayList<String>();
 		for (String temp: paths) {
-			if(isId(temp))
-				result.add(temp);
+			if(isPathParameter(temp)){
+				Parameter parameter = new Parameter();
+				parameter.setName(getPathParameterName(temp));
+				parameter.setValue(temp);
+				pathParameters.add(parameter);
+			}
 		}
-		return result;
 
 	}
 
-	private boolean isId(String arg) {
+	public String getPathParameterName(String temp) {
+		return getPathParameterParent(temp)+"Id";
+	}
+
+	private boolean isPathParameter(String arg) {
 		try {
 			Integer.parseInt(arg);
 			return true;
@@ -178,16 +212,49 @@ public class APIRequest {
 	
 		return false;
 	}
-	public String getLastMeaningfullWord() {
-		discoverPaths();
-		
-		for (int i = (paths.size() - 1); i >= 0; i--) {
-			String temp = paths.get(i);
-			if(!isId(temp))
-				return temp;
+	public String getPathParameterParent(String pathParameter) {
+		int index = paths.indexOf(pathParameter);
+		if(index > 0){
+			return paths.get(index-1);
+			
 		}
-		return null;
+		return "path";
+		
 
 	}
+
+	public List<Parameter> getQueryParameters() {
+		return queryParameters;
+	}
+
+	public void setQueryParameters(List<Parameter> queryParameters) {
+		this.queryParameters = queryParameters;
+	}
+
+	public List<Parameter> getPathParameters() {
+		return pathParameters;
+	}
+
+	public void setPathParameters(List<Parameter> pathParameters) {
+		this.pathParameters = pathParameters;
+	}
+
+	public String getOpenAPIPath() {
+		return openAPIPath;
+	}
+
+	public void setOpenAPIPath(String openAPIPath) {
+		this.openAPIPath = openAPIPath;
+	}
+
+	public String getBasePath() {
+		return basePath;
+	}
+
+	public void setBasePath(String basePath) {
+		this.basePath = basePath;
+	}
+
+	
 
 }
