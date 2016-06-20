@@ -65,6 +65,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link core.impl.SchemaImpl#isReadOnly <em>Read Only</em>}</li>
  *   <li>{@link core.impl.SchemaImpl#getXml <em>Xml</em>}</li>
  *   <li>{@link core.impl.SchemaImpl#getName <em>Name</em>}</li>
+ *   <li>{@link core.impl.SchemaImpl#getRefResolved <em>Ref Resolved</em>}</li>
  * </ul>
  *
  * @generated
@@ -609,6 +610,16 @@ public class SchemaImpl extends MinimalEObjectImpl.Container implements Schema {
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getRefResolved() <em>Ref Resolved</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRefResolved()
+	 * @generated
+	 * @ordered
+	 */
+	protected Schema refResolved;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1332,6 +1343,44 @@ public class SchemaImpl extends MinimalEObjectImpl.Container implements Schema {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Schema getRefResolved() {
+		if (refResolved != null && refResolved.eIsProxy()) {
+			InternalEObject oldRefResolved = (InternalEObject)refResolved;
+			refResolved = (Schema)eResolveProxy(oldRefResolved);
+			if (refResolved != oldRefResolved) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CorePackage.SCHEMA__REF_RESOLVED, oldRefResolved, refResolved));
+			}
+		}
+		return refResolved;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Schema basicGetRefResolved() {
+		return refResolved;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRefResolved(Schema newRefResolved) {
+		Schema oldRefResolved = refResolved;
+		refResolved = newRefResolved;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.SCHEMA__REF_RESOLVED, oldRefResolved, refResolved));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -1418,6 +1467,9 @@ public class SchemaImpl extends MinimalEObjectImpl.Container implements Schema {
 				return getXml();
 			case CorePackage.SCHEMA__NAME:
 				return getName();
+			case CorePackage.SCHEMA__REF_RESOLVED:
+				if (resolve) return getRefResolved();
+				return basicGetRefResolved();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1528,6 +1580,9 @@ public class SchemaImpl extends MinimalEObjectImpl.Container implements Schema {
 			case CorePackage.SCHEMA__NAME:
 				setName((String)newValue);
 				return;
+			case CorePackage.SCHEMA__REF_RESOLVED:
+				setRefResolved((Schema)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -1633,6 +1688,9 @@ public class SchemaImpl extends MinimalEObjectImpl.Container implements Schema {
 			case CorePackage.SCHEMA__NAME:
 				setName(NAME_EDEFAULT);
 				return;
+			case CorePackage.SCHEMA__REF_RESOLVED:
+				setRefResolved((Schema)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -1707,6 +1765,8 @@ public class SchemaImpl extends MinimalEObjectImpl.Container implements Schema {
 				return xml != null;
 			case CorePackage.SCHEMA__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case CorePackage.SCHEMA__REF_RESOLVED:
+				return refResolved != null;
 		}
 		return super.eIsSet(featureID);
 	}

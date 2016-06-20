@@ -1427,13 +1427,22 @@ public interface CorePackage extends EPackage {
 	int SCHEMA__NAME = 30;
 
 	/**
+	 * The feature id for the '<em><b>Ref Resolved</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEMA__REF_RESOLVED = 31;
+
+	/**
 	 * The number of structural features of the '<em>Schema</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEMA_FEATURE_COUNT = 31;
+	int SCHEMA_FEATURE_COUNT = 32;
 
 	/**
 	 * The number of operations of the '<em>Schema</em>' class.
@@ -3616,6 +3625,17 @@ public interface CorePackage extends EPackage {
 	EAttribute getSchema_Name();
 
 	/**
+	 * Returns the meta object for the reference '{@link core.Schema#getRefResolved <em>Ref Resolved</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Ref Resolved</em>'.
+	 * @see core.Schema#getRefResolved()
+	 * @see #getSchema()
+	 * @generated
+	 */
+	EReference getSchema_RefResolved();
+
+	/**
 	 * Returns the meta object for class '{@link core.Response <em>Response</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5388,6 +5408,14 @@ public interface CorePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SCHEMA__NAME = eINSTANCE.getSchema_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Ref Resolved</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SCHEMA__REF_RESOLVED = eINSTANCE.getSchema_RefResolved();
 
 		/**
 		 * The meta object literal for the '{@link core.impl.ResponseImpl <em>Response</em>}' class.

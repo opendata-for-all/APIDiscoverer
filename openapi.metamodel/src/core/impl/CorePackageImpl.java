@@ -1483,6 +1483,15 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getSchema_RefResolved() {
+		return (EReference)schemaEClass.getEStructuralFeatures().get(31);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getResponse() {
 		return responseEClass;
 	}
@@ -2206,6 +2215,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 		createEAttribute(schemaEClass, SCHEMA__READ_ONLY);
 		createEReference(schemaEClass, SCHEMA__XML);
 		createEAttribute(schemaEClass, SCHEMA__NAME);
+		createEReference(schemaEClass, SCHEMA__REF_RESOLVED);
 
 		responseEClass = createEClass(RESPONSE);
 		createEAttribute(responseEClass, RESPONSE__DESCRIPTION);
@@ -2452,6 +2462,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 		initEAttribute(getSchema_ReadOnly(), ecorePackage.getEBoolean(), "readOnly", null, 0, 1, Schema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSchema_Xml(), this.getXMLElement(), null, "xml", null, 0, 1, Schema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSchema_Name(), ecorePackage.getEString(), "name", null, 0, 1, Schema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSchema_RefResolved(), this.getSchema(), null, "refResolved", null, 0, 1, Schema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(responseEClass, Response.class, "Response", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getResponse_Description(), ecorePackage.getEString(), "description", null, 0, 1, Response.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

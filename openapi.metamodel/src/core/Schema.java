@@ -46,6 +46,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link core.Schema#isReadOnly <em>Read Only</em>}</li>
  *   <li>{@link core.Schema#getXml <em>Xml</em>}</li>
  *   <li>{@link core.Schema#getName <em>Name</em>}</li>
+ *   <li>{@link core.Schema#getRefResolved <em>Ref Resolved</em>}</li>
  * </ul>
  *
  * @see core.CorePackage#getSchema()
@@ -822,5 +823,31 @@ public interface Schema extends EObject {
 	 * @generated
 	 */
 	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Ref Resolved</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Ref Resolved</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Ref Resolved</em>' reference.
+	 * @see #setRefResolved(Schema)
+	 * @see core.CorePackage#getSchema_RefResolved()
+	 * @model
+	 * @generated
+	 */
+	Schema getRefResolved();
+
+	/**
+	 * Sets the value of the '{@link core.Schema#getRefResolved <em>Ref Resolved</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Ref Resolved</em>' reference.
+	 * @see #getRefResolved()
+	 * @generated
+	 */
+	void setRefResolved(Schema value);
 
 } // Schema
