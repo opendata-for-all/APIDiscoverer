@@ -64,6 +64,15 @@ public class DiscovererBean implements Serializable {
 	@PostConstruct
 	public void init() {
 		newAPIRequest = new APIRequest();
+		try {
+			newAPIRequest.setUrl("http://petstore.swagger.io/v2/pet");
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		newAPIRequest.setHttpMethod(HttpMethod.POST);
+		newAPIRequest.setBody("{\"id\": 123,\"category\": {\"id\": 1,\"name\": \"dogs\"},\"name\": \"doggie\",\"photoUrls\": [\"http://example.com\"],\"tags\": [{\"id\": 1,\"name\": \"black\"}],\"status\": \"available\"}");
+		response = new Response();
 		response = new Response();
 		discoverer = new Discoverer();
 		setRecords(new ArrayList<>());
@@ -153,7 +162,7 @@ public class DiscovererBean implements Serializable {
 			}
 
 		}
-		// paths
+		// definitions
 		TreeNode definitionsNode = new DefaultTreeNode(new TreeNodeEntry("definitions", "-"), apiNode);
 		for (Schema schema : api.getDefinitions()) {
 			TreeNode schemaNode = new DefaultTreeNode(new TreeNodeEntry(schema.getName(), "-"), definitionsNode);
@@ -175,14 +184,14 @@ public class DiscovererBean implements Serializable {
 		setDownload(new DefaultStreamedContent(input, externalContext.getMimeType(temp.getName()), temp.getName()));
 	}
 
-	public void downloadEcore() throws Exception {
-		File temp = File.createTempFile("schema", ".ecore");
-		ModelHelper.saveEPackage(discoverer.getSchema(), temp);
-
-		InputStream input = new FileInputStream(temp);
-		ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
-		setEcore(new DefaultStreamedContent(input, externalContext.getMimeType(temp.getName()), temp.getName()));
-	}
+//	public void downloadEcore() throws Exception {
+//		File temp = File.createTempFile("schema", ".ecore");
+//		ModelHelper.saveEPackage(discoverer.getSchema(), temp);
+//
+//		InputStream input = new FileInputStream(temp);
+//		ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+//		setEcore(new DefaultStreamedContent(input, externalContext.getMimeType(temp.getName()), temp.getName()));
+//	}
 
 	public void sendRequest() throws MalformedURLException {
 		try {

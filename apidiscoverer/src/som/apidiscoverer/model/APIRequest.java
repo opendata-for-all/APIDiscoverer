@@ -56,7 +56,7 @@ public class APIRequest {
 			discoverPaths();
 		if (query != null && !query.equals(""))
 			discoverQueryParameters();
-		basePath = paths.get(0);
+		basePath = "/"+paths.get(0);
 		discoverOpenAPIPath();
 	}
 

@@ -1,7 +1,10 @@
 package som.apidiscoverer;
 
+import java.io.StringReader;
 import java.net.MalformedURLException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -10,6 +13,9 @@ import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
 
 import core.APIOperation;
 import core.APIParameter;
@@ -22,16 +28,22 @@ import core.ParameterLocation;
 import core.Path;
 import core.Response;
 import core.Schema;
+import jsondiscoverer.JsonAdvancedDiscoverer;
+import jsondiscoverer.JsonSimpleDiscoverer;
+import jsondiscoverer.JsonSource;
+import jsondiscoverer.JsonSourceSet;
 import som.apidiscoverer.model.APIRequest;
 import som.apidiscoverer.model.Parameter;
 
 public class Discoverer {
 	CoreFactory factory;
 	private Api api;
-	private EPackage schema;
+	private List<EPackage> dataModelList = new ArrayList<EPackage>();
 	private Map<String, Path> pathsMap = new HashMap<String, Path>();
 	private Map<String, APIParameter> parametersMap = new HashMap<String, APIParameter>();
 	private Map<String, Schema> schemaMap = new HashMap<String, Schema>();
+	private Map<String, Response> responsesMap = new HashMap<String, Response>();
+	JsonSourceSet sourceSet = new JsonSourceSet("dataModel");
 
 	public Discoverer() {
 		// Initialize the model
@@ -40,7 +52,6 @@ public class Discoverer {
 		factory = CoreFactory.eINSTANCE;
 		api = factory.createApi();
 	}
-
 
 	public void discover(APIRequest apiResquest) throws MalformedURLException {
 		discoverBasicInfo(apiResquest);
@@ -87,6 +98,7 @@ public class Discoverer {
 				path.setGet(getOperation);
 			}
 			discoverPrameters(getOperation, apiResquest);
+			discoverResponses(getOperation, apiResquest);
 
 			break;
 		case POST:
@@ -98,6 +110,7 @@ public class Discoverer {
 				path.setPost(postOperation);
 			}
 			discoverPrameters(postOperation, apiResquest);
+			discoverResponses(postOperation, apiResquest);
 
 			break;
 		case PUT:
@@ -109,6 +122,7 @@ public class Discoverer {
 				path.setPut(putOperation);
 			}
 			discoverPrameters(putOperation, apiResquest);
+			discoverResponses(putOperation, apiResquest);
 
 			break;
 		case DELETE:
@@ -119,6 +133,7 @@ public class Discoverer {
 				path.setDelete(deleteOperation);
 			}
 			discoverPrameters(deleteOperation, apiResquest);
+			discoverPrameters(deleteOperation, apiResquest);
 
 			break;
 		default:
@@ -126,6 +141,8 @@ public class Discoverer {
 		}
 
 	}
+
+	
 
 	private void discoverPrameters(APIOperation apiOperation, APIRequest apiResquest) {
 		for (Parameter parameter : apiResquest.getQueryParameters()) {
@@ -154,92 +171,226 @@ public class Discoverer {
 				apiOperation.getParameters().add(apiParameter);
 				parametersMap.put(parameterKey, apiParameter);
 			}
-		
+
 		}
-		if(apiResquest.getBody()!= null){
-			String parameterKey = apiResquest.getOpenAPIPath() + apiResquest.getHttpMethod() +"body"+ ParameterLocation.BODY;
+		if (apiResquest.getBody() != null) {
+			String parameterKey = apiResquest.getOpenAPIPath() + apiResquest.getHttpMethod() + "body"
+					+ ParameterLocation.BODY;
 			APIParameter apiParameter = parametersMap.get(parameterKey);
-			if(apiParameter == null){
+			if (apiParameter == null) {
 				apiParameter = factory.createAPIParameter();
-				apiParameter.setIn(ParameterLocation.PATH);
+				apiParameter.setIn(ParameterLocation.BODY);
 				apiParameter.setName("body");
 				apiOperation.getParameters().add(apiParameter);
 				parametersMap.put(parameterKey, apiParameter);
-				
-				Schema schema = schemaMap.get(apiResquest.getSchemaName());
-				if(schema == null){
-					schema = factory.createSchema();
+				String body = apiResquest.getBody();
+				JsonParser parser = new JsonParser();
+				JsonElement jsonSchemaInstance = parser.parse(body);
+				if (jsonSchemaInstance.isJsonArray()) {
+					Schema schemaArray = schemaMap.get(apiResquest.getSchemaName().substring(0, 1).toUpperCase()
+							+ apiResquest.getSchemaName().substring(1) + "List");
+					Schema schema = schemaMap.get(apiResquest.getSchemaName().substring(0, 1).toUpperCase()
+							+ apiResquest.getSchemaName().substring(1));
+
+					if (schemaArray == null) {
+
+						schemaArray = factory.createSchema();
+						schemaArray.setType(JsonDataType.ARRAY);
+						schemaArray.setName(apiResquest.getSchemaName().substring(0, 1).toUpperCase()
+								+ apiResquest.getSchemaName().substring(1) + "List");
+						schemaMap.put(apiResquest.getSchemaName().substring(0, 1).toUpperCase()
+								+ apiResquest.getSchemaName().substring(1) + "List",schemaArray);
+						if (schema == null) {
+							schema = factory.createSchema();
+							schema.setName(apiResquest.getSchemaName().substring(0, 1).toUpperCase()
+									+ apiResquest.getSchemaName().substring(1));
+							schema.setType(JsonDataType.OBJECT);
+							schemaMap.put(schema.getName(), schema);
+						
+							api.getDefinitions().add(schema);
+							discoverSchema(schemaArray.getName(), jsonSchemaInstance.getAsJsonArray().get(0).getAsString());
+							schemaMap.put(apiResquest.getSchemaName().substring(0, 1).toUpperCase()
+									+ apiResquest.getSchemaName().substring(1),schema);
+							
+						}
+						schemaArray.setItems(schema);
+						api.getPrimitiveDefinitions().add(schemaArray);
+						schemaMap.put(schemaArray.getName(), schema);	
+						apiParameter.setSchema(schemaArray);
+					} else {
+						apiParameter.setSchema(schemaArray);
+
+					}
+					
 				}
+				else {
+					Schema schema = schemaMap.get(apiResquest.getSchemaName().substring(0, 1).toUpperCase()
+							+ apiResquest.getSchemaName().substring(1));
+					if (schema == null) {
+						schema = factory.createSchema();
+						schema.setName(apiResquest.getSchemaName().substring(0, 1).toUpperCase()
+								+ apiResquest.getSchemaName().substring(1));
+						schema.setType(JsonDataType.OBJECT);
+						schemaMap.put(schema.getName(), schema);
+					
+						api.getDefinitions().add(schema);
+						discoverSchema(schema.getName(), body);
+						
+					}
+					apiParameter.setSchema(schema);
+				}
+
 			}
-			
+
 		}
 
+	}
+	private void discoverResponses(APIOperation operation, APIRequest apiResquest) {
+		String responseKey = apiResquest.getOpenAPIPath() + apiResquest.getHttpMethod() + apiResquest.getResponse().getStatus()
+				+ ParameterLocation.BODY;
+		Response response = responsesMap.get(responseKey);
+		if(response == null){
+			response  = factory.createResponse();
+			response.setCode(String.valueOf(apiResquest.getResponse().getStatus()));
+			response.setDescription(apiResquest.getResponse().getStatusText());
+			responsesMap.put(responseKey,response);
+		
+			if(apiResquest.getResponse().getBody()!=null){
+				JsonParser parser = new JsonParser();
+				JsonElement jsonSchemaInstance = parser.parse(apiResquest.getResponse().getBody());
+				if (jsonSchemaInstance.isJsonArray()) {
+					Schema schemaArray = schemaMap.get(apiResquest.getSchemaName().substring(0, 1).toUpperCase()
+							+ apiResquest.getSchemaName().substring(1) + "List");
+					Schema schema = schemaMap.get(apiResquest.getSchemaName().substring(0, 1).toUpperCase()
+							+ apiResquest.getSchemaName().substring(1));
+
+					if (schemaArray == null) {
+
+						schemaArray = factory.createSchema();
+						schemaArray.setType(JsonDataType.ARRAY);
+						schemaArray.setName(apiResquest.getSchemaName().substring(0, 1).toUpperCase()
+								+ apiResquest.getSchemaName().substring(1) + "List");
+						schemaMap.put(apiResquest.getSchemaName().substring(0, 1).toUpperCase()
+								+ apiResquest.getSchemaName().substring(1) + "List",schemaArray);
+						if (schema == null) {
+							schema = factory.createSchema();
+							schema.setName(apiResquest.getSchemaName().substring(0, 1).toUpperCase()
+									+ apiResquest.getSchemaName().substring(1));
+							schema.setType(JsonDataType.OBJECT);
+							schemaMap.put(schema.getName(), schema);
+						
+							api.getDefinitions().add(schema);
+							discoverSchema(schemaArray.getName(), jsonSchemaInstance.getAsJsonArray().get(0).getAsString());
+							schemaMap.put(apiResquest.getSchemaName().substring(0, 1).toUpperCase()
+									+ apiResquest.getSchemaName().substring(1),schema);
+							
+						}
+						schemaArray.setItems(schema);
+						api.getPrimitiveDefinitions().add(schemaArray);
+						schemaMap.put(schemaArray.getName(), schema);	
+						response.setSchema(schemaArray);
+					} else {
+						response.setSchema(schemaArray);
+
+					}
+					
+				}
+				else {
+					Schema schema = schemaMap.get(apiResquest.getSchemaName().substring(0, 1).toUpperCase()
+							+ apiResquest.getSchemaName().substring(1));
+					if (schema == null) {
+						schema = factory.createSchema();
+						schema.setName(apiResquest.getSchemaName().substring(0, 1).toUpperCase()
+								+ apiResquest.getSchemaName().substring(1));
+						schema.setType(JsonDataType.OBJECT);
+						schemaMap.put(schema.getName(), schema);
+					
+						api.getDefinitions().add(schema);
+						discoverSchema(schema.getName(), apiResquest.getResponse().getBody());
+						
+					}
+					response.setSchema(schema);
+				}
+		}
+		}
+		operation.getResponses().add(response);
+		
+	}
+	private void discoverSchema(String name, String value) {
+
+		JsonSource source = new JsonSource(name);
+		source.addJsonData(null, new StringReader(value));
+		sourceSet.addJsonSource(source);
+		//
+		// JsonAdvancedDiscoverer composer = new
+		// JsonAdvancedDiscoverer(sourceSet);
+		JsonSimpleDiscoverer schemaDiscoverer = new JsonSimpleDiscoverer();
+		dataModelList.add(schemaDiscoverer.discover(source));
+		merge();
 
 	}
-	// private void discoverSchema(APIRequest apiResquest) {
-	//
-	// JsonSource source = new JsonSource(apiResquest.getLastMeaningfullWord());
-	// source.addJsonData(null, new StringReader(apiResquest.getBody()));
-	//
-	// JsonSimpleDiscoverer discoverer = new JsonSimpleDiscoverer();
-	// setSchema(discoverer.discover(source));
-	//
-	// }
 
 	public void merge() {
 		Map<EClass, Schema> map = new HashMap<EClass, Schema>();
-		for (EObject object : schema.getEClassifiers()) {
-			if (object instanceof EClass) {
-				EClass eClass = (EClass) object;
-				Schema schema = factory.createSchema();
-				schema.setName(eClass.getName());
-				schema.setType(JsonDataType.OBJECT);
-				map.put(eClass, schema);
-				api.getDefinitions().add(schema);
-				for (EAttribute eAttribute : eClass.getEAttributes()) {
-					if (eAttribute.getUpperBound() == 1) {
-						Schema property = factory.createSchema();
-						property.setType(getJsonTypeFromECoreType(eAttribute.getEAttributeType()));
-						property.setName(eAttribute.getName());
-						api.getPrimitiveDefinitions().add(property);
-						schema.getProperties().add(property);
-					} else {
-						Schema arrayProperty = factory.createSchema();
-						arrayProperty.setName(eAttribute.getName());
-						arrayProperty.setType(JsonDataType.ARRAY);
-						Schema items = factory.createSchema();
-						items.setType(getJsonTypeFromECoreType(eAttribute.getEAttributeType()));
-						arrayProperty.setItems(arrayProperty);
-						api.getPrimitiveDefinitions().add(arrayProperty);
-						schema.getProperties().add(arrayProperty);
+		for (EPackage dataModel : dataModelList) {
+			for (EObject object : dataModel.getEClassifiers()) {
+				if (object instanceof EClass) {
+					EClass eClass = (EClass) object;
+
+					Schema schema = schemaMap.get(eClass.getName());
+					if (schema == null) {
+						schema = factory.createSchema();
+						schema.setName(eClass.getName());
+						schema.setType(JsonDataType.OBJECT);
+						api.getDefinitions().add(schema);
+					}
+					map.put(eClass, schema);
+
+					for (EAttribute eAttribute : eClass.getEAttributes()) {
+						if (eAttribute.getUpperBound() == 1) {
+							Schema property = factory.createSchema();
+							property.setType(getJsonTypeFromECoreType(eAttribute.getEAttributeType()));
+							property.setName(eAttribute.getName());
+							api.getPrimitiveDefinitions().add(property);
+							schema.getProperties().add(property);
+						} else {
+							Schema arrayProperty = factory.createSchema();
+							arrayProperty.setName(eAttribute.getName());
+							arrayProperty.setType(JsonDataType.ARRAY);
+							Schema items = factory.createSchema();
+							items.setType(getJsonTypeFromECoreType(eAttribute.getEAttributeType()));
+							arrayProperty.setItems(arrayProperty);
+							api.getPrimitiveDefinitions().add(arrayProperty);
+							schema.getProperties().add(arrayProperty);
+						}
+					}
+
+				}
+
+			}
+			// resolving references
+			for (EObject object : dataModel.getEClassifiers()) {
+				if (object instanceof EClass) {
+					EClass eClass = (EClass) object;
+					Schema schema = map.get(eClass);
+					for (EReference eReference : eClass.getEReferences()) {
+						if (eReference.getUpperBound() == 1) {
+							Schema property = map.get((EClass) eReference.getEType());
+							System.out.println(property.getName());
+							schema.getProperties().add(property);
+						} else {
+							Schema arrayProperty = factory.createSchema();
+							arrayProperty.setType(JsonDataType.ARRAY);
+							api.getPrimitiveDefinitions().add(arrayProperty);
+							Schema items = map.get((EClass) eReference.getEType());
+							System.out.println(items.getName());
+							arrayProperty.setItems(items);
+						}
+
 					}
 				}
 
 			}
-
-		}
-		// resolving references
-		for (EObject object : schema.getEClassifiers()) {
-			if (object instanceof EClass) {
-				EClass eClass = (EClass) object;
-				Schema schema = map.get(eClass);
-				for (EReference eReference : eClass.getEReferences()) {
-					if (eReference.getUpperBound() == 1) {
-						Schema property = map.get((EClass) eReference.getEType());
-						System.out.println(property.getName());
-						schema.getProperties().add(property);
-					} else {
-						Schema arrayProperty = factory.createSchema();
-						arrayProperty.setType(JsonDataType.ARRAY);
-						api.getPrimitiveDefinitions().add(arrayProperty);
-						Schema items = map.get((EClass) eReference.getEType());
-						System.out.println(items.getName());
-						arrayProperty.setItems(items);
-					}
-
-				}
-			}
-
 		}
 
 	}
@@ -249,7 +400,7 @@ public class Discoverer {
 			return JsonDataType.STRING;
 		if (eAttributeType.getName().equals("EInt"))
 			return JsonDataType.INTEGER;
-		return null;
+		return JsonDataType.STRING;
 	}
 
 	public Api getApi() {
@@ -258,14 +409,6 @@ public class Discoverer {
 
 	public void setApi(Api api) {
 		this.api = api;
-	}
-
-	public EPackage getSchema() {
-		return schema;
-	}
-
-	public void setSchema(EPackage schema) {
-		this.schema = schema;
 	}
 
 }
