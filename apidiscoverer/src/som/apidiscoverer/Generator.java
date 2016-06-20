@@ -138,7 +138,7 @@ public class Generator {
 				}
 				if(!operation.getResponses().isEmpty()){
 					JsonObject responsesJson = new JsonObject();
-					
+					jsonOperation.add("responses", responsesJson);
 					for(Response response :operation.getResponses()){
 						JsonObject responseJson = new JsonObject();
 						responsesJson.add(response.getCode(), responseJson);
@@ -174,7 +174,7 @@ public class Generator {
 				responseJson.addProperty("description", response.getDescription());
 				if(response.getSchema()!= null){
 					if(response.getSchema().getType().equals(JsonDataType.OBJECT))
-						responseJson.addProperty("schema", "/#/definitions/"+response.getSchema().getName());
+						responseJson.addProperty("schema", "#/definitions/"+response.getSchema().getName());
 					else {
 						//TODO array and primitive
 					}
