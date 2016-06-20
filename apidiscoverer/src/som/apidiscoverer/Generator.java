@@ -123,7 +123,7 @@ public class Generator {
 				}
 				if(!operation.getProduces().isEmpty()){
 					JsonArray producesList = new JsonArray();
-					for(String produces : operation.getConsumes())
+					for(String produces : operation.getProduces())
 						producesList.add(produces);
 					jsonOperation.add("produces", producesList);
 				}
@@ -160,6 +160,7 @@ public class Generator {
 				parameterJson.addProperty("in",parameter.getIn().getLiteral());
 				if(parameter.getDescription()!= null)
 					parameterJson.addProperty("description", parameter.getDescription());
+				if( parameter.isRequired())
 				parameterJson.addProperty("required", parameter.isRequired());
 				if(parameter.getIn().equals(ParameterLocation.BODY)){
 					if(parameter.getSchema().getType().equals(JsonDataType.OBJECT))

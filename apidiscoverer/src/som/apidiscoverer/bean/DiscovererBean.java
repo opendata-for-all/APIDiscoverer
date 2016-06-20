@@ -64,15 +64,14 @@ public class DiscovererBean implements Serializable {
 	@PostConstruct
 	public void init() {
 		newAPIRequest = new APIRequest();
-		try {
-			newAPIRequest.setUrl("http://petstore.swagger.io/v2/pet");
-		} catch (MalformedURLException e) {
+//		try {
+//			newAPIRequest.setUrl("http://petstore.swagger.io/v2/pet");
+//		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		newAPIRequest.setHttpMethod(HttpMethod.POST);
-		newAPIRequest.setBody("{\"id\": 123,\"category\": {\"id\": 1,\"name\": \"dogs\"},\"name\": \"doggie\",\"photoUrls\": [\"http://example.com\"],\"tags\": [{\"id\": 1,\"name\": \"black\"}],\"status\": \"available\"}");
-		response = new Response();
+//			e.printStackTrace();
+//		}
+//		newAPIRequest.setHttpMethod(HttpMethod.POST);
+//		newAPIRequest.setBody("{\"id\": 123,\"category\": {\"id\": 1,\"name\": \"dogs\"},\"name\": \"doggie\",\"photoUrls\": [\"http://example.com\"],\"tags\": [{\"id\": 1,\"name\": \"black\"}],\"status\": \"available\"}");
 		response = new Response();
 		discoverer = new Discoverer();
 		setRecords(new ArrayList<>());

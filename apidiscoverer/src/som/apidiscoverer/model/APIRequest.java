@@ -54,8 +54,7 @@ public class APIRequest {
 			discoverQueryParameters();
 		if (path != null && !path.equals(""))
 			discoverPaths();
-		if (query != null && !query.equals(""))
-			discoverQueryParameters();
+		discoverPathParameters();
 		basePath = "/"+paths.get(0);
 		discoverOpenAPIPath();
 	}
@@ -180,7 +179,6 @@ public class APIRequest {
 	}
 
 	public void discoverPathParameters() {
-		discoverPaths();
 		for (String temp: paths) {
 			if(isPathParameter(temp)){
 				Parameter parameter = new Parameter();

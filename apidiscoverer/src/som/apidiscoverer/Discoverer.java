@@ -134,7 +134,7 @@ public class Discoverer {
 				path.setDelete(deleteOperation);
 			}
 			discoverPrameters(deleteOperation, apiResquest);
-			discoverPrameters(deleteOperation, apiResquest);
+			discoverResponses(deleteOperation, apiResquest);
 
 			break;
 		default:
@@ -169,12 +169,13 @@ public class Discoverer {
 				apiParameter.setIn(ParameterLocation.PATH);
 				apiParameter.setName(parameter.getName());
 				apiParameter.setType(parameter.getType());
+				apiParameter.setRequired(true);
 				apiOperation.getParameters().add(apiParameter);
 				parametersMap.put(parameterKey, apiParameter);
 			}
 
 		}
-		if (apiResquest.getBody() != null) {
+		if (!apiResquest.getBody().equals("")) {
 			String parameterKey = apiResquest.getOpenAPIPath() + apiResquest.getHttpMethod() + "body"
 					+ ParameterLocation.BODY;
 			APIParameter apiParameter = parametersMap.get(parameterKey);

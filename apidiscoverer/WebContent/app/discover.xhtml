@@ -3,7 +3,8 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions">
 
 <f:view contentType="text/html">
 
@@ -28,114 +29,144 @@ body {
 
 	<h:body>
 
+<p:dialog id="exceptionDialog" header="Oups" widgetVar="exceptionDialog"
+         >
+   There was a problem with your request<br/>
+ <br />
 
+    <p:button onclick="PF('exceptionDialog').hide()" 
+              value="Close"
+             />
+</p:dialog>
 		<p:layout fullPage="true" styleClass="ui-fluid">
 			<p:layoutUnit id="top" position="north" size="75">
 
-			<h:graphicImage library="image" name="apidiscoverer.png" styleClass="logo"
-		alt="APIDiscoverer" />
+				<h:graphicImage library="image" name="apidiscoverer.png"
+					styleClass="logo" alt="APIDiscoverer" />
 
-				
 
-										<h:form >
-		<p:slideMenu style="width:180px;float:right;hight:75px;">
-		<p:menuitem value="Start over"  icon="ui-icon-refresh" onclick="location.reload();"/>
-        <p:submenu label="Download" icon="ui-icon-disk">
-            <p:menuitem value="basic" ajax="false" style="float:right" actionListener="#{discovererBean.prepDownload}" icon="ui-icon-disk" >
-            <p:fileDownload value="#{discovererBean.download}" />
-            </p:menuitem>
-            </p:submenu>
-          
-   
-      
-    
-    </p:slideMenu>
- 
- 
-</h:form>
 
-			
+				<h:form>
+				<p:ajaxExceptionHandler type="java.lang.Exception"
+                        update="exceptionDialog"
+                        onexception="PF('exceptionDialog').show();" />
+					
+
+					<p:slideMenu style="width:180px;float:right;hight:75px;">
+						<p:menuitem value="Start over" icon="ui-icon-refresh"
+							onclick="location.reload();" />
+						<p:submenu label="Download" icon="ui-icon-disk">
+							<p:menuitem value="basic" ajax="false" style="float:right"
+								actionListener="#{discovererBean.prepDownload}"
+								icon="ui-icon-disk">
+								<p:fileDownload value="#{discovererBean.download}" />
+							</p:menuitem>
+						</p:submenu>
+
+
+
+
+					</p:slideMenu>
+
+
+				</h:form>
+
+
 			</p:layoutUnit>
 
 			<p:layoutUnit id="bottom" position="south" size="30">
-                  <p:link href="http://som-research.uoc.edu/" target="_BLANK"> Som research lab</p:link>
-                </p:layoutUnit>
+				<p:link href="http://som-research.uoc.edu/" target="_BLANK"> Som research lab</p:link>
+			</p:layoutUnit>
 
 			<p:layoutUnit id="left" position="west" size="400" resizable="true"
 				closable="false" collapsible="true" header="Records" minSize="200">
-				
-							<p:dataTable value="#{discovererBean.records}" var="apiRequest"
-								id="recordsTable">
-									<p:column headerText="Op." style="width:40px">
-									<h:outputText value="#{apiRequest.httpMethod}" />
-								</p:column>		
-								<p:column headerText="URL">
-									<h:outputText value="#{apiRequest.url}" />
-								</p:column>
 
-							</p:dataTable>
-					
+				<p:dataTable value="#{discovererBean.records}" var="apiRequest"
+					id="recordsTable">
+					<p:column headerText="Op." style="width:40px">
+						<h:outputText value="#{apiRequest.httpMethod}" />
+					</p:column>
+					<p:column headerText="URL">
+						<h:outputText value="#{apiRequest.url}" />
+					</p:column>
+
+				</p:dataTable>
+
 			</p:layoutUnit>
 
 			<p:layoutUnit id="right" position="east" size="250"
 				header="Discovered model" resizable="true" closable="false"
 				collapsible="true" style="text-align:center">
 
-<p:treeTable id="modelTree" value="#{discovererBean.createTreeTable()}" var="node">
-        <p:column >
-            <h:outputText value="#{node.nodeName}" />
-        </p:column>
-        <p:column width="20">
-            <h:outputText value="#{node.nodeDescription}" />
-        </p:column>
-      
-    </p:treeTable>
+				<p:treeTable id="modelTree"
+					value="#{discovererBean.createTreeTable()}" var="node">
+					<p:column>
+						<h:outputText value="#{node.nodeName}" />
+					</p:column>
+					<p:column width="20">
+						<h:outputText value="#{node.nodeDescription}" />
+					</p:column>
+
+				</p:treeTable>
 			</p:layoutUnit>
 
 			<p:layoutUnit id="center" position="center">
-			<p:layout >
-			<p:layoutUnit id="center-south" position="south" header="Response"  resizable="true"  size="200"
-				collapsible="true" >
-				<h:form id="responseForm" prependId="false">
-					<p:panelGrid columns="2"
-						columnClasses="ui-grid-col-2,ui-grid-col-10" layout="grid"
-						styleClass="ui-panelgrid-blank">
-						<h:outputText value="Status" />
-						<h:outputText value="#{discovererBean.response.status}" />
-					
-						<p:outputLabel for="response_body" value="Body"   />
-						<p:inputTextarea id="response_body"  rows="10"  style="width: 100%;" value="#{discovererBean.response.body}"/>
-						
-					</p:panelGrid>
-				</h:form>
-				</p:layoutUnit>
-			<p:layoutUnit id="center-center" position="center" header="Request"  resizable="true" 
-				collapsible="false" >
-				<h:form id="mainForm" prependId="false">
-					<p:panelGrid columns="2"
-						columnClasses="ui-grid-col-2,ui-grid-col-10" layout="grid"
-						styleClass="ui-panelgrid-blank">
-						<p:outputLabel for="url" value="Request URL" />
-						<p:inputText id="url" style="width: 100%;" value="#{discovererBean.newAPIRequest.url}" />
-						<p:outputLabel for="method" value="Method" />
-						<p:selectOneButton id="method"
-							value="#{discovererBean.newAPIRequest.httpMethod}" >
-							 <f:selectItems value="#{httpMethodsBean.getMethods()}" var="httpMethod" itemLabel="#{httpMethod.label}" itemValue="#{httpMethod}"/>
-						</p:selectOneButton>
-						<p:outputLabel for="request_body" value="Body"   />
-						<p:inputTextarea id="request_body"  rows="10"  style="width: 100%;" value="#{discovererBean.newAPIRequest.body}"/>
-						<f:facet name="footer">
-						<p:commandButton id="btn_send" value="Send"
-							update="recordsTable responseForm mainForm modelTree"
-							action="#{discovererBean.sendRequest}" style="float:right">
-						
-						</p:commandButton></f:facet>
-						
-					</p:panelGrid>
-				</h:form>
-			</p:layoutUnit>
-			
-			</p:layout>
+				<p:layout>
+					<p:layoutUnit id="center-south" position="south" header="Response"
+						resizable="true" size="200" collapsible="true">
+						<h:form id="responseForm" prependId="false">
+							<p:panelGrid columns="2"
+								columnClasses="ui-grid-col-2,ui-grid-col-10" layout="grid"
+								styleClass="ui-panelgrid-blank">
+								<h:outputText value="Status" />
+								<h:outputText value="#{discovererBean.response.status}" />
+
+								<p:outputLabel for="response_body" value="Body" />
+								<p:inputTextarea id="response_body" rows="10"
+									style="width: 100%;" value="#{discovererBean.response.body}" />
+
+							</p:panelGrid>
+						</h:form>
+					</p:layoutUnit>
+					<p:layoutUnit id="center-center" position="center" header="Request"
+						resizable="true" collapsible="false">
+						<h:form id="mainForm" prependId="false">
+							<p:messages id="msgs" showDetail="false" autoUpdate="true"
+								closable="true" />
+							<p:panelGrid columns="2"
+								columnClasses="ui-grid-col-2,ui-grid-col-10" layout="grid"
+								styleClass="ui-panelgrid-blank">
+								<p:outputLabel for="url" value="Request URL" />
+								<p:inputText id="url" style="width: 100%;"
+									value="#{discovererBean.newAPIRequest.url}" required="true"
+									requiredMessage="Please enter a URL." >
+									<f:validator validatorId="som.apidiscoverer.util.URLValidator" />
+									</p:inputText>
+								<p:outputLabel for="method" value="Method" />
+								<p:selectOneButton id="method"
+									value="#{discovererBean.newAPIRequest.httpMethod}"  required="true"
+										requiredMessage="Please choose a method.">
+									<f:selectItems value="#{httpMethodsBean.getMethods()}"
+										var="httpMethod" itemLabel="#{httpMethod.label}"
+										itemValue="#{httpMethod}"  />
+								</p:selectOneButton>
+								<p:outputLabel for="request_body" value="Body" />
+								<p:inputTextarea id="request_body" rows="10"
+									style="width: 100%;"
+									value="#{discovererBean.newAPIRequest.body}" />
+								<f:facet name="footer">
+									<p:commandButton id="btn_send" value="Send"
+										update="recordsTable responseForm mainForm modelTree msgs"
+										action="#{discovererBean.sendRequest}" style="float:right">
+
+									</p:commandButton>
+								</f:facet>
+
+							</p:panelGrid>
+						</h:form>
+					</p:layoutUnit>
+
+				</p:layout>
 			</p:layoutUnit>
 
 		</p:layout>
