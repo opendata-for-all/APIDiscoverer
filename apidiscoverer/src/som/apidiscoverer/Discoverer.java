@@ -9,6 +9,7 @@ import java.util.Map;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -359,7 +360,7 @@ public class Discoverer {
 							arrayProperty.setType(JsonDataType.ARRAY);
 							Schema items = factory.createSchema();
 							items.setType(getJsonTypeFromECoreType(eAttribute.getEAttributeType()));
-							arrayProperty.setItems(arrayProperty);
+							arrayProperty.setItems(items);
 							api.getPrimitiveDefinitions().add(arrayProperty);
 							schema.getProperties().add(arrayProperty);
 						}
@@ -375,16 +376,22 @@ public class Discoverer {
 					Schema schema = map.get(eClass);
 					for (EReference eReference : eClass.getEReferences()) {
 						if (eReference.getUpperBound() == 1) {
+							Schema ref = factory.createSchema();
+							ref.setType(JsonDataType.OBJECT);
+							ref.setName(eReference.getName());
+							api.getPrimitiveDefinitions().add(ref);
 							Schema property = map.get((EClass) eReference.getEType());
-							System.out.println(property.getName());
-							schema.getProperties().add(property);
+							ref.setRefResolved(property);
+							schema.getProperties().add(ref);
 						} else {
 							Schema arrayProperty = factory.createSchema();
 							arrayProperty.setType(JsonDataType.ARRAY);
+							arrayProperty.setName(eReference.getName());
 							api.getPrimitiveDefinitions().add(arrayProperty);
 							Schema items = map.get((EClass) eReference.getEType());
 							System.out.println(items.getName());
 							arrayProperty.setItems(items);
+							schema.getProperties().add(arrayProperty);
 						}
 
 					}
@@ -393,6 +400,14 @@ public class Discoverer {
 			}
 		}
 
+	}
+
+	private JsonDataType getJsonTypeFromECoreType(EClassifier eType) {
+		if (eType.getName().equals("EString"))
+			return JsonDataType.STRING;
+		if (eType.getName().equals("EInt"))
+			return JsonDataType.INTEGER;
+		return JsonDataType.STRING;
 	}
 
 	private static JsonDataType getJsonTypeFromECoreType(EDataType eAttributeType) {
