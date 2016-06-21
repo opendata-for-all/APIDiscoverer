@@ -3,10 +3,12 @@ package som.apidiscoverer;
 import java.io.StringReader;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
+import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -31,6 +33,7 @@ import core.ParameterLocation;
 import core.Path;
 import core.Response;
 import core.Schema;
+import core.Tag;
 import jsondiscoverer.JsonAdvancedDiscoverer;
 import jsondiscoverer.JsonSimpleDiscoverer;
 import jsondiscoverer.JsonSource;
@@ -146,8 +149,6 @@ public class Discoverer {
 
 	}
 
-	
-
 	private void discoverPrameters(APIOperation apiOperation, APIRequest apiResquest) throws URISyntaxException {
 		for (Parameter parameter : apiResquest.getQueryParameters()) {
 			String parameterKey = apiResquest.getOpenAPIPath() + apiResquest.getHttpMethod() + parameter.getName()
@@ -204,31 +205,31 @@ public class Discoverer {
 						schemaArray.setName(apiResquest.getSchemaName().substring(0, 1).toUpperCase()
 								+ apiResquest.getSchemaName().substring(1) + "List");
 						schemaMap.put(apiResquest.getSchemaName().substring(0, 1).toUpperCase()
-								+ apiResquest.getSchemaName().substring(1) + "List",schemaArray);
+								+ apiResquest.getSchemaName().substring(1) + "List", schemaArray);
 						if (schema == null) {
 							schema = factory.createSchema();
 							schema.setName(apiResquest.getSchemaName().substring(0, 1).toUpperCase()
 									+ apiResquest.getSchemaName().substring(1));
 							schema.setType(JsonDataType.OBJECT);
 							schemaMap.put(schema.getName(), schema);
-						
+
 							api.getDefinitions().add(schema);
-							discoverSchema(schemaArray.getName(), jsonSchemaInstance.getAsJsonArray().get(0).getAsString());
+							discoverSchema(schemaArray.getName(),
+									jsonSchemaInstance.getAsJsonArray().get(0).getAsString());
 							schemaMap.put(apiResquest.getSchemaName().substring(0, 1).toUpperCase()
-									+ apiResquest.getSchemaName().substring(1),schema);
-							
+									+ apiResquest.getSchemaName().substring(1), schema);
+
 						}
 						schemaArray.setItems(schema);
 						api.getPrimitiveDefinitions().add(schemaArray);
-						schemaMap.put(schemaArray.getName(), schema);	
+						schemaMap.put(schemaArray.getName(), schema);
 						apiParameter.setSchema(schemaArray);
 					} else {
 						apiParameter.setSchema(schemaArray);
 
 					}
-					
-				}
-				else {
+
+				} else {
 					Schema schema = schemaMap.get(apiResquest.getSchemaName().substring(0, 1).toUpperCase()
 							+ apiResquest.getSchemaName().substring(1));
 					if (schema == null) {
@@ -237,10 +238,10 @@ public class Discoverer {
 								+ apiResquest.getSchemaName().substring(1));
 						schema.setType(JsonDataType.OBJECT);
 						schemaMap.put(schema.getName(), schema);
-					
+
 						api.getDefinitions().add(schema);
 						discoverSchema(schema.getName(), body);
-						
+
 					}
 					apiParameter.setSchema(schema);
 				}
@@ -250,77 +251,94 @@ public class Discoverer {
 		}
 
 	}
+
 	private void discoverResponses(APIOperation operation, APIRequest apiResquest) throws URISyntaxException {
-		String responseKey = apiResquest.getOpenAPIPath() + apiResquest.getHttpMethod() + apiResquest.getResponse().getStatus()
-				+ ParameterLocation.BODY;
+		String responseKey = apiResquest.getOpenAPIPath() + apiResquest.getHttpMethod()
+				+ apiResquest.getResponse().getStatus() + ParameterLocation.BODY;
 		Response response = responsesMap.get(responseKey);
-		if(response == null){
-			response  = factory.createResponse();
+		if (response == null) {
+			response = factory.createResponse();
 			response.setCode(String.valueOf(apiResquest.getResponse().getStatus()));
 			response.setDescription(apiResquest.getResponse().getStatusText());
-			responsesMap.put(responseKey,response);
-		
-			if(apiResquest.getResponse().getBody()!=null){
-				JsonParser parser = new JsonParser();
-				JsonElement jsonSchemaInstance = parser.parse(apiResquest.getResponse().getBody());
-				if (jsonSchemaInstance.isJsonArray()) {
-					Schema schemaArray = schemaMap.get(apiResquest.getSchemaName().substring(0, 1).toUpperCase()
-							+ apiResquest.getSchemaName().substring(1) + "List");
-					Schema schema = schemaMap.get(apiResquest.getSchemaName().substring(0, 1).toUpperCase()
-							+ apiResquest.getSchemaName().substring(1));
-
-					if (schemaArray == null) {
-
-						schemaArray = factory.createSchema();
-						schemaArray.setType(JsonDataType.ARRAY);
-						schemaArray.setName(apiResquest.getSchemaName().substring(0, 1).toUpperCase()
+			responsesMap.put(responseKey, response);
+			if (apiResquest.getResponse().getStatus() == 200) {
+				if (apiResquest.getResponse().getBody() != null) {
+					JsonParser parser = new JsonParser();
+					JsonElement jsonSchemaInstance = parser.parse(apiResquest.getResponse().getBody());
+					if (jsonSchemaInstance.isJsonArray()) {
+						Schema schemaArray = schemaMap.get(apiResquest.getSchemaName().substring(0, 1).toUpperCase()
 								+ apiResquest.getSchemaName().substring(1) + "List");
-						schemaMap.put(apiResquest.getSchemaName().substring(0, 1).toUpperCase()
-								+ apiResquest.getSchemaName().substring(1) + "List",schemaArray);
+						Schema schema = schemaMap.get(apiResquest.getSchemaName().substring(0, 1).toUpperCase()
+								+ apiResquest.getSchemaName().substring(1));
+
+						if (schemaArray == null) {
+
+							schemaArray = factory.createSchema();
+							schemaArray.setType(JsonDataType.ARRAY);
+							schemaArray.setName(apiResquest.getSchemaName().substring(0, 1).toUpperCase()
+									+ apiResquest.getSchemaName().substring(1) + "List");
+							schemaMap.put(apiResquest.getSchemaName().substring(0, 1).toUpperCase()
+									+ apiResquest.getSchemaName().substring(1) + "List", schemaArray);
+							if (schema == null) {
+								schema = factory.createSchema();
+								schema.setName(apiResquest.getSchemaName().substring(0, 1).toUpperCase()
+										+ apiResquest.getSchemaName().substring(1));
+								schema.setType(JsonDataType.OBJECT);
+								schemaMap.put(schema.getName(), schema);
+
+								api.getDefinitions().add(schema);
+								discoverSchema(schema.getName(), jsonSchemaInstance.getAsJsonArray().get(0).toString());
+								schemaMap.put(apiResquest.getSchemaName().substring(0, 1).toUpperCase()
+										+ apiResquest.getSchemaName().substring(1), schema);
+
+							}
+							schemaArray.setItems(schema);
+							api.getPrimitiveDefinitions().add(schemaArray);
+							schemaMap.put(schemaArray.getName(), schemaArray);
+							response.setSchema(schemaArray);
+						} else {
+							response.setSchema(schemaArray);
+
+						}
+
+					} else {
+						Schema schema = schemaMap.get(apiResquest.getSchemaName().substring(0, 1).toUpperCase()
+								+ apiResquest.getSchemaName().substring(1));
 						if (schema == null) {
 							schema = factory.createSchema();
 							schema.setName(apiResquest.getSchemaName().substring(0, 1).toUpperCase()
 									+ apiResquest.getSchemaName().substring(1));
 							schema.setType(JsonDataType.OBJECT);
 							schemaMap.put(schema.getName(), schema);
-						
 							api.getDefinitions().add(schema);
-							discoverSchema(schema.getName(), jsonSchemaInstance.getAsJsonArray().get(0).toString());
-							schemaMap.put(apiResquest.getSchemaName().substring(0, 1).toUpperCase()
-									+ apiResquest.getSchemaName().substring(1),schema);
-							
-						}
-						schemaArray.setItems(schema);
-						api.getPrimitiveDefinitions().add(schemaArray);
-						schemaMap.put(schemaArray.getName(), schemaArray);	
-						response.setSchema(schemaArray);
-					} else {
-						response.setSchema(schemaArray);
+							discoverSchema(schema.getName(), apiResquest.getResponse().getBody());
 
+						}
+						response.setSchema(schema);
 					}
-					
+				} 
+			}
+			else {
+				Schema schema = schemaMap.get(apiResquest.getSchemaName().substring(0, 1).toUpperCase()
+						+ apiResquest.getSchemaName().substring(1)+"_"+apiResquest.getResponse().getStatus());
+				if (schema == null) {
+					schema = factory.createSchema();
+					schema.setName(apiResquest.getSchemaName().substring(0, 1).toUpperCase()
+							+ apiResquest.getSchemaName().substring(1)+"_"+apiResquest.getResponse().getStatus());
+					schema.setType(JsonDataType.OBJECT);
+					schemaMap.put(schema.getName(), schema);
+
+					api.getDefinitions().add(schema);
+					discoverSchema(schema.getName(), apiResquest.getResponse().getBody());
+
 				}
-				else {
-					Schema schema = schemaMap.get(apiResquest.getSchemaName().substring(0, 1).toUpperCase()
-							+ apiResquest.getSchemaName().substring(1));
-					if (schema == null) {
-						schema = factory.createSchema();
-						schema.setName(apiResquest.getSchemaName().substring(0, 1).toUpperCase()
-								+ apiResquest.getSchemaName().substring(1));
-						schema.setType(JsonDataType.OBJECT);
-						schemaMap.put(schema.getName(), schema);
-					
-						api.getDefinitions().add(schema);
-						discoverSchema(schema.getName(), apiResquest.getResponse().getBody());
-						
-					}
-					response.setSchema(schema);
-				}
-		}
+				response.setSchema(schema);
+			}
 		}
 		operation.getResponses().add(response);
-		
+
 	}
+
 	private void discoverSchema(String name, String value) {
 
 		JsonSource source = new JsonSource(name);
@@ -348,6 +366,7 @@ public class Discoverer {
 						schema.setName(eClass.getName());
 						schema.setType(JsonDataType.OBJECT);
 						api.getDefinitions().add(schema);
+						 schemaMap.put(eClass.getName(),schema);
 					}
 					map.put(eClass, schema);
 
@@ -421,37 +440,142 @@ public class Discoverer {
 			return JsonDataType.INTEGER;
 		return JsonDataType.STRING;
 	}
-public void generateAdvanced(){
-	
-}
-public List<Path> heuristic1(){
-	List<Path> result = new ArrayList<Path>();
-	for(Path path:api.getPaths()){
-		String pathName = path.getPattern();
-		String[] sections = pathName.split("/");
-		if(sections[sections.length-1].contains("{")){
-			String newPathName = pathName.substring(0, pathName.lastIndexOf("{")-1);
-			Path newPath = null;
-			for(Path temp :api.getPaths()){
-				if(temp.getPattern().equals(newPathName)){
-					newPath = temp;
+
+	public void generateAdvanced() {
+
+	}
+
+	public List<Path> heuristic1() {
+		List<Path> result = new ArrayList<Path>();
+		for (Path path : api.getPaths()) {
+			String pathName = path.getPattern();
+			String[] sections = pathName.split("/");
+			if (sections[sections.length - 1].contains("{")) {
+				String newPathName = pathName.substring(0, pathName.lastIndexOf("{") - 1);
+				Path newPath = null;
+				for (Path temp : api.getPaths()) {
+					if (temp.getPattern().equals(newPathName)) {
+						newPath = temp;
+					}
+				}
+				if (newPath == null) {
+					result.add(path);
+				}
+
+			}
+		}
+		return result;
+	}
+
+	public List<Path> heuristic2() {
+		List<Path> result = new ArrayList<Path>();
+		for (Path path : api.getPaths()) {
+			String pathName = path.getPattern();
+			String[] sections = pathName.split("/");
+			if (!sections[sections.length - 1].contains("{")) {
+				String resourceName = sections[sections.length - 1];
+				Schema resource = getSchemaFromPath(api, resourceName);
+				if (resource != null) {
+					String newPathName = path.getPattern() + "/{" + Character.toLowerCase(resource.getName().charAt(0))
+							+ resource.getName().substring(1) + "Id}";
+					Path newPath = null;
+					for (Path temp : api.getPaths()) {
+						if (temp.getPattern().equals(newPathName)) {
+							newPath = temp;
+						}
+					}
+					if (newPath == null) {
+						result.add(path);
+					}
+
 				}
 			}
-			if(newPath == null){
-				result.add(path);
-			}
-				
 		}
+		return result;
 	}
-	return result;
-}
-public void applyHeuristic1(){
-	List<Path> heuristic1 = heuristic1();
-	for(Path path:heuristic1 ){
-		String pathName = path.getPattern();
-			String newPathName = pathName.substring(0, pathName.lastIndexOf("{")-1);
+
+	public List<Path> heuristic3() {
+		List<Path> result = new ArrayList<>();
+		for (Path path : api.getPaths()) {
+			String pathName = path.getPattern();
+			String[] sections = pathName.split("/");
+			if (sections[sections.length - 1].contains("{")) {
+				String newPathName = pathName.substring(0, pathName.lastIndexOf("{") - 1);
+
+				String[] sectionsNew = newPathName.split("/");
+				String resourceName = sectionsNew[sectionsNew.length - 1];
+				Schema resource = getSchemaFromPath(api, resourceName);
+				if (resource != null && (path.getPost() != null || path.getPut() != null || path.getDelete() != null)
+						&& path.getGet() == null)
+					result.add(path);
+			}
+		}
+		return result;
+	}
+
+	public List<Path> heuristic4() {
+		List<Path> result = new ArrayList<>();
+		for (Path path : api.getPaths()) {
+			String pathName = path.getPattern();
+			String[] sections = pathName.split("/");
+			if (sections[sections.length - 1].contains("{")) {
+				String newPathName = pathName.substring(0, pathName.lastIndexOf("{") - 1);
+
+				String[] sectionsNew = newPathName.split("/");
+				String resourceName = sectionsNew[sectionsNew.length - 1];
+				Schema resource = getSchemaFromPath(api, resourceName);
+				if (resource != null && (path.getPost() != null || path.getPut() != null || path.getGet() != null)
+						&& path.getDelete() == null)
+					result.add(path);
+			}
+		}
+		return result;
+	}
+
+	public List<Entry<Path, Schema>> heuristic5() {
+		List<Map.Entry<Path, Schema>> result = new ArrayList<>();
+		for (Path path : api.getPaths()) {
+			String pathName = path.getPattern();
+			String[] sections = pathName.split("/");
+			if (!sections[sections.length - 1].contains("{")) {
+				String resourceName = sections[sections.length - 1];
+				Schema resource = getSchemaFromPath(api, resourceName);
+
+				if (resource != null) {
+					List<Schema> references = new ArrayList<>();
+					for (Schema property : resource.getProperties())
+						if (property.getRefResolved() != null) {
+							references.add(property.getRefResolved());
+						}
+					for (Schema reference : references) {
+						String newPathName = path.getPattern() + "/{"
+								+ Character.toLowerCase(resource.getName().charAt(0)) + resource.getName().substring(1)
+								+ "Id}" + "/" + +Character.toLowerCase(reference.getName().charAt(0))
+								+ reference.getName().substring(1);
+						Path newPath = null;
+						for (Path temp : api.getPaths()) {
+							if (temp.getPattern().equals(newPathName)) {
+								newPath = temp;
+							}
+						}
+						if (newPath == null) {
+							result.add(new AbstractMap.SimpleEntry<>(path, reference));
+						}
+
+					}
+				}
+			}
+		}
+		return result;
+	}
+
+	public void applyHeuristic1() {
+		List<Path> heuristic1 = heuristic1();
+		for (Path path : heuristic1) {
+			String pathName = path.getPattern();
+			String newPathName = pathName.substring(0, pathName.lastIndexOf("{") - 1);
 			String[] newSections = newPathName.split("/");
-			String resource = newSections[newSections.length-1];
+			String resource = newSections[newSections.length - 1];
 			Path newPath = factory.createPath();
 			newPath.setPattern(newPathName);
 			apiAdvenced.getPaths().add(newPath);
@@ -459,47 +583,189 @@ public void applyHeuristic1(){
 			newPath.setPost(postOperation);
 			APIOperation putOperation = factory.createAPIOperation();
 			newPath.setPut(putOperation);
-			
+
 			APIParameter postParameter = factory.createAPIParameter();
 			postParameter.setName("body");
 			postParameter.setIn(ParameterLocation.BODY);
-			postParameter.setSchema(getSchemaFromPath(apiAdvenced,resource));
+			postParameter.setSchema(getSchemaFromPath(apiAdvenced, resource));
 			postOperation.getParameters().add(postParameter);
-			
+
 			APIParameter putParameter = factory.createAPIParameter();
 			putParameter.setName("body");
 			putParameter.setIn(ParameterLocation.BODY);
-			putParameter.setSchema(getSchemaFromPath(apiAdvenced,resource));
+			putParameter.setSchema(getSchemaFromPath(apiAdvenced, resource));
 			putOperation.getParameters().add(putParameter);
-			
+
 			Response postResponse = factory.createResponse();
 			postResponse.setCode("200");
 			postResponse.setDescription("OK");
-			postResponse.setSchema(getSchemaFromPath(apiAdvenced,resource));
+			postResponse.setSchema(getSchemaFromPath(apiAdvenced, resource));
 			postOperation.getResponses().add(postResponse);
-			
+
 			Response putResponse = factory.createResponse();
 			putResponse.setCode("200");
 			putResponse.setDescription("OK");
-			putResponse.setSchema(getSchemaFromPath(apiAdvenced,resource));
+			putResponse.setSchema(getSchemaFromPath(apiAdvenced, resource));
 			putOperation.getResponses().add(putResponse);
-			
-			
-			
-			
+
+		}
 	}
-}
-public void applyAdvancedHeurisitics(){
-	apiAdvenced = EcoreUtil.copy(api);
-	applyHeuristic1();
-}
+
+	public void applyHeuristic2() {
+		for (Path path : heuristic2()) {
+			String[] sections = path.getPattern().split("/");
+			String resourceName = sections[sections.length - 1];
+			Schema resource = getSchemaFromPath(api, resourceName);
+			String newPathName = path.getPattern() + "/{" + Character.toLowerCase(resource.getName().charAt(0))
+					+ resource.getName().substring(1) + "Id}";
+
+			Path newPath = factory.createPath();
+			apiAdvenced.getPaths().add(newPath);
+			newPath.setPattern(newPathName);
+			APIOperation getOperation = factory.createAPIOperation();
+			newPath.setGet(getOperation);
+			APIOperation deleteOperation = factory.createAPIOperation();
+			newPath.setDelete(deleteOperation);
+
+			APIParameter getParameter = factory.createAPIParameter();
+			getParameter.setName(
+					Character.toLowerCase(resource.getName().charAt(0)) + resource.getName().substring(1) + "Id");
+			getParameter.setIn(ParameterLocation.PATH);
+			getParameter.setType(getIdTypeFromSchema(resource));
+			getOperation.getParameters().add(getParameter);
+
+			Response getResponse = factory.createResponse();
+			getResponse.setCode("200");
+			getResponse.setDescription("OK");
+			getResponse.setSchema(resource);
+			getOperation.getResponses().add(getResponse);
+
+			APIParameter deleteParameter = factory.createAPIParameter();
+			deleteParameter.setName(
+					Character.toLowerCase(resource.getName().charAt(0)) + resource.getName().substring(1) + "Id");
+			deleteParameter.setIn(ParameterLocation.PATH);
+			deleteParameter.setType(getIdTypeFromSchema(resource));
+			deleteOperation.getParameters().add(deleteParameter);
+
+			Response deleteResponse = factory.createResponse();
+			deleteResponse.setCode("200");
+			deleteResponse.setDescription("OK");
+			deleteOperation.getResponses().add(deleteResponse);
+
+		}
+	}
+
+	public void applyHeuristic3() {
+		for (Path path : heuristic3()) {
+			String pathName = path.getPattern();
+			String newPathName = pathName.substring(0, pathName.lastIndexOf("{") - 1);
+			String[] newSections = newPathName.split("/");
+			String resource = newSections[newSections.length - 1];
+			for (Path advancedPath : apiAdvenced.getPaths()) {
+				if (advancedPath.getPattern().equals(path.getPattern())) {
+					APIOperation getOperation = factory.createAPIOperation();
+					advancedPath.setGet(getOperation);
+					APIParameter pathParameter = null;
+					if (advancedPath.getDelete() != null) {
+						for (APIParameter param : advancedPath.getDelete().getParameters()) {
+							if (param.getIn().equals(ParameterLocation.PATH))
+								pathParameter = param;
+						}
+					}
+					APIParameter newParameter = EcoreUtil.copy(pathParameter);
+					getOperation.getParameters().add(newParameter);
+					Response response = factory.createResponse();
+					response.setCode("200");
+					response.setDescription("OK");
+					response.setSchema(getSchemaFromPath(apiAdvenced, resource));
+					getOperation.getResponses().add(response);
+				}
+			}
+		}
+	}
+
+	public void applyHeuristic4() {
+		for (Path path : heuristic4()) {
+			String pathName = path.getPattern();
+			String newPathName = pathName.substring(0, pathName.lastIndexOf("{") - 1);
+			String[] newSections = newPathName.split("/");
+			for (Path advancedPath : apiAdvenced.getPaths()) {
+				if (advancedPath.getPattern().equals(path.getPattern())) {
+					APIOperation deleteOperation = factory.createAPIOperation();
+					advancedPath.setDelete(deleteOperation);
+					APIParameter pathParameter = null;
+					if (advancedPath.getGet() != null) {
+						for (APIParameter param : advancedPath.getGet().getParameters()) {
+							if (param.getIn().equals(ParameterLocation.PATH))
+								pathParameter = param;
+						}
+					}
+					APIParameter newParameter = EcoreUtil.copy(pathParameter);
+					deleteOperation.getParameters().add(newParameter);
+					Response response = factory.createResponse();
+					response.setCode("200");
+					response.setDescription("OK");
+				}
+			}
+		}
+	}
+
+	public void applyHeuristic5() {
+		for (Map.Entry<Path, Schema> pair : heuristic5()) {
+			String[] sections = pair.getKey().getPattern().split("/");
+			String resourceName = sections[sections.length - 1];
+			Schema resource = getSchemaFromPath(api, resourceName);
+
+			String newPathName = pair.getKey().getPattern() + "/{" + Character.toLowerCase(resource.getName().charAt(0))
+					+ resource.getName().substring(1) + "Id}" + "/"
+					+ +Character.toLowerCase(pair.getValue().getName().charAt(0))
+					+ pair.getValue().getName().substring(1);
+
+			Path newPath = factory.createPath();
+			apiAdvenced.getPaths().add(newPath);
+			newPath.setPattern(newPathName);
+			APIOperation getOperation = factory.createAPIOperation();
+			newPath.setGet(getOperation);
+
+			APIParameter getParameter = factory.createAPIParameter();
+			getParameter.setName(
+					Character.toLowerCase(resource.getName().charAt(0)) + resource.getName().substring(1) + "Id");
+			getParameter.setIn(ParameterLocation.PATH);
+			getParameter.setType(getIdTypeFromSchema(resource));
+			getOperation.getParameters().add(getParameter);
+
+			Response getResponse = factory.createResponse();
+			getResponse.setCode("200");
+			getResponse.setDescription("OK");
+			getResponse.setSchema(pair.getValue());
+			getOperation.getResponses().add(getResponse);
+
+		}
+	}
+
+	public JsonDataType getIdTypeFromSchema(Schema schema) {
+		for (Schema property : schema.getProperties())
+			if (property.getName().equals("id"))
+				return property.getType();
+		return JsonDataType.STRING;
+	}
+
+	public void applyAdvancedHeurisitics() {
+		apiAdvenced = EcoreUtil.copy(api);
+		applyHeuristic1();
+		applyHeuristic2();
+		applyHeuristic3();
+		applyHeuristic4();
+		applyHeuristic5();
+	}
+
 	private Schema getSchemaFromPath(Api api, String resource) {
-	for(Schema schema :api.getDefinitions()){
-		if(schema.getName().equalsIgnoreCase(resource))
-			return schema;
+		for (Schema schema : api.getDefinitions()) {
+			if (schema.getName().equalsIgnoreCase(resource))
+				return schema;
+		}
+		return null;
 	}
-	return null;
-}
 
 	public Api getApi() {
 		return api;

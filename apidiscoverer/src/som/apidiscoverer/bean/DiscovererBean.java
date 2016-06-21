@@ -28,6 +28,7 @@ import core.Schema;
 import som.apidiscoverer.Discoverer;
 import som.apidiscoverer.Generator;
 import som.apidiscoverer.model.APIRequest;
+import som.apidiscoverer.model.HttpMethod;
 import som.apidiscoverer.model.Response;
 import som.apidiscoverer.model.TreeNodeEntry;
 import som.apidiscoverer.util.RESTClient;
@@ -48,14 +49,19 @@ public class DiscovererBean implements Serializable {
 	@PostConstruct
 	public void init() {
 		newAPIRequest = new APIRequest();
-//		try {
-//			newAPIRequest.setUrl("http://petstore.swagger.io/v2/pet");
-//		} catch (MalformedURLException e) {
+		APIRequest temp = new APIRequest();
+		try {
+			temp.setUrl("http://petstore.swagger.io/v2/pet");
+		} catch (MalformedURLException e) {
+		}
+		temp.setHttpMethod(HttpMethod.POST);
+		temp.setBody("{\"id\": 123,\"category\": {\"id\": 1,\"name\": \"dogs\"},\"name\": \"doggie\",\"photoUrls\": [\"http://example.com\"],\"tags\": [{\"id\": 1,\"name\": \"black\"}],\"status\": \"available\"}");
+		try {
+			RESTClient.send(temp);
+		} catch (UnirestException e) {
 			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		newAPIRequest.setHttpMethod(HttpMethod.POST);
-//		newAPIRequest.setBody("{\"id\": 123,\"category\": {\"id\": 1,\"name\": \"dogs\"},\"name\": \"doggie\",\"photoUrls\": [\"http://example.com\"],\"tags\": [{\"id\": 1,\"name\": \"black\"}],\"status\": \"available\"}");
+			e.printStackTrace();
+		}
 		response = new Response();
 		discoverer = new Discoverer();
 		setRecords(new ArrayList<>());
@@ -235,7 +241,6 @@ if(response.getSchema()!=null){
 	}
 
 	public void prepDownload() throws Exception {
-		discoverer.merge();
 		File temp = File.createTempFile("swagger", ".json");
 		FileWriter fileWritter = new FileWriter(temp.getPath(), true);
 		BufferedWriter bufferWritter = new BufferedWriter(fileWritter);
@@ -247,7 +252,6 @@ if(response.getSchema()!=null){
 		setDownload(new DefaultStreamedContent(input, externalContext.getMimeType(temp.getName()), temp.getName()));
 	}
 	public void prepDownloadAdvanced() throws Exception {
-		discoverer.merge();
 		discoverer.applyAdvancedHeurisitics();
 		File temp = File.createTempFile("swagger", ".json");
 		FileWriter fileWritter = new FileWriter(temp.getPath(), true);
@@ -258,14 +262,6 @@ if(response.getSchema()!=null){
 		ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
 		setDownloadAdvanced(new DefaultStreamedContent(input, externalContext.getMimeType(temp.getName()), temp.getName()));
 	}
-//	public void downloadEcore() throws Exception {
-//		File temp = File.createTempFile("schema", ".ecore");
-//		ModelHelper.saveEPackage(discoverer.getSchema(), temp);
-//
-//		InputStream input = new FileInputStream(temp);
-//		ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
-//		setEcore(new DefaultStreamedContent(input, externalContext.getMimeType(temp.getName()), temp.getName()));
-//	}
 
 	public void sendRequest() throws MalformedURLException, URISyntaxException {
 		try {
