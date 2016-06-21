@@ -57,7 +57,7 @@ public interface Response extends EObject {
 	 * Returns the value of the '<em><b>Schema</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Schema</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Schema</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
@@ -84,7 +84,7 @@ public interface Response extends EObject {
 	 * The list contents are of type {@link core.Header}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Headers</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Headers</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->

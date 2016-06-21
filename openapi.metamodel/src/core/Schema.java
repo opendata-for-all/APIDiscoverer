@@ -521,7 +521,7 @@ public interface Schema extends EObject {
 	 * The list contents are of type {@link core.Schema}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Properties</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Properties</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
@@ -672,7 +672,7 @@ public interface Schema extends EObject {
 	 * Returns the value of the '<em><b>Items</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Items</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Items</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
