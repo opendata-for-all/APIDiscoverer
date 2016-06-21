@@ -177,7 +177,15 @@ public class Generator {
 					if(response.getSchema().getType().equals(JsonDataType.OBJECT))
 						responseJson.addProperty("schema", "#/definitions/"+response.getSchema().getName());
 					else {
-						//TODO array and primitive
+						if(response.getSchema().getType().equals(JsonDataType.ARRAY)){
+							JsonObject schemaArray = new JsonObject();
+							responseJson.add("schema", schemaArray);
+							schemaArray.addProperty("type", JsonDataType.ARRAY.getLiteral());
+							JsonObject items = new JsonObject();
+							if(response.getSchema().getItems().getType().equals(JsonDataType.OBJECT))
+								items.addProperty("$ref", "#/definitions/"+response.getSchema().getItems().getName());
+							
+						}
 					}
 						
 				}

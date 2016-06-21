@@ -30,3 +30,8 @@
 .ui-slidemenu-wrapper{
 	height: 60px !important;
 }
+.ui-treetable td {
+    text-align: left !important;
+
+  
+}

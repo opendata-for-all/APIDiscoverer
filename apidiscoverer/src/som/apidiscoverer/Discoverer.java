@@ -2,6 +2,7 @@ package som.apidiscoverer;
 
 import java.io.StringReader;
 import java.net.MalformedURLException;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -54,13 +55,13 @@ public class Discoverer {
 		api = factory.createApi();
 	}
 
-	public void discover(APIRequest apiResquest) throws MalformedURLException {
+	public void discover(APIRequest apiResquest) throws MalformedURLException, URISyntaxException {
 		discoverBasicInfo(apiResquest);
 
 		// discoverSchema(apiResquest);
 	}
 
-	private void discoverBasicInfo(APIRequest apiResquest) {
+	private void discoverBasicInfo(APIRequest apiResquest) throws URISyntaxException {
 		if (api.getHost() == null)
 			api.setHost(apiResquest.getHost());
 		if (api.getSwagger() == null)
@@ -77,7 +78,7 @@ public class Discoverer {
 		discoverPaths(apiResquest);
 	}
 
-	private void discoverPaths(APIRequest apiResquest) {
+	private void discoverPaths(APIRequest apiResquest) throws URISyntaxException {
 		Path path = pathsMap.get(apiResquest.getOpenAPIPath());
 		if (path == null) {
 			path = factory.createPath();
@@ -89,7 +90,7 @@ public class Discoverer {
 
 	}
 
-	private void discoverOperations(Path path, APIRequest apiResquest) {
+	private void discoverOperations(Path path, APIRequest apiResquest) throws URISyntaxException {
 		switch (apiResquest.getHttpMethod()) {
 		case GET:
 			APIOperation getOperation = path.getGet();
@@ -145,7 +146,7 @@ public class Discoverer {
 
 	
 
-	private void discoverPrameters(APIOperation apiOperation, APIRequest apiResquest) {
+	private void discoverPrameters(APIOperation apiOperation, APIRequest apiResquest) throws URISyntaxException {
 		for (Parameter parameter : apiResquest.getQueryParameters()) {
 			String parameterKey = apiResquest.getOpenAPIPath() + apiResquest.getHttpMethod() + parameter.getName()
 					+ ParameterLocation.QUERY;
@@ -247,7 +248,7 @@ public class Discoverer {
 		}
 
 	}
-	private void discoverResponses(APIOperation operation, APIRequest apiResquest) {
+	private void discoverResponses(APIOperation operation, APIRequest apiResquest) throws URISyntaxException {
 		String responseKey = apiResquest.getOpenAPIPath() + apiResquest.getHttpMethod() + apiResquest.getResponse().getStatus()
 				+ ParameterLocation.BODY;
 		Response response = responsesMap.get(responseKey);
@@ -282,14 +283,14 @@ public class Discoverer {
 							schemaMap.put(schema.getName(), schema);
 						
 							api.getDefinitions().add(schema);
-							discoverSchema(schemaArray.getName(), jsonSchemaInstance.getAsJsonArray().get(0).getAsString());
+							discoverSchema(schema.getName(), jsonSchemaInstance.getAsJsonArray().get(0).toString());
 							schemaMap.put(apiResquest.getSchemaName().substring(0, 1).toUpperCase()
 									+ apiResquest.getSchemaName().substring(1),schema);
 							
 						}
 						schemaArray.setItems(schema);
 						api.getPrimitiveDefinitions().add(schemaArray);
-						schemaMap.put(schemaArray.getName(), schema);	
+						schemaMap.put(schemaArray.getName(), schemaArray);	
 						response.setSchema(schemaArray);
 					} else {
 						response.setSchema(schemaArray);

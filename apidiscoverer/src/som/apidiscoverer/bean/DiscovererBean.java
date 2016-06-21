@@ -3,49 +3,33 @@ package som.apidiscoverer.bean;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.FileWriter;
-import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
 import java.io.Serializable;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipOutputStream;
-
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
-import javax.servlet.ServletOutputStream;
-import javax.servlet.http.HttpServletResponse;
-
 import org.primefaces.model.DefaultStreamedContent;
 import org.primefaces.model.DefaultTreeNode;
 import org.primefaces.model.TreeNode;
 
 import com.mashape.unirest.http.exceptions.UnirestException;
-import com.sun.xml.internal.bind.v2.schemagen.xmlschema.Appinfo;
-
-import core.APIOperation;
 import core.APIParameter;
 import core.Api;
+import core.JsonDataType;
 import core.Path;
 import core.Schema;
-import jsondiscoverer.util.ModelHelper;
 import som.apidiscoverer.Discoverer;
 import som.apidiscoverer.Generator;
 import som.apidiscoverer.model.APIRequest;
-import som.apidiscoverer.model.HttpMethod;
 import som.apidiscoverer.model.Response;
 import som.apidiscoverer.model.TreeNodeEntry;
-import som.apidiscoverer.util.GenerationrUtils;
 import som.apidiscoverer.util.RESTClient;
 
 @ManagedBean(name = "discovererBean")
@@ -110,6 +94,11 @@ public class DiscovererBean implements Serializable {
 				for (core.Response response : path.getGet().getResponses()) {
 					TreeNode responseNode = new DefaultTreeNode(new TreeNodeEntry(response.getCode(), "-"),
 							responsesNode);
+					if(response.getSchema()!=null){
+						TreeNode schemaNode = new DefaultTreeNode(new TreeNodeEntry("schema", response.getSchema().getName()),
+								responseNode);
+						dispalaySchema(response.getSchema(), schemaNode);
+					}
 
 				}
 			}
@@ -124,6 +113,12 @@ public class DiscovererBean implements Serializable {
 				for (core.Response response : path.getPost().getResponses()) {
 					TreeNode responseNode = new DefaultTreeNode(new TreeNodeEntry(response.getCode(), "-"),
 							responsesNode);
+//					displayResponse(response,responseNode);
+					if(response.getSchema()!=null){
+						TreeNode schemaNode = new DefaultTreeNode(new TreeNodeEntry("schema", response.getSchema().getName()),
+								responseNode);
+						dispalaySchema(response.getSchema(), schemaNode);
+					}
 
 				}
 
@@ -139,6 +134,11 @@ public class DiscovererBean implements Serializable {
 				for (core.Response response : path.getPut().getResponses()) {
 					TreeNode responseNode = new DefaultTreeNode(new TreeNodeEntry(response.getCode(), "-"),
 							responsesNode);
+					if(response.getSchema()!=null){
+						TreeNode schemaNode = new DefaultTreeNode(new TreeNodeEntry("schema", response.getSchema().getName()),
+								responseNode);
+						dispalaySchema(response.getSchema(), schemaNode);
+					}
 
 				}
 
@@ -155,6 +155,12 @@ public class DiscovererBean implements Serializable {
 				for (core.Response response : path.getDelete().getResponses()) {
 					TreeNode responseNode = new DefaultTreeNode(new TreeNodeEntry(response.getCode(), "-"),
 							responsesNode);
+					if(response.getSchema()!=null){
+						TreeNode schemaNode = new DefaultTreeNode(new TreeNodeEntry("schema", response.getSchema().getName()),
+								responseNode);
+						dispalaySchema(response.getSchema(), schemaNode);
+					}
+						
 
 				}
 
@@ -165,9 +171,67 @@ public class DiscovererBean implements Serializable {
 		TreeNode definitionsNode = new DefaultTreeNode(new TreeNodeEntry("definitions", "-"), apiNode);
 		for (Schema schema : api.getDefinitions()) {
 			TreeNode schemaNode = new DefaultTreeNode(new TreeNodeEntry(schema.getName(), "-"), definitionsNode);
+		dispalaySchema(schema,schemaNode);
 		}
 		return apiNode;
 
+	}
+
+	private void dispalaySchema(Schema schema, TreeNode schemaNode) {
+		if(schema.getProperties()!=null){
+		TreeNode propertiesNode = new DefaultTreeNode(new TreeNodeEntry("properties", "-"), schemaNode);
+		
+		for(Schema property :schema.getProperties()){
+		diplayProperty(property,propertiesNode);
+		
+		}}
+		if(schema.getItems() != null){
+			TreeNode itemsNode = new DefaultTreeNode(new TreeNodeEntry("items", "-"), schemaNode);
+			if(schema.getItems().getType().equals(JsonDataType.OBJECT)){
+					TreeNode itemNode = new DefaultTreeNode(new TreeNodeEntry(schema.getItems().getName(), "-"), itemsNode);
+			}
+			else {
+				TreeNode itemNode = new DefaultTreeNode(new TreeNodeEntry(schema.getItems().getType().getLiteral(), "-"), itemsNode);
+				
+			}
+			
+		}
+	}
+
+	private void diplayProperty(Schema property, TreeNode propertiesNode) {
+		if(property.getType().equals(JsonDataType.OBJECT))
+		{
+			TreeNode propertyNode = new DefaultTreeNode(new TreeNodeEntry(property.getName(), property.getRefResolved().getName()), propertiesNode);
+			
+		}else {
+			if(property.getType().equals(JsonDataType.ARRAY)){
+				TreeNode arrayNode = new DefaultTreeNode(new TreeNodeEntry(property.getName(), JsonDataType.ARRAY.getLiteral()), propertiesNode);
+				TreeNode itemsNode = new DefaultTreeNode(new TreeNodeEntry("items", "-"), arrayNode);
+				if(property.getItems().getType().equals(JsonDataType.OBJECT)){
+						TreeNode itemNode = new DefaultTreeNode(new TreeNodeEntry(property.getItems().getName(), "-"), itemsNode);
+				}
+				else {
+					TreeNode itemNode = new DefaultTreeNode(new TreeNodeEntry(property.getItems().getType().getLiteral(), "-"), itemsNode);
+					
+				}
+				
+				
+				
+			}
+			else {
+				TreeNode propertyNode = new DefaultTreeNode(new TreeNodeEntry(property.getName(), property.getType().getLiteral()), propertiesNode);
+				
+			}
+		}
+		
+	}
+
+	private void displayResponse(core.Response response, TreeNode responseNode) {
+if(response.getSchema()!=null){
+	TreeNode schemaNode= new DefaultTreeNode(new TreeNodeEntry("schema",response.getSchema().getName()), responseNode);
+	
+	dispalaySchema(response.getSchema(), schemaNode);
+}
 	}
 
 	public void prepDownload() throws Exception {
@@ -192,7 +256,7 @@ public class DiscovererBean implements Serializable {
 //		setEcore(new DefaultStreamedContent(input, externalContext.getMimeType(temp.getName()), temp.getName()));
 //	}
 
-	public void sendRequest() throws MalformedURLException {
+	public void sendRequest() throws MalformedURLException, URISyntaxException {
 		try {
 			newAPIRequest.decode();
 			response = RESTClient.send(newAPIRequest);

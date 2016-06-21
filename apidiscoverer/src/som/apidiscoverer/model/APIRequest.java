@@ -1,10 +1,13 @@
 package som.apidiscoverer.model;
 
 import java.net.MalformedURLException;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
+
+import som.apidiscoverer.util.WordsUtils;
 
 public class APIRequest {
 
@@ -72,9 +75,9 @@ public class APIRequest {
 		}
 		
 	}
-	public String getSchemaName() {
+	public String getSchemaName() throws URISyntaxException {
 			for (int i = paths.size() -1; i >= 0 ; i--){
-			if(!isPathParameter(paths.get(i))){
+			if(WordsUtils.hasAMeaning(paths.get(i))){
 				return paths.get(i);
 			}
 			}
@@ -220,6 +223,8 @@ public class APIRequest {
 		
 
 	}
+
+
 
 	public List<Parameter> getQueryParameters() {
 		return queryParameters;
