@@ -64,7 +64,7 @@ public class DiscovererBean implements Serializable {
 		}
 		response = new Response();
 		discoverer = new Discoverer();
-		setRecords(new ArrayList<>());
+		setRecords(new ArrayList<APIRequest>());
 	}
 
 	public void setDownload(DefaultStreamedContent download) {

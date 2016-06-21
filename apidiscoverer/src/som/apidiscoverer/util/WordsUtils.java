@@ -36,7 +36,7 @@ public class WordsUtils {
 		
 		}
 		try {
-			Long.parseUnsignedLong(arg);
+			Long.parseLong(arg);
 			return true;
 		} catch (NumberFormatException ee) {
 

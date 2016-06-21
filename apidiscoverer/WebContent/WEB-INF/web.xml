@@ -8,7 +8,8 @@
       <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
       <load-on-startup>1</load-on-startup>
     </servlet>
-    
+    <welcome-file-list>
+    <welcome-file>app/discover.xhtml</welcome-file></welcome-file-list>
     <context-param>  
     <param-name>primefaces.THEME</param-name>  
     <param-value>bootstrap</param-value>  
