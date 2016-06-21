@@ -42,7 +42,7 @@ public class DiscovererBean implements Serializable {
 	private Response response;
 	private Discoverer discoverer;
 	private DefaultStreamedContent download;
-	private DefaultStreamedContent ecore;
+	private DefaultStreamedContent downloadAdvanced;
 	private TreeNode apiTree;
 
 	@PostConstruct
@@ -246,7 +246,18 @@ if(response.getSchema()!=null){
 		ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
 		setDownload(new DefaultStreamedContent(input, externalContext.getMimeType(temp.getName()), temp.getName()));
 	}
-
+	public void prepDownloadAdvanced() throws Exception {
+		discoverer.merge();
+		discoverer.applyAdvancedHeurisitics();
+		File temp = File.createTempFile("swagger", ".json");
+		FileWriter fileWritter = new FileWriter(temp.getPath(), true);
+		BufferedWriter bufferWritter = new BufferedWriter(fileWritter);
+		bufferWritter.write(Generator.getJsonFromSwaggerModel(discoverer.getApiAdvenced()).toString());
+		bufferWritter.close();
+		InputStream input = new FileInputStream(temp);
+		ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+		setDownloadAdvanced(new DefaultStreamedContent(input, externalContext.getMimeType(temp.getName()), temp.getName()));
+	}
 //	public void downloadEcore() throws Exception {
 //		File temp = File.createTempFile("schema", ".ecore");
 //		ModelHelper.saveEPackage(discoverer.getSchema(), temp);
@@ -303,13 +314,7 @@ if(response.getSchema()!=null){
 		this.response = response;
 	}
 
-	public DefaultStreamedContent getEcore() {
-		return ecore;
-	}
 
-	public void setEcore(DefaultStreamedContent ecore) {
-		this.ecore = ecore;
-	}
 
 	public TreeNode getApiTree() {
 		return apiTree;
@@ -317,6 +322,14 @@ if(response.getSchema()!=null){
 
 	public void setApiTree(TreeNode apiTree) {
 		this.apiTree = apiTree;
+	}
+
+	public DefaultStreamedContent getDownloadAdvanced() {
+		return downloadAdvanced;
+	}
+
+	public void setDownloadAdvanced(DefaultStreamedContent downloadAdvanced) {
+		this.downloadAdvanced = downloadAdvanced;
 	}
 
 }

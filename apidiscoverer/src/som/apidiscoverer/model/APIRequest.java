@@ -65,7 +65,7 @@ public class APIRequest {
 	private void discoverOpenAPIPath() {
 	openAPIPath = "";
 		for (int i = 1; i < paths.size(); i++){
-		if(!isPathParameter(paths.get(i))){
+		if(!WordsUtils.isPathParameter(paths.get(i))){
 			openAPIPath += "/";
 			openAPIPath += paths.get(i);
 		}
@@ -183,7 +183,7 @@ public class APIRequest {
 
 	public void discoverPathParameters() {
 		for (String temp: paths) {
-			if(isPathParameter(temp)){
+			if(WordsUtils.isPathParameter(temp)){
 				Parameter parameter = new Parameter();
 				parameter.setName(getPathParameterName(temp));
 				parameter.setValue(temp);
@@ -197,22 +197,7 @@ public class APIRequest {
 		return getPathParameterParent(temp)+"Id";
 	}
 
-	private boolean isPathParameter(String arg) {
-		try {
-			Integer.parseInt(arg);
-			return true;
-		} catch (NumberFormatException e) {
-		
-		}
-		try {
-			Long.parseUnsignedLong(arg);
-			return true;
-		} catch (NumberFormatException ee) {
-
-		}
 	
-		return false;
-	}
 	public String getPathParameterParent(String pathParameter) {
 		int index = paths.indexOf(pathParameter);
 		if(index > 0){

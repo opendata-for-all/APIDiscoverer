@@ -39,7 +39,7 @@ body {
              />
 </p:dialog>
 		<p:layout fullPage="true" styleClass="ui-fluid">
-			<p:layoutUnit id="top" position="north" size="75">
+			<p:layoutUnit id="top" position="north" size="90">
 
 				<h:graphicImage library="image" name="apidiscoverer.png"
 					styleClass="logo" alt="APIDiscoverer" />
@@ -52,7 +52,7 @@ body {
                         onexception="PF('exceptionDialog').show();" />
 					
 
-					<p:slideMenu style="width:180px;float:right;hight:75px;">
+					<p:slideMenu style="width:180px;float:right;hight:95px;">
 						<p:menuitem value="Start over" icon="ui-icon-refresh"
 							onclick="location.reload();" />
 						<p:submenu label="Download" icon="ui-icon-disk">
@@ -60,6 +60,11 @@ body {
 								actionListener="#{discovererBean.prepDownload}"
 								icon="ui-icon-disk">
 								<p:fileDownload value="#{discovererBean.download}" />
+							</p:menuitem>
+							<p:menuitem value="advanced" ajax="false" style="float:right"
+								actionListener="#{discovererBean.prepDownloadAdvanced}"
+								icon="ui-icon-disk">
+								<p:fileDownload value="#{discovererBean.downloadAdvanced}" />
 							</p:menuitem>
 						</p:submenu>
 

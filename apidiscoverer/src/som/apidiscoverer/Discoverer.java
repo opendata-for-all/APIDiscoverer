@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
@@ -40,6 +41,7 @@ import som.apidiscoverer.model.Parameter;
 public class Discoverer {
 	CoreFactory factory;
 	private Api api;
+	private Api apiAdvenced;
 	private List<EPackage> dataModelList = new ArrayList<EPackage>();
 	private Map<String, Path> pathsMap = new HashMap<String, Path>();
 	private Map<String, APIParameter> parametersMap = new HashMap<String, APIParameter>();
@@ -419,6 +421,85 @@ public class Discoverer {
 			return JsonDataType.INTEGER;
 		return JsonDataType.STRING;
 	}
+public void generateAdvanced(){
+	
+}
+public List<Path> heuristic1(){
+	List<Path> result = new ArrayList<Path>();
+	for(Path path:api.getPaths()){
+		String pathName = path.getPattern();
+		String[] sections = pathName.split("/");
+		if(sections[sections.length-1].contains("{")){
+			String newPathName = pathName.substring(0, pathName.lastIndexOf("{")-1);
+			Path newPath = null;
+			for(Path temp :api.getPaths()){
+				if(temp.getPattern().equals(newPathName)){
+					newPath = temp;
+				}
+			}
+			if(newPath == null){
+				result.add(path);
+			}
+				
+		}
+	}
+	return result;
+}
+public void applyHeuristic1(){
+	List<Path> heuristic1 = heuristic1();
+	for(Path path:heuristic1 ){
+		String pathName = path.getPattern();
+			String newPathName = pathName.substring(0, pathName.lastIndexOf("{")-1);
+			String[] newSections = newPathName.split("/");
+			String resource = newSections[newSections.length-1];
+			Path newPath = factory.createPath();
+			newPath.setPattern(newPathName);
+			apiAdvenced.getPaths().add(newPath);
+			APIOperation postOperation = factory.createAPIOperation();
+			newPath.setPost(postOperation);
+			APIOperation putOperation = factory.createAPIOperation();
+			newPath.setPut(putOperation);
+			
+			APIParameter postParameter = factory.createAPIParameter();
+			postParameter.setName("body");
+			postParameter.setIn(ParameterLocation.BODY);
+			postParameter.setSchema(getSchemaFromPath(apiAdvenced,resource));
+			postOperation.getParameters().add(postParameter);
+			
+			APIParameter putParameter = factory.createAPIParameter();
+			putParameter.setName("body");
+			putParameter.setIn(ParameterLocation.BODY);
+			putParameter.setSchema(getSchemaFromPath(apiAdvenced,resource));
+			putOperation.getParameters().add(putParameter);
+			
+			Response postResponse = factory.createResponse();
+			postResponse.setCode("200");
+			postResponse.setDescription("OK");
+			postResponse.setSchema(getSchemaFromPath(apiAdvenced,resource));
+			postOperation.getResponses().add(postResponse);
+			
+			Response putResponse = factory.createResponse();
+			putResponse.setCode("200");
+			putResponse.setDescription("OK");
+			putResponse.setSchema(getSchemaFromPath(apiAdvenced,resource));
+			putOperation.getResponses().add(putResponse);
+			
+			
+			
+			
+	}
+}
+public void applyAdvancedHeurisitics(){
+	apiAdvenced = EcoreUtil.copy(api);
+	applyHeuristic1();
+}
+	private Schema getSchemaFromPath(Api api, String resource) {
+	for(Schema schema :api.getDefinitions()){
+		if(schema.getName().equalsIgnoreCase(resource))
+			return schema;
+	}
+	return null;
+}
 
 	public Api getApi() {
 		return api;
@@ -426,6 +507,14 @@ public class Discoverer {
 
 	public void setApi(Api api) {
 		this.api = api;
+	}
+
+	public Api getApiAdvenced() {
+		return apiAdvenced;
+	}
+
+	public void setApiAdvenced(Api apiAdvenced) {
+		this.apiAdvenced = apiAdvenced;
 	}
 
 }
