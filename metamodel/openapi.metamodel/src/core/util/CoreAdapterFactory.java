@@ -68,8 +68,16 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 	protected CoreSwitch<Adapter> modelSwitch =
 		new CoreSwitch<Adapter>() {
 			@Override
-			public Adapter caseApi(Api object) {
-				return createApiAdapter();
+			public Adapter caseJSONSchemaSubset(JSONSchemaSubset object) {
+				return createJSONSchemaSubsetAdapter();
+			}
+			@Override
+			public Adapter caseRoot(Root object) {
+				return createRootAdapter();
+			}
+			@Override
+			public Adapter caseAPI(API object) {
+				return createAPIAdapter();
 			}
 			@Override
 			public Adapter caseInfo(Info object) {
@@ -100,8 +108,8 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 				return createAPIParameterAdapter();
 			}
 			@Override
-			public Adapter caseItems(Items object) {
-				return createItemsAdapter();
+			public Adapter caseItemsDefinition(ItemsDefinition object) {
+				return createItemsDefinitionAdapter();
 			}
 			@Override
 			public Adapter caseSchema(Schema object) {
@@ -110,10 +118,6 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseResponse(Response object) {
 				return createResponseAdapter();
-			}
-			@Override
-			public Adapter caseSecurityRequirement(SecurityRequirement object) {
-				return createSecurityRequirementAdapter();
 			}
 			@Override
 			public Adapter caseHeader(Header object) {
@@ -136,8 +140,44 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 				return createXMLElementAdapter();
 			}
 			@Override
-			public Adapter caseScope(Scope object) {
-				return createScopeAdapter();
+			public Adapter caseSecurityScope(SecurityScope object) {
+				return createSecurityScopeAdapter();
+			}
+			@Override
+			public Adapter caseParamterDeclaringContext(ParamterDeclaringContext object) {
+				return createParamterDeclaringContextAdapter();
+			}
+			@Override
+			public Adapter caseResponseContext(ResponseContext object) {
+				return createResponseContextAdapter();
+			}
+			@Override
+			public Adapter caseSchemaDeclaringContext(SchemaDeclaringContext object) {
+				return createSchemaDeclaringContextAdapter();
+			}
+			@Override
+			public Adapter caseJSONPointer(JSONPointer object) {
+				return createJSONPointerAdapter();
+			}
+			@Override
+			public Adapter caseSecurityContext(SecurityContext object) {
+				return createSecurityContextAdapter();
+			}
+			@Override
+			public Adapter caseParameterContext(ParameterContext object) {
+				return createParameterContextAdapter();
+			}
+			@Override
+			public Adapter caseSchemaContext(SchemaContext object) {
+				return createSchemaContextAdapter();
+			}
+			@Override
+			public Adapter caseExternalDocsContext(ExternalDocsContext object) {
+				return createExternalDocsContextAdapter();
+			}
+			@Override
+			public Adapter caseArrayContext(ArrayContext object) {
+				return createArrayContextAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -160,16 +200,44 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link core.Api <em>Api</em>}'.
+	 * Creates a new adapter for an object of class '{@link core.JSONSchemaSubset <em>JSON Schema Subset</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see core.Api
+	 * @see core.JSONSchemaSubset
 	 * @generated
 	 */
-	public Adapter createApiAdapter() {
+	public Adapter createJSONSchemaSubsetAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link core.Root <em>Root</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see core.Root
+	 * @generated
+	 */
+	public Adapter createRootAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link core.API <em>API</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see core.API
+	 * @generated
+	 */
+	public Adapter createAPIAdapter() {
 		return null;
 	}
 
@@ -272,16 +340,16 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link core.Items <em>Items</em>}'.
+	 * Creates a new adapter for an object of class '{@link core.ItemsDefinition <em>Items Definition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see core.Items
+	 * @see core.ItemsDefinition
 	 * @generated
 	 */
-	public Adapter createItemsAdapter() {
+	public Adapter createItemsDefinitionAdapter() {
 		return null;
 	}
 
@@ -310,20 +378,6 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createResponseAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link core.SecurityRequirement <em>Security Requirement</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see core.SecurityRequirement
-	 * @generated
-	 */
-	public Adapter createSecurityRequirementAdapter() {
 		return null;
 	}
 
@@ -398,16 +452,142 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link core.Scope <em>Scope</em>}'.
+	 * Creates a new adapter for an object of class '{@link core.SecurityScope <em>Security Scope</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see core.Scope
+	 * @see core.SecurityScope
 	 * @generated
 	 */
-	public Adapter createScopeAdapter() {
+	public Adapter createSecurityScopeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link core.ParamterDeclaringContext <em>Paramter Declaring Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see core.ParamterDeclaringContext
+	 * @generated
+	 */
+	public Adapter createParamterDeclaringContextAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link core.ParameterContext <em>Parameter Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see core.ParameterContext
+	 * @generated
+	 */
+	public Adapter createParameterContextAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link core.ResponseContext <em>Response Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see core.ResponseContext
+	 * @generated
+	 */
+	public Adapter createResponseContextAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link core.SchemaDeclaringContext <em>Schema Declaring Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see core.SchemaDeclaringContext
+	 * @generated
+	 */
+	public Adapter createSchemaDeclaringContextAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link core.SchemaContext <em>Schema Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see core.SchemaContext
+	 * @generated
+	 */
+	public Adapter createSchemaContextAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link core.ExternalDocsContext <em>External Docs Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see core.ExternalDocsContext
+	 * @generated
+	 */
+	public Adapter createExternalDocsContextAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link core.ArrayContext <em>Array Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see core.ArrayContext
+	 * @generated
+	 */
+	public Adapter createArrayContextAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link core.JSONPointer <em>JSON Pointer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see core.JSONPointer
+	 * @generated
+	 */
+	public Adapter createJSONPointerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link core.SecurityContext <em>Security Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see core.SecurityContext
+	 * @generated
+	 */
+	public Adapter createSecurityContextAdapter() {
 		return null;
 	}
 

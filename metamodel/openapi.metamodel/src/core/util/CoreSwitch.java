@@ -66,9 +66,28 @@ public class CoreSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
+			case CorePackage.JSON_SCHEMA_SUBSET: {
+				JSONSchemaSubset jsonSchemaSubset = (JSONSchemaSubset)theEObject;
+				T result = caseJSONSchemaSubset(jsonSchemaSubset);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CorePackage.ROOT: {
+				Root root = (Root)theEObject;
+				T result = caseRoot(root);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case CorePackage.API: {
-				Api api = (Api)theEObject;
-				T result = caseApi(api);
+				API api = (API)theEObject;
+				T result = caseAPI(api);
+				if (result == null) result = caseParamterDeclaringContext(api);
+				if (result == null) result = caseResponseContext(api);
+				if (result == null) result = caseSchemaDeclaringContext(api);
+				if (result == null) result = caseJSONPointer(api);
+				if (result == null) result = caseSecurityContext(api);
+				if (result == null) result = caseParameterContext(api);
+				if (result == null) result = caseExternalDocsContext(api);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -93,12 +112,19 @@ public class CoreSwitch<T> extends Switch<T> {
 			case CorePackage.PATH: {
 				Path path = (Path)theEObject;
 				T result = casePath(path);
+				if (result == null) result = caseParamterDeclaringContext(path);
+				if (result == null) result = caseParameterContext(path);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case CorePackage.API_OPERATION: {
 				APIOperation apiOperation = (APIOperation)theEObject;
 				T result = caseAPIOperation(apiOperation);
+				if (result == null) result = caseParamterDeclaringContext(apiOperation);
+				if (result == null) result = caseResponseContext(apiOperation);
+				if (result == null) result = caseSecurityContext(apiOperation);
+				if (result == null) result = caseParameterContext(apiOperation);
+				if (result == null) result = caseExternalDocsContext(apiOperation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -111,42 +137,52 @@ public class CoreSwitch<T> extends Switch<T> {
 			case CorePackage.API_PARAMETER: {
 				APIParameter apiParameter = (APIParameter)theEObject;
 				T result = caseAPIParameter(apiParameter);
+				if (result == null) result = caseSchemaDeclaringContext(apiParameter);
+				if (result == null) result = caseSchemaContext(apiParameter);
+				if (result == null) result = caseJSONSchemaSubset(apiParameter);
+				if (result == null) result = caseJSONPointer(apiParameter);
+				if (result == null) result = caseArrayContext(apiParameter);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CorePackage.ITEMS: {
-				Items items = (Items)theEObject;
-				T result = caseItems(items);
+			case CorePackage.ITEMS_DEFINITION: {
+				ItemsDefinition itemsDefinition = (ItemsDefinition)theEObject;
+				T result = caseItemsDefinition(itemsDefinition);
+				if (result == null) result = caseJSONSchemaSubset(itemsDefinition);
+				if (result == null) result = caseArrayContext(itemsDefinition);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case CorePackage.SCHEMA: {
 				Schema schema = (Schema)theEObject;
 				T result = caseSchema(schema);
+				if (result == null) result = caseJSONSchemaSubset(schema);
+				if (result == null) result = caseSchemaDeclaringContext(schema);
+				if (result == null) result = caseJSONPointer(schema);
+				if (result == null) result = caseExternalDocsContext(schema);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case CorePackage.RESPONSE: {
 				Response response = (Response)theEObject;
 				T result = caseResponse(response);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case CorePackage.SECURITY_REQUIREMENT: {
-				SecurityRequirement securityRequirement = (SecurityRequirement)theEObject;
-				T result = caseSecurityRequirement(securityRequirement);
+				if (result == null) result = caseSchemaDeclaringContext(response);
+				if (result == null) result = caseSchemaContext(response);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case CorePackage.HEADER: {
 				Header header = (Header)theEObject;
 				T result = caseHeader(header);
+				if (result == null) result = caseJSONSchemaSubset(header);
+				if (result == null) result = caseArrayContext(header);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case CorePackage.TAG: {
 				Tag tag = (Tag)theEObject;
 				T result = caseTag(tag);
+				if (result == null) result = caseExternalDocsContext(tag);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -168,9 +204,63 @@ public class CoreSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CorePackage.SCOPE: {
-				Scope scope = (Scope)theEObject;
-				T result = caseScope(scope);
+			case CorePackage.SECURITY_SCOPE: {
+				SecurityScope securityScope = (SecurityScope)theEObject;
+				T result = caseSecurityScope(securityScope);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CorePackage.PARAMTER_DECLARING_CONTEXT: {
+				ParamterDeclaringContext paramterDeclaringContext = (ParamterDeclaringContext)theEObject;
+				T result = caseParamterDeclaringContext(paramterDeclaringContext);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CorePackage.RESPONSE_CONTEXT: {
+				ResponseContext responseContext = (ResponseContext)theEObject;
+				T result = caseResponseContext(responseContext);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CorePackage.SCHEMA_DECLARING_CONTEXT: {
+				SchemaDeclaringContext schemaDeclaringContext = (SchemaDeclaringContext)theEObject;
+				T result = caseSchemaDeclaringContext(schemaDeclaringContext);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CorePackage.JSON_POINTER: {
+				JSONPointer jsonPointer = (JSONPointer)theEObject;
+				T result = caseJSONPointer(jsonPointer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CorePackage.SECURITY_CONTEXT: {
+				SecurityContext securityContext = (SecurityContext)theEObject;
+				T result = caseSecurityContext(securityContext);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CorePackage.PARAMETER_CONTEXT: {
+				ParameterContext parameterContext = (ParameterContext)theEObject;
+				T result = caseParameterContext(parameterContext);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CorePackage.SCHEMA_CONTEXT: {
+				SchemaContext schemaContext = (SchemaContext)theEObject;
+				T result = caseSchemaContext(schemaContext);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CorePackage.EXTERNAL_DOCS_CONTEXT: {
+				ExternalDocsContext externalDocsContext = (ExternalDocsContext)theEObject;
+				T result = caseExternalDocsContext(externalDocsContext);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CorePackage.ARRAY_CONTEXT: {
+				ArrayContext arrayContext = (ArrayContext)theEObject;
+				T result = caseArrayContext(arrayContext);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -179,17 +269,47 @@ public class CoreSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Api</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>JSON Schema Subset</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Api</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>JSON Schema Subset</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseApi(Api object) {
+	public T caseJSONSchemaSubset(JSONSchemaSubset object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Root</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Root</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRoot(Root object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>API</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>API</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAPI(API object) {
 		return null;
 	}
 
@@ -299,17 +419,17 @@ public class CoreSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Items</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Items Definition</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Items</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Items Definition</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseItems(Items object) {
+	public T caseItemsDefinition(ItemsDefinition object) {
 		return null;
 	}
 
@@ -340,21 +460,6 @@ public class CoreSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseResponse(Response object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Security Requirement</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Security Requirement</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseSecurityRequirement(SecurityRequirement object) {
 		return null;
 	}
 
@@ -434,17 +539,152 @@ public class CoreSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Scope</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Security Scope</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Scope</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Security Scope</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseScope(Scope object) {
+	public T caseSecurityScope(SecurityScope object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Paramter Declaring Context</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Paramter Declaring Context</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseParamterDeclaringContext(ParamterDeclaringContext object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Parameter Context</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Parameter Context</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseParameterContext(ParameterContext object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Response Context</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Response Context</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseResponseContext(ResponseContext object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Schema Declaring Context</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Schema Declaring Context</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSchemaDeclaringContext(SchemaDeclaringContext object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Schema Context</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Schema Context</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSchemaContext(SchemaContext object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>External Docs Context</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>External Docs Context</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseExternalDocsContext(ExternalDocsContext object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Array Context</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Array Context</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseArrayContext(ArrayContext object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>JSON Pointer</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>JSON Pointer</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseJSONPointer(JSONPointer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Security Context</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Security Context</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSecurityContext(SecurityContext object) {
 		return null;
 	}
 

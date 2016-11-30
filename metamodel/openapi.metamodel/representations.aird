@@ -4,6 +4,7 @@
   <semanticResources>http://www.eclipse.org/emf/2002/Ecore</semanticResources>
   <semanticResources>model/API.xmi</semanticResources>
   <semanticResources>model/swagger.genmodel</semanticResources>
+  <semanticResources>model/openAPI.ecore</semanticResources>
   <ownedViews xmi:type="viewpoint:DRepresentationContainer" xmi:id="_hhYGwKOAEeW7qNU6Nu_uNw">
     <ownedRepresentations xmi:type="diagram:DSemanticDiagram" xmi:id="_kn3WkKOAEeW7qNU6Nu_uNw" name="core class diagram">
       <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_kn3WkaOAEeW7qNU6Nu_uNw" source="DANNOTATION_CUSTOMIZATION_KEY">

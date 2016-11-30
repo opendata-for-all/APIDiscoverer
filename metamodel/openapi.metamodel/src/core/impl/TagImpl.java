@@ -3,17 +3,11 @@
 package core.impl;
 
 import core.CorePackage;
-import core.ExternalDocs;
 import core.Tag;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,12 +19,11 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link core.impl.TagImpl#getName <em>Name</em>}</li>
  *   <li>{@link core.impl.TagImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link core.impl.TagImpl#getExternalDocs <em>External Docs</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class TagImpl extends MinimalEObjectImpl.Container implements Tag {
+public class TagImpl extends ExternalDocsContextImpl implements Tag {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -70,16 +63,6 @@ public class TagImpl extends MinimalEObjectImpl.Container implements Tag {
 	 * @ordered
 	 */
 	protected String description = DESCRIPTION_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getExternalDocs() <em>External Docs</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getExternalDocs()
-	 * @generated
-	 * @ordered
-	 */
-	protected ExternalDocs externalDocs;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -147,63 +130,6 @@ public class TagImpl extends MinimalEObjectImpl.Container implements Tag {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ExternalDocs getExternalDocs() {
-		return externalDocs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetExternalDocs(ExternalDocs newExternalDocs, NotificationChain msgs) {
-		ExternalDocs oldExternalDocs = externalDocs;
-		externalDocs = newExternalDocs;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorePackage.TAG__EXTERNAL_DOCS, oldExternalDocs, newExternalDocs);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setExternalDocs(ExternalDocs newExternalDocs) {
-		if (newExternalDocs != externalDocs) {
-			NotificationChain msgs = null;
-			if (externalDocs != null)
-				msgs = ((InternalEObject)externalDocs).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CorePackage.TAG__EXTERNAL_DOCS, null, msgs);
-			if (newExternalDocs != null)
-				msgs = ((InternalEObject)newExternalDocs).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CorePackage.TAG__EXTERNAL_DOCS, null, msgs);
-			msgs = basicSetExternalDocs(newExternalDocs, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.TAG__EXTERNAL_DOCS, newExternalDocs, newExternalDocs));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case CorePackage.TAG__EXTERNAL_DOCS:
-				return basicSetExternalDocs(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -211,8 +137,6 @@ public class TagImpl extends MinimalEObjectImpl.Container implements Tag {
 				return getName();
 			case CorePackage.TAG__DESCRIPTION:
 				return getDescription();
-			case CorePackage.TAG__EXTERNAL_DOCS:
-				return getExternalDocs();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -230,9 +154,6 @@ public class TagImpl extends MinimalEObjectImpl.Container implements Tag {
 				return;
 			case CorePackage.TAG__DESCRIPTION:
 				setDescription((String)newValue);
-				return;
-			case CorePackage.TAG__EXTERNAL_DOCS:
-				setExternalDocs((ExternalDocs)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -252,9 +173,6 @@ public class TagImpl extends MinimalEObjectImpl.Container implements Tag {
 			case CorePackage.TAG__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
 				return;
-			case CorePackage.TAG__EXTERNAL_DOCS:
-				setExternalDocs((ExternalDocs)null);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -271,8 +189,6 @@ public class TagImpl extends MinimalEObjectImpl.Container implements Tag {
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case CorePackage.TAG__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-			case CorePackage.TAG__EXTERNAL_DOCS:
-				return externalDocs != null;
 		}
 		return super.eIsSet(featureID);
 	}

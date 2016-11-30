@@ -57,7 +57,8 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case CorePackage.API: return createApi();
+			case CorePackage.ROOT: return createRoot();
+			case CorePackage.API: return createAPI();
 			case CorePackage.INFO: return createInfo();
 			case CorePackage.CONTACT: return createContact();
 			case CorePackage.LICENSE: return createLicense();
@@ -65,16 +66,15 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 			case CorePackage.API_OPERATION: return createAPIOperation();
 			case CorePackage.EXTERNAL_DOCS: return createExternalDocs();
 			case CorePackage.API_PARAMETER: return createAPIParameter();
-			case CorePackage.ITEMS: return createItems();
+			case CorePackage.ITEMS_DEFINITION: return createItemsDefinition();
 			case CorePackage.SCHEMA: return createSchema();
 			case CorePackage.RESPONSE: return createResponse();
-			case CorePackage.SECURITY_REQUIREMENT: return createSecurityRequirement();
 			case CorePackage.HEADER: return createHeader();
 			case CorePackage.TAG: return createTag();
 			case CorePackage.SECURITY_SCHEMA: return createSecuritySchema();
 			case CorePackage.EXAMPLE: return createExample();
 			case CorePackage.XML_ELEMENT: return createXMLElement();
-			case CorePackage.SCOPE: return createScope();
+			case CorePackage.SECURITY_SCOPE: return createSecurityScope();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -101,7 +101,7 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 			case CorePackage.SECURITY_SCHEME_TYPE:
 				return createSecuritySchemeTypeFromString(eDataType, initialValue);
 			case CorePackage.JSON_DATA_TYPE:
-				return createJsonDataTypeFromString(eDataType, initialValue);
+				return createJSONDataTypeFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -128,7 +128,7 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 			case CorePackage.SECURITY_SCHEME_TYPE:
 				return convertSecuritySchemeTypeToString(eDataType, instanceValue);
 			case CorePackage.JSON_DATA_TYPE:
-				return convertJsonDataTypeToString(eDataType, instanceValue);
+				return convertJSONDataTypeToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -139,8 +139,18 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Api createApi() {
-		ApiImpl api = new ApiImpl();
+	public Root createRoot() {
+		RootImpl root = new RootImpl();
+		return root;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public API createAPI() {
+		APIImpl api = new APIImpl();
 		return api;
 	}
 
@@ -219,9 +229,9 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Items createItems() {
-		ItemsImpl items = new ItemsImpl();
-		return items;
+	public ItemsDefinition createItemsDefinition() {
+		ItemsDefinitionImpl itemsDefinition = new ItemsDefinitionImpl();
+		return itemsDefinition;
 	}
 
 	/**
@@ -242,16 +252,6 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 	public Response createResponse() {
 		ResponseImpl response = new ResponseImpl();
 		return response;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SecurityRequirement createSecurityRequirement() {
-		SecurityRequirementImpl securityRequirement = new SecurityRequirementImpl();
-		return securityRequirement;
 	}
 
 	/**
@@ -309,9 +309,9 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Scope createScope() {
-		ScopeImpl scope = new ScopeImpl();
-		return scope;
+	public SecurityScope createSecurityScope() {
+		SecurityScopeImpl securityScope = new SecurityScopeImpl();
+		return securityScope;
 	}
 
 	/**
@@ -439,8 +439,8 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public JsonDataType createJsonDataTypeFromString(EDataType eDataType, String initialValue) {
-		JsonDataType result = JsonDataType.get(initialValue);
+	public JSONDataType createJSONDataTypeFromString(EDataType eDataType, String initialValue) {
+		JSONDataType result = JSONDataType.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
@@ -450,7 +450,7 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertJsonDataTypeToString(EDataType eDataType, Object instanceValue) {
+	public String convertJSONDataTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

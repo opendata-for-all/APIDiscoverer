@@ -8,18 +8,17 @@ import core.Header;
 import core.Response;
 import core.Schema;
 
+import core.SchemaContext;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -32,8 +31,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link core.impl.ResponseImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link core.impl.ResponseImpl#getSchema <em>Schema</em>}</li>
+ *   <li>{@link core.impl.ResponseImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link core.impl.ResponseImpl#getHeaders <em>Headers</em>}</li>
  *   <li>{@link core.impl.ResponseImpl#getExamples <em>Examples</em>}</li>
  *   <li>{@link core.impl.ResponseImpl#getCode <em>Code</em>}</li>
@@ -41,7 +40,17 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class ResponseImpl extends MinimalEObjectImpl.Container implements Response {
+public class ResponseImpl extends SchemaDeclaringContextImpl implements Response {
+	/**
+	 * The cached value of the '{@link #getSchema() <em>Schema</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSchema()
+	 * @generated
+	 * @ordered
+	 */
+	protected Schema schema;
+
 	/**
 	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -61,16 +70,6 @@ public class ResponseImpl extends MinimalEObjectImpl.Container implements Respon
 	 * @ordered
 	 */
 	protected String description = DESCRIPTION_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getSchema() <em>Schema</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSchema()
-	 * @generated
-	 * @ordered
-	 */
-	protected Schema schema;
 
 	/**
 	 * The cached value of the '{@link #getHeaders() <em>Headers</em>}' containment reference list.
@@ -259,11 +258,11 @@ public class ResponseImpl extends MinimalEObjectImpl.Container implements Respon
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CorePackage.RESPONSE__DESCRIPTION:
-				return getDescription();
 			case CorePackage.RESPONSE__SCHEMA:
 				if (resolve) return getSchema();
 				return basicGetSchema();
+			case CorePackage.RESPONSE__DESCRIPTION:
+				return getDescription();
 			case CorePackage.RESPONSE__HEADERS:
 				return getHeaders();
 			case CorePackage.RESPONSE__EXAMPLES:
@@ -283,11 +282,11 @@ public class ResponseImpl extends MinimalEObjectImpl.Container implements Respon
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CorePackage.RESPONSE__DESCRIPTION:
-				setDescription((String)newValue);
-				return;
 			case CorePackage.RESPONSE__SCHEMA:
 				setSchema((Schema)newValue);
+				return;
+			case CorePackage.RESPONSE__DESCRIPTION:
+				setDescription((String)newValue);
 				return;
 			case CorePackage.RESPONSE__HEADERS:
 				getHeaders().clear();
@@ -312,11 +311,11 @@ public class ResponseImpl extends MinimalEObjectImpl.Container implements Respon
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CorePackage.RESPONSE__DESCRIPTION:
-				setDescription(DESCRIPTION_EDEFAULT);
-				return;
 			case CorePackage.RESPONSE__SCHEMA:
 				setSchema((Schema)null);
+				return;
+			case CorePackage.RESPONSE__DESCRIPTION:
+				setDescription(DESCRIPTION_EDEFAULT);
 				return;
 			case CorePackage.RESPONSE__HEADERS:
 				getHeaders().clear();
@@ -339,10 +338,10 @@ public class ResponseImpl extends MinimalEObjectImpl.Container implements Respon
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CorePackage.RESPONSE__DESCRIPTION:
-				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 			case CorePackage.RESPONSE__SCHEMA:
 				return schema != null;
+			case CorePackage.RESPONSE__DESCRIPTION:
+				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 			case CorePackage.RESPONSE__HEADERS:
 				return headers != null && !headers.isEmpty();
 			case CorePackage.RESPONSE__EXAMPLES:
@@ -351,6 +350,38 @@ public class ResponseImpl extends MinimalEObjectImpl.Container implements Respon
 				return CODE_EDEFAULT == null ? code != null : !CODE_EDEFAULT.equals(code);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == SchemaContext.class) {
+			switch (derivedFeatureID) {
+				case CorePackage.RESPONSE__SCHEMA: return CorePackage.SCHEMA_CONTEXT__SCHEMA;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == SchemaContext.class) {
+			switch (baseFeatureID) {
+				case CorePackage.SCHEMA_CONTEXT__SCHEMA: return CorePackage.RESPONSE__SCHEMA;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 	/**

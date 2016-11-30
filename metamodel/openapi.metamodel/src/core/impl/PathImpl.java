@@ -5,23 +5,21 @@ package core.impl;
 import core.APIOperation;
 import core.APIParameter;
 import core.CorePackage;
+import core.ParameterContext;
 import core.Path;
 
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,21 +29,30 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link core.impl.PathImpl#getParameters <em>Parameters</em>}</li>
  *   <li>{@link core.impl.PathImpl#getPattern <em>Pattern</em>}</li>
- *   <li>{@link core.impl.PathImpl#getPut <em>Put</em>}</li>
  *   <li>{@link core.impl.PathImpl#getGet <em>Get</em>}</li>
+ *   <li>{@link core.impl.PathImpl#getPut <em>Put</em>}</li>
+ *   <li>{@link core.impl.PathImpl#getPost <em>Post</em>}</li>
  *   <li>{@link core.impl.PathImpl#getDelete <em>Delete</em>}</li>
  *   <li>{@link core.impl.PathImpl#getOptions <em>Options</em>}</li>
- *   <li>{@link core.impl.PathImpl#getParameters <em>Parameters</em>}</li>
  *   <li>{@link core.impl.PathImpl#getHead <em>Head</em>}</li>
- *   <li>{@link core.impl.PathImpl#getPost <em>Post</em>}</li>
  *   <li>{@link core.impl.PathImpl#getPatch <em>Patch</em>}</li>
- *   <li>{@link core.impl.PathImpl#getRef <em>Ref</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class PathImpl extends MinimalEObjectImpl.Container implements Path {
+public class PathImpl extends ParamterDeclaringContextImpl implements Path {
+	/**
+	 * The cached value of the '{@link #getParameters() <em>Parameters</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getParameters()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<APIParameter> parameters;
+
 	/**
 	 * The default value of the '{@link #getPattern() <em>Pattern</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -67,6 +74,16 @@ public class PathImpl extends MinimalEObjectImpl.Container implements Path {
 	protected String pattern = PATTERN_EDEFAULT;
 
 	/**
+	 * The cached value of the '{@link #getGet() <em>Get</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGet()
+	 * @generated
+	 * @ordered
+	 */
+	protected APIOperation get;
+
+	/**
 	 * The cached value of the '{@link #getPut() <em>Put</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -77,14 +94,14 @@ public class PathImpl extends MinimalEObjectImpl.Container implements Path {
 	protected APIOperation put;
 
 	/**
-	 * The cached value of the '{@link #getGet() <em>Get</em>}' containment reference.
+	 * The cached value of the '{@link #getPost() <em>Post</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getGet()
+	 * @see #getPost()
 	 * @generated
 	 * @ordered
 	 */
-	protected APIOperation get;
+	protected APIOperation post;
 
 	/**
 	 * The cached value of the '{@link #getDelete() <em>Delete</em>}' containment reference.
@@ -107,16 +124,6 @@ public class PathImpl extends MinimalEObjectImpl.Container implements Path {
 	protected APIOperation options;
 
 	/**
-	 * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getParameters()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<APIParameter> parameters;
-
-	/**
 	 * The cached value of the '{@link #getHead() <em>Head</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -127,16 +134,6 @@ public class PathImpl extends MinimalEObjectImpl.Container implements Path {
 	protected APIOperation head;
 
 	/**
-	 * The cached value of the '{@link #getPost() <em>Post</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPost()
-	 * @generated
-	 * @ordered
-	 */
-	protected APIOperation post;
-
-	/**
 	 * The cached value of the '{@link #getPatch() <em>Patch</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -145,26 +142,6 @@ public class PathImpl extends MinimalEObjectImpl.Container implements Path {
 	 * @ordered
 	 */
 	protected APIOperation patch;
-
-	/**
-	 * The default value of the '{@link #getRef() <em>Ref</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRef()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String REF_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getRef() <em>Ref</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRef()
-	 * @generated
-	 * @ordered
-	 */
-	protected String ref = REF_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -204,6 +181,61 @@ public class PathImpl extends MinimalEObjectImpl.Container implements Path {
 		pattern = newPattern;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.PATH__PATTERN, oldPattern, pattern));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<APIParameter> getParameters() {
+		if (parameters == null) {
+			parameters = new EObjectResolvingEList<APIParameter>(APIParameter.class, this, CorePackage.PATH__PARAMETERS);
+		}
+		return parameters;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public APIOperation getGet() {
+		return get;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetGet(APIOperation newGet, NotificationChain msgs) {
+		APIOperation oldGet = get;
+		get = newGet;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorePackage.PATH__GET, oldGet, newGet);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setGet(APIOperation newGet) {
+		if (newGet != get) {
+			NotificationChain msgs = null;
+			if (get != null)
+				msgs = ((InternalEObject)get).eInverseRemove(this, CorePackage.API_OPERATION__PATH, APIOperation.class, msgs);
+			if (newGet != null)
+				msgs = ((InternalEObject)newGet).eInverseAdd(this, CorePackage.API_OPERATION__PATH, APIOperation.class, msgs);
+			msgs = basicSetGet(newGet, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.PATH__GET, newGet, newGet));
 	}
 
 	/**
@@ -254,8 +286,8 @@ public class PathImpl extends MinimalEObjectImpl.Container implements Path {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public APIOperation getGet() {
-		return get;
+	public APIOperation getPost() {
+		return post;
 	}
 
 	/**
@@ -263,11 +295,11 @@ public class PathImpl extends MinimalEObjectImpl.Container implements Path {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetGet(APIOperation newGet, NotificationChain msgs) {
-		APIOperation oldGet = get;
-		get = newGet;
+	public NotificationChain basicSetPost(APIOperation newPost, NotificationChain msgs) {
+		APIOperation oldPost = post;
+		post = newPost;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorePackage.PATH__GET, oldGet, newGet);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorePackage.PATH__POST, oldPost, newPost);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -278,18 +310,18 @@ public class PathImpl extends MinimalEObjectImpl.Container implements Path {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setGet(APIOperation newGet) {
-		if (newGet != get) {
+	public void setPost(APIOperation newPost) {
+		if (newPost != post) {
 			NotificationChain msgs = null;
-			if (get != null)
-				msgs = ((InternalEObject)get).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CorePackage.PATH__GET, null, msgs);
-			if (newGet != null)
-				msgs = ((InternalEObject)newGet).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CorePackage.PATH__GET, null, msgs);
-			msgs = basicSetGet(newGet, msgs);
+			if (post != null)
+				msgs = ((InternalEObject)post).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CorePackage.PATH__POST, null, msgs);
+			if (newPost != null)
+				msgs = ((InternalEObject)newPost).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CorePackage.PATH__POST, null, msgs);
+			msgs = basicSetPost(newPost, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.PATH__GET, newGet, newGet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.PATH__POST, newPost, newPost));
 	}
 
 	/**
@@ -383,18 +415,6 @@ public class PathImpl extends MinimalEObjectImpl.Container implements Path {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<APIParameter> getParameters() {
-		if (parameters == null) {
-			parameters = new EObjectContainmentEList<APIParameter>(APIParameter.class, this, CorePackage.PATH__PARAMETERS);
-		}
-		return parameters;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public APIOperation getHead() {
 		return head;
 	}
@@ -431,49 +451,6 @@ public class PathImpl extends MinimalEObjectImpl.Container implements Path {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.PATH__HEAD, newHead, newHead));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public APIOperation getPost() {
-		return post;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetPost(APIOperation newPost, NotificationChain msgs) {
-		APIOperation oldPost = post;
-		post = newPost;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorePackage.PATH__POST, oldPost, newPost);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setPost(APIOperation newPost) {
-		if (newPost != post) {
-			NotificationChain msgs = null;
-			if (post != null)
-				msgs = ((InternalEObject)post).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CorePackage.PATH__POST, null, msgs);
-			if (newPost != null)
-				msgs = ((InternalEObject)newPost).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CorePackage.PATH__POST, null, msgs);
-			msgs = basicSetPost(newPost, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.PATH__POST, newPost, newPost));
 	}
 
 	/**
@@ -524,20 +501,15 @@ public class PathImpl extends MinimalEObjectImpl.Container implements Path {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getRef() {
-		return ref;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRef(String newRef) {
-		String oldRef = ref;
-		ref = newRef;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.PATH__REF, oldRef, ref));
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case CorePackage.PATH__GET:
+				if (get != null)
+					msgs = ((InternalEObject)get).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CorePackage.PATH__GET, null, msgs);
+				return basicSetGet((APIOperation)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -548,20 +520,18 @@ public class PathImpl extends MinimalEObjectImpl.Container implements Path {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case CorePackage.PATH__PUT:
-				return basicSetPut(null, msgs);
 			case CorePackage.PATH__GET:
 				return basicSetGet(null, msgs);
+			case CorePackage.PATH__PUT:
+				return basicSetPut(null, msgs);
+			case CorePackage.PATH__POST:
+				return basicSetPost(null, msgs);
 			case CorePackage.PATH__DELETE:
 				return basicSetDelete(null, msgs);
 			case CorePackage.PATH__OPTIONS:
 				return basicSetOptions(null, msgs);
-			case CorePackage.PATH__PARAMETERS:
-				return ((InternalEList<?>)getParameters()).basicRemove(otherEnd, msgs);
 			case CorePackage.PATH__HEAD:
 				return basicSetHead(null, msgs);
-			case CorePackage.PATH__POST:
-				return basicSetPost(null, msgs);
 			case CorePackage.PATH__PATCH:
 				return basicSetPatch(null, msgs);
 		}
@@ -576,26 +546,24 @@ public class PathImpl extends MinimalEObjectImpl.Container implements Path {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case CorePackage.PATH__PARAMETERS:
+				return getParameters();
 			case CorePackage.PATH__PATTERN:
 				return getPattern();
-			case CorePackage.PATH__PUT:
-				return getPut();
 			case CorePackage.PATH__GET:
 				return getGet();
+			case CorePackage.PATH__PUT:
+				return getPut();
+			case CorePackage.PATH__POST:
+				return getPost();
 			case CorePackage.PATH__DELETE:
 				return getDelete();
 			case CorePackage.PATH__OPTIONS:
 				return getOptions();
-			case CorePackage.PATH__PARAMETERS:
-				return getParameters();
 			case CorePackage.PATH__HEAD:
 				return getHead();
-			case CorePackage.PATH__POST:
-				return getPost();
 			case CorePackage.PATH__PATCH:
 				return getPatch();
-			case CorePackage.PATH__REF:
-				return getRef();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -609,14 +577,21 @@ public class PathImpl extends MinimalEObjectImpl.Container implements Path {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case CorePackage.PATH__PARAMETERS:
+				getParameters().clear();
+				getParameters().addAll((Collection<? extends APIParameter>)newValue);
+				return;
 			case CorePackage.PATH__PATTERN:
 				setPattern((String)newValue);
+				return;
+			case CorePackage.PATH__GET:
+				setGet((APIOperation)newValue);
 				return;
 			case CorePackage.PATH__PUT:
 				setPut((APIOperation)newValue);
 				return;
-			case CorePackage.PATH__GET:
-				setGet((APIOperation)newValue);
+			case CorePackage.PATH__POST:
+				setPost((APIOperation)newValue);
 				return;
 			case CorePackage.PATH__DELETE:
 				setDelete((APIOperation)newValue);
@@ -624,21 +599,11 @@ public class PathImpl extends MinimalEObjectImpl.Container implements Path {
 			case CorePackage.PATH__OPTIONS:
 				setOptions((APIOperation)newValue);
 				return;
-			case CorePackage.PATH__PARAMETERS:
-				getParameters().clear();
-				getParameters().addAll((Collection<? extends APIParameter>)newValue);
-				return;
 			case CorePackage.PATH__HEAD:
 				setHead((APIOperation)newValue);
 				return;
-			case CorePackage.PATH__POST:
-				setPost((APIOperation)newValue);
-				return;
 			case CorePackage.PATH__PATCH:
 				setPatch((APIOperation)newValue);
-				return;
-			case CorePackage.PATH__REF:
-				setRef((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -652,14 +617,20 @@ public class PathImpl extends MinimalEObjectImpl.Container implements Path {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case CorePackage.PATH__PARAMETERS:
+				getParameters().clear();
+				return;
 			case CorePackage.PATH__PATTERN:
 				setPattern(PATTERN_EDEFAULT);
+				return;
+			case CorePackage.PATH__GET:
+				setGet((APIOperation)null);
 				return;
 			case CorePackage.PATH__PUT:
 				setPut((APIOperation)null);
 				return;
-			case CorePackage.PATH__GET:
-				setGet((APIOperation)null);
+			case CorePackage.PATH__POST:
+				setPost((APIOperation)null);
 				return;
 			case CorePackage.PATH__DELETE:
 				setDelete((APIOperation)null);
@@ -667,20 +638,11 @@ public class PathImpl extends MinimalEObjectImpl.Container implements Path {
 			case CorePackage.PATH__OPTIONS:
 				setOptions((APIOperation)null);
 				return;
-			case CorePackage.PATH__PARAMETERS:
-				getParameters().clear();
-				return;
 			case CorePackage.PATH__HEAD:
 				setHead((APIOperation)null);
 				return;
-			case CorePackage.PATH__POST:
-				setPost((APIOperation)null);
-				return;
 			case CorePackage.PATH__PATCH:
 				setPatch((APIOperation)null);
-				return;
-			case CorePackage.PATH__REF:
-				setRef(REF_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -694,28 +656,58 @@ public class PathImpl extends MinimalEObjectImpl.Container implements Path {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case CorePackage.PATH__PARAMETERS:
+				return parameters != null && !parameters.isEmpty();
 			case CorePackage.PATH__PATTERN:
 				return PATTERN_EDEFAULT == null ? pattern != null : !PATTERN_EDEFAULT.equals(pattern);
-			case CorePackage.PATH__PUT:
-				return put != null;
 			case CorePackage.PATH__GET:
 				return get != null;
+			case CorePackage.PATH__PUT:
+				return put != null;
+			case CorePackage.PATH__POST:
+				return post != null;
 			case CorePackage.PATH__DELETE:
 				return delete != null;
 			case CorePackage.PATH__OPTIONS:
 				return options != null;
-			case CorePackage.PATH__PARAMETERS:
-				return parameters != null && !parameters.isEmpty();
 			case CorePackage.PATH__HEAD:
 				return head != null;
-			case CorePackage.PATH__POST:
-				return post != null;
 			case CorePackage.PATH__PATCH:
 				return patch != null;
-			case CorePackage.PATH__REF:
-				return REF_EDEFAULT == null ? ref != null : !REF_EDEFAULT.equals(ref);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == ParameterContext.class) {
+			switch (derivedFeatureID) {
+				case CorePackage.PATH__PARAMETERS: return CorePackage.PARAMETER_CONTEXT__PARAMETERS;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == ParameterContext.class) {
+			switch (baseFeatureID) {
+				case CorePackage.PARAMETER_CONTEXT__PARAMETERS: return CorePackage.PATH__PARAMETERS;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 	/**
@@ -730,8 +722,6 @@ public class PathImpl extends MinimalEObjectImpl.Container implements Path {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (pattern: ");
 		result.append(pattern);
-		result.append(", ref: ");
-		result.append(ref);
 		result.append(')');
 		return result.toString();
 	}

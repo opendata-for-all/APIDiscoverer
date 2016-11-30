@@ -18,7 +18,8 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see core.CorePackage#getExternalDocs()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='requiredURL'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL requiredURL='not self.url.oclIsUndefined()'"
  * @generated
  */
 public interface ExternalDocs extends EObject {

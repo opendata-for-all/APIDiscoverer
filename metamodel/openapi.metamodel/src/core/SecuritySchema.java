@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link core.SecuritySchema#getType <em>Type</em>}</li>
  *   <li>{@link core.SecuritySchema#getDescription <em>Description</em>}</li>
  *   <li>{@link core.SecuritySchema#getName <em>Name</em>}</li>
- *   <li>{@link core.SecuritySchema#getIn <em>In</em>}</li>
+ *   <li>{@link core.SecuritySchema#getLocation <em>Location</em>}</li>
  *   <li>{@link core.SecuritySchema#getFlow <em>Flow</em>}</li>
  *   <li>{@link core.SecuritySchema#getAuthorizationUrl <em>Authorization Url</em>}</li>
  *   <li>{@link core.SecuritySchema#getTokenUrl <em>Token Url</em>}</li>
@@ -113,33 +113,33 @@ public interface SecuritySchema extends EObject {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>In</b></em>' attribute.
+	 * Returns the value of the '<em><b>Location</b></em>' attribute.
 	 * The literals are from the enumeration {@link core.APIKeyLocation}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>In</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Location</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>In</em>' attribute.
+	 * @return the value of the '<em>Location</em>' attribute.
 	 * @see core.APIKeyLocation
-	 * @see #setIn(APIKeyLocation)
-	 * @see core.CorePackage#getSecuritySchema_In()
+	 * @see #setLocation(APIKeyLocation)
+	 * @see core.CorePackage#getSecuritySchema_Location()
 	 * @model
 	 * @generated
 	 */
-	APIKeyLocation getIn();
+	APIKeyLocation getLocation();
 
 	/**
-	 * Sets the value of the '{@link core.SecuritySchema#getIn <em>In</em>}' attribute.
+	 * Sets the value of the '{@link core.SecuritySchema#getLocation <em>Location</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>In</em>' attribute.
+	 * @param value the new value of the '<em>Location</em>' attribute.
 	 * @see core.APIKeyLocation
-	 * @see #getIn()
+	 * @see #getLocation()
 	 * @generated
 	 */
-	void setIn(APIKeyLocation value);
+	void setLocation(APIKeyLocation value);
 
 	/**
 	 * Returns the value of the '<em><b>Flow</b></em>' attribute.
@@ -250,7 +250,7 @@ public interface SecuritySchema extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Scopes</b></em>' containment reference list.
-	 * The list contents are of type {@link core.Scope}.
+	 * The list contents are of type {@link core.SecurityScope}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Scopes</em>' containment reference list isn't clear,
@@ -262,6 +262,6 @@ public interface SecuritySchema extends EObject {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Scope> getScopes();
+	EList<SecurityScope> getScopes();
 
 } // SecuritySchema

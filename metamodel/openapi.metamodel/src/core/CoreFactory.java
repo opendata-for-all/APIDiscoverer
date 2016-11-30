@@ -22,13 +22,22 @@ public interface CoreFactory extends EFactory {
 	CoreFactory eINSTANCE = core.impl.CoreFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Api</em>'.
+	 * Returns a new object of class '<em>Root</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Api</em>'.
+	 * @return a new object of class '<em>Root</em>'.
 	 * @generated
 	 */
-	Api createApi();
+	Root createRoot();
+
+	/**
+	 * Returns a new object of class '<em>API</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>API</em>'.
+	 * @generated
+	 */
+	API createAPI();
 
 	/**
 	 * Returns a new object of class '<em>Info</em>'.
@@ -94,13 +103,13 @@ public interface CoreFactory extends EFactory {
 	APIParameter createAPIParameter();
 
 	/**
-	 * Returns a new object of class '<em>Items</em>'.
+	 * Returns a new object of class '<em>Items Definition</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Items</em>'.
+	 * @return a new object of class '<em>Items Definition</em>'.
 	 * @generated
 	 */
-	Items createItems();
+	ItemsDefinition createItemsDefinition();
 
 	/**
 	 * Returns a new object of class '<em>Schema</em>'.
@@ -119,15 +128,6 @@ public interface CoreFactory extends EFactory {
 	 * @generated
 	 */
 	Response createResponse();
-
-	/**
-	 * Returns a new object of class '<em>Security Requirement</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Security Requirement</em>'.
-	 * @generated
-	 */
-	SecurityRequirement createSecurityRequirement();
 
 	/**
 	 * Returns a new object of class '<em>Header</em>'.
@@ -175,13 +175,13 @@ public interface CoreFactory extends EFactory {
 	XMLElement createXMLElement();
 
 	/**
-	 * Returns a new object of class '<em>Scope</em>'.
+	 * Returns a new object of class '<em>Security Scope</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Scope</em>'.
+	 * @return a new object of class '<em>Security Scope</em>'.
 	 * @generated
 	 */
-	Scope createScope();
+	SecurityScope createSecurityScope();
 
 	/**
 	 * Returns the package supported by this factory.

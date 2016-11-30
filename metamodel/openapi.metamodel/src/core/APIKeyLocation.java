@@ -19,6 +19,14 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum APIKeyLocation implements Enumerator {
 	/**
+	 * The '<em><b>Unspecified</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #UNSPECIFIED_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	UNSPECIFIED(0, "unspecified", "unspecified"), /**
 	 * The '<em><b>Query</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -26,7 +34,7 @@ public enum APIKeyLocation implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	QUERY(0, "query", "query"),
+	QUERY(1, "query", "query"),
 
 	/**
 	 * The '<em><b>Header</b></em>' literal object.
@@ -36,7 +44,22 @@ public enum APIKeyLocation implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	HEADER(1, "header", "header");
+	HEADER(2, "header", "header");
+
+	/**
+	 * The '<em><b>Unspecified</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Unspecified</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #UNSPECIFIED
+	 * @model name="unspecified"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int UNSPECIFIED_VALUE = 0;
 
 	/**
 	 * The '<em><b>Query</b></em>' literal value.
@@ -51,7 +74,7 @@ public enum APIKeyLocation implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int QUERY_VALUE = 0;
+	public static final int QUERY_VALUE = 1;
 
 	/**
 	 * The '<em><b>Header</b></em>' literal value.
@@ -66,7 +89,7 @@ public enum APIKeyLocation implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int HEADER_VALUE = 1;
+	public static final int HEADER_VALUE = 2;
 
 	/**
 	 * An array of all the '<em><b>API Key Location</b></em>' enumerators.
@@ -76,6 +99,7 @@ public enum APIKeyLocation implements Enumerator {
 	 */
 	private static final APIKeyLocation[] VALUES_ARRAY =
 		new APIKeyLocation[] {
+			UNSPECIFIED,
 			QUERY,
 			HEADER,
 		};
@@ -134,6 +158,7 @@ public enum APIKeyLocation implements Enumerator {
 	 */
 	public static APIKeyLocation get(int value) {
 		switch (value) {
+			case UNSPECIFIED_VALUE: return UNSPECIFIED;
 			case QUERY_VALUE: return QUERY;
 			case HEADER_VALUE: return HEADER;
 		}

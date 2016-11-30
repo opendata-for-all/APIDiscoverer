@@ -5,15 +5,14 @@ package core.impl;
 import core.APIKeyLocation;
 import core.CorePackage;
 import core.OAuth2FlowType;
-import core.Scope;
 import core.SecuritySchema;
 import core.SecuritySchemeType;
 
+import core.SecurityScope;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -36,7 +35,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link core.impl.SecuritySchemaImpl#getType <em>Type</em>}</li>
  *   <li>{@link core.impl.SecuritySchemaImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link core.impl.SecuritySchemaImpl#getName <em>Name</em>}</li>
- *   <li>{@link core.impl.SecuritySchemaImpl#getIn <em>In</em>}</li>
+ *   <li>{@link core.impl.SecuritySchemaImpl#getLocation <em>Location</em>}</li>
  *   <li>{@link core.impl.SecuritySchemaImpl#getFlow <em>Flow</em>}</li>
  *   <li>{@link core.impl.SecuritySchemaImpl#getAuthorizationUrl <em>Authorization Url</em>}</li>
  *   <li>{@link core.impl.SecuritySchemaImpl#getTokenUrl <em>Token Url</em>}</li>
@@ -55,7 +54,7 @@ public class SecuritySchemaImpl extends MinimalEObjectImpl.Container implements 
 	 * @generated
 	 * @ordered
 	 */
-	protected static final SecuritySchemeType TYPE_EDEFAULT = SecuritySchemeType.BASIC;
+	protected static final SecuritySchemeType TYPE_EDEFAULT = SecuritySchemeType.UNSPECIFIED;
 
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
@@ -108,24 +107,24 @@ public class SecuritySchemaImpl extends MinimalEObjectImpl.Container implements 
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getIn() <em>In</em>}' attribute.
+	 * The default value of the '{@link #getLocation() <em>Location</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getIn()
+	 * @see #getLocation()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final APIKeyLocation IN_EDEFAULT = APIKeyLocation.QUERY;
+	protected static final APIKeyLocation LOCATION_EDEFAULT = APIKeyLocation.UNSPECIFIED;
 
 	/**
-	 * The cached value of the '{@link #getIn() <em>In</em>}' attribute.
+	 * The cached value of the '{@link #getLocation() <em>Location</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getIn()
+	 * @see #getLocation()
 	 * @generated
 	 * @ordered
 	 */
-	protected APIKeyLocation in = IN_EDEFAULT;
+	protected APIKeyLocation location = LOCATION_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getFlow() <em>Flow</em>}' attribute.
@@ -135,7 +134,7 @@ public class SecuritySchemaImpl extends MinimalEObjectImpl.Container implements 
 	 * @generated
 	 * @ordered
 	 */
-	protected static final OAuth2FlowType FLOW_EDEFAULT = OAuth2FlowType.IMPLICIT;
+	protected static final OAuth2FlowType FLOW_EDEFAULT = OAuth2FlowType.UNSPECIFIED;
 
 	/**
 	 * The cached value of the '{@link #getFlow() <em>Flow</em>}' attribute.
@@ -215,7 +214,7 @@ public class SecuritySchemaImpl extends MinimalEObjectImpl.Container implements 
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Scope> scopes;
+	protected EList<SecurityScope> scopes;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -304,8 +303,8 @@ public class SecuritySchemaImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public APIKeyLocation getIn() {
-		return in;
+	public APIKeyLocation getLocation() {
+		return location;
 	}
 
 	/**
@@ -313,11 +312,11 @@ public class SecuritySchemaImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setIn(APIKeyLocation newIn) {
-		APIKeyLocation oldIn = in;
-		in = newIn == null ? IN_EDEFAULT : newIn;
+	public void setLocation(APIKeyLocation newLocation) {
+		APIKeyLocation oldLocation = location;
+		location = newLocation == null ? LOCATION_EDEFAULT : newLocation;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.SECURITY_SCHEMA__IN, oldIn, in));
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.SECURITY_SCHEMA__LOCATION, oldLocation, location));
 	}
 
 	/**
@@ -409,9 +408,9 @@ public class SecuritySchemaImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Scope> getScopes() {
+	public EList<SecurityScope> getScopes() {
 		if (scopes == null) {
-			scopes = new EObjectContainmentEList<Scope>(Scope.class, this, CorePackage.SECURITY_SCHEMA__SCOPES);
+			scopes = new EObjectContainmentEList<SecurityScope>(SecurityScope.class, this, CorePackage.SECURITY_SCHEMA__SCOPES);
 		}
 		return scopes;
 	}
@@ -444,8 +443,8 @@ public class SecuritySchemaImpl extends MinimalEObjectImpl.Container implements 
 				return getDescription();
 			case CorePackage.SECURITY_SCHEMA__NAME:
 				return getName();
-			case CorePackage.SECURITY_SCHEMA__IN:
-				return getIn();
+			case CorePackage.SECURITY_SCHEMA__LOCATION:
+				return getLocation();
 			case CorePackage.SECURITY_SCHEMA__FLOW:
 				return getFlow();
 			case CorePackage.SECURITY_SCHEMA__AUTHORIZATION_URL:
@@ -478,8 +477,8 @@ public class SecuritySchemaImpl extends MinimalEObjectImpl.Container implements 
 			case CorePackage.SECURITY_SCHEMA__NAME:
 				setName((String)newValue);
 				return;
-			case CorePackage.SECURITY_SCHEMA__IN:
-				setIn((APIKeyLocation)newValue);
+			case CorePackage.SECURITY_SCHEMA__LOCATION:
+				setLocation((APIKeyLocation)newValue);
 				return;
 			case CorePackage.SECURITY_SCHEMA__FLOW:
 				setFlow((OAuth2FlowType)newValue);
@@ -495,7 +494,7 @@ public class SecuritySchemaImpl extends MinimalEObjectImpl.Container implements 
 				return;
 			case CorePackage.SECURITY_SCHEMA__SCOPES:
 				getScopes().clear();
-				getScopes().addAll((Collection<? extends Scope>)newValue);
+				getScopes().addAll((Collection<? extends SecurityScope>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -518,8 +517,8 @@ public class SecuritySchemaImpl extends MinimalEObjectImpl.Container implements 
 			case CorePackage.SECURITY_SCHEMA__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case CorePackage.SECURITY_SCHEMA__IN:
-				setIn(IN_EDEFAULT);
+			case CorePackage.SECURITY_SCHEMA__LOCATION:
+				setLocation(LOCATION_EDEFAULT);
 				return;
 			case CorePackage.SECURITY_SCHEMA__FLOW:
 				setFlow(FLOW_EDEFAULT);
@@ -554,8 +553,8 @@ public class SecuritySchemaImpl extends MinimalEObjectImpl.Container implements 
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 			case CorePackage.SECURITY_SCHEMA__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case CorePackage.SECURITY_SCHEMA__IN:
-				return in != IN_EDEFAULT;
+			case CorePackage.SECURITY_SCHEMA__LOCATION:
+				return location != LOCATION_EDEFAULT;
 			case CorePackage.SECURITY_SCHEMA__FLOW:
 				return flow != FLOW_EDEFAULT;
 			case CorePackage.SECURITY_SCHEMA__AUTHORIZATION_URL:
@@ -586,8 +585,8 @@ public class SecuritySchemaImpl extends MinimalEObjectImpl.Container implements 
 		result.append(description);
 		result.append(", name: ");
 		result.append(name);
-		result.append(", in: ");
-		result.append(in);
+		result.append(", location: ");
+		result.append(location);
 		result.append(", flow: ");
 		result.append(flow);
 		result.append(", authorizationUrl: ");

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openAPI.core:Root
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:openAPI.core="http://example.com/openAPI/core"
+    xsi:schemaLocation="http://example.com/openAPI/core ../model/openAPI.ecore">
+  <api swagger="&quot;2.0&quot;">
+    <info title="Test2"
+        description="Mocking"
+        version="1.0"/>
+    <schemes>http</schemes>
+    <paths pattern="/path3"/>
+    <paths pattern="/path1">
+      <operations
+          responses="//@responses.0"
+          httpMethod="get"/>
+    </paths>
+    <paths pattern="path4"/>
+  </api>
+  <responses
+      code="202"/>
+</openAPI.core:Root>

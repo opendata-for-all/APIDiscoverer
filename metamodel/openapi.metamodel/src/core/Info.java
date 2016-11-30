@@ -22,7 +22,8 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see core.CorePackage#getInfo()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='requiredTitle requiredAPIVerison'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL requiredTitle='not self.title.oclIsUndefined()' requiredAPIVerison='not self.version.oclIsUndefined()'"
  * @generated
  */
 public interface Info extends EObject {

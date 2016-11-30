@@ -3,25 +3,28 @@
 package core.impl;
 
 import core.APIParameter;
+import core.ArrayContext;
 import core.CollectionFormat;
 import core.CorePackage;
-import core.Items;
-import core.JsonDataType;
+import core.ItemsDefinition;
+import core.JSONDataType;
+import core.JSONPointer;
+import core.JSONSchemaSubset;
 import core.ParameterLocation;
+import core.ParamterDeclaringContext;
 import core.Schema;
 
+import core.SchemaContext;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
@@ -33,114 +36,46 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link core.impl.APIParameterImpl#getName <em>Name</em>}</li>
- *   <li>{@link core.impl.APIParameterImpl#getIn <em>In</em>}</li>
- *   <li>{@link core.impl.APIParameterImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link core.impl.APIParameterImpl#isRequired <em>Required</em>}</li>
+ *   <li>{@link core.impl.APIParameterImpl#getSchema <em>Schema</em>}</li>
  *   <li>{@link core.impl.APIParameterImpl#getType <em>Type</em>}</li>
  *   <li>{@link core.impl.APIParameterImpl#getFormat <em>Format</em>}</li>
- *   <li>{@link core.impl.APIParameterImpl#isAllowEmplyValue <em>Allow Emply Value</em>}</li>
- *   <li>{@link core.impl.APIParameterImpl#getItems <em>Items</em>}</li>
- *   <li>{@link core.impl.APIParameterImpl#getCollectionFormat <em>Collection Format</em>}</li>
+ *   <li>{@link core.impl.APIParameterImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link core.impl.APIParameterImpl#getMaximum <em>Maximum</em>}</li>
- *   <li>{@link core.impl.APIParameterImpl#isExclusiveMaximum <em>Exclusive Maximum</em>}</li>
+ *   <li>{@link core.impl.APIParameterImpl#getExclusiveMaximum <em>Exclusive Maximum</em>}</li>
  *   <li>{@link core.impl.APIParameterImpl#getMinimum <em>Minimum</em>}</li>
- *   <li>{@link core.impl.APIParameterImpl#isExclusiveMinimum <em>Exclusive Minimum</em>}</li>
+ *   <li>{@link core.impl.APIParameterImpl#getExclusiveMinimum <em>Exclusive Minimum</em>}</li>
  *   <li>{@link core.impl.APIParameterImpl#getMaxLength <em>Max Length</em>}</li>
  *   <li>{@link core.impl.APIParameterImpl#getMinLength <em>Min Length</em>}</li>
  *   <li>{@link core.impl.APIParameterImpl#getPattern <em>Pattern</em>}</li>
  *   <li>{@link core.impl.APIParameterImpl#getMaxItems <em>Max Items</em>}</li>
  *   <li>{@link core.impl.APIParameterImpl#getMinItems <em>Min Items</em>}</li>
- *   <li>{@link core.impl.APIParameterImpl#isUniqueItems <em>Unique Items</em>}</li>
- *   <li>{@link core.impl.APIParameterImpl#getMultipleOf <em>Multiple Of</em>}</li>
- *   <li>{@link core.impl.APIParameterImpl#getSchema <em>Schema</em>}</li>
- *   <li>{@link core.impl.APIParameterImpl#getDefault <em>Default</em>}</li>
+ *   <li>{@link core.impl.APIParameterImpl#getUniqueItems <em>Unique Items</em>}</li>
  *   <li>{@link core.impl.APIParameterImpl#getEnum <em>Enum</em>}</li>
- *   <li>{@link core.impl.APIParameterImpl#getGlobalName <em>Global Name</em>}</li>
+ *   <li>{@link core.impl.APIParameterImpl#getDefault <em>Default</em>}</li>
+ *   <li>{@link core.impl.APIParameterImpl#getMultipleOf <em>Multiple Of</em>}</li>
+ *   <li>{@link core.impl.APIParameterImpl#getRef <em>Ref</em>}</li>
+ *   <li>{@link core.impl.APIParameterImpl#getCollectionFormat <em>Collection Format</em>}</li>
+ *   <li>{@link core.impl.APIParameterImpl#getItems <em>Items</em>}</li>
+ *   <li>{@link core.impl.APIParameterImpl#getName <em>Name</em>}</li>
+ *   <li>{@link core.impl.APIParameterImpl#getLocation <em>Location</em>}</li>
+ *   <li>{@link core.impl.APIParameterImpl#getRequired <em>Required</em>}</li>
+ *   <li>{@link core.impl.APIParameterImpl#getAllowEmplyValue <em>Allow Emply Value</em>}</li>
+ *   <li>{@link core.impl.APIParameterImpl#getReferenceName <em>Reference Name</em>}</li>
+ *   <li>{@link core.impl.APIParameterImpl#getDeclaringContext <em>Declaring Context</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class APIParameterImpl extends MinimalEObjectImpl.Container implements APIParameter {
+public class APIParameterImpl extends SchemaDeclaringContextImpl implements APIParameter {
 	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * The cached value of the '{@link #getSchema() <em>Schema</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getName()
+	 * @see #getSchema()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getIn() <em>In</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getIn()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final ParameterLocation IN_EDEFAULT = ParameterLocation.QUERY;
-
-	/**
-	 * The cached value of the '{@link #getIn() <em>In</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getIn()
-	 * @generated
-	 * @ordered
-	 */
-	protected ParameterLocation in = IN_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDescription()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String DESCRIPTION_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDescription()
-	 * @generated
-	 * @ordered
-	 */
-	protected String description = DESCRIPTION_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #isRequired() <em>Required</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isRequired()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean REQUIRED_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isRequired() <em>Required</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isRequired()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean required = REQUIRED_EDEFAULT;
+	protected Schema schema;
 
 	/**
 	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
@@ -150,7 +85,7 @@ public class APIParameterImpl extends MinimalEObjectImpl.Container implements AP
 	 * @generated
 	 * @ordered
 	 */
-	protected static final JsonDataType TYPE_EDEFAULT = JsonDataType.INTEGER;
+	protected static final JSONDataType TYPE_EDEFAULT = JSONDataType.UNSPECIFIED;
 
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
@@ -160,7 +95,7 @@ public class APIParameterImpl extends MinimalEObjectImpl.Container implements AP
 	 * @generated
 	 * @ordered
 	 */
-	protected JsonDataType type = TYPE_EDEFAULT;
+	protected JSONDataType type = TYPE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getFormat() <em>Format</em>}' attribute.
@@ -183,54 +118,24 @@ public class APIParameterImpl extends MinimalEObjectImpl.Container implements AP
 	protected String format = FORMAT_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isAllowEmplyValue() <em>Allow Emply Value</em>}' attribute.
+	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isAllowEmplyValue()
+	 * @see #getDescription()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean ALLOW_EMPLY_VALUE_EDEFAULT = false;
+	protected static final String DESCRIPTION_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #isAllowEmplyValue() <em>Allow Emply Value</em>}' attribute.
+	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isAllowEmplyValue()
+	 * @see #getDescription()
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean allowEmplyValue = ALLOW_EMPLY_VALUE_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getItems() <em>Items</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getItems()
-	 * @generated
-	 * @ordered
-	 */
-	protected Items items;
-
-	/**
-	 * The default value of the '{@link #getCollectionFormat() <em>Collection Format</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCollectionFormat()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final CollectionFormat COLLECTION_FORMAT_EDEFAULT = CollectionFormat.CSV;
-
-	/**
-	 * The cached value of the '{@link #getCollectionFormat() <em>Collection Format</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCollectionFormat()
-	 * @generated
-	 * @ordered
-	 */
-	protected CollectionFormat collectionFormat = COLLECTION_FORMAT_EDEFAULT;
+	protected String description = DESCRIPTION_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getMaximum() <em>Maximum</em>}' attribute.
@@ -240,7 +145,7 @@ public class APIParameterImpl extends MinimalEObjectImpl.Container implements AP
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int MAXIMUM_EDEFAULT = 0;
+	protected static final Double MAXIMUM_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getMaximum() <em>Maximum</em>}' attribute.
@@ -250,27 +155,27 @@ public class APIParameterImpl extends MinimalEObjectImpl.Container implements AP
 	 * @generated
 	 * @ordered
 	 */
-	protected int maximum = MAXIMUM_EDEFAULT;
+	protected Double maximum = MAXIMUM_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isExclusiveMaximum() <em>Exclusive Maximum</em>}' attribute.
+	 * The default value of the '{@link #getExclusiveMaximum() <em>Exclusive Maximum</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isExclusiveMaximum()
+	 * @see #getExclusiveMaximum()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean EXCLUSIVE_MAXIMUM_EDEFAULT = false;
+	protected static final Double EXCLUSIVE_MAXIMUM_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #isExclusiveMaximum() <em>Exclusive Maximum</em>}' attribute.
+	 * The cached value of the '{@link #getExclusiveMaximum() <em>Exclusive Maximum</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isExclusiveMaximum()
+	 * @see #getExclusiveMaximum()
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean exclusiveMaximum = EXCLUSIVE_MAXIMUM_EDEFAULT;
+	protected Double exclusiveMaximum = EXCLUSIVE_MAXIMUM_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getMinimum() <em>Minimum</em>}' attribute.
@@ -280,7 +185,7 @@ public class APIParameterImpl extends MinimalEObjectImpl.Container implements AP
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int MINIMUM_EDEFAULT = 0;
+	protected static final Double MINIMUM_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getMinimum() <em>Minimum</em>}' attribute.
@@ -290,27 +195,27 @@ public class APIParameterImpl extends MinimalEObjectImpl.Container implements AP
 	 * @generated
 	 * @ordered
 	 */
-	protected int minimum = MINIMUM_EDEFAULT;
+	protected Double minimum = MINIMUM_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isExclusiveMinimum() <em>Exclusive Minimum</em>}' attribute.
+	 * The default value of the '{@link #getExclusiveMinimum() <em>Exclusive Minimum</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isExclusiveMinimum()
+	 * @see #getExclusiveMinimum()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean EXCLUSIVE_MINIMUM_EDEFAULT = false;
+	protected static final Boolean EXCLUSIVE_MINIMUM_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #isExclusiveMinimum() <em>Exclusive Minimum</em>}' attribute.
+	 * The cached value of the '{@link #getExclusiveMinimum() <em>Exclusive Minimum</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isExclusiveMinimum()
+	 * @see #getExclusiveMinimum()
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean exclusiveMinimum = EXCLUSIVE_MINIMUM_EDEFAULT;
+	protected Boolean exclusiveMinimum = EXCLUSIVE_MINIMUM_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getMaxLength() <em>Max Length</em>}' attribute.
@@ -320,7 +225,7 @@ public class APIParameterImpl extends MinimalEObjectImpl.Container implements AP
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int MAX_LENGTH_EDEFAULT = 0;
+	protected static final Integer MAX_LENGTH_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getMaxLength() <em>Max Length</em>}' attribute.
@@ -330,7 +235,7 @@ public class APIParameterImpl extends MinimalEObjectImpl.Container implements AP
 	 * @generated
 	 * @ordered
 	 */
-	protected int maxLength = MAX_LENGTH_EDEFAULT;
+	protected Integer maxLength = MAX_LENGTH_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getMinLength() <em>Min Length</em>}' attribute.
@@ -340,7 +245,7 @@ public class APIParameterImpl extends MinimalEObjectImpl.Container implements AP
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int MIN_LENGTH_EDEFAULT = 0;
+	protected static final Integer MIN_LENGTH_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getMinLength() <em>Min Length</em>}' attribute.
@@ -350,7 +255,7 @@ public class APIParameterImpl extends MinimalEObjectImpl.Container implements AP
 	 * @generated
 	 * @ordered
 	 */
-	protected int minLength = MIN_LENGTH_EDEFAULT;
+	protected Integer minLength = MIN_LENGTH_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getPattern() <em>Pattern</em>}' attribute.
@@ -380,7 +285,7 @@ public class APIParameterImpl extends MinimalEObjectImpl.Container implements AP
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int MAX_ITEMS_EDEFAULT = 0;
+	protected static final Integer MAX_ITEMS_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getMaxItems() <em>Max Items</em>}' attribute.
@@ -390,7 +295,7 @@ public class APIParameterImpl extends MinimalEObjectImpl.Container implements AP
 	 * @generated
 	 * @ordered
 	 */
-	protected int maxItems = MAX_ITEMS_EDEFAULT;
+	protected Integer maxItems = MAX_ITEMS_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getMinItems() <em>Min Items</em>}' attribute.
@@ -400,7 +305,7 @@ public class APIParameterImpl extends MinimalEObjectImpl.Container implements AP
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int MIN_ITEMS_EDEFAULT = 0;
+	protected static final Integer MIN_ITEMS_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getMinItems() <em>Min Items</em>}' attribute.
@@ -410,57 +315,37 @@ public class APIParameterImpl extends MinimalEObjectImpl.Container implements AP
 	 * @generated
 	 * @ordered
 	 */
-	protected int minItems = MIN_ITEMS_EDEFAULT;
+	protected Integer minItems = MIN_ITEMS_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isUniqueItems() <em>Unique Items</em>}' attribute.
+	 * The default value of the '{@link #getUniqueItems() <em>Unique Items</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isUniqueItems()
+	 * @see #getUniqueItems()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean UNIQUE_ITEMS_EDEFAULT = false;
+	protected static final Boolean UNIQUE_ITEMS_EDEFAULT = Boolean.FALSE;
 
 	/**
-	 * The cached value of the '{@link #isUniqueItems() <em>Unique Items</em>}' attribute.
+	 * The cached value of the '{@link #getUniqueItems() <em>Unique Items</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isUniqueItems()
+	 * @see #getUniqueItems()
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean uniqueItems = UNIQUE_ITEMS_EDEFAULT;
+	protected Boolean uniqueItems = UNIQUE_ITEMS_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getMultipleOf() <em>Multiple Of</em>}' attribute.
+	 * The cached value of the '{@link #getEnum() <em>Enum</em>}' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getMultipleOf()
+	 * @see #getEnum()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int MULTIPLE_OF_EDEFAULT = 0;
-
-	/**
-	 * The cached value of the '{@link #getMultipleOf() <em>Multiple Of</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMultipleOf()
-	 * @generated
-	 * @ordered
-	 */
-	protected int multipleOf = MULTIPLE_OF_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getSchema() <em>Schema</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSchema()
-	 * @generated
-	 * @ordered
-	 */
-	protected Schema schema;
+	protected EList<String> enum_;
 
 	/**
 	 * The default value of the '{@link #getDefault() <em>Default</em>}' attribute.
@@ -483,34 +368,174 @@ public class APIParameterImpl extends MinimalEObjectImpl.Container implements AP
 	protected String default_ = DEFAULT_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getEnum() <em>Enum</em>}' attribute list.
+	 * The default value of the '{@link #getMultipleOf() <em>Multiple Of</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getEnum()
+	 * @see #getMultipleOf()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<String> enum_;
+	protected static final double MULTIPLE_OF_EDEFAULT = 0.0;
 
 	/**
-	 * The default value of the '{@link #getGlobalName() <em>Global Name</em>}' attribute.
+	 * The cached value of the '{@link #getMultipleOf() <em>Multiple Of</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getGlobalName()
+	 * @see #getMultipleOf()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String GLOBAL_NAME_EDEFAULT = null;
+	protected double multipleOf = MULTIPLE_OF_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getGlobalName() <em>Global Name</em>}' attribute.
+	 * The default value of the '{@link #getRef() <em>Ref</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getGlobalName()
+	 * @see #getRef()
 	 * @generated
 	 * @ordered
 	 */
-	protected String globalName = GLOBAL_NAME_EDEFAULT;
+	protected static final String REF_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getCollectionFormat() <em>Collection Format</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCollectionFormat()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final CollectionFormat COLLECTION_FORMAT_EDEFAULT = CollectionFormat.UNSPECIFIED;
+
+	/**
+	 * The cached value of the '{@link #getCollectionFormat() <em>Collection Format</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCollectionFormat()
+	 * @generated
+	 * @ordered
+	 */
+	protected CollectionFormat collectionFormat = COLLECTION_FORMAT_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getItems() <em>Items</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getItems()
+	 * @generated
+	 * @ordered
+	 */
+	protected ItemsDefinition items;
+
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getLocation() <em>Location</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLocation()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final ParameterLocation LOCATION_EDEFAULT = ParameterLocation.UNSPECIFIED;
+
+	/**
+	 * The cached value of the '{@link #getLocation() <em>Location</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLocation()
+	 * @generated
+	 * @ordered
+	 */
+	protected ParameterLocation location = LOCATION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getRequired() <em>Required</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRequired()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Boolean REQUIRED_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getRequired() <em>Required</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRequired()
+	 * @generated
+	 * @ordered
+	 */
+	protected Boolean required = REQUIRED_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getAllowEmplyValue() <em>Allow Emply Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAllowEmplyValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Boolean ALLOW_EMPLY_VALUE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getAllowEmplyValue() <em>Allow Emply Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAllowEmplyValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected Boolean allowEmplyValue = ALLOW_EMPLY_VALUE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getReferenceName() <em>Reference Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReferenceName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String REFERENCE_NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getReferenceName() <em>Reference Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReferenceName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String referenceName = REFERENCE_NAME_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getDeclaringContext() <em>Declaring Context</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDeclaringContext()
+	 * @generated
+	 * @ordered
+	 */
+	protected ParamterDeclaringContext declaringContext;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -557,8 +582,8 @@ public class APIParameterImpl extends MinimalEObjectImpl.Container implements AP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ParameterLocation getIn() {
-		return in;
+	public ParameterLocation getLocation() {
+		return location;
 	}
 
 	/**
@@ -566,11 +591,11 @@ public class APIParameterImpl extends MinimalEObjectImpl.Container implements AP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setIn(ParameterLocation newIn) {
-		ParameterLocation oldIn = in;
-		in = newIn == null ? IN_EDEFAULT : newIn;
+	public void setLocation(ParameterLocation newLocation) {
+		ParameterLocation oldLocation = location;
+		location = newLocation == null ? LOCATION_EDEFAULT : newLocation;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.API_PARAMETER__IN, oldIn, in));
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.API_PARAMETER__LOCATION, oldLocation, location));
 	}
 
 	/**
@@ -599,7 +624,217 @@ public class APIParameterImpl extends MinimalEObjectImpl.Container implements AP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isRequired() {
+	public Double getMaximum() {
+		return maximum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMaximum(Double newMaximum) {
+		Double oldMaximum = maximum;
+		maximum = newMaximum;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.API_PARAMETER__MAXIMUM, oldMaximum, maximum));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Double getExclusiveMaximum() {
+		return exclusiveMaximum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setExclusiveMaximum(Double newExclusiveMaximum) {
+		Double oldExclusiveMaximum = exclusiveMaximum;
+		exclusiveMaximum = newExclusiveMaximum;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.API_PARAMETER__EXCLUSIVE_MAXIMUM, oldExclusiveMaximum, exclusiveMaximum));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Double getMinimum() {
+		return minimum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMinimum(Double newMinimum) {
+		Double oldMinimum = minimum;
+		minimum = newMinimum;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.API_PARAMETER__MINIMUM, oldMinimum, minimum));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Boolean getExclusiveMinimum() {
+		return exclusiveMinimum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setExclusiveMinimum(Boolean newExclusiveMinimum) {
+		Boolean oldExclusiveMinimum = exclusiveMinimum;
+		exclusiveMinimum = newExclusiveMinimum;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.API_PARAMETER__EXCLUSIVE_MINIMUM, oldExclusiveMinimum, exclusiveMinimum));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Integer getMaxLength() {
+		return maxLength;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMaxLength(Integer newMaxLength) {
+		Integer oldMaxLength = maxLength;
+		maxLength = newMaxLength;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.API_PARAMETER__MAX_LENGTH, oldMaxLength, maxLength));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Integer getMinLength() {
+		return minLength;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMinLength(Integer newMinLength) {
+		Integer oldMinLength = minLength;
+		minLength = newMinLength;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.API_PARAMETER__MIN_LENGTH, oldMinLength, minLength));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getPattern() {
+		return pattern;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPattern(String newPattern) {
+		String oldPattern = pattern;
+		pattern = newPattern;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.API_PARAMETER__PATTERN, oldPattern, pattern));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Integer getMaxItems() {
+		return maxItems;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMaxItems(Integer newMaxItems) {
+		Integer oldMaxItems = maxItems;
+		maxItems = newMaxItems;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.API_PARAMETER__MAX_ITEMS, oldMaxItems, maxItems));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Integer getMinItems() {
+		return minItems;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMinItems(Integer newMinItems) {
+		Integer oldMinItems = minItems;
+		minItems = newMinItems;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.API_PARAMETER__MIN_ITEMS, oldMinItems, minItems));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Boolean getUniqueItems() {
+		return uniqueItems;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setUniqueItems(Boolean newUniqueItems) {
+		Boolean oldUniqueItems = uniqueItems;
+		uniqueItems = newUniqueItems;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.API_PARAMETER__UNIQUE_ITEMS, oldUniqueItems, uniqueItems));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Boolean getRequired() {
 		return required;
 	}
 
@@ -608,8 +843,8 @@ public class APIParameterImpl extends MinimalEObjectImpl.Container implements AP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRequired(boolean newRequired) {
-		boolean oldRequired = required;
+	public void setRequired(Boolean newRequired) {
+		Boolean oldRequired = required;
 		required = newRequired;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.API_PARAMETER__REQUIRED, oldRequired, required));
@@ -620,7 +855,7 @@ public class APIParameterImpl extends MinimalEObjectImpl.Container implements AP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public JsonDataType getType() {
+	public JSONDataType getType() {
 		return type;
 	}
 
@@ -629,8 +864,8 @@ public class APIParameterImpl extends MinimalEObjectImpl.Container implements AP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setType(JsonDataType newType) {
-		JsonDataType oldType = type;
+	public void setType(JSONDataType newType) {
+		JSONDataType oldType = type;
 		type = newType == null ? TYPE_EDEFAULT : newType;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.API_PARAMETER__TYPE, oldType, type));
@@ -662,7 +897,7 @@ public class APIParameterImpl extends MinimalEObjectImpl.Container implements AP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isAllowEmplyValue() {
+	public Boolean getAllowEmplyValue() {
 		return allowEmplyValue;
 	}
 
@@ -671,8 +906,8 @@ public class APIParameterImpl extends MinimalEObjectImpl.Container implements AP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setAllowEmplyValue(boolean newAllowEmplyValue) {
-		boolean oldAllowEmplyValue = allowEmplyValue;
+	public void setAllowEmplyValue(Boolean newAllowEmplyValue) {
+		Boolean oldAllowEmplyValue = allowEmplyValue;
 		allowEmplyValue = newAllowEmplyValue;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.API_PARAMETER__ALLOW_EMPLY_VALUE, oldAllowEmplyValue, allowEmplyValue));
@@ -683,7 +918,7 @@ public class APIParameterImpl extends MinimalEObjectImpl.Container implements AP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Items getItems() {
+	public ItemsDefinition getItems() {
 		return items;
 	}
 
@@ -692,8 +927,8 @@ public class APIParameterImpl extends MinimalEObjectImpl.Container implements AP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetItems(Items newItems, NotificationChain msgs) {
-		Items oldItems = items;
+	public NotificationChain basicSetItems(ItemsDefinition newItems, NotificationChain msgs) {
+		ItemsDefinition oldItems = items;
 		items = newItems;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorePackage.API_PARAMETER__ITEMS, oldItems, newItems);
@@ -707,7 +942,7 @@ public class APIParameterImpl extends MinimalEObjectImpl.Container implements AP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setItems(Items newItems) {
+	public void setItems(ItemsDefinition newItems) {
 		if (newItems != items) {
 			NotificationChain msgs = null;
 			if (items != null)
@@ -747,8 +982,8 @@ public class APIParameterImpl extends MinimalEObjectImpl.Container implements AP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getMaximum() {
-		return maximum;
+	public String getDefault() {
+		return default_;
 	}
 
 	/**
@@ -756,11 +991,11 @@ public class APIParameterImpl extends MinimalEObjectImpl.Container implements AP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setMaximum(int newMaximum) {
-		int oldMaximum = maximum;
-		maximum = newMaximum;
+	public void setDefault(String newDefault) {
+		String oldDefault = default_;
+		default_ = newDefault;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.API_PARAMETER__MAXIMUM, oldMaximum, maximum));
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.API_PARAMETER__DEFAULT, oldDefault, default_));
 	}
 
 	/**
@@ -768,196 +1003,7 @@ public class APIParameterImpl extends MinimalEObjectImpl.Container implements AP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isExclusiveMaximum() {
-		return exclusiveMaximum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setExclusiveMaximum(boolean newExclusiveMaximum) {
-		boolean oldExclusiveMaximum = exclusiveMaximum;
-		exclusiveMaximum = newExclusiveMaximum;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.API_PARAMETER__EXCLUSIVE_MAXIMUM, oldExclusiveMaximum, exclusiveMaximum));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public int getMinimum() {
-		return minimum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setMinimum(int newMinimum) {
-		int oldMinimum = minimum;
-		minimum = newMinimum;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.API_PARAMETER__MINIMUM, oldMinimum, minimum));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean isExclusiveMinimum() {
-		return exclusiveMinimum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setExclusiveMinimum(boolean newExclusiveMinimum) {
-		boolean oldExclusiveMinimum = exclusiveMinimum;
-		exclusiveMinimum = newExclusiveMinimum;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.API_PARAMETER__EXCLUSIVE_MINIMUM, oldExclusiveMinimum, exclusiveMinimum));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public int getMaxLength() {
-		return maxLength;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setMaxLength(int newMaxLength) {
-		int oldMaxLength = maxLength;
-		maxLength = newMaxLength;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.API_PARAMETER__MAX_LENGTH, oldMaxLength, maxLength));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public int getMinLength() {
-		return minLength;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setMinLength(int newMinLength) {
-		int oldMinLength = minLength;
-		minLength = newMinLength;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.API_PARAMETER__MIN_LENGTH, oldMinLength, minLength));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getPattern() {
-		return pattern;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setPattern(String newPattern) {
-		String oldPattern = pattern;
-		pattern = newPattern;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.API_PARAMETER__PATTERN, oldPattern, pattern));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public int getMaxItems() {
-		return maxItems;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setMaxItems(int newMaxItems) {
-		int oldMaxItems = maxItems;
-		maxItems = newMaxItems;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.API_PARAMETER__MAX_ITEMS, oldMaxItems, maxItems));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public int getMinItems() {
-		return minItems;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setMinItems(int newMinItems) {
-		int oldMinItems = minItems;
-		minItems = newMinItems;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.API_PARAMETER__MIN_ITEMS, oldMinItems, minItems));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean isUniqueItems() {
-		return uniqueItems;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setUniqueItems(boolean newUniqueItems) {
-		boolean oldUniqueItems = uniqueItems;
-		uniqueItems = newUniqueItems;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.API_PARAMETER__UNIQUE_ITEMS, oldUniqueItems, uniqueItems));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public int getMultipleOf() {
+	public double getMultipleOf() {
 		return multipleOf;
 	}
 
@@ -966,11 +1012,22 @@ public class APIParameterImpl extends MinimalEObjectImpl.Container implements AP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setMultipleOf(int newMultipleOf) {
-		int oldMultipleOf = multipleOf;
+	public void setMultipleOf(double newMultipleOf) {
+		double oldMultipleOf = multipleOf;
 		multipleOf = newMultipleOf;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.API_PARAMETER__MULTIPLE_OF, oldMultipleOf, multipleOf));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getRef() {
+		// TODO: implement this method to return the 'Ref' attribute
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -1016,27 +1073,6 @@ public class APIParameterImpl extends MinimalEObjectImpl.Container implements AP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getDefault() {
-		return default_;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setDefault(String newDefault) {
-		String oldDefault = default_;
-		default_ = newDefault;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.API_PARAMETER__DEFAULT, oldDefault, default_));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<String> getEnum() {
 		if (enum_ == null) {
 			enum_ = new EDataTypeUniqueEList<String>(String.class, this, CorePackage.API_PARAMETER__ENUM);
@@ -1049,8 +1085,8 @@ public class APIParameterImpl extends MinimalEObjectImpl.Container implements AP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getGlobalName() {
-		return globalName;
+	public String getReferenceName() {
+		return referenceName;
 	}
 
 	/**
@@ -1058,11 +1094,49 @@ public class APIParameterImpl extends MinimalEObjectImpl.Container implements AP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setGlobalName(String newGlobalName) {
-		String oldGlobalName = globalName;
-		globalName = newGlobalName;
+	public void setReferenceName(String newReferenceName) {
+		String oldReferenceName = referenceName;
+		referenceName = newReferenceName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.API_PARAMETER__GLOBAL_NAME, oldGlobalName, globalName));
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.API_PARAMETER__REFERENCE_NAME, oldReferenceName, referenceName));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ParamterDeclaringContext getDeclaringContext() {
+		if (declaringContext != null && declaringContext.eIsProxy()) {
+			InternalEObject oldDeclaringContext = (InternalEObject)declaringContext;
+			declaringContext = (ParamterDeclaringContext)eResolveProxy(oldDeclaringContext);
+			if (declaringContext != oldDeclaringContext) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CorePackage.API_PARAMETER__DECLARING_CONTEXT, oldDeclaringContext, declaringContext));
+			}
+		}
+		return declaringContext;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ParamterDeclaringContext basicGetDeclaringContext() {
+		return declaringContext;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDeclaringContext(ParamterDeclaringContext newDeclaringContext) {
+		ParamterDeclaringContext oldDeclaringContext = declaringContext;
+		declaringContext = newDeclaringContext;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.API_PARAMETER__DECLARING_CONTEXT, oldDeclaringContext, declaringContext));
 	}
 
 	/**
@@ -1087,32 +1161,23 @@ public class APIParameterImpl extends MinimalEObjectImpl.Container implements AP
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CorePackage.API_PARAMETER__NAME:
-				return getName();
-			case CorePackage.API_PARAMETER__IN:
-				return getIn();
-			case CorePackage.API_PARAMETER__DESCRIPTION:
-				return getDescription();
-			case CorePackage.API_PARAMETER__REQUIRED:
-				return isRequired();
+			case CorePackage.API_PARAMETER__SCHEMA:
+				if (resolve) return getSchema();
+				return basicGetSchema();
 			case CorePackage.API_PARAMETER__TYPE:
 				return getType();
 			case CorePackage.API_PARAMETER__FORMAT:
 				return getFormat();
-			case CorePackage.API_PARAMETER__ALLOW_EMPLY_VALUE:
-				return isAllowEmplyValue();
-			case CorePackage.API_PARAMETER__ITEMS:
-				return getItems();
-			case CorePackage.API_PARAMETER__COLLECTION_FORMAT:
-				return getCollectionFormat();
+			case CorePackage.API_PARAMETER__DESCRIPTION:
+				return getDescription();
 			case CorePackage.API_PARAMETER__MAXIMUM:
 				return getMaximum();
 			case CorePackage.API_PARAMETER__EXCLUSIVE_MAXIMUM:
-				return isExclusiveMaximum();
+				return getExclusiveMaximum();
 			case CorePackage.API_PARAMETER__MINIMUM:
 				return getMinimum();
 			case CorePackage.API_PARAMETER__EXCLUSIVE_MINIMUM:
-				return isExclusiveMinimum();
+				return getExclusiveMinimum();
 			case CorePackage.API_PARAMETER__MAX_LENGTH:
 				return getMaxLength();
 			case CorePackage.API_PARAMETER__MIN_LENGTH:
@@ -1124,18 +1189,32 @@ public class APIParameterImpl extends MinimalEObjectImpl.Container implements AP
 			case CorePackage.API_PARAMETER__MIN_ITEMS:
 				return getMinItems();
 			case CorePackage.API_PARAMETER__UNIQUE_ITEMS:
-				return isUniqueItems();
-			case CorePackage.API_PARAMETER__MULTIPLE_OF:
-				return getMultipleOf();
-			case CorePackage.API_PARAMETER__SCHEMA:
-				if (resolve) return getSchema();
-				return basicGetSchema();
-			case CorePackage.API_PARAMETER__DEFAULT:
-				return getDefault();
+				return getUniqueItems();
 			case CorePackage.API_PARAMETER__ENUM:
 				return getEnum();
-			case CorePackage.API_PARAMETER__GLOBAL_NAME:
-				return getGlobalName();
+			case CorePackage.API_PARAMETER__DEFAULT:
+				return getDefault();
+			case CorePackage.API_PARAMETER__MULTIPLE_OF:
+				return getMultipleOf();
+			case CorePackage.API_PARAMETER__REF:
+				return getRef();
+			case CorePackage.API_PARAMETER__COLLECTION_FORMAT:
+				return getCollectionFormat();
+			case CorePackage.API_PARAMETER__ITEMS:
+				return getItems();
+			case CorePackage.API_PARAMETER__NAME:
+				return getName();
+			case CorePackage.API_PARAMETER__LOCATION:
+				return getLocation();
+			case CorePackage.API_PARAMETER__REQUIRED:
+				return getRequired();
+			case CorePackage.API_PARAMETER__ALLOW_EMPLY_VALUE:
+				return getAllowEmplyValue();
+			case CorePackage.API_PARAMETER__REFERENCE_NAME:
+				return getReferenceName();
+			case CorePackage.API_PARAMETER__DECLARING_CONTEXT:
+				if (resolve) return getDeclaringContext();
+				return basicGetDeclaringContext();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1149,41 +1228,26 @@ public class APIParameterImpl extends MinimalEObjectImpl.Container implements AP
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CorePackage.API_PARAMETER__NAME:
-				setName((String)newValue);
-				return;
-			case CorePackage.API_PARAMETER__IN:
-				setIn((ParameterLocation)newValue);
-				return;
-			case CorePackage.API_PARAMETER__DESCRIPTION:
-				setDescription((String)newValue);
-				return;
-			case CorePackage.API_PARAMETER__REQUIRED:
-				setRequired((Boolean)newValue);
+			case CorePackage.API_PARAMETER__SCHEMA:
+				setSchema((Schema)newValue);
 				return;
 			case CorePackage.API_PARAMETER__TYPE:
-				setType((JsonDataType)newValue);
+				setType((JSONDataType)newValue);
 				return;
 			case CorePackage.API_PARAMETER__FORMAT:
 				setFormat((String)newValue);
 				return;
-			case CorePackage.API_PARAMETER__ALLOW_EMPLY_VALUE:
-				setAllowEmplyValue((Boolean)newValue);
-				return;
-			case CorePackage.API_PARAMETER__ITEMS:
-				setItems((Items)newValue);
-				return;
-			case CorePackage.API_PARAMETER__COLLECTION_FORMAT:
-				setCollectionFormat((CollectionFormat)newValue);
+			case CorePackage.API_PARAMETER__DESCRIPTION:
+				setDescription((String)newValue);
 				return;
 			case CorePackage.API_PARAMETER__MAXIMUM:
-				setMaximum((Integer)newValue);
+				setMaximum((Double)newValue);
 				return;
 			case CorePackage.API_PARAMETER__EXCLUSIVE_MAXIMUM:
-				setExclusiveMaximum((Boolean)newValue);
+				setExclusiveMaximum((Double)newValue);
 				return;
 			case CorePackage.API_PARAMETER__MINIMUM:
-				setMinimum((Integer)newValue);
+				setMinimum((Double)newValue);
 				return;
 			case CorePackage.API_PARAMETER__EXCLUSIVE_MINIMUM:
 				setExclusiveMinimum((Boolean)newValue);
@@ -1206,21 +1270,39 @@ public class APIParameterImpl extends MinimalEObjectImpl.Container implements AP
 			case CorePackage.API_PARAMETER__UNIQUE_ITEMS:
 				setUniqueItems((Boolean)newValue);
 				return;
-			case CorePackage.API_PARAMETER__MULTIPLE_OF:
-				setMultipleOf((Integer)newValue);
-				return;
-			case CorePackage.API_PARAMETER__SCHEMA:
-				setSchema((Schema)newValue);
-				return;
-			case CorePackage.API_PARAMETER__DEFAULT:
-				setDefault((String)newValue);
-				return;
 			case CorePackage.API_PARAMETER__ENUM:
 				getEnum().clear();
 				getEnum().addAll((Collection<? extends String>)newValue);
 				return;
-			case CorePackage.API_PARAMETER__GLOBAL_NAME:
-				setGlobalName((String)newValue);
+			case CorePackage.API_PARAMETER__DEFAULT:
+				setDefault((String)newValue);
+				return;
+			case CorePackage.API_PARAMETER__MULTIPLE_OF:
+				setMultipleOf((Double)newValue);
+				return;
+			case CorePackage.API_PARAMETER__COLLECTION_FORMAT:
+				setCollectionFormat((CollectionFormat)newValue);
+				return;
+			case CorePackage.API_PARAMETER__ITEMS:
+				setItems((ItemsDefinition)newValue);
+				return;
+			case CorePackage.API_PARAMETER__NAME:
+				setName((String)newValue);
+				return;
+			case CorePackage.API_PARAMETER__LOCATION:
+				setLocation((ParameterLocation)newValue);
+				return;
+			case CorePackage.API_PARAMETER__REQUIRED:
+				setRequired((Boolean)newValue);
+				return;
+			case CorePackage.API_PARAMETER__ALLOW_EMPLY_VALUE:
+				setAllowEmplyValue((Boolean)newValue);
+				return;
+			case CorePackage.API_PARAMETER__REFERENCE_NAME:
+				setReferenceName((String)newValue);
+				return;
+			case CorePackage.API_PARAMETER__DECLARING_CONTEXT:
+				setDeclaringContext((ParamterDeclaringContext)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -1234,17 +1316,8 @@ public class APIParameterImpl extends MinimalEObjectImpl.Container implements AP
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CorePackage.API_PARAMETER__NAME:
-				setName(NAME_EDEFAULT);
-				return;
-			case CorePackage.API_PARAMETER__IN:
-				setIn(IN_EDEFAULT);
-				return;
-			case CorePackage.API_PARAMETER__DESCRIPTION:
-				setDescription(DESCRIPTION_EDEFAULT);
-				return;
-			case CorePackage.API_PARAMETER__REQUIRED:
-				setRequired(REQUIRED_EDEFAULT);
+			case CorePackage.API_PARAMETER__SCHEMA:
+				setSchema((Schema)null);
 				return;
 			case CorePackage.API_PARAMETER__TYPE:
 				setType(TYPE_EDEFAULT);
@@ -1252,14 +1325,8 @@ public class APIParameterImpl extends MinimalEObjectImpl.Container implements AP
 			case CorePackage.API_PARAMETER__FORMAT:
 				setFormat(FORMAT_EDEFAULT);
 				return;
-			case CorePackage.API_PARAMETER__ALLOW_EMPLY_VALUE:
-				setAllowEmplyValue(ALLOW_EMPLY_VALUE_EDEFAULT);
-				return;
-			case CorePackage.API_PARAMETER__ITEMS:
-				setItems((Items)null);
-				return;
-			case CorePackage.API_PARAMETER__COLLECTION_FORMAT:
-				setCollectionFormat(COLLECTION_FORMAT_EDEFAULT);
+			case CorePackage.API_PARAMETER__DESCRIPTION:
+				setDescription(DESCRIPTION_EDEFAULT);
 				return;
 			case CorePackage.API_PARAMETER__MAXIMUM:
 				setMaximum(MAXIMUM_EDEFAULT);
@@ -1291,20 +1358,38 @@ public class APIParameterImpl extends MinimalEObjectImpl.Container implements AP
 			case CorePackage.API_PARAMETER__UNIQUE_ITEMS:
 				setUniqueItems(UNIQUE_ITEMS_EDEFAULT);
 				return;
-			case CorePackage.API_PARAMETER__MULTIPLE_OF:
-				setMultipleOf(MULTIPLE_OF_EDEFAULT);
-				return;
-			case CorePackage.API_PARAMETER__SCHEMA:
-				setSchema((Schema)null);
+			case CorePackage.API_PARAMETER__ENUM:
+				getEnum().clear();
 				return;
 			case CorePackage.API_PARAMETER__DEFAULT:
 				setDefault(DEFAULT_EDEFAULT);
 				return;
-			case CorePackage.API_PARAMETER__ENUM:
-				getEnum().clear();
+			case CorePackage.API_PARAMETER__MULTIPLE_OF:
+				setMultipleOf(MULTIPLE_OF_EDEFAULT);
 				return;
-			case CorePackage.API_PARAMETER__GLOBAL_NAME:
-				setGlobalName(GLOBAL_NAME_EDEFAULT);
+			case CorePackage.API_PARAMETER__COLLECTION_FORMAT:
+				setCollectionFormat(COLLECTION_FORMAT_EDEFAULT);
+				return;
+			case CorePackage.API_PARAMETER__ITEMS:
+				setItems((ItemsDefinition)null);
+				return;
+			case CorePackage.API_PARAMETER__NAME:
+				setName(NAME_EDEFAULT);
+				return;
+			case CorePackage.API_PARAMETER__LOCATION:
+				setLocation(LOCATION_EDEFAULT);
+				return;
+			case CorePackage.API_PARAMETER__REQUIRED:
+				setRequired(REQUIRED_EDEFAULT);
+				return;
+			case CorePackage.API_PARAMETER__ALLOW_EMPLY_VALUE:
+				setAllowEmplyValue(ALLOW_EMPLY_VALUE_EDEFAULT);
+				return;
+			case CorePackage.API_PARAMETER__REFERENCE_NAME:
+				setReferenceName(REFERENCE_NAME_EDEFAULT);
+				return;
+			case CorePackage.API_PARAMETER__DECLARING_CONTEXT:
+				setDeclaringContext((ParamterDeclaringContext)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -1318,56 +1403,160 @@ public class APIParameterImpl extends MinimalEObjectImpl.Container implements AP
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CorePackage.API_PARAMETER__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case CorePackage.API_PARAMETER__IN:
-				return in != IN_EDEFAULT;
-			case CorePackage.API_PARAMETER__DESCRIPTION:
-				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-			case CorePackage.API_PARAMETER__REQUIRED:
-				return required != REQUIRED_EDEFAULT;
+			case CorePackage.API_PARAMETER__SCHEMA:
+				return schema != null;
 			case CorePackage.API_PARAMETER__TYPE:
 				return type != TYPE_EDEFAULT;
 			case CorePackage.API_PARAMETER__FORMAT:
 				return FORMAT_EDEFAULT == null ? format != null : !FORMAT_EDEFAULT.equals(format);
-			case CorePackage.API_PARAMETER__ALLOW_EMPLY_VALUE:
-				return allowEmplyValue != ALLOW_EMPLY_VALUE_EDEFAULT;
-			case CorePackage.API_PARAMETER__ITEMS:
-				return items != null;
-			case CorePackage.API_PARAMETER__COLLECTION_FORMAT:
-				return collectionFormat != COLLECTION_FORMAT_EDEFAULT;
+			case CorePackage.API_PARAMETER__DESCRIPTION:
+				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 			case CorePackage.API_PARAMETER__MAXIMUM:
-				return maximum != MAXIMUM_EDEFAULT;
+				return MAXIMUM_EDEFAULT == null ? maximum != null : !MAXIMUM_EDEFAULT.equals(maximum);
 			case CorePackage.API_PARAMETER__EXCLUSIVE_MAXIMUM:
-				return exclusiveMaximum != EXCLUSIVE_MAXIMUM_EDEFAULT;
+				return EXCLUSIVE_MAXIMUM_EDEFAULT == null ? exclusiveMaximum != null : !EXCLUSIVE_MAXIMUM_EDEFAULT.equals(exclusiveMaximum);
 			case CorePackage.API_PARAMETER__MINIMUM:
-				return minimum != MINIMUM_EDEFAULT;
+				return MINIMUM_EDEFAULT == null ? minimum != null : !MINIMUM_EDEFAULT.equals(minimum);
 			case CorePackage.API_PARAMETER__EXCLUSIVE_MINIMUM:
-				return exclusiveMinimum != EXCLUSIVE_MINIMUM_EDEFAULT;
+				return EXCLUSIVE_MINIMUM_EDEFAULT == null ? exclusiveMinimum != null : !EXCLUSIVE_MINIMUM_EDEFAULT.equals(exclusiveMinimum);
 			case CorePackage.API_PARAMETER__MAX_LENGTH:
-				return maxLength != MAX_LENGTH_EDEFAULT;
+				return MAX_LENGTH_EDEFAULT == null ? maxLength != null : !MAX_LENGTH_EDEFAULT.equals(maxLength);
 			case CorePackage.API_PARAMETER__MIN_LENGTH:
-				return minLength != MIN_LENGTH_EDEFAULT;
+				return MIN_LENGTH_EDEFAULT == null ? minLength != null : !MIN_LENGTH_EDEFAULT.equals(minLength);
 			case CorePackage.API_PARAMETER__PATTERN:
 				return PATTERN_EDEFAULT == null ? pattern != null : !PATTERN_EDEFAULT.equals(pattern);
 			case CorePackage.API_PARAMETER__MAX_ITEMS:
-				return maxItems != MAX_ITEMS_EDEFAULT;
+				return MAX_ITEMS_EDEFAULT == null ? maxItems != null : !MAX_ITEMS_EDEFAULT.equals(maxItems);
 			case CorePackage.API_PARAMETER__MIN_ITEMS:
-				return minItems != MIN_ITEMS_EDEFAULT;
+				return MIN_ITEMS_EDEFAULT == null ? minItems != null : !MIN_ITEMS_EDEFAULT.equals(minItems);
 			case CorePackage.API_PARAMETER__UNIQUE_ITEMS:
-				return uniqueItems != UNIQUE_ITEMS_EDEFAULT;
-			case CorePackage.API_PARAMETER__MULTIPLE_OF:
-				return multipleOf != MULTIPLE_OF_EDEFAULT;
-			case CorePackage.API_PARAMETER__SCHEMA:
-				return schema != null;
-			case CorePackage.API_PARAMETER__DEFAULT:
-				return DEFAULT_EDEFAULT == null ? default_ != null : !DEFAULT_EDEFAULT.equals(default_);
+				return UNIQUE_ITEMS_EDEFAULT == null ? uniqueItems != null : !UNIQUE_ITEMS_EDEFAULT.equals(uniqueItems);
 			case CorePackage.API_PARAMETER__ENUM:
 				return enum_ != null && !enum_.isEmpty();
-			case CorePackage.API_PARAMETER__GLOBAL_NAME:
-				return GLOBAL_NAME_EDEFAULT == null ? globalName != null : !GLOBAL_NAME_EDEFAULT.equals(globalName);
+			case CorePackage.API_PARAMETER__DEFAULT:
+				return DEFAULT_EDEFAULT == null ? default_ != null : !DEFAULT_EDEFAULT.equals(default_);
+			case CorePackage.API_PARAMETER__MULTIPLE_OF:
+				return multipleOf != MULTIPLE_OF_EDEFAULT;
+			case CorePackage.API_PARAMETER__REF:
+				return REF_EDEFAULT == null ? getRef() != null : !REF_EDEFAULT.equals(getRef());
+			case CorePackage.API_PARAMETER__COLLECTION_FORMAT:
+				return collectionFormat != COLLECTION_FORMAT_EDEFAULT;
+			case CorePackage.API_PARAMETER__ITEMS:
+				return items != null;
+			case CorePackage.API_PARAMETER__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case CorePackage.API_PARAMETER__LOCATION:
+				return location != LOCATION_EDEFAULT;
+			case CorePackage.API_PARAMETER__REQUIRED:
+				return REQUIRED_EDEFAULT == null ? required != null : !REQUIRED_EDEFAULT.equals(required);
+			case CorePackage.API_PARAMETER__ALLOW_EMPLY_VALUE:
+				return ALLOW_EMPLY_VALUE_EDEFAULT == null ? allowEmplyValue != null : !ALLOW_EMPLY_VALUE_EDEFAULT.equals(allowEmplyValue);
+			case CorePackage.API_PARAMETER__REFERENCE_NAME:
+				return REFERENCE_NAME_EDEFAULT == null ? referenceName != null : !REFERENCE_NAME_EDEFAULT.equals(referenceName);
+			case CorePackage.API_PARAMETER__DECLARING_CONTEXT:
+				return declaringContext != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == SchemaContext.class) {
+			switch (derivedFeatureID) {
+				case CorePackage.API_PARAMETER__SCHEMA: return CorePackage.SCHEMA_CONTEXT__SCHEMA;
+				default: return -1;
+			}
+		}
+		if (baseClass == JSONSchemaSubset.class) {
+			switch (derivedFeatureID) {
+				case CorePackage.API_PARAMETER__TYPE: return CorePackage.JSON_SCHEMA_SUBSET__TYPE;
+				case CorePackage.API_PARAMETER__FORMAT: return CorePackage.JSON_SCHEMA_SUBSET__FORMAT;
+				case CorePackage.API_PARAMETER__DESCRIPTION: return CorePackage.JSON_SCHEMA_SUBSET__DESCRIPTION;
+				case CorePackage.API_PARAMETER__MAXIMUM: return CorePackage.JSON_SCHEMA_SUBSET__MAXIMUM;
+				case CorePackage.API_PARAMETER__EXCLUSIVE_MAXIMUM: return CorePackage.JSON_SCHEMA_SUBSET__EXCLUSIVE_MAXIMUM;
+				case CorePackage.API_PARAMETER__MINIMUM: return CorePackage.JSON_SCHEMA_SUBSET__MINIMUM;
+				case CorePackage.API_PARAMETER__EXCLUSIVE_MINIMUM: return CorePackage.JSON_SCHEMA_SUBSET__EXCLUSIVE_MINIMUM;
+				case CorePackage.API_PARAMETER__MAX_LENGTH: return CorePackage.JSON_SCHEMA_SUBSET__MAX_LENGTH;
+				case CorePackage.API_PARAMETER__MIN_LENGTH: return CorePackage.JSON_SCHEMA_SUBSET__MIN_LENGTH;
+				case CorePackage.API_PARAMETER__PATTERN: return CorePackage.JSON_SCHEMA_SUBSET__PATTERN;
+				case CorePackage.API_PARAMETER__MAX_ITEMS: return CorePackage.JSON_SCHEMA_SUBSET__MAX_ITEMS;
+				case CorePackage.API_PARAMETER__MIN_ITEMS: return CorePackage.JSON_SCHEMA_SUBSET__MIN_ITEMS;
+				case CorePackage.API_PARAMETER__UNIQUE_ITEMS: return CorePackage.JSON_SCHEMA_SUBSET__UNIQUE_ITEMS;
+				case CorePackage.API_PARAMETER__ENUM: return CorePackage.JSON_SCHEMA_SUBSET__ENUM;
+				case CorePackage.API_PARAMETER__DEFAULT: return CorePackage.JSON_SCHEMA_SUBSET__DEFAULT;
+				case CorePackage.API_PARAMETER__MULTIPLE_OF: return CorePackage.JSON_SCHEMA_SUBSET__MULTIPLE_OF;
+				default: return -1;
+			}
+		}
+		if (baseClass == JSONPointer.class) {
+			switch (derivedFeatureID) {
+				case CorePackage.API_PARAMETER__REF: return CorePackage.JSON_POINTER__REF;
+				default: return -1;
+			}
+		}
+		if (baseClass == ArrayContext.class) {
+			switch (derivedFeatureID) {
+				case CorePackage.API_PARAMETER__COLLECTION_FORMAT: return CorePackage.ARRAY_CONTEXT__COLLECTION_FORMAT;
+				case CorePackage.API_PARAMETER__ITEMS: return CorePackage.ARRAY_CONTEXT__ITEMS;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == SchemaContext.class) {
+			switch (baseFeatureID) {
+				case CorePackage.SCHEMA_CONTEXT__SCHEMA: return CorePackage.API_PARAMETER__SCHEMA;
+				default: return -1;
+			}
+		}
+		if (baseClass == JSONSchemaSubset.class) {
+			switch (baseFeatureID) {
+				case CorePackage.JSON_SCHEMA_SUBSET__TYPE: return CorePackage.API_PARAMETER__TYPE;
+				case CorePackage.JSON_SCHEMA_SUBSET__FORMAT: return CorePackage.API_PARAMETER__FORMAT;
+				case CorePackage.JSON_SCHEMA_SUBSET__DESCRIPTION: return CorePackage.API_PARAMETER__DESCRIPTION;
+				case CorePackage.JSON_SCHEMA_SUBSET__MAXIMUM: return CorePackage.API_PARAMETER__MAXIMUM;
+				case CorePackage.JSON_SCHEMA_SUBSET__EXCLUSIVE_MAXIMUM: return CorePackage.API_PARAMETER__EXCLUSIVE_MAXIMUM;
+				case CorePackage.JSON_SCHEMA_SUBSET__MINIMUM: return CorePackage.API_PARAMETER__MINIMUM;
+				case CorePackage.JSON_SCHEMA_SUBSET__EXCLUSIVE_MINIMUM: return CorePackage.API_PARAMETER__EXCLUSIVE_MINIMUM;
+				case CorePackage.JSON_SCHEMA_SUBSET__MAX_LENGTH: return CorePackage.API_PARAMETER__MAX_LENGTH;
+				case CorePackage.JSON_SCHEMA_SUBSET__MIN_LENGTH: return CorePackage.API_PARAMETER__MIN_LENGTH;
+				case CorePackage.JSON_SCHEMA_SUBSET__PATTERN: return CorePackage.API_PARAMETER__PATTERN;
+				case CorePackage.JSON_SCHEMA_SUBSET__MAX_ITEMS: return CorePackage.API_PARAMETER__MAX_ITEMS;
+				case CorePackage.JSON_SCHEMA_SUBSET__MIN_ITEMS: return CorePackage.API_PARAMETER__MIN_ITEMS;
+				case CorePackage.JSON_SCHEMA_SUBSET__UNIQUE_ITEMS: return CorePackage.API_PARAMETER__UNIQUE_ITEMS;
+				case CorePackage.JSON_SCHEMA_SUBSET__ENUM: return CorePackage.API_PARAMETER__ENUM;
+				case CorePackage.JSON_SCHEMA_SUBSET__DEFAULT: return CorePackage.API_PARAMETER__DEFAULT;
+				case CorePackage.JSON_SCHEMA_SUBSET__MULTIPLE_OF: return CorePackage.API_PARAMETER__MULTIPLE_OF;
+				default: return -1;
+			}
+		}
+		if (baseClass == JSONPointer.class) {
+			switch (baseFeatureID) {
+				case CorePackage.JSON_POINTER__REF: return CorePackage.API_PARAMETER__REF;
+				default: return -1;
+			}
+		}
+		if (baseClass == ArrayContext.class) {
+			switch (baseFeatureID) {
+				case CorePackage.ARRAY_CONTEXT__COLLECTION_FORMAT: return CorePackage.API_PARAMETER__COLLECTION_FORMAT;
+				case CorePackage.ARRAY_CONTEXT__ITEMS: return CorePackage.API_PARAMETER__ITEMS;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 	/**
@@ -1380,22 +1569,12 @@ public class APIParameterImpl extends MinimalEObjectImpl.Container implements AP
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (name: ");
-		result.append(name);
-		result.append(", in: ");
-		result.append(in);
-		result.append(", description: ");
-		result.append(description);
-		result.append(", required: ");
-		result.append(required);
-		result.append(", type: ");
+		result.append(" (type: ");
 		result.append(type);
 		result.append(", format: ");
 		result.append(format);
-		result.append(", allowEmplyValue: ");
-		result.append(allowEmplyValue);
-		result.append(", collectionFormat: ");
-		result.append(collectionFormat);
+		result.append(", description: ");
+		result.append(description);
 		result.append(", maximum: ");
 		result.append(maximum);
 		result.append(", exclusiveMaximum: ");
@@ -1416,14 +1595,24 @@ public class APIParameterImpl extends MinimalEObjectImpl.Container implements AP
 		result.append(minItems);
 		result.append(", uniqueItems: ");
 		result.append(uniqueItems);
-		result.append(", multipleOf: ");
-		result.append(multipleOf);
-		result.append(", default: ");
-		result.append(default_);
 		result.append(", enum: ");
 		result.append(enum_);
-		result.append(", globalName: ");
-		result.append(globalName);
+		result.append(", default: ");
+		result.append(default_);
+		result.append(", multipleOf: ");
+		result.append(multipleOf);
+		result.append(", collectionFormat: ");
+		result.append(collectionFormat);
+		result.append(", name: ");
+		result.append(name);
+		result.append(", location: ");
+		result.append(location);
+		result.append(", required: ");
+		result.append(required);
+		result.append(", allowEmplyValue: ");
+		result.append(allowEmplyValue);
+		result.append(", referenceName: ");
+		result.append(referenceName);
 		result.append(')');
 		return result.toString();
 	}

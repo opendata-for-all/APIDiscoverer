@@ -19,6 +19,14 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum OAuth2FlowType implements Enumerator {
 	/**
+	 * The '<em><b>Unspecified</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #UNSPECIFIED_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	UNSPECIFIED(0, "unspecified", "unspecified"), /**
 	 * The '<em><b>Implicit</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -26,7 +34,7 @@ public enum OAuth2FlowType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	IMPLICIT(0, "implicit", "implicit"),
+	IMPLICIT(1, "implicit", "implicit"),
 
 	/**
 	 * The '<em><b>Password</b></em>' literal object.
@@ -36,7 +44,7 @@ public enum OAuth2FlowType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PASSWORD(1, "password", "password"),
+	PASSWORD(2, "password", "password"),
 
 	/**
 	 * The '<em><b>Application</b></em>' literal object.
@@ -46,7 +54,7 @@ public enum OAuth2FlowType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	APPLICATION(2, "application", "application"),
+	APPLICATION(3, "application", "application"),
 
 	/**
 	 * The '<em><b>Access Code</b></em>' literal object.
@@ -56,7 +64,22 @@ public enum OAuth2FlowType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ACCESS_CODE(3, "accessCode", "accessCode");
+	ACCESS_CODE(4, "accessCode", "accessCode");
+
+	/**
+	 * The '<em><b>Unspecified</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Unspecified</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #UNSPECIFIED
+	 * @model name="unspecified"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int UNSPECIFIED_VALUE = 0;
 
 	/**
 	 * The '<em><b>Implicit</b></em>' literal value.
@@ -71,7 +94,7 @@ public enum OAuth2FlowType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int IMPLICIT_VALUE = 0;
+	public static final int IMPLICIT_VALUE = 1;
 
 	/**
 	 * The '<em><b>Password</b></em>' literal value.
@@ -86,7 +109,7 @@ public enum OAuth2FlowType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int PASSWORD_VALUE = 1;
+	public static final int PASSWORD_VALUE = 2;
 
 	/**
 	 * The '<em><b>Application</b></em>' literal value.
@@ -101,7 +124,7 @@ public enum OAuth2FlowType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int APPLICATION_VALUE = 2;
+	public static final int APPLICATION_VALUE = 3;
 
 	/**
 	 * The '<em><b>Access Code</b></em>' literal value.
@@ -116,7 +139,7 @@ public enum OAuth2FlowType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ACCESS_CODE_VALUE = 3;
+	public static final int ACCESS_CODE_VALUE = 4;
 
 	/**
 	 * An array of all the '<em><b>OAuth2 Flow Type</b></em>' enumerators.
@@ -126,6 +149,7 @@ public enum OAuth2FlowType implements Enumerator {
 	 */
 	private static final OAuth2FlowType[] VALUES_ARRAY =
 		new OAuth2FlowType[] {
+			UNSPECIFIED,
 			IMPLICIT,
 			PASSWORD,
 			APPLICATION,
@@ -186,6 +210,7 @@ public enum OAuth2FlowType implements Enumerator {
 	 */
 	public static OAuth2FlowType get(int value) {
 		switch (value) {
+			case UNSPECIFIED_VALUE: return UNSPECIFIED;
 			case IMPLICIT_VALUE: return IMPLICIT;
 			case PASSWORD_VALUE: return PASSWORD;
 			case APPLICATION_VALUE: return APPLICATION;

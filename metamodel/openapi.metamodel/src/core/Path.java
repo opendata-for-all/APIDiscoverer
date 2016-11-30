@@ -2,10 +2,6 @@
  */
 package core;
 
-import org.eclipse.emf.common.util.EList;
-
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Path</b></em>'.
@@ -16,22 +12,20 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link core.Path#getPattern <em>Pattern</em>}</li>
- *   <li>{@link core.Path#getPut <em>Put</em>}</li>
  *   <li>{@link core.Path#getGet <em>Get</em>}</li>
+ *   <li>{@link core.Path#getPut <em>Put</em>}</li>
+ *   <li>{@link core.Path#getPost <em>Post</em>}</li>
  *   <li>{@link core.Path#getDelete <em>Delete</em>}</li>
  *   <li>{@link core.Path#getOptions <em>Options</em>}</li>
- *   <li>{@link core.Path#getParameters <em>Parameters</em>}</li>
  *   <li>{@link core.Path#getHead <em>Head</em>}</li>
- *   <li>{@link core.Path#getPost <em>Post</em>}</li>
  *   <li>{@link core.Path#getPatch <em>Patch</em>}</li>
- *   <li>{@link core.Path#getRef <em>Ref</em>}</li>
  * </ul>
  *
  * @see core.CorePackage#getPath()
  * @model
  * @generated
  */
-public interface Path extends EObject {
+public interface Path extends ParamterDeclaringContext, ParameterContext {
 	/**
 	 * Returns the value of the '<em><b>Pattern</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -57,6 +51,34 @@ public interface Path extends EObject {
 	 * @generated
 	 */
 	void setPattern(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Get</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link core.APIOperation#getPath <em>Path</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Get</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Get</em>' containment reference.
+	 * @see #setGet(APIOperation)
+	 * @see core.CorePackage#getPath_Get()
+	 * @see core.APIOperation#getPath
+	 * @model opposite="path" containment="true"
+	 * @generated
+	 */
+	APIOperation getGet();
+
+	/**
+	 * Sets the value of the '{@link core.Path#getGet <em>Get</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Get</em>' containment reference.
+	 * @see #getGet()
+	 * @generated
+	 */
+	void setGet(APIOperation value);
 
 	/**
 	 * Returns the value of the '<em><b>Put</b></em>' containment reference.
@@ -85,30 +107,30 @@ public interface Path extends EObject {
 	void setPut(APIOperation value);
 
 	/**
-	 * Returns the value of the '<em><b>Get</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Post</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Get</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Post</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Get</em>' containment reference.
-	 * @see #setGet(APIOperation)
-	 * @see core.CorePackage#getPath_Get()
+	 * @return the value of the '<em>Post</em>' containment reference.
+	 * @see #setPost(APIOperation)
+	 * @see core.CorePackage#getPath_Post()
 	 * @model containment="true"
 	 * @generated
 	 */
-	APIOperation getGet();
+	APIOperation getPost();
 
 	/**
-	 * Sets the value of the '{@link core.Path#getGet <em>Get</em>}' containment reference.
+	 * Sets the value of the '{@link core.Path#getPost <em>Post</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Get</em>' containment reference.
-	 * @see #getGet()
+	 * @param value the new value of the '<em>Post</em>' containment reference.
+	 * @see #getPost()
 	 * @generated
 	 */
-	void setGet(APIOperation value);
+	void setPost(APIOperation value);
 
 	/**
 	 * Returns the value of the '<em><b>Delete</b></em>' containment reference.
@@ -163,22 +185,6 @@ public interface Path extends EObject {
 	void setOptions(APIOperation value);
 
 	/**
-	 * Returns the value of the '<em><b>Parameters</b></em>' containment reference list.
-	 * The list contents are of type {@link core.APIParameter}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Parameters</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Parameters</em>' containment reference list.
-	 * @see core.CorePackage#getPath_Parameters()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<APIParameter> getParameters();
-
-	/**
 	 * Returns the value of the '<em><b>Head</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -205,32 +211,6 @@ public interface Path extends EObject {
 	void setHead(APIOperation value);
 
 	/**
-	 * Returns the value of the '<em><b>Post</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Post</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Post</em>' containment reference.
-	 * @see #setPost(APIOperation)
-	 * @see core.CorePackage#getPath_Post()
-	 * @model containment="true"
-	 * @generated
-	 */
-	APIOperation getPost();
-
-	/**
-	 * Sets the value of the '{@link core.Path#getPost <em>Post</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Post</em>' containment reference.
-	 * @see #getPost()
-	 * @generated
-	 */
-	void setPost(APIOperation value);
-
-	/**
 	 * Returns the value of the '<em><b>Patch</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -255,31 +235,5 @@ public interface Path extends EObject {
 	 * @generated
 	 */
 	void setPatch(APIOperation value);
-
-	/**
-	 * Returns the value of the '<em><b>Ref</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Ref</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Ref</em>' attribute.
-	 * @see #setRef(String)
-	 * @see core.CorePackage#getPath_Ref()
-	 * @model
-	 * @generated
-	 */
-	String getRef();
-
-	/**
-	 * Sets the value of the '{@link core.Path#getRef <em>Ref</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Ref</em>' attribute.
-	 * @see #getRef()
-	 * @generated
-	 */
-	void setRef(String value);
 
 } // Path

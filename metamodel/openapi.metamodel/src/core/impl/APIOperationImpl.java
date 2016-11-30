@@ -6,26 +6,28 @@ import core.APIOperation;
 import core.APIParameter;
 import core.CorePackage;
 import core.ExternalDocs;
+import core.ExternalDocsContext;
+import core.ParameterContext;
+import core.Path;
 import core.Response;
+import core.ResponseContext;
 import core.SchemeType;
-import core.SecurityRequirement;
-
+import core.SecurityContext;
+import core.SecurityScope;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,32 +37,63 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link core.impl.APIOperationImpl#getTags <em>Tags</em>}</li>
+ *   <li>{@link core.impl.APIOperationImpl#getSecurityRequirement <em>Security Requirement</em>}</li>
+ *   <li>{@link core.impl.APIOperationImpl#getParameters <em>Parameters</em>}</li>
+ *   <li>{@link core.impl.APIOperationImpl#getExternalDocs <em>External Docs</em>}</li>
+ *   <li>{@link core.impl.APIOperationImpl#getTagReferences <em>Tag References</em>}</li>
  *   <li>{@link core.impl.APIOperationImpl#getSummary <em>Summary</em>}</li>
  *   <li>{@link core.impl.APIOperationImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link core.impl.APIOperationImpl#getExternalDocs <em>External Docs</em>}</li>
  *   <li>{@link core.impl.APIOperationImpl#getOperationId <em>Operation Id</em>}</li>
  *   <li>{@link core.impl.APIOperationImpl#getConsumes <em>Consumes</em>}</li>
  *   <li>{@link core.impl.APIOperationImpl#getProduces <em>Produces</em>}</li>
- *   <li>{@link core.impl.APIOperationImpl#getParameters <em>Parameters</em>}</li>
  *   <li>{@link core.impl.APIOperationImpl#getResponses <em>Responses</em>}</li>
  *   <li>{@link core.impl.APIOperationImpl#getSchemes <em>Schemes</em>}</li>
- *   <li>{@link core.impl.APIOperationImpl#isDeprecated <em>Deprecated</em>}</li>
- *   <li>{@link core.impl.APIOperationImpl#getSecurity <em>Security</em>}</li>
+ *   <li>{@link core.impl.APIOperationImpl#getDeprecated <em>Deprecated</em>}</li>
+ *   <li>{@link core.impl.APIOperationImpl#getPath <em>Path</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class APIOperationImpl extends MinimalEObjectImpl.Container implements APIOperation {
+public class APIOperationImpl extends ParamterDeclaringContextImpl implements APIOperation {
 	/**
-	 * The cached value of the '{@link #getTags() <em>Tags</em>}' attribute list.
+	 * The cached value of the '{@link #getSecurityRequirement() <em>Security Requirement</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTags()
+	 * @see #getSecurityRequirement()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<String> tags;
+	protected EList<SecurityScope> securityRequirement;
+
+	/**
+	 * The cached value of the '{@link #getParameters() <em>Parameters</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getParameters()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<APIParameter> parameters;
+
+	/**
+	 * The cached value of the '{@link #getExternalDocs() <em>External Docs</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExternalDocs()
+	 * @generated
+	 * @ordered
+	 */
+	protected ExternalDocs externalDocs;
+
+	/**
+	 * The cached value of the '{@link #getTagReferences() <em>Tag References</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTagReferences()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<String> tagReferences;
 
 	/**
 	 * The default value of the '{@link #getSummary() <em>Summary</em>}' attribute.
@@ -103,16 +136,6 @@ public class APIOperationImpl extends MinimalEObjectImpl.Container implements AP
 	protected String description = DESCRIPTION_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getExternalDocs() <em>External Docs</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getExternalDocs()
-	 * @generated
-	 * @ordered
-	 */
-	protected ExternalDocs externalDocs;
-
-	/**
 	 * The default value of the '{@link #getOperationId() <em>Operation Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -153,17 +176,7 @@ public class APIOperationImpl extends MinimalEObjectImpl.Container implements AP
 	protected EList<String> produces;
 
 	/**
-	 * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getParameters()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<APIParameter> parameters;
-
-	/**
-	 * The cached value of the '{@link #getResponses() <em>Responses</em>}' containment reference list.
+	 * The cached value of the '{@link #getResponses() <em>Responses</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getResponses()
@@ -183,34 +196,24 @@ public class APIOperationImpl extends MinimalEObjectImpl.Container implements AP
 	protected EList<SchemeType> schemes;
 
 	/**
-	 * The default value of the '{@link #isDeprecated() <em>Deprecated</em>}' attribute.
+	 * The default value of the '{@link #getDeprecated() <em>Deprecated</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isDeprecated()
+	 * @see #getDeprecated()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean DEPRECATED_EDEFAULT = false;
+	protected static final Boolean DEPRECATED_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #isDeprecated() <em>Deprecated</em>}' attribute.
+	 * The cached value of the '{@link #getDeprecated() <em>Deprecated</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isDeprecated()
+	 * @see #getDeprecated()
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean deprecated = DEPRECATED_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getSecurity() <em>Security</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSecurity()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<SecurityRequirement> security;
+	protected Boolean deprecated = DEPRECATED_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -236,11 +239,11 @@ public class APIOperationImpl extends MinimalEObjectImpl.Container implements AP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<String> getTags() {
-		if (tags == null) {
-			tags = new EDataTypeUniqueEList<String>(String.class, this, CorePackage.API_OPERATION__TAGS);
+	public EList<SecurityScope> getSecurityRequirement() {
+		if (securityRequirement == null) {
+			securityRequirement = new EObjectResolvingEList<SecurityScope>(SecurityScope.class, this, CorePackage.API_OPERATION__SECURITY_REQUIREMENT);
 		}
-		return tags;
+		return securityRequirement;
 	}
 
 	/**
@@ -333,6 +336,18 @@ public class APIOperationImpl extends MinimalEObjectImpl.Container implements AP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<String> getTagReferences() {
+		if (tagReferences == null) {
+			tagReferences = new EDataTypeUniqueEList<String>(String.class, this, CorePackage.API_OPERATION__TAG_REFERENCES);
+		}
+		return tagReferences;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String getOperationId() {
 		return operationId;
 	}
@@ -380,7 +395,7 @@ public class APIOperationImpl extends MinimalEObjectImpl.Container implements AP
 	 */
 	public EList<APIParameter> getParameters() {
 		if (parameters == null) {
-			parameters = new EObjectContainmentEList<APIParameter>(APIParameter.class, this, CorePackage.API_OPERATION__PARAMETERS);
+			parameters = new EObjectResolvingEList<APIParameter>(APIParameter.class, this, CorePackage.API_OPERATION__PARAMETERS);
 		}
 		return parameters;
 	}
@@ -392,7 +407,7 @@ public class APIOperationImpl extends MinimalEObjectImpl.Container implements AP
 	 */
 	public EList<Response> getResponses() {
 		if (responses == null) {
-			responses = new EObjectContainmentEList<Response>(Response.class, this, CorePackage.API_OPERATION__RESPONSES);
+			responses = new EObjectResolvingEList<Response>(Response.class, this, CorePackage.API_OPERATION__RESPONSES);
 		}
 		return responses;
 	}
@@ -414,7 +429,7 @@ public class APIOperationImpl extends MinimalEObjectImpl.Container implements AP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isDeprecated() {
+	public Boolean getDeprecated() {
 		return deprecated;
 	}
 
@@ -423,8 +438,8 @@ public class APIOperationImpl extends MinimalEObjectImpl.Container implements AP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDeprecated(boolean newDeprecated) {
-		boolean oldDeprecated = deprecated;
+	public void setDeprecated(Boolean newDeprecated) {
+		Boolean oldDeprecated = deprecated;
 		deprecated = newDeprecated;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.API_OPERATION__DEPRECATED, oldDeprecated, deprecated));
@@ -435,11 +450,57 @@ public class APIOperationImpl extends MinimalEObjectImpl.Container implements AP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<SecurityRequirement> getSecurity() {
-		if (security == null) {
-			security = new EObjectContainmentEList<SecurityRequirement>(SecurityRequirement.class, this, CorePackage.API_OPERATION__SECURITY);
+	public Path getPath() {
+		if (eContainerFeatureID() != CorePackage.API_OPERATION__PATH) return null;
+		return (Path)eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPath(Path newPath, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newPath, CorePackage.API_OPERATION__PATH, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPath(Path newPath) {
+		if (newPath != eInternalContainer() || (eContainerFeatureID() != CorePackage.API_OPERATION__PATH && newPath != null)) {
+			if (EcoreUtil.isAncestor(this, newPath))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newPath != null)
+				msgs = ((InternalEObject)newPath).eInverseAdd(this, CorePackage.PATH__GET, Path.class, msgs);
+			msgs = basicSetPath(newPath, msgs);
+			if (msgs != null) msgs.dispatch();
 		}
-		return security;
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.API_OPERATION__PATH, newPath, newPath));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case CorePackage.API_OPERATION__PATH:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetPath((Path)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -452,12 +513,8 @@ public class APIOperationImpl extends MinimalEObjectImpl.Container implements AP
 		switch (featureID) {
 			case CorePackage.API_OPERATION__EXTERNAL_DOCS:
 				return basicSetExternalDocs(null, msgs);
-			case CorePackage.API_OPERATION__PARAMETERS:
-				return ((InternalEList<?>)getParameters()).basicRemove(otherEnd, msgs);
-			case CorePackage.API_OPERATION__RESPONSES:
-				return ((InternalEList<?>)getResponses()).basicRemove(otherEnd, msgs);
-			case CorePackage.API_OPERATION__SECURITY:
-				return ((InternalEList<?>)getSecurity()).basicRemove(otherEnd, msgs);
+			case CorePackage.API_OPERATION__PATH:
+				return basicSetPath(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -468,32 +525,48 @@ public class APIOperationImpl extends MinimalEObjectImpl.Container implements AP
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case CorePackage.API_OPERATION__PATH:
+				return eInternalContainer().eInverseRemove(this, CorePackage.PATH__GET, Path.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CorePackage.API_OPERATION__TAGS:
-				return getTags();
+			case CorePackage.API_OPERATION__SECURITY_REQUIREMENT:
+				return getSecurityRequirement();
+			case CorePackage.API_OPERATION__PARAMETERS:
+				return getParameters();
+			case CorePackage.API_OPERATION__EXTERNAL_DOCS:
+				return getExternalDocs();
+			case CorePackage.API_OPERATION__TAG_REFERENCES:
+				return getTagReferences();
 			case CorePackage.API_OPERATION__SUMMARY:
 				return getSummary();
 			case CorePackage.API_OPERATION__DESCRIPTION:
 				return getDescription();
-			case CorePackage.API_OPERATION__EXTERNAL_DOCS:
-				return getExternalDocs();
 			case CorePackage.API_OPERATION__OPERATION_ID:
 				return getOperationId();
 			case CorePackage.API_OPERATION__CONSUMES:
 				return getConsumes();
 			case CorePackage.API_OPERATION__PRODUCES:
 				return getProduces();
-			case CorePackage.API_OPERATION__PARAMETERS:
-				return getParameters();
 			case CorePackage.API_OPERATION__RESPONSES:
 				return getResponses();
 			case CorePackage.API_OPERATION__SCHEMES:
 				return getSchemes();
 			case CorePackage.API_OPERATION__DEPRECATED:
-				return isDeprecated();
-			case CorePackage.API_OPERATION__SECURITY:
-				return getSecurity();
+				return getDeprecated();
+			case CorePackage.API_OPERATION__PATH:
+				return getPath();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -507,18 +580,26 @@ public class APIOperationImpl extends MinimalEObjectImpl.Container implements AP
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CorePackage.API_OPERATION__TAGS:
-				getTags().clear();
-				getTags().addAll((Collection<? extends String>)newValue);
+			case CorePackage.API_OPERATION__SECURITY_REQUIREMENT:
+				getSecurityRequirement().clear();
+				getSecurityRequirement().addAll((Collection<? extends SecurityScope>)newValue);
+				return;
+			case CorePackage.API_OPERATION__PARAMETERS:
+				getParameters().clear();
+				getParameters().addAll((Collection<? extends APIParameter>)newValue);
+				return;
+			case CorePackage.API_OPERATION__EXTERNAL_DOCS:
+				setExternalDocs((ExternalDocs)newValue);
+				return;
+			case CorePackage.API_OPERATION__TAG_REFERENCES:
+				getTagReferences().clear();
+				getTagReferences().addAll((Collection<? extends String>)newValue);
 				return;
 			case CorePackage.API_OPERATION__SUMMARY:
 				setSummary((String)newValue);
 				return;
 			case CorePackage.API_OPERATION__DESCRIPTION:
 				setDescription((String)newValue);
-				return;
-			case CorePackage.API_OPERATION__EXTERNAL_DOCS:
-				setExternalDocs((ExternalDocs)newValue);
 				return;
 			case CorePackage.API_OPERATION__OPERATION_ID:
 				setOperationId((String)newValue);
@@ -531,10 +612,6 @@ public class APIOperationImpl extends MinimalEObjectImpl.Container implements AP
 				getProduces().clear();
 				getProduces().addAll((Collection<? extends String>)newValue);
 				return;
-			case CorePackage.API_OPERATION__PARAMETERS:
-				getParameters().clear();
-				getParameters().addAll((Collection<? extends APIParameter>)newValue);
-				return;
 			case CorePackage.API_OPERATION__RESPONSES:
 				getResponses().clear();
 				getResponses().addAll((Collection<? extends Response>)newValue);
@@ -546,9 +623,8 @@ public class APIOperationImpl extends MinimalEObjectImpl.Container implements AP
 			case CorePackage.API_OPERATION__DEPRECATED:
 				setDeprecated((Boolean)newValue);
 				return;
-			case CorePackage.API_OPERATION__SECURITY:
-				getSecurity().clear();
-				getSecurity().addAll((Collection<? extends SecurityRequirement>)newValue);
+			case CorePackage.API_OPERATION__PATH:
+				setPath((Path)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -562,17 +638,23 @@ public class APIOperationImpl extends MinimalEObjectImpl.Container implements AP
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CorePackage.API_OPERATION__TAGS:
-				getTags().clear();
+			case CorePackage.API_OPERATION__SECURITY_REQUIREMENT:
+				getSecurityRequirement().clear();
+				return;
+			case CorePackage.API_OPERATION__PARAMETERS:
+				getParameters().clear();
+				return;
+			case CorePackage.API_OPERATION__EXTERNAL_DOCS:
+				setExternalDocs((ExternalDocs)null);
+				return;
+			case CorePackage.API_OPERATION__TAG_REFERENCES:
+				getTagReferences().clear();
 				return;
 			case CorePackage.API_OPERATION__SUMMARY:
 				setSummary(SUMMARY_EDEFAULT);
 				return;
 			case CorePackage.API_OPERATION__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
-				return;
-			case CorePackage.API_OPERATION__EXTERNAL_DOCS:
-				setExternalDocs((ExternalDocs)null);
 				return;
 			case CorePackage.API_OPERATION__OPERATION_ID:
 				setOperationId(OPERATION_ID_EDEFAULT);
@@ -583,9 +665,6 @@ public class APIOperationImpl extends MinimalEObjectImpl.Container implements AP
 			case CorePackage.API_OPERATION__PRODUCES:
 				getProduces().clear();
 				return;
-			case CorePackage.API_OPERATION__PARAMETERS:
-				getParameters().clear();
-				return;
 			case CorePackage.API_OPERATION__RESPONSES:
 				getResponses().clear();
 				return;
@@ -595,8 +674,8 @@ public class APIOperationImpl extends MinimalEObjectImpl.Container implements AP
 			case CorePackage.API_OPERATION__DEPRECATED:
 				setDeprecated(DEPRECATED_EDEFAULT);
 				return;
-			case CorePackage.API_OPERATION__SECURITY:
-				getSecurity().clear();
+			case CorePackage.API_OPERATION__PATH:
+				setPath((Path)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -610,32 +689,100 @@ public class APIOperationImpl extends MinimalEObjectImpl.Container implements AP
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CorePackage.API_OPERATION__TAGS:
-				return tags != null && !tags.isEmpty();
+			case CorePackage.API_OPERATION__SECURITY_REQUIREMENT:
+				return securityRequirement != null && !securityRequirement.isEmpty();
+			case CorePackage.API_OPERATION__PARAMETERS:
+				return parameters != null && !parameters.isEmpty();
+			case CorePackage.API_OPERATION__EXTERNAL_DOCS:
+				return externalDocs != null;
+			case CorePackage.API_OPERATION__TAG_REFERENCES:
+				return tagReferences != null && !tagReferences.isEmpty();
 			case CorePackage.API_OPERATION__SUMMARY:
 				return SUMMARY_EDEFAULT == null ? summary != null : !SUMMARY_EDEFAULT.equals(summary);
 			case CorePackage.API_OPERATION__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-			case CorePackage.API_OPERATION__EXTERNAL_DOCS:
-				return externalDocs != null;
 			case CorePackage.API_OPERATION__OPERATION_ID:
 				return OPERATION_ID_EDEFAULT == null ? operationId != null : !OPERATION_ID_EDEFAULT.equals(operationId);
 			case CorePackage.API_OPERATION__CONSUMES:
 				return consumes != null && !consumes.isEmpty();
 			case CorePackage.API_OPERATION__PRODUCES:
 				return produces != null && !produces.isEmpty();
-			case CorePackage.API_OPERATION__PARAMETERS:
-				return parameters != null && !parameters.isEmpty();
 			case CorePackage.API_OPERATION__RESPONSES:
 				return responses != null && !responses.isEmpty();
 			case CorePackage.API_OPERATION__SCHEMES:
 				return schemes != null && !schemes.isEmpty();
 			case CorePackage.API_OPERATION__DEPRECATED:
-				return deprecated != DEPRECATED_EDEFAULT;
-			case CorePackage.API_OPERATION__SECURITY:
-				return security != null && !security.isEmpty();
+				return DEPRECATED_EDEFAULT == null ? deprecated != null : !DEPRECATED_EDEFAULT.equals(deprecated);
+			case CorePackage.API_OPERATION__PATH:
+				return getPath() != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == ResponseContext.class) {
+			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
+		if (baseClass == SecurityContext.class) {
+			switch (derivedFeatureID) {
+				case CorePackage.API_OPERATION__SECURITY_REQUIREMENT: return CorePackage.SECURITY_CONTEXT__SECURITY_REQUIREMENT;
+				default: return -1;
+			}
+		}
+		if (baseClass == ParameterContext.class) {
+			switch (derivedFeatureID) {
+				case CorePackage.API_OPERATION__PARAMETERS: return CorePackage.PARAMETER_CONTEXT__PARAMETERS;
+				default: return -1;
+			}
+		}
+		if (baseClass == ExternalDocsContext.class) {
+			switch (derivedFeatureID) {
+				case CorePackage.API_OPERATION__EXTERNAL_DOCS: return CorePackage.EXTERNAL_DOCS_CONTEXT__EXTERNAL_DOCS;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == ResponseContext.class) {
+			switch (baseFeatureID) {
+				default: return -1;
+			}
+		}
+		if (baseClass == SecurityContext.class) {
+			switch (baseFeatureID) {
+				case CorePackage.SECURITY_CONTEXT__SECURITY_REQUIREMENT: return CorePackage.API_OPERATION__SECURITY_REQUIREMENT;
+				default: return -1;
+			}
+		}
+		if (baseClass == ParameterContext.class) {
+			switch (baseFeatureID) {
+				case CorePackage.PARAMETER_CONTEXT__PARAMETERS: return CorePackage.API_OPERATION__PARAMETERS;
+				default: return -1;
+			}
+		}
+		if (baseClass == ExternalDocsContext.class) {
+			switch (baseFeatureID) {
+				case CorePackage.EXTERNAL_DOCS_CONTEXT__EXTERNAL_DOCS: return CorePackage.API_OPERATION__EXTERNAL_DOCS;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 	/**
@@ -648,8 +795,8 @@ public class APIOperationImpl extends MinimalEObjectImpl.Container implements AP
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (tags: ");
-		result.append(tags);
+		result.append(" (tagReferences: ");
+		result.append(tagReferences);
 		result.append(", summary: ");
 		result.append(summary);
 		result.append(", description: ");

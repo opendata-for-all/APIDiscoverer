@@ -19,6 +19,14 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum SecuritySchemeType implements Enumerator {
 	/**
+	 * The '<em><b>Unspecified</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #UNSPECIFIED_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	UNSPECIFIED(0, "unspecified", "unspecified"), /**
 	 * The '<em><b>Basic</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -26,7 +34,7 @@ public enum SecuritySchemeType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	BASIC(0, "basic", "basic"),
+	BASIC(1, "basic", "basic"),
 
 	/**
 	 * The '<em><b>Api Key</b></em>' literal object.
@@ -36,7 +44,7 @@ public enum SecuritySchemeType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	API_KEY(1, "apiKey", "apiKey"),
+	API_KEY(2, "apiKey", "apiKey"),
 
 	/**
 	 * The '<em><b>Oauth2</b></em>' literal object.
@@ -46,7 +54,22 @@ public enum SecuritySchemeType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	OAUTH2(2, "oauth2", "oauth2");
+	OAUTH2(3, "oauth2", "oauth2");
+
+	/**
+	 * The '<em><b>Unspecified</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Unspecified</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #UNSPECIFIED
+	 * @model name="unspecified"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int UNSPECIFIED_VALUE = 0;
 
 	/**
 	 * The '<em><b>Basic</b></em>' literal value.
@@ -61,7 +84,7 @@ public enum SecuritySchemeType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int BASIC_VALUE = 0;
+	public static final int BASIC_VALUE = 1;
 
 	/**
 	 * The '<em><b>Api Key</b></em>' literal value.
@@ -76,7 +99,7 @@ public enum SecuritySchemeType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int API_KEY_VALUE = 1;
+	public static final int API_KEY_VALUE = 2;
 
 	/**
 	 * The '<em><b>Oauth2</b></em>' literal value.
@@ -91,7 +114,7 @@ public enum SecuritySchemeType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int OAUTH2_VALUE = 2;
+	public static final int OAUTH2_VALUE = 3;
 
 	/**
 	 * An array of all the '<em><b>Security Scheme Type</b></em>' enumerators.
@@ -101,6 +124,7 @@ public enum SecuritySchemeType implements Enumerator {
 	 */
 	private static final SecuritySchemeType[] VALUES_ARRAY =
 		new SecuritySchemeType[] {
+			UNSPECIFIED,
 			BASIC,
 			API_KEY,
 			OAUTH2,
@@ -160,6 +184,7 @@ public enum SecuritySchemeType implements Enumerator {
 	 */
 	public static SecuritySchemeType get(int value) {
 		switch (value) {
+			case UNSPECIFIED_VALUE: return UNSPECIFIED;
 			case BASIC_VALUE: return BASIC;
 			case API_KEY_VALUE: return API_KEY;
 			case OAUTH2_VALUE: return OAUTH2;

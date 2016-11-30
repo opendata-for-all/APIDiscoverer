@@ -5,6 +5,7 @@ package core;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -39,7 +40,7 @@ public interface CorePackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://swagger.io/core";
+	String eNS_URI = "http://example.com/openAPI/core";
 
 	/**
 	 * The package namespace name.
@@ -47,7 +48,7 @@ public interface CorePackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_PREFIX = "swagger";
+	String eNS_PREFIX = "openAPI.core";
 
 	/**
 	 * The singleton instance of the package.
@@ -58,104 +59,213 @@ public interface CorePackage extends EPackage {
 	CorePackage eINSTANCE = core.impl.CorePackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link core.impl.ApiImpl <em>Api</em>}' class.
+	 * The meta object id for the '{@link core.impl.JSONSchemaSubsetImpl <em>JSON Schema Subset</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see core.impl.ApiImpl
-	 * @see core.impl.CorePackageImpl#getApi()
+	 * @see core.impl.JSONSchemaSubsetImpl
+	 * @see core.impl.CorePackageImpl#getJSONSchemaSubset()
 	 * @generated
 	 */
-	int API = 0;
+	int JSON_SCHEMA_SUBSET = 0;
 
 	/**
-	 * The feature id for the '<em><b>Swagger</b></em>' attribute.
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int API__SWAGGER = 0;
+	int JSON_SCHEMA_SUBSET__TYPE = 0;
 
 	/**
-	 * The feature id for the '<em><b>Info</b></em>' containment reference.
+	 * The feature id for the '<em><b>Format</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int API__INFO = 1;
+	int JSON_SCHEMA_SUBSET__FORMAT = 1;
 
 	/**
-	 * The feature id for the '<em><b>Host</b></em>' attribute.
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int API__HOST = 2;
+	int JSON_SCHEMA_SUBSET__DESCRIPTION = 2;
 
 	/**
-	 * The feature id for the '<em><b>Base Path</b></em>' attribute.
+	 * The feature id for the '<em><b>Maximum</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int API__BASE_PATH = 3;
+	int JSON_SCHEMA_SUBSET__MAXIMUM = 3;
 
 	/**
-	 * The feature id for the '<em><b>Schemes</b></em>' attribute list.
+	 * The feature id for the '<em><b>Exclusive Maximum</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int API__SCHEMES = 4;
+	int JSON_SCHEMA_SUBSET__EXCLUSIVE_MAXIMUM = 4;
 
 	/**
-	 * The feature id for the '<em><b>Consumes</b></em>' attribute list.
+	 * The feature id for the '<em><b>Minimum</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int API__CONSUMES = 5;
+	int JSON_SCHEMA_SUBSET__MINIMUM = 5;
 
 	/**
-	 * The feature id for the '<em><b>Produces</b></em>' attribute list.
+	 * The feature id for the '<em><b>Exclusive Minimum</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int API__PRODUCES = 6;
+	int JSON_SCHEMA_SUBSET__EXCLUSIVE_MINIMUM = 6;
 
 	/**
-	 * The feature id for the '<em><b>Paths</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Max Length</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int API__PATHS = 7;
+	int JSON_SCHEMA_SUBSET__MAX_LENGTH = 7;
 
 	/**
-	 * The feature id for the '<em><b>Definitions</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Min Length</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int API__DEFINITIONS = 8;
+	int JSON_SCHEMA_SUBSET__MIN_LENGTH = 8;
 
 	/**
-	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Pattern</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int API__PARAMETERS = 9;
+	int JSON_SCHEMA_SUBSET__PATTERN = 9;
+
+	/**
+	 * The feature id for the '<em><b>Max Items</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JSON_SCHEMA_SUBSET__MAX_ITEMS = 10;
+
+	/**
+	 * The feature id for the '<em><b>Min Items</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JSON_SCHEMA_SUBSET__MIN_ITEMS = 11;
+
+	/**
+	 * The feature id for the '<em><b>Unique Items</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JSON_SCHEMA_SUBSET__UNIQUE_ITEMS = 12;
+
+	/**
+	 * The feature id for the '<em><b>Enum</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JSON_SCHEMA_SUBSET__ENUM = 13;
+
+	/**
+	 * The feature id for the '<em><b>Default</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JSON_SCHEMA_SUBSET__DEFAULT = 14;
+
+	/**
+	 * The feature id for the '<em><b>Multiple Of</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JSON_SCHEMA_SUBSET__MULTIPLE_OF = 15;
+
+	/**
+	 * The number of structural features of the '<em>JSON Schema Subset</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JSON_SCHEMA_SUBSET_FEATURE_COUNT = 16;
+
+	/**
+	 * The number of operations of the '<em>JSON Schema Subset</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JSON_SCHEMA_SUBSET_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link core.impl.RootImpl <em>Root</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see core.impl.RootImpl
+	 * @see core.impl.CorePackageImpl#getRoot()
+	 * @generated
+	 */
+	int ROOT = 1;
+
+	/**
+	 * The feature id for the '<em><b>Api</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOT__API = 0;
+
+	/**
+	 * The feature id for the '<em><b>Paramters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOT__PARAMTERS = 1;
+
+	/**
+	 * The feature id for the '<em><b>Schemas</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOT__SCHEMAS = 2;
 
 	/**
 	 * The feature id for the '<em><b>Responses</b></em>' containment reference list.
@@ -164,7 +274,199 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API__RESPONSES = 10;
+	int ROOT__RESPONSES = 3;
+
+	/**
+	 * The number of structural features of the '<em>Root</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOT_FEATURE_COUNT = 4;
+
+	/**
+	 * The number of operations of the '<em>Root</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOT_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link core.impl.ParamterDeclaringContextImpl <em>Paramter Declaring Context</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see core.impl.ParamterDeclaringContextImpl
+	 * @see core.impl.CorePackageImpl#getParamterDeclaringContext()
+	 * @generated
+	 */
+	int PARAMTER_DECLARING_CONTEXT = 19;
+
+	/**
+	 * The number of structural features of the '<em>Paramter Declaring Context</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Paramter Declaring Context</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMTER_DECLARING_CONTEXT_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link core.impl.ParameterContextImpl <em>Parameter Context</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see core.impl.ParameterContextImpl
+	 * @see core.impl.CorePackageImpl#getParameterContext()
+	 * @generated
+	 */
+	int PARAMETER_CONTEXT = 24;
+
+	/**
+	 * The meta object id for the '{@link core.impl.APIImpl <em>API</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see core.impl.APIImpl
+	 * @see core.impl.CorePackageImpl#getAPI()
+	 * @generated
+	 */
+	int API = 2;
+
+	/**
+	 * The feature id for the '<em><b>Ref</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API__REF = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Security Requirement</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API__SECURITY_REQUIREMENT = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API__PARAMETERS = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>External Docs</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API__EXTERNAL_DOCS = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Swagger</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API__SWAGGER = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Info</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API__INFO = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Host</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API__HOST = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Base Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API__BASE_PATH = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 7;
+
+	/**
+	 * The feature id for the '<em><b>Schemes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API__SCHEMES = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 8;
+
+	/**
+	 * The feature id for the '<em><b>Consumes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API__CONSUMES = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 9;
+
+	/**
+	 * The feature id for the '<em><b>Produces</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API__PRODUCES = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 10;
+
+	/**
+	 * The feature id for the '<em><b>Paths</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API__PATHS = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 11;
+
+	/**
+	 * The feature id for the '<em><b>Definitions</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API__DEFINITIONS = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 12;
+
+	/**
+	 * The feature id for the '<em><b>Responses</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API__RESPONSES = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 13;
 
 	/**
 	 * The feature id for the '<em><b>Security Definitions</b></em>' containment reference list.
@@ -173,61 +475,52 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API__SECURITY_DEFINITIONS = 11;
+	int API__SECURITY_DEFINITIONS = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 14;
 
 	/**
-	 * The feature id for the '<em><b>Security</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Tags</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int API__SECURITY = 12;
+	int API__TAGS = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 15;
 
 	/**
-	 * The feature id for the '<em><b>Externaldocs</b></em>' containment reference.
+	 * The number of structural features of the '<em>API</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int API__EXTERNALDOCS = 13;
+	int API_FEATURE_COUNT = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 16;
 
 	/**
-	 * The feature id for the '<em><b>Tag</b></em>' containment reference list.
+	 * The operation id for the '<em>Get Ref</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int API__TAG = 14;
+	int API___GET_REF = PARAMTER_DECLARING_CONTEXT_OPERATION_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Primitive Definitions</b></em>' containment reference list.
+	 * The operation id for the '<em>Paths Is Set</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int API__PRIMITIVE_DEFINITIONS = 15;
+	int API___PATHS_IS_SET = PARAMTER_DECLARING_CONTEXT_OPERATION_COUNT + 1;
 
 	/**
-	 * The number of structural features of the '<em>Api</em>' class.
+	 * The number of operations of the '<em>API</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int API_FEATURE_COUNT = 16;
-
-	/**
-	 * The number of operations of the '<em>Api</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int API_OPERATION_COUNT = 0;
+	int API_OPERATION_COUNT = PARAMTER_DECLARING_CONTEXT_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link core.impl.InfoImpl <em>Info</em>}' class.
@@ -237,7 +530,7 @@ public interface CorePackage extends EPackage {
 	 * @see core.impl.CorePackageImpl#getInfo()
 	 * @generated
 	 */
-	int INFO = 1;
+	int INFO = 3;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -319,7 +612,7 @@ public interface CorePackage extends EPackage {
 	 * @see core.impl.CorePackageImpl#getContact()
 	 * @generated
 	 */
-	int CONTACT = 2;
+	int CONTACT = 4;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -374,7 +667,7 @@ public interface CorePackage extends EPackage {
 	 * @see core.impl.CorePackageImpl#getLicense()
 	 * @generated
 	 */
-	int LICENSE = 3;
+	int LICENSE = 5;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -420,7 +713,16 @@ public interface CorePackage extends EPackage {
 	 * @see core.impl.CorePackageImpl#getPath()
 	 * @generated
 	 */
-	int PATH = 4;
+	int PATH = 6;
+
+	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATH__PARAMETERS = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Pattern</b></em>' attribute.
@@ -429,16 +731,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATH__PATTERN = 0;
-
-	/**
-	 * The feature id for the '<em><b>Put</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATH__PUT = 1;
+	int PATH__PATTERN = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Get</b></em>' containment reference.
@@ -447,43 +740,16 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATH__GET = 2;
+	int PATH__GET = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Delete</b></em>' containment reference.
+	 * The feature id for the '<em><b>Put</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATH__DELETE = 3;
-
-	/**
-	 * The feature id for the '<em><b>Options</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATH__OPTIONS = 4;
-
-	/**
-	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATH__PARAMETERS = 5;
-
-	/**
-	 * The feature id for the '<em><b>Head</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATH__HEAD = 6;
+	int PATH__PUT = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Post</b></em>' containment reference.
@@ -492,7 +758,34 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATH__POST = 7;
+	int PATH__POST = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Delete</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATH__DELETE = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Options</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATH__OPTIONS = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Head</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATH__HEAD = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Patch</b></em>' containment reference.
@@ -501,16 +794,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATH__PATCH = 8;
-
-	/**
-	 * The feature id for the '<em><b>Ref</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATH__REF = 9;
+	int PATH__PATCH = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 8;
 
 	/**
 	 * The number of structural features of the '<em>Path</em>' class.
@@ -519,7 +803,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_FEATURE_COUNT = 10;
+	int PATH_FEATURE_COUNT = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 9;
 
 	/**
 	 * The number of operations of the '<em>Path</em>' class.
@@ -528,7 +812,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_OPERATION_COUNT = 0;
+	int PATH_OPERATION_COUNT = PARAMTER_DECLARING_CONTEXT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link core.impl.APIOperationImpl <em>API Operation</em>}' class.
@@ -538,34 +822,25 @@ public interface CorePackage extends EPackage {
 	 * @see core.impl.CorePackageImpl#getAPIOperation()
 	 * @generated
 	 */
-	int API_OPERATION = 5;
+	int API_OPERATION = 7;
 
 	/**
-	 * The feature id for the '<em><b>Tags</b></em>' attribute list.
+	 * The feature id for the '<em><b>Security Requirement</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int API_OPERATION__TAGS = 0;
+	int API_OPERATION__SECURITY_REQUIREMENT = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Summary</b></em>' attribute.
+	 * The feature id for the '<em><b>Parameters</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int API_OPERATION__SUMMARY = 1;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int API_OPERATION__DESCRIPTION = 2;
+	int API_OPERATION__PARAMETERS = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>External Docs</b></em>' containment reference.
@@ -574,7 +849,34 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API_OPERATION__EXTERNAL_DOCS = 3;
+	int API_OPERATION__EXTERNAL_DOCS = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Tag References</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_OPERATION__TAG_REFERENCES = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Summary</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_OPERATION__SUMMARY = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_OPERATION__DESCRIPTION = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Operation Id</b></em>' attribute.
@@ -583,7 +885,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API_OPERATION__OPERATION_ID = 4;
+	int API_OPERATION__OPERATION_ID = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Consumes</b></em>' attribute list.
@@ -592,7 +894,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API_OPERATION__CONSUMES = 5;
+	int API_OPERATION__CONSUMES = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Produces</b></em>' attribute list.
@@ -601,25 +903,16 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API_OPERATION__PRODUCES = 6;
+	int API_OPERATION__PRODUCES = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 8;
 
 	/**
-	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Responses</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int API_OPERATION__PARAMETERS = 7;
-
-	/**
-	 * The feature id for the '<em><b>Responses</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int API_OPERATION__RESPONSES = 8;
+	int API_OPERATION__RESPONSES = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Schemes</b></em>' attribute list.
@@ -628,7 +921,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API_OPERATION__SCHEMES = 9;
+	int API_OPERATION__SCHEMES = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Deprecated</b></em>' attribute.
@@ -637,16 +930,16 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API_OPERATION__DEPRECATED = 10;
+	int API_OPERATION__DEPRECATED = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 11;
 
 	/**
-	 * The feature id for the '<em><b>Security</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Path</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int API_OPERATION__SECURITY = 11;
+	int API_OPERATION__PATH = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 12;
 
 	/**
 	 * The number of structural features of the '<em>API Operation</em>' class.
@@ -655,7 +948,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API_OPERATION_FEATURE_COUNT = 12;
+	int API_OPERATION_FEATURE_COUNT = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 13;
 
 	/**
 	 * The number of operations of the '<em>API Operation</em>' class.
@@ -664,7 +957,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API_OPERATION_OPERATION_COUNT = 0;
+	int API_OPERATION_OPERATION_COUNT = PARAMTER_DECLARING_CONTEXT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link core.impl.ExternalDocsImpl <em>External Docs</em>}' class.
@@ -674,7 +967,7 @@ public interface CorePackage extends EPackage {
 	 * @see core.impl.CorePackageImpl#getExternalDocs()
 	 * @generated
 	 */
-	int EXTERNAL_DOCS = 6;
+	int EXTERNAL_DOCS = 8;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -713,6 +1006,54 @@ public interface CorePackage extends EPackage {
 	int EXTERNAL_DOCS_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link core.impl.SchemaDeclaringContextImpl <em>Schema Declaring Context</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see core.impl.SchemaDeclaringContextImpl
+	 * @see core.impl.CorePackageImpl#getSchemaDeclaringContext()
+	 * @generated
+	 */
+	int SCHEMA_DECLARING_CONTEXT = 21;
+
+	/**
+	 * The number of structural features of the '<em>Schema Declaring Context</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Schema Declaring Context</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEMA_DECLARING_CONTEXT_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link core.impl.SchemaContextImpl <em>Schema Context</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see core.impl.SchemaContextImpl
+	 * @see core.impl.CorePackageImpl#getSchemaContext()
+	 * @generated
+	 */
+	int SCHEMA_CONTEXT = 25;
+
+	/**
+	 * The meta object id for the '{@link core.impl.ArrayContextImpl <em>Array Context</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see core.impl.ArrayContextImpl
+	 * @see core.impl.CorePackageImpl#getArrayContext()
+	 * @generated
+	 */
+	int ARRAY_CONTEXT = 27;
+
+	/**
 	 * The meta object id for the '{@link core.impl.APIParameterImpl <em>API Parameter</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -720,187 +1061,7 @@ public interface CorePackage extends EPackage {
 	 * @see core.impl.CorePackageImpl#getAPIParameter()
 	 * @generated
 	 */
-	int API_PARAMETER = 7;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int API_PARAMETER__NAME = 0;
-
-	/**
-	 * The feature id for the '<em><b>In</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int API_PARAMETER__IN = 1;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int API_PARAMETER__DESCRIPTION = 2;
-
-	/**
-	 * The feature id for the '<em><b>Required</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int API_PARAMETER__REQUIRED = 3;
-
-	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int API_PARAMETER__TYPE = 4;
-
-	/**
-	 * The feature id for the '<em><b>Format</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int API_PARAMETER__FORMAT = 5;
-
-	/**
-	 * The feature id for the '<em><b>Allow Emply Value</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int API_PARAMETER__ALLOW_EMPLY_VALUE = 6;
-
-	/**
-	 * The feature id for the '<em><b>Items</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int API_PARAMETER__ITEMS = 7;
-
-	/**
-	 * The feature id for the '<em><b>Collection Format</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int API_PARAMETER__COLLECTION_FORMAT = 8;
-
-	/**
-	 * The feature id for the '<em><b>Maximum</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int API_PARAMETER__MAXIMUM = 9;
-
-	/**
-	 * The feature id for the '<em><b>Exclusive Maximum</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int API_PARAMETER__EXCLUSIVE_MAXIMUM = 10;
-
-	/**
-	 * The feature id for the '<em><b>Minimum</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int API_PARAMETER__MINIMUM = 11;
-
-	/**
-	 * The feature id for the '<em><b>Exclusive Minimum</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int API_PARAMETER__EXCLUSIVE_MINIMUM = 12;
-
-	/**
-	 * The feature id for the '<em><b>Max Length</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int API_PARAMETER__MAX_LENGTH = 13;
-
-	/**
-	 * The feature id for the '<em><b>Min Length</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int API_PARAMETER__MIN_LENGTH = 14;
-
-	/**
-	 * The feature id for the '<em><b>Pattern</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int API_PARAMETER__PATTERN = 15;
-
-	/**
-	 * The feature id for the '<em><b>Max Items</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int API_PARAMETER__MAX_ITEMS = 16;
-
-	/**
-	 * The feature id for the '<em><b>Min Items</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int API_PARAMETER__MIN_ITEMS = 17;
-
-	/**
-	 * The feature id for the '<em><b>Unique Items</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int API_PARAMETER__UNIQUE_ITEMS = 18;
-
-	/**
-	 * The feature id for the '<em><b>Multiple Of</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int API_PARAMETER__MULTIPLE_OF = 19;
+	int API_PARAMETER = 9;
 
 	/**
 	 * The feature id for the '<em><b>Schema</b></em>' reference.
@@ -909,62 +1070,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API_PARAMETER__SCHEMA = 20;
-
-	/**
-	 * The feature id for the '<em><b>Default</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int API_PARAMETER__DEFAULT = 21;
-
-	/**
-	 * The feature id for the '<em><b>Enum</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int API_PARAMETER__ENUM = 22;
-
-	/**
-	 * The feature id for the '<em><b>Global Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int API_PARAMETER__GLOBAL_NAME = 23;
-
-	/**
-	 * The number of structural features of the '<em>API Parameter</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int API_PARAMETER_FEATURE_COUNT = 24;
-
-	/**
-	 * The number of operations of the '<em>API Parameter</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int API_PARAMETER_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link core.impl.ItemsImpl <em>Items</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see core.impl.ItemsImpl
-	 * @see core.impl.CorePackageImpl#getItems()
-	 * @generated
-	 */
-	int ITEMS = 8;
+	int API_PARAMETER__SCHEMA = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -973,7 +1079,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ITEMS__TYPE = 0;
+	int API_PARAMETER__TYPE = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Format</b></em>' attribute.
@@ -982,25 +1088,16 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ITEMS__FORMAT = 1;
+	int API_PARAMETER__FORMAT = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Items</b></em>' containment reference.
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ITEMS__ITEMS = 2;
-
-	/**
-	 * The feature id for the '<em><b>Collection Format</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ITEMS__COLLECTION_FORMAT = 3;
+	int API_PARAMETER__DESCRIPTION = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Maximum</b></em>' attribute.
@@ -1009,7 +1106,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ITEMS__MAXIMUM = 4;
+	int API_PARAMETER__MAXIMUM = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Exclusive Maximum</b></em>' attribute.
@@ -1018,7 +1115,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ITEMS__EXCLUSIVE_MAXIMUM = 5;
+	int API_PARAMETER__EXCLUSIVE_MAXIMUM = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Minimum</b></em>' attribute.
@@ -1027,7 +1124,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ITEMS__MINIMUM = 6;
+	int API_PARAMETER__MINIMUM = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Exclusive Minimum</b></em>' attribute.
@@ -1036,7 +1133,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ITEMS__EXCLUSIVE_MINIMUM = 7;
+	int API_PARAMETER__EXCLUSIVE_MINIMUM = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Max Length</b></em>' attribute.
@@ -1045,7 +1142,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ITEMS__MAX_LENGTH = 8;
+	int API_PARAMETER__MAX_LENGTH = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Min Length</b></em>' attribute.
@@ -1054,7 +1151,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ITEMS__MIN_LENGTH = 9;
+	int API_PARAMETER__MIN_LENGTH = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Pattern</b></em>' attribute.
@@ -1063,7 +1160,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ITEMS__PATTERN = 10;
+	int API_PARAMETER__PATTERN = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Max Items</b></em>' attribute.
@@ -1072,7 +1169,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ITEMS__MAX_ITEMS = 11;
+	int API_PARAMETER__MAX_ITEMS = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 11;
 
 	/**
 	 * The feature id for the '<em><b>Min Items</b></em>' attribute.
@@ -1081,7 +1178,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ITEMS__MIN_ITEMS = 12;
+	int API_PARAMETER__MIN_ITEMS = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 12;
 
 	/**
 	 * The feature id for the '<em><b>Unique Items</b></em>' attribute.
@@ -1090,25 +1187,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ITEMS__UNIQUE_ITEMS = 13;
-
-	/**
-	 * The feature id for the '<em><b>Multiple Of</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ITEMS__MULTIPLE_OF = 14;
-
-	/**
-	 * The feature id for the '<em><b>Default</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ITEMS__DEFAULT = 15;
+	int API_PARAMETER__UNIQUE_ITEMS = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 13;
 
 	/**
 	 * The feature id for the '<em><b>Enum</b></em>' attribute list.
@@ -1117,25 +1196,314 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ITEMS__ENUM = 16;
+	int API_PARAMETER__ENUM = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 14;
 
 	/**
-	 * The number of structural features of the '<em>Items</em>' class.
+	 * The feature id for the '<em><b>Default</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ITEMS_FEATURE_COUNT = 17;
+	int API_PARAMETER__DEFAULT = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 15;
 
 	/**
-	 * The number of operations of the '<em>Items</em>' class.
+	 * The feature id for the '<em><b>Multiple Of</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ITEMS_OPERATION_COUNT = 0;
+	int API_PARAMETER__MULTIPLE_OF = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 16;
+
+	/**
+	 * The feature id for the '<em><b>Ref</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_PARAMETER__REF = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 17;
+
+	/**
+	 * The feature id for the '<em><b>Collection Format</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_PARAMETER__COLLECTION_FORMAT = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 18;
+
+	/**
+	 * The feature id for the '<em><b>Items</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_PARAMETER__ITEMS = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 19;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_PARAMETER__NAME = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 20;
+
+	/**
+	 * The feature id for the '<em><b>Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_PARAMETER__LOCATION = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 21;
+
+	/**
+	 * The feature id for the '<em><b>Required</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_PARAMETER__REQUIRED = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 22;
+
+	/**
+	 * The feature id for the '<em><b>Allow Emply Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_PARAMETER__ALLOW_EMPLY_VALUE = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 23;
+
+	/**
+	 * The feature id for the '<em><b>Reference Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_PARAMETER__REFERENCE_NAME = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 24;
+
+	/**
+	 * The feature id for the '<em><b>Declaring Context</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_PARAMETER__DECLARING_CONTEXT = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 25;
+
+	/**
+	 * The number of structural features of the '<em>API Parameter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_PARAMETER_FEATURE_COUNT = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 26;
+
+	/**
+	 * The number of operations of the '<em>API Parameter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_PARAMETER_OPERATION_COUNT = SCHEMA_DECLARING_CONTEXT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link core.impl.ItemsDefinitionImpl <em>Items Definition</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see core.impl.ItemsDefinitionImpl
+	 * @see core.impl.CorePackageImpl#getItemsDefinition()
+	 * @generated
+	 */
+	int ITEMS_DEFINITION = 10;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITEMS_DEFINITION__TYPE = JSON_SCHEMA_SUBSET__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Format</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITEMS_DEFINITION__FORMAT = JSON_SCHEMA_SUBSET__FORMAT;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITEMS_DEFINITION__DESCRIPTION = JSON_SCHEMA_SUBSET__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Maximum</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITEMS_DEFINITION__MAXIMUM = JSON_SCHEMA_SUBSET__MAXIMUM;
+
+	/**
+	 * The feature id for the '<em><b>Exclusive Maximum</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITEMS_DEFINITION__EXCLUSIVE_MAXIMUM = JSON_SCHEMA_SUBSET__EXCLUSIVE_MAXIMUM;
+
+	/**
+	 * The feature id for the '<em><b>Minimum</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITEMS_DEFINITION__MINIMUM = JSON_SCHEMA_SUBSET__MINIMUM;
+
+	/**
+	 * The feature id for the '<em><b>Exclusive Minimum</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITEMS_DEFINITION__EXCLUSIVE_MINIMUM = JSON_SCHEMA_SUBSET__EXCLUSIVE_MINIMUM;
+
+	/**
+	 * The feature id for the '<em><b>Max Length</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITEMS_DEFINITION__MAX_LENGTH = JSON_SCHEMA_SUBSET__MAX_LENGTH;
+
+	/**
+	 * The feature id for the '<em><b>Min Length</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITEMS_DEFINITION__MIN_LENGTH = JSON_SCHEMA_SUBSET__MIN_LENGTH;
+
+	/**
+	 * The feature id for the '<em><b>Pattern</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITEMS_DEFINITION__PATTERN = JSON_SCHEMA_SUBSET__PATTERN;
+
+	/**
+	 * The feature id for the '<em><b>Max Items</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITEMS_DEFINITION__MAX_ITEMS = JSON_SCHEMA_SUBSET__MAX_ITEMS;
+
+	/**
+	 * The feature id for the '<em><b>Min Items</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITEMS_DEFINITION__MIN_ITEMS = JSON_SCHEMA_SUBSET__MIN_ITEMS;
+
+	/**
+	 * The feature id for the '<em><b>Unique Items</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITEMS_DEFINITION__UNIQUE_ITEMS = JSON_SCHEMA_SUBSET__UNIQUE_ITEMS;
+
+	/**
+	 * The feature id for the '<em><b>Enum</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITEMS_DEFINITION__ENUM = JSON_SCHEMA_SUBSET__ENUM;
+
+	/**
+	 * The feature id for the '<em><b>Default</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITEMS_DEFINITION__DEFAULT = JSON_SCHEMA_SUBSET__DEFAULT;
+
+	/**
+	 * The feature id for the '<em><b>Multiple Of</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITEMS_DEFINITION__MULTIPLE_OF = JSON_SCHEMA_SUBSET__MULTIPLE_OF;
+
+	/**
+	 * The feature id for the '<em><b>Collection Format</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITEMS_DEFINITION__COLLECTION_FORMAT = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Items</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITEMS_DEFINITION__ITEMS = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Items Definition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITEMS_DEFINITION_FEATURE_COUNT = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Items Definition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITEMS_DEFINITION_OPERATION_COUNT = JSON_SCHEMA_SUBSET_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link core.impl.SchemaImpl <em>Schema</em>}' class.
@@ -1145,160 +1513,7 @@ public interface CorePackage extends EPackage {
 	 * @see core.impl.CorePackageImpl#getSchema()
 	 * @generated
 	 */
-	int SCHEMA = 9;
-
-	/**
-	 * The feature id for the '<em><b>Format</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEMA__FORMAT = 0;
-
-	/**
-	 * The feature id for the '<em><b>Title</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEMA__TITLE = 1;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEMA__DESCRIPTION = 2;
-
-	/**
-	 * The feature id for the '<em><b>Multiple Of</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEMA__MULTIPLE_OF = 3;
-
-	/**
-	 * The feature id for the '<em><b>Maximum</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEMA__MAXIMUM = 4;
-
-	/**
-	 * The feature id for the '<em><b>Exclusive Maximum</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEMA__EXCLUSIVE_MAXIMUM = 5;
-
-	/**
-	 * The feature id for the '<em><b>Max Length</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEMA__MAX_LENGTH = 6;
-
-	/**
-	 * The feature id for the '<em><b>Min Length</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEMA__MIN_LENGTH = 7;
-
-	/**
-	 * The feature id for the '<em><b>Pattern</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEMA__PATTERN = 8;
-
-	/**
-	 * The feature id for the '<em><b>Minimum</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEMA__MINIMUM = 9;
-
-	/**
-	 * The feature id for the '<em><b>Exclusive Minimum</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEMA__EXCLUSIVE_MINIMUM = 10;
-
-	/**
-	 * The feature id for the '<em><b>Max Items</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEMA__MAX_ITEMS = 11;
-
-	/**
-	 * The feature id for the '<em><b>Min Items</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEMA__MIN_ITEMS = 12;
-
-	/**
-	 * The feature id for the '<em><b>Unique Items</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEMA__UNIQUE_ITEMS = 13;
-
-	/**
-	 * The feature id for the '<em><b>Max Properties</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEMA__MAX_PROPERTIES = 14;
-
-	/**
-	 * The feature id for the '<em><b>Min Properties</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEMA__MIN_PROPERTIES = 15;
-
-	/**
-	 * The feature id for the '<em><b>Required</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEMA__REQUIRED = 16;
+	int SCHEMA = 11;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -1307,25 +1522,115 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEMA__TYPE = 17;
+	int SCHEMA__TYPE = JSON_SCHEMA_SUBSET__TYPE;
 
 	/**
-	 * The feature id for the '<em><b>Properties</b></em>' reference list.
+	 * The feature id for the '<em><b>Format</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEMA__PROPERTIES = 18;
+	int SCHEMA__FORMAT = JSON_SCHEMA_SUBSET__FORMAT;
 
 	/**
-	 * The feature id for the '<em><b>Example</b></em>' attribute.
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEMA__EXAMPLE = 19;
+	int SCHEMA__DESCRIPTION = JSON_SCHEMA_SUBSET__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Maximum</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEMA__MAXIMUM = JSON_SCHEMA_SUBSET__MAXIMUM;
+
+	/**
+	 * The feature id for the '<em><b>Exclusive Maximum</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEMA__EXCLUSIVE_MAXIMUM = JSON_SCHEMA_SUBSET__EXCLUSIVE_MAXIMUM;
+
+	/**
+	 * The feature id for the '<em><b>Minimum</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEMA__MINIMUM = JSON_SCHEMA_SUBSET__MINIMUM;
+
+	/**
+	 * The feature id for the '<em><b>Exclusive Minimum</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEMA__EXCLUSIVE_MINIMUM = JSON_SCHEMA_SUBSET__EXCLUSIVE_MINIMUM;
+
+	/**
+	 * The feature id for the '<em><b>Max Length</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEMA__MAX_LENGTH = JSON_SCHEMA_SUBSET__MAX_LENGTH;
+
+	/**
+	 * The feature id for the '<em><b>Min Length</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEMA__MIN_LENGTH = JSON_SCHEMA_SUBSET__MIN_LENGTH;
+
+	/**
+	 * The feature id for the '<em><b>Pattern</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEMA__PATTERN = JSON_SCHEMA_SUBSET__PATTERN;
+
+	/**
+	 * The feature id for the '<em><b>Max Items</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEMA__MAX_ITEMS = JSON_SCHEMA_SUBSET__MAX_ITEMS;
+
+	/**
+	 * The feature id for the '<em><b>Min Items</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEMA__MIN_ITEMS = JSON_SCHEMA_SUBSET__MIN_ITEMS;
+
+	/**
+	 * The feature id for the '<em><b>Unique Items</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEMA__UNIQUE_ITEMS = JSON_SCHEMA_SUBSET__UNIQUE_ITEMS;
 
 	/**
 	 * The feature id for the '<em><b>Enum</b></em>' attribute list.
@@ -1334,34 +1639,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEMA__ENUM = 20;
-
-	/**
-	 * The feature id for the '<em><b>Externaldocs</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEMA__EXTERNALDOCS = 21;
-
-	/**
-	 * The feature id for the '<em><b>All Of</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEMA__ALL_OF = 22;
-
-	/**
-	 * The feature id for the '<em><b>Ref</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEMA__REF = 23;
+	int SCHEMA__ENUM = JSON_SCHEMA_SUBSET__ENUM;
 
 	/**
 	 * The feature id for the '<em><b>Default</b></em>' attribute.
@@ -1370,52 +1648,34 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEMA__DEFAULT = 24;
+	int SCHEMA__DEFAULT = JSON_SCHEMA_SUBSET__DEFAULT;
 
 	/**
-	 * The feature id for the '<em><b>Items</b></em>' reference.
+	 * The feature id for the '<em><b>Multiple Of</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEMA__ITEMS = 25;
+	int SCHEMA__MULTIPLE_OF = JSON_SCHEMA_SUBSET__MULTIPLE_OF;
 
 	/**
-	 * The feature id for the '<em><b>Additonal Properties</b></em>' containment reference.
+	 * The feature id for the '<em><b>Ref</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEMA__ADDITONAL_PROPERTIES = 26;
+	int SCHEMA__REF = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Discriminator</b></em>' attribute.
+	 * The feature id for the '<em><b>External Docs</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEMA__DISCRIMINATOR = 27;
-
-	/**
-	 * The feature id for the '<em><b>Read Only</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEMA__READ_ONLY = 28;
-
-	/**
-	 * The feature id for the '<em><b>Xml</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEMA__XML = 29;
+	int SCHEMA__EXTERNAL_DOCS = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1424,16 +1684,124 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEMA__NAME = 30;
+	int SCHEMA__NAME = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Ref Resolved</b></em>' reference.
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEMA__REF_RESOLVED = 31;
+	int SCHEMA__TITLE = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Max Properties</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEMA__MAX_PROPERTIES = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Min Properties</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEMA__MIN_PROPERTIES = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Required</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEMA__REQUIRED = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Example</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEMA__EXAMPLE = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 7;
+
+	/**
+	 * The feature id for the '<em><b>Discriminator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEMA__DISCRIMINATOR = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 8;
+
+	/**
+	 * The feature id for the '<em><b>Read Only</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEMA__READ_ONLY = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 9;
+
+	/**
+	 * The feature id for the '<em><b>Properties</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEMA__PROPERTIES = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 10;
+
+	/**
+	 * The feature id for the '<em><b>All Of</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEMA__ALL_OF = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 11;
+
+	/**
+	 * The feature id for the '<em><b>Items</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEMA__ITEMS = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 12;
+
+	/**
+	 * The feature id for the '<em><b>Xml</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEMA__XML = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 13;
+
+	/**
+	 * The feature id for the '<em><b>Additonal Properties</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEMA__ADDITONAL_PROPERTIES = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 14;
+
+	/**
+	 * The feature id for the '<em><b>Declaring Context</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEMA__DECLARING_CONTEXT = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 15;
 
 	/**
 	 * The number of structural features of the '<em>Schema</em>' class.
@@ -1442,7 +1810,16 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEMA_FEATURE_COUNT = 32;
+	int SCHEMA_FEATURE_COUNT = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 16;
+
+	/**
+	 * The operation id for the '<em>Get Ref</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEMA___GET_REF = JSON_SCHEMA_SUBSET_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Schema</em>' class.
@@ -1451,7 +1828,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEMA_OPERATION_COUNT = 0;
+	int SCHEMA_OPERATION_COUNT = JSON_SCHEMA_SUBSET_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link core.impl.ResponseImpl <em>Response</em>}' class.
@@ -1461,16 +1838,7 @@ public interface CorePackage extends EPackage {
 	 * @see core.impl.CorePackageImpl#getResponse()
 	 * @generated
 	 */
-	int RESPONSE = 10;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESPONSE__DESCRIPTION = 0;
+	int RESPONSE = 12;
 
 	/**
 	 * The feature id for the '<em><b>Schema</b></em>' reference.
@@ -1479,7 +1847,16 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESPONSE__SCHEMA = 1;
+	int RESPONSE__SCHEMA = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESPONSE__DESCRIPTION = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Headers</b></em>' containment reference list.
@@ -1488,7 +1865,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESPONSE__HEADERS = 2;
+	int RESPONSE__HEADERS = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Examples</b></em>' containment reference list.
@@ -1497,7 +1874,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESPONSE__EXAMPLES = 3;
+	int RESPONSE__EXAMPLES = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Code</b></em>' attribute.
@@ -1506,7 +1883,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESPONSE__CODE = 4;
+	int RESPONSE__CODE = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Response</em>' class.
@@ -1515,7 +1892,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESPONSE_FEATURE_COUNT = 5;
+	int RESPONSE_FEATURE_COUNT = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>Response</em>' class.
@@ -1524,53 +1901,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESPONSE_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link core.impl.SecurityRequirementImpl <em>Security Requirement</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see core.impl.SecurityRequirementImpl
-	 * @see core.impl.CorePackageImpl#getSecurityRequirement()
-	 * @generated
-	 */
-	int SECURITY_REQUIREMENT = 11;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SECURITY_REQUIREMENT__NAME = 0;
-
-	/**
-	 * The feature id for the '<em><b>Values</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SECURITY_REQUIREMENT__VALUES = 1;
-
-	/**
-	 * The number of structural features of the '<em>Security Requirement</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SECURITY_REQUIREMENT_FEATURE_COUNT = 2;
-
-	/**
-	 * The number of operations of the '<em>Security Requirement</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SECURITY_REQUIREMENT_OPERATION_COUNT = 0;
+	int RESPONSE_OPERATION_COUNT = SCHEMA_DECLARING_CONTEXT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link core.impl.HeaderImpl <em>Header</em>}' class.
@@ -1580,16 +1911,7 @@ public interface CorePackage extends EPackage {
 	 * @see core.impl.CorePackageImpl#getHeader()
 	 * @generated
 	 */
-	int HEADER = 12;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int HEADER__DESCRIPTION = 0;
+	int HEADER = 13;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -1598,7 +1920,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int HEADER__TYPE = 1;
+	int HEADER__TYPE = JSON_SCHEMA_SUBSET__TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Format</b></em>' attribute.
@@ -1607,124 +1929,16 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int HEADER__FORMAT = 2;
+	int HEADER__FORMAT = JSON_SCHEMA_SUBSET__FORMAT;
 
 	/**
-	 * The feature id for the '<em><b>Collection Format</b></em>' attribute.
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int HEADER__COLLECTION_FORMAT = 3;
-
-	/**
-	 * The feature id for the '<em><b>Items</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int HEADER__ITEMS = 4;
-
-	/**
-	 * The feature id for the '<em><b>Default</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int HEADER__DEFAULT = 5;
-
-	/**
-	 * The feature id for the '<em><b>Exclusive Minimum</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int HEADER__EXCLUSIVE_MINIMUM = 6;
-
-	/**
-	 * The feature id for the '<em><b>Enum</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int HEADER__ENUM = 7;
-
-	/**
-	 * The feature id for the '<em><b>Max Items</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int HEADER__MAX_ITEMS = 8;
-
-	/**
-	 * The feature id for the '<em><b>Unique Items</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int HEADER__UNIQUE_ITEMS = 9;
-
-	/**
-	 * The feature id for the '<em><b>Pattern</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int HEADER__PATTERN = 10;
-
-	/**
-	 * The feature id for the '<em><b>Exclusive Maximum</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int HEADER__EXCLUSIVE_MAXIMUM = 11;
-
-	/**
-	 * The feature id for the '<em><b>Minimum</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int HEADER__MINIMUM = 12;
-
-	/**
-	 * The feature id for the '<em><b>Min Length</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int HEADER__MIN_LENGTH = 13;
-
-	/**
-	 * The feature id for the '<em><b>Max Length</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int HEADER__MAX_LENGTH = 14;
-
-	/**
-	 * The feature id for the '<em><b>Min Items</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int HEADER__MIN_ITEMS = 15;
+	int HEADER__DESCRIPTION = JSON_SCHEMA_SUBSET__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Maximum</b></em>' attribute.
@@ -1733,7 +1947,106 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int HEADER__MAXIMUM = 16;
+	int HEADER__MAXIMUM = JSON_SCHEMA_SUBSET__MAXIMUM;
+
+	/**
+	 * The feature id for the '<em><b>Exclusive Maximum</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HEADER__EXCLUSIVE_MAXIMUM = JSON_SCHEMA_SUBSET__EXCLUSIVE_MAXIMUM;
+
+	/**
+	 * The feature id for the '<em><b>Minimum</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HEADER__MINIMUM = JSON_SCHEMA_SUBSET__MINIMUM;
+
+	/**
+	 * The feature id for the '<em><b>Exclusive Minimum</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HEADER__EXCLUSIVE_MINIMUM = JSON_SCHEMA_SUBSET__EXCLUSIVE_MINIMUM;
+
+	/**
+	 * The feature id for the '<em><b>Max Length</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HEADER__MAX_LENGTH = JSON_SCHEMA_SUBSET__MAX_LENGTH;
+
+	/**
+	 * The feature id for the '<em><b>Min Length</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HEADER__MIN_LENGTH = JSON_SCHEMA_SUBSET__MIN_LENGTH;
+
+	/**
+	 * The feature id for the '<em><b>Pattern</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HEADER__PATTERN = JSON_SCHEMA_SUBSET__PATTERN;
+
+	/**
+	 * The feature id for the '<em><b>Max Items</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HEADER__MAX_ITEMS = JSON_SCHEMA_SUBSET__MAX_ITEMS;
+
+	/**
+	 * The feature id for the '<em><b>Min Items</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HEADER__MIN_ITEMS = JSON_SCHEMA_SUBSET__MIN_ITEMS;
+
+	/**
+	 * The feature id for the '<em><b>Unique Items</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HEADER__UNIQUE_ITEMS = JSON_SCHEMA_SUBSET__UNIQUE_ITEMS;
+
+	/**
+	 * The feature id for the '<em><b>Enum</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HEADER__ENUM = JSON_SCHEMA_SUBSET__ENUM;
+
+	/**
+	 * The feature id for the '<em><b>Default</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HEADER__DEFAULT = JSON_SCHEMA_SUBSET__DEFAULT;
 
 	/**
 	 * The feature id for the '<em><b>Multiple Of</b></em>' attribute.
@@ -1742,7 +2055,25 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int HEADER__MULTIPLE_OF = 17;
+	int HEADER__MULTIPLE_OF = JSON_SCHEMA_SUBSET__MULTIPLE_OF;
+
+	/**
+	 * The feature id for the '<em><b>Collection Format</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HEADER__COLLECTION_FORMAT = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Items</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HEADER__ITEMS = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1751,7 +2082,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int HEADER__NAME = 18;
+	int HEADER__NAME = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Header</em>' class.
@@ -1760,7 +2091,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int HEADER_FEATURE_COUNT = 19;
+	int HEADER_FEATURE_COUNT = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Header</em>' class.
@@ -1769,7 +2100,44 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int HEADER_OPERATION_COUNT = 0;
+	int HEADER_OPERATION_COUNT = JSON_SCHEMA_SUBSET_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link core.impl.ExternalDocsContextImpl <em>External Docs Context</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see core.impl.ExternalDocsContextImpl
+	 * @see core.impl.CorePackageImpl#getExternalDocsContext()
+	 * @generated
+	 */
+	int EXTERNAL_DOCS_CONTEXT = 26;
+
+	/**
+	 * The feature id for the '<em><b>External Docs</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_DOCS_CONTEXT__EXTERNAL_DOCS = 0;
+
+	/**
+	 * The number of structural features of the '<em>External Docs Context</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_DOCS_CONTEXT_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>External Docs Context</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_DOCS_CONTEXT_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link core.impl.TagImpl <em>Tag</em>}' class.
@@ -1779,25 +2147,7 @@ public interface CorePackage extends EPackage {
 	 * @see core.impl.CorePackageImpl#getTag()
 	 * @generated
 	 */
-	int TAG = 13;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TAG__NAME = 0;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TAG__DESCRIPTION = 1;
+	int TAG = 14;
 
 	/**
 	 * The feature id for the '<em><b>External Docs</b></em>' containment reference.
@@ -1806,7 +2156,25 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TAG__EXTERNAL_DOCS = 2;
+	int TAG__EXTERNAL_DOCS = EXTERNAL_DOCS_CONTEXT__EXTERNAL_DOCS;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TAG__NAME = EXTERNAL_DOCS_CONTEXT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TAG__DESCRIPTION = EXTERNAL_DOCS_CONTEXT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Tag</em>' class.
@@ -1815,7 +2183,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TAG_FEATURE_COUNT = 3;
+	int TAG_FEATURE_COUNT = EXTERNAL_DOCS_CONTEXT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Tag</em>' class.
@@ -1824,7 +2192,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TAG_OPERATION_COUNT = 0;
+	int TAG_OPERATION_COUNT = EXTERNAL_DOCS_CONTEXT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link core.impl.SecuritySchemaImpl <em>Security Schema</em>}' class.
@@ -1834,7 +2202,7 @@ public interface CorePackage extends EPackage {
 	 * @see core.impl.CorePackageImpl#getSecuritySchema()
 	 * @generated
 	 */
-	int SECURITY_SCHEMA = 14;
+	int SECURITY_SCHEMA = 15;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -1864,13 +2232,13 @@ public interface CorePackage extends EPackage {
 	int SECURITY_SCHEMA__NAME = 2;
 
 	/**
-	 * The feature id for the '<em><b>In</b></em>' attribute.
+	 * The feature id for the '<em><b>Location</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SECURITY_SCHEMA__IN = 3;
+	int SECURITY_SCHEMA__LOCATION = 3;
 
 	/**
 	 * The feature id for the '<em><b>Flow</b></em>' attribute.
@@ -1943,7 +2311,7 @@ public interface CorePackage extends EPackage {
 	 * @see core.impl.CorePackageImpl#getExample()
 	 * @generated
 	 */
-	int EXAMPLE = 15;
+	int EXAMPLE = 16;
 
 	/**
 	 * The feature id for the '<em><b>Mime Type</b></em>' attribute.
@@ -1989,7 +2357,7 @@ public interface CorePackage extends EPackage {
 	 * @see core.impl.CorePackageImpl#getXMLElement()
 	 * @generated
 	 */
-	int XML_ELEMENT = 16;
+	int XML_ELEMENT = 17;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2055,14 +2423,14 @@ public interface CorePackage extends EPackage {
 	int XML_ELEMENT_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link core.impl.ScopeImpl <em>Scope</em>}' class.
+	 * The meta object id for the '{@link core.impl.SecurityScopeImpl <em>Security Scope</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see core.impl.ScopeImpl
-	 * @see core.impl.CorePackageImpl#getScope()
+	 * @see core.impl.SecurityScopeImpl
+	 * @see core.impl.CorePackageImpl#getSecurityScope()
 	 * @generated
 	 */
-	int SCOPE = 17;
+	int SECURITY_SCOPE = 18;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2071,7 +2439,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCOPE__NAME = 0;
+	int SECURITY_SCOPE__NAME = 0;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -2080,25 +2448,217 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCOPE__DESCRIPTION = 1;
+	int SECURITY_SCOPE__DESCRIPTION = 1;
 
 	/**
-	 * The number of structural features of the '<em>Scope</em>' class.
+	 * The number of structural features of the '<em>Security Scope</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCOPE_FEATURE_COUNT = 2;
+	int SECURITY_SCOPE_FEATURE_COUNT = 2;
 
 	/**
-	 * The number of operations of the '<em>Scope</em>' class.
+	 * The number of operations of the '<em>Security Scope</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCOPE_OPERATION_COUNT = 0;
+	int SECURITY_SCOPE_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link core.impl.ResponseContextImpl <em>Response Context</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see core.impl.ResponseContextImpl
+	 * @see core.impl.CorePackageImpl#getResponseContext()
+	 * @generated
+	 */
+	int RESPONSE_CONTEXT = 20;
+
+	/**
+	 * The number of structural features of the '<em>Response Context</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESPONSE_CONTEXT_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Response Context</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESPONSE_CONTEXT_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link core.impl.JSONPointerImpl <em>JSON Pointer</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see core.impl.JSONPointerImpl
+	 * @see core.impl.CorePackageImpl#getJSONPointer()
+	 * @generated
+	 */
+	int JSON_POINTER = 22;
+
+	/**
+	 * The feature id for the '<em><b>Ref</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JSON_POINTER__REF = 0;
+
+	/**
+	 * The number of structural features of the '<em>JSON Pointer</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JSON_POINTER_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>JSON Pointer</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JSON_POINTER_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link core.impl.SecurityContextImpl <em>Security Context</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see core.impl.SecurityContextImpl
+	 * @see core.impl.CorePackageImpl#getSecurityContext()
+	 * @generated
+	 */
+	int SECURITY_CONTEXT = 23;
+
+	/**
+	 * The feature id for the '<em><b>Security Requirement</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECURITY_CONTEXT__SECURITY_REQUIREMENT = 0;
+
+	/**
+	 * The number of structural features of the '<em>Security Context</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECURITY_CONTEXT_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Security Context</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECURITY_CONTEXT_OPERATION_COUNT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_CONTEXT__PARAMETERS = 0;
+
+	/**
+	 * The number of structural features of the '<em>Parameter Context</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_CONTEXT_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Parameter Context</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_CONTEXT_OPERATION_COUNT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Schema</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEMA_CONTEXT__SCHEMA = 0;
+
+	/**
+	 * The number of structural features of the '<em>Schema Context</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEMA_CONTEXT_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Schema Context</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEMA_CONTEXT_OPERATION_COUNT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Collection Format</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARRAY_CONTEXT__COLLECTION_FORMAT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Items</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARRAY_CONTEXT__ITEMS = 1;
+
+	/**
+	 * The number of structural features of the '<em>Array Context</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARRAY_CONTEXT_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Array Context</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARRAY_CONTEXT_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link core.SchemeType <em>Scheme Type</em>}' enum.
@@ -2108,7 +2668,7 @@ public interface CorePackage extends EPackage {
 	 * @see core.impl.CorePackageImpl#getSchemeType()
 	 * @generated
 	 */
-	int SCHEME_TYPE = 18;
+	int SCHEME_TYPE = 28;
 
 	/**
 	 * The meta object id for the '{@link core.ParameterLocation <em>Parameter Location</em>}' enum.
@@ -2118,7 +2678,7 @@ public interface CorePackage extends EPackage {
 	 * @see core.impl.CorePackageImpl#getParameterLocation()
 	 * @generated
 	 */
-	int PARAMETER_LOCATION = 19;
+	int PARAMETER_LOCATION = 29;
 
 	/**
 	 * The meta object id for the '{@link core.CollectionFormat <em>Collection Format</em>}' enum.
@@ -2128,7 +2688,7 @@ public interface CorePackage extends EPackage {
 	 * @see core.impl.CorePackageImpl#getCollectionFormat()
 	 * @generated
 	 */
-	int COLLECTION_FORMAT = 20;
+	int COLLECTION_FORMAT = 30;
 
 	/**
 	 * The meta object id for the '{@link core.OAuth2FlowType <em>OAuth2 Flow Type</em>}' enum.
@@ -2138,7 +2698,7 @@ public interface CorePackage extends EPackage {
 	 * @see core.impl.CorePackageImpl#getOAuth2FlowType()
 	 * @generated
 	 */
-	int OAUTH2_FLOW_TYPE = 21;
+	int OAUTH2_FLOW_TYPE = 31;
 
 	/**
 	 * The meta object id for the '{@link core.APIKeyLocation <em>API Key Location</em>}' enum.
@@ -2148,7 +2708,7 @@ public interface CorePackage extends EPackage {
 	 * @see core.impl.CorePackageImpl#getAPIKeyLocation()
 	 * @generated
 	 */
-	int API_KEY_LOCATION = 22;
+	int API_KEY_LOCATION = 32;
 
 	/**
 	 * The meta object id for the '{@link core.SecuritySchemeType <em>Security Scheme Type</em>}' enum.
@@ -2158,204 +2718,420 @@ public interface CorePackage extends EPackage {
 	 * @see core.impl.CorePackageImpl#getSecuritySchemeType()
 	 * @generated
 	 */
-	int SECURITY_SCHEME_TYPE = 23;
+	int SECURITY_SCHEME_TYPE = 33;
 
 	/**
-	 * The meta object id for the '{@link core.JsonDataType <em>Json Data Type</em>}' enum.
+	 * The meta object id for the '{@link core.JSONDataType <em>JSON Data Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see core.JsonDataType
-	 * @see core.impl.CorePackageImpl#getJsonDataType()
+	 * @see core.JSONDataType
+	 * @see core.impl.CorePackageImpl#getJSONDataType()
 	 * @generated
 	 */
-	int JSON_DATA_TYPE = 24;
+	int JSON_DATA_TYPE = 34;
 
 
 	/**
-	 * Returns the meta object for class '{@link core.Api <em>Api</em>}'.
+	 * Returns the meta object for class '{@link core.JSONSchemaSubset <em>JSON Schema Subset</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Api</em>'.
-	 * @see core.Api
+	 * @return the meta object for class '<em>JSON Schema Subset</em>'.
+	 * @see core.JSONSchemaSubset
 	 * @generated
 	 */
-	EClass getApi();
+	EClass getJSONSchemaSubset();
 
 	/**
-	 * Returns the meta object for the attribute '{@link core.Api#getSwagger <em>Swagger</em>}'.
+	 * Returns the meta object for the attribute '{@link core.JSONSchemaSubset#getType <em>Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Swagger</em>'.
-	 * @see core.Api#getSwagger()
-	 * @see #getApi()
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see core.JSONSchemaSubset#getType()
+	 * @see #getJSONSchemaSubset()
 	 * @generated
 	 */
-	EAttribute getApi_Swagger();
+	EAttribute getJSONSchemaSubset_Type();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link core.Api#getInfo <em>Info</em>}'.
+	 * Returns the meta object for the attribute '{@link core.JSONSchemaSubset#getFormat <em>Format</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Info</em>'.
-	 * @see core.Api#getInfo()
-	 * @see #getApi()
+	 * @return the meta object for the attribute '<em>Format</em>'.
+	 * @see core.JSONSchemaSubset#getFormat()
+	 * @see #getJSONSchemaSubset()
 	 * @generated
 	 */
-	EReference getApi_Info();
+	EAttribute getJSONSchemaSubset_Format();
 
 	/**
-	 * Returns the meta object for the attribute '{@link core.Api#getHost <em>Host</em>}'.
+	 * Returns the meta object for the attribute '{@link core.JSONSchemaSubset#getDescription <em>Description</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Host</em>'.
-	 * @see core.Api#getHost()
-	 * @see #getApi()
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see core.JSONSchemaSubset#getDescription()
+	 * @see #getJSONSchemaSubset()
 	 * @generated
 	 */
-	EAttribute getApi_Host();
+	EAttribute getJSONSchemaSubset_Description();
 
 	/**
-	 * Returns the meta object for the attribute '{@link core.Api#getBasePath <em>Base Path</em>}'.
+	 * Returns the meta object for the attribute '{@link core.JSONSchemaSubset#getMaximum <em>Maximum</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Base Path</em>'.
-	 * @see core.Api#getBasePath()
-	 * @see #getApi()
+	 * @return the meta object for the attribute '<em>Maximum</em>'.
+	 * @see core.JSONSchemaSubset#getMaximum()
+	 * @see #getJSONSchemaSubset()
 	 * @generated
 	 */
-	EAttribute getApi_BasePath();
+	EAttribute getJSONSchemaSubset_Maximum();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link core.Api#getSchemes <em>Schemes</em>}'.
+	 * Returns the meta object for the attribute '{@link core.JSONSchemaSubset#getExclusiveMaximum <em>Exclusive Maximum</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Schemes</em>'.
-	 * @see core.Api#getSchemes()
-	 * @see #getApi()
+	 * @return the meta object for the attribute '<em>Exclusive Maximum</em>'.
+	 * @see core.JSONSchemaSubset#getExclusiveMaximum()
+	 * @see #getJSONSchemaSubset()
 	 * @generated
 	 */
-	EAttribute getApi_Schemes();
+	EAttribute getJSONSchemaSubset_ExclusiveMaximum();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link core.Api#getConsumes <em>Consumes</em>}'.
+	 * Returns the meta object for the attribute '{@link core.JSONSchemaSubset#getMinimum <em>Minimum</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Consumes</em>'.
-	 * @see core.Api#getConsumes()
-	 * @see #getApi()
+	 * @return the meta object for the attribute '<em>Minimum</em>'.
+	 * @see core.JSONSchemaSubset#getMinimum()
+	 * @see #getJSONSchemaSubset()
 	 * @generated
 	 */
-	EAttribute getApi_Consumes();
+	EAttribute getJSONSchemaSubset_Minimum();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link core.Api#getProduces <em>Produces</em>}'.
+	 * Returns the meta object for the attribute '{@link core.JSONSchemaSubset#getExclusiveMinimum <em>Exclusive Minimum</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Produces</em>'.
-	 * @see core.Api#getProduces()
-	 * @see #getApi()
+	 * @return the meta object for the attribute '<em>Exclusive Minimum</em>'.
+	 * @see core.JSONSchemaSubset#getExclusiveMinimum()
+	 * @see #getJSONSchemaSubset()
 	 * @generated
 	 */
-	EAttribute getApi_Produces();
+	EAttribute getJSONSchemaSubset_ExclusiveMinimum();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link core.Api#getPaths <em>Paths</em>}'.
+	 * Returns the meta object for the attribute '{@link core.JSONSchemaSubset#getMaxLength <em>Max Length</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Paths</em>'.
-	 * @see core.Api#getPaths()
-	 * @see #getApi()
+	 * @return the meta object for the attribute '<em>Max Length</em>'.
+	 * @see core.JSONSchemaSubset#getMaxLength()
+	 * @see #getJSONSchemaSubset()
 	 * @generated
 	 */
-	EReference getApi_Paths();
+	EAttribute getJSONSchemaSubset_MaxLength();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link core.Api#getDefinitions <em>Definitions</em>}'.
+	 * Returns the meta object for the attribute '{@link core.JSONSchemaSubset#getMinLength <em>Min Length</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Definitions</em>'.
-	 * @see core.Api#getDefinitions()
-	 * @see #getApi()
+	 * @return the meta object for the attribute '<em>Min Length</em>'.
+	 * @see core.JSONSchemaSubset#getMinLength()
+	 * @see #getJSONSchemaSubset()
 	 * @generated
 	 */
-	EReference getApi_Definitions();
+	EAttribute getJSONSchemaSubset_MinLength();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link core.Api#getParameters <em>Parameters</em>}'.
+	 * Returns the meta object for the attribute '{@link core.JSONSchemaSubset#getPattern <em>Pattern</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Parameters</em>'.
-	 * @see core.Api#getParameters()
-	 * @see #getApi()
+	 * @return the meta object for the attribute '<em>Pattern</em>'.
+	 * @see core.JSONSchemaSubset#getPattern()
+	 * @see #getJSONSchemaSubset()
 	 * @generated
 	 */
-	EReference getApi_Parameters();
+	EAttribute getJSONSchemaSubset_Pattern();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link core.Api#getResponses <em>Responses</em>}'.
+	 * Returns the meta object for the attribute '{@link core.JSONSchemaSubset#getMaxItems <em>Max Items</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Max Items</em>'.
+	 * @see core.JSONSchemaSubset#getMaxItems()
+	 * @see #getJSONSchemaSubset()
+	 * @generated
+	 */
+	EAttribute getJSONSchemaSubset_MaxItems();
+
+	/**
+	 * Returns the meta object for the attribute '{@link core.JSONSchemaSubset#getMinItems <em>Min Items</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Min Items</em>'.
+	 * @see core.JSONSchemaSubset#getMinItems()
+	 * @see #getJSONSchemaSubset()
+	 * @generated
+	 */
+	EAttribute getJSONSchemaSubset_MinItems();
+
+	/**
+	 * Returns the meta object for the attribute '{@link core.JSONSchemaSubset#getUniqueItems <em>Unique Items</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Unique Items</em>'.
+	 * @see core.JSONSchemaSubset#getUniqueItems()
+	 * @see #getJSONSchemaSubset()
+	 * @generated
+	 */
+	EAttribute getJSONSchemaSubset_UniqueItems();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link core.JSONSchemaSubset#getEnum <em>Enum</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Enum</em>'.
+	 * @see core.JSONSchemaSubset#getEnum()
+	 * @see #getJSONSchemaSubset()
+	 * @generated
+	 */
+	EAttribute getJSONSchemaSubset_Enum();
+
+	/**
+	 * Returns the meta object for the attribute '{@link core.JSONSchemaSubset#getDefault <em>Default</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Default</em>'.
+	 * @see core.JSONSchemaSubset#getDefault()
+	 * @see #getJSONSchemaSubset()
+	 * @generated
+	 */
+	EAttribute getJSONSchemaSubset_Default();
+
+	/**
+	 * Returns the meta object for the attribute '{@link core.JSONSchemaSubset#getMultipleOf <em>Multiple Of</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Multiple Of</em>'.
+	 * @see core.JSONSchemaSubset#getMultipleOf()
+	 * @see #getJSONSchemaSubset()
+	 * @generated
+	 */
+	EAttribute getJSONSchemaSubset_MultipleOf();
+
+	/**
+	 * Returns the meta object for class '{@link core.Root <em>Root</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Root</em>'.
+	 * @see core.Root
+	 * @generated
+	 */
+	EClass getRoot();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link core.Root#getApi <em>Api</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Api</em>'.
+	 * @see core.Root#getApi()
+	 * @see #getRoot()
+	 * @generated
+	 */
+	EReference getRoot_Api();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link core.Root#getParamters <em>Paramters</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Paramters</em>'.
+	 * @see core.Root#getParamters()
+	 * @see #getRoot()
+	 * @generated
+	 */
+	EReference getRoot_Paramters();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link core.Root#getSchemas <em>Schemas</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Schemas</em>'.
+	 * @see core.Root#getSchemas()
+	 * @see #getRoot()
+	 * @generated
+	 */
+	EReference getRoot_Schemas();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link core.Root#getResponses <em>Responses</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Responses</em>'.
-	 * @see core.Api#getResponses()
-	 * @see #getApi()
+	 * @see core.Root#getResponses()
+	 * @see #getRoot()
 	 * @generated
 	 */
-	EReference getApi_Responses();
+	EReference getRoot_Responses();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link core.Api#getSecurityDefinitions <em>Security Definitions</em>}'.
+	 * Returns the meta object for class '{@link core.API <em>API</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>API</em>'.
+	 * @see core.API
+	 * @generated
+	 */
+	EClass getAPI();
+
+	/**
+	 * Returns the meta object for the attribute '{@link core.API#getSwagger <em>Swagger</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Swagger</em>'.
+	 * @see core.API#getSwagger()
+	 * @see #getAPI()
+	 * @generated
+	 */
+	EAttribute getAPI_Swagger();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link core.API#getInfo <em>Info</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Info</em>'.
+	 * @see core.API#getInfo()
+	 * @see #getAPI()
+	 * @generated
+	 */
+	EReference getAPI_Info();
+
+	/**
+	 * Returns the meta object for the attribute '{@link core.API#getHost <em>Host</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Host</em>'.
+	 * @see core.API#getHost()
+	 * @see #getAPI()
+	 * @generated
+	 */
+	EAttribute getAPI_Host();
+
+	/**
+	 * Returns the meta object for the attribute '{@link core.API#getBasePath <em>Base Path</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Base Path</em>'.
+	 * @see core.API#getBasePath()
+	 * @see #getAPI()
+	 * @generated
+	 */
+	EAttribute getAPI_BasePath();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link core.API#getSchemes <em>Schemes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Schemes</em>'.
+	 * @see core.API#getSchemes()
+	 * @see #getAPI()
+	 * @generated
+	 */
+	EAttribute getAPI_Schemes();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link core.API#getConsumes <em>Consumes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Consumes</em>'.
+	 * @see core.API#getConsumes()
+	 * @see #getAPI()
+	 * @generated
+	 */
+	EAttribute getAPI_Consumes();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link core.API#getProduces <em>Produces</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Produces</em>'.
+	 * @see core.API#getProduces()
+	 * @see #getAPI()
+	 * @generated
+	 */
+	EAttribute getAPI_Produces();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link core.API#getPaths <em>Paths</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Paths</em>'.
+	 * @see core.API#getPaths()
+	 * @see #getAPI()
+	 * @generated
+	 */
+	EReference getAPI_Paths();
+
+	/**
+	 * Returns the meta object for the reference list '{@link core.API#getDefinitions <em>Definitions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Definitions</em>'.
+	 * @see core.API#getDefinitions()
+	 * @see #getAPI()
+	 * @generated
+	 */
+	EReference getAPI_Definitions();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link core.API#getResponses <em>Responses</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Responses</em>'.
+	 * @see core.API#getResponses()
+	 * @see #getAPI()
+	 * @generated
+	 */
+	EReference getAPI_Responses();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link core.API#getSecurityDefinitions <em>Security Definitions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Security Definitions</em>'.
-	 * @see core.Api#getSecurityDefinitions()
-	 * @see #getApi()
+	 * @see core.API#getSecurityDefinitions()
+	 * @see #getAPI()
 	 * @generated
 	 */
-	EReference getApi_SecurityDefinitions();
+	EReference getAPI_SecurityDefinitions();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link core.Api#getSecurity <em>Security</em>}'.
+	 * Returns the meta object for the containment reference list '{@link core.API#getTags <em>Tags</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Security</em>'.
-	 * @see core.Api#getSecurity()
-	 * @see #getApi()
+	 * @return the meta object for the containment reference list '<em>Tags</em>'.
+	 * @see core.API#getTags()
+	 * @see #getAPI()
 	 * @generated
 	 */
-	EReference getApi_Security();
+	EReference getAPI_Tags();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link core.Api#getExternaldocs <em>Externaldocs</em>}'.
+	 * Returns the meta object for the '{@link core.API#getRef() <em>Get Ref</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Externaldocs</em>'.
-	 * @see core.Api#getExternaldocs()
-	 * @see #getApi()
+	 * @return the meta object for the '<em>Get Ref</em>' operation.
+	 * @see core.API#getRef()
 	 * @generated
 	 */
-	EReference getApi_Externaldocs();
+	EOperation getAPI__GetRef();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link core.Api#getTag <em>Tag</em>}'.
+	 * Returns the meta object for the '{@link core.API#pathsIsSet() <em>Paths Is Set</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Tag</em>'.
-	 * @see core.Api#getTag()
-	 * @see #getApi()
+	 * @return the meta object for the '<em>Paths Is Set</em>' operation.
+	 * @see core.API#pathsIsSet()
 	 * @generated
 	 */
-	EReference getApi_Tag();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link core.Api#getPrimitiveDefinitions <em>Primitive Definitions</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Primitive Definitions</em>'.
-	 * @see core.Api#getPrimitiveDefinitions()
-	 * @see #getApi()
-	 * @generated
-	 */
-	EReference getApi_PrimitiveDefinitions();
+	EOperation getAPI__PathsIsSet();
 
 	/**
 	 * Returns the meta object for class '{@link core.Info <em>Info</em>}'.
@@ -2530,6 +3306,17 @@ public interface CorePackage extends EPackage {
 	EAttribute getPath_Pattern();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link core.Path#getGet <em>Get</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Get</em>'.
+	 * @see core.Path#getGet()
+	 * @see #getPath()
+	 * @generated
+	 */
+	EReference getPath_Get();
+
+	/**
 	 * Returns the meta object for the containment reference '{@link core.Path#getPut <em>Put</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2541,15 +3328,15 @@ public interface CorePackage extends EPackage {
 	EReference getPath_Put();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link core.Path#getGet <em>Get</em>}'.
+	 * Returns the meta object for the containment reference '{@link core.Path#getPost <em>Post</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Get</em>'.
-	 * @see core.Path#getGet()
+	 * @return the meta object for the containment reference '<em>Post</em>'.
+	 * @see core.Path#getPost()
 	 * @see #getPath()
 	 * @generated
 	 */
-	EReference getPath_Get();
+	EReference getPath_Post();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link core.Path#getDelete <em>Delete</em>}'.
@@ -2574,17 +3361,6 @@ public interface CorePackage extends EPackage {
 	EReference getPath_Options();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link core.Path#getParameters <em>Parameters</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Parameters</em>'.
-	 * @see core.Path#getParameters()
-	 * @see #getPath()
-	 * @generated
-	 */
-	EReference getPath_Parameters();
-
-	/**
 	 * Returns the meta object for the containment reference '{@link core.Path#getHead <em>Head</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2594,17 +3370,6 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getPath_Head();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link core.Path#getPost <em>Post</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Post</em>'.
-	 * @see core.Path#getPost()
-	 * @see #getPath()
-	 * @generated
-	 */
-	EReference getPath_Post();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link core.Path#getPatch <em>Patch</em>}'.
@@ -2618,17 +3383,6 @@ public interface CorePackage extends EPackage {
 	EReference getPath_Patch();
 
 	/**
-	 * Returns the meta object for the attribute '{@link core.Path#getRef <em>Ref</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Ref</em>'.
-	 * @see core.Path#getRef()
-	 * @see #getPath()
-	 * @generated
-	 */
-	EAttribute getPath_Ref();
-
-	/**
 	 * Returns the meta object for class '{@link core.APIOperation <em>API Operation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2639,15 +3393,15 @@ public interface CorePackage extends EPackage {
 	EClass getAPIOperation();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link core.APIOperation#getTags <em>Tags</em>}'.
+	 * Returns the meta object for the attribute list '{@link core.APIOperation#getTagReferences <em>Tag References</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Tags</em>'.
-	 * @see core.APIOperation#getTags()
+	 * @return the meta object for the attribute list '<em>Tag References</em>'.
+	 * @see core.APIOperation#getTagReferences()
 	 * @see #getAPIOperation()
 	 * @generated
 	 */
-	EAttribute getAPIOperation_Tags();
+	EAttribute getAPIOperation_TagReferences();
 
 	/**
 	 * Returns the meta object for the attribute '{@link core.APIOperation#getSummary <em>Summary</em>}'.
@@ -2670,17 +3424,6 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getAPIOperation_Description();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link core.APIOperation#getExternalDocs <em>External Docs</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>External Docs</em>'.
-	 * @see core.APIOperation#getExternalDocs()
-	 * @see #getAPIOperation()
-	 * @generated
-	 */
-	EReference getAPIOperation_ExternalDocs();
 
 	/**
 	 * Returns the meta object for the attribute '{@link core.APIOperation#getOperationId <em>Operation Id</em>}'.
@@ -2716,21 +3459,10 @@ public interface CorePackage extends EPackage {
 	EAttribute getAPIOperation_Produces();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link core.APIOperation#getParameters <em>Parameters</em>}'.
+	 * Returns the meta object for the reference list '{@link core.APIOperation#getResponses <em>Responses</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Parameters</em>'.
-	 * @see core.APIOperation#getParameters()
-	 * @see #getAPIOperation()
-	 * @generated
-	 */
-	EReference getAPIOperation_Parameters();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link core.APIOperation#getResponses <em>Responses</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Responses</em>'.
+	 * @return the meta object for the reference list '<em>Responses</em>'.
 	 * @see core.APIOperation#getResponses()
 	 * @see #getAPIOperation()
 	 * @generated
@@ -2749,26 +3481,26 @@ public interface CorePackage extends EPackage {
 	EAttribute getAPIOperation_Schemes();
 
 	/**
-	 * Returns the meta object for the attribute '{@link core.APIOperation#isDeprecated <em>Deprecated</em>}'.
+	 * Returns the meta object for the attribute '{@link core.APIOperation#getDeprecated <em>Deprecated</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Deprecated</em>'.
-	 * @see core.APIOperation#isDeprecated()
+	 * @see core.APIOperation#getDeprecated()
 	 * @see #getAPIOperation()
 	 * @generated
 	 */
 	EAttribute getAPIOperation_Deprecated();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link core.APIOperation#getSecurity <em>Security</em>}'.
+	 * Returns the meta object for the container reference '{@link core.APIOperation#getPath <em>Path</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Security</em>'.
-	 * @see core.APIOperation#getSecurity()
+	 * @return the meta object for the container reference '<em>Path</em>'.
+	 * @see core.APIOperation#getPath()
 	 * @see #getAPIOperation()
 	 * @generated
 	 */
-	EReference getAPIOperation_Security();
+	EReference getAPIOperation_Path();
 
 	/**
 	 * Returns the meta object for class '{@link core.ExternalDocs <em>External Docs</em>}'.
@@ -2824,454 +3556,69 @@ public interface CorePackage extends EPackage {
 	EAttribute getAPIParameter_Name();
 
 	/**
-	 * Returns the meta object for the attribute '{@link core.APIParameter#getIn <em>In</em>}'.
+	 * Returns the meta object for the attribute '{@link core.APIParameter#getLocation <em>Location</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>In</em>'.
-	 * @see core.APIParameter#getIn()
+	 * @return the meta object for the attribute '<em>Location</em>'.
+	 * @see core.APIParameter#getLocation()
 	 * @see #getAPIParameter()
 	 * @generated
 	 */
-	EAttribute getAPIParameter_In();
+	EAttribute getAPIParameter_Location();
 
 	/**
-	 * Returns the meta object for the attribute '{@link core.APIParameter#getDescription <em>Description</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Description</em>'.
-	 * @see core.APIParameter#getDescription()
-	 * @see #getAPIParameter()
-	 * @generated
-	 */
-	EAttribute getAPIParameter_Description();
-
-	/**
-	 * Returns the meta object for the attribute '{@link core.APIParameter#isRequired <em>Required</em>}'.
+	 * Returns the meta object for the attribute '{@link core.APIParameter#getRequired <em>Required</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Required</em>'.
-	 * @see core.APIParameter#isRequired()
+	 * @see core.APIParameter#getRequired()
 	 * @see #getAPIParameter()
 	 * @generated
 	 */
 	EAttribute getAPIParameter_Required();
 
 	/**
-	 * Returns the meta object for the attribute '{@link core.APIParameter#getType <em>Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Type</em>'.
-	 * @see core.APIParameter#getType()
-	 * @see #getAPIParameter()
-	 * @generated
-	 */
-	EAttribute getAPIParameter_Type();
-
-	/**
-	 * Returns the meta object for the attribute '{@link core.APIParameter#getFormat <em>Format</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Format</em>'.
-	 * @see core.APIParameter#getFormat()
-	 * @see #getAPIParameter()
-	 * @generated
-	 */
-	EAttribute getAPIParameter_Format();
-
-	/**
-	 * Returns the meta object for the attribute '{@link core.APIParameter#isAllowEmplyValue <em>Allow Emply Value</em>}'.
+	 * Returns the meta object for the attribute '{@link core.APIParameter#getAllowEmplyValue <em>Allow Emply Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Allow Emply Value</em>'.
-	 * @see core.APIParameter#isAllowEmplyValue()
+	 * @see core.APIParameter#getAllowEmplyValue()
 	 * @see #getAPIParameter()
 	 * @generated
 	 */
 	EAttribute getAPIParameter_AllowEmplyValue();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link core.APIParameter#getItems <em>Items</em>}'.
+	 * Returns the meta object for the attribute '{@link core.APIParameter#getReferenceName <em>Reference Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Items</em>'.
-	 * @see core.APIParameter#getItems()
+	 * @return the meta object for the attribute '<em>Reference Name</em>'.
+	 * @see core.APIParameter#getReferenceName()
 	 * @see #getAPIParameter()
 	 * @generated
 	 */
-	EReference getAPIParameter_Items();
+	EAttribute getAPIParameter_ReferenceName();
 
 	/**
-	 * Returns the meta object for the attribute '{@link core.APIParameter#getCollectionFormat <em>Collection Format</em>}'.
+	 * Returns the meta object for the reference '{@link core.APIParameter#getDeclaringContext <em>Declaring Context</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Collection Format</em>'.
-	 * @see core.APIParameter#getCollectionFormat()
+	 * @return the meta object for the reference '<em>Declaring Context</em>'.
+	 * @see core.APIParameter#getDeclaringContext()
 	 * @see #getAPIParameter()
 	 * @generated
 	 */
-	EAttribute getAPIParameter_CollectionFormat();
+	EReference getAPIParameter_DeclaringContext();
 
 	/**
-	 * Returns the meta object for the attribute '{@link core.APIParameter#getMaximum <em>Maximum</em>}'.
+	 * Returns the meta object for class '{@link core.ItemsDefinition <em>Items Definition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Maximum</em>'.
-	 * @see core.APIParameter#getMaximum()
-	 * @see #getAPIParameter()
+	 * @return the meta object for class '<em>Items Definition</em>'.
+	 * @see core.ItemsDefinition
 	 * @generated
 	 */
-	EAttribute getAPIParameter_Maximum();
-
-	/**
-	 * Returns the meta object for the attribute '{@link core.APIParameter#isExclusiveMaximum <em>Exclusive Maximum</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Exclusive Maximum</em>'.
-	 * @see core.APIParameter#isExclusiveMaximum()
-	 * @see #getAPIParameter()
-	 * @generated
-	 */
-	EAttribute getAPIParameter_ExclusiveMaximum();
-
-	/**
-	 * Returns the meta object for the attribute '{@link core.APIParameter#getMinimum <em>Minimum</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Minimum</em>'.
-	 * @see core.APIParameter#getMinimum()
-	 * @see #getAPIParameter()
-	 * @generated
-	 */
-	EAttribute getAPIParameter_Minimum();
-
-	/**
-	 * Returns the meta object for the attribute '{@link core.APIParameter#isExclusiveMinimum <em>Exclusive Minimum</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Exclusive Minimum</em>'.
-	 * @see core.APIParameter#isExclusiveMinimum()
-	 * @see #getAPIParameter()
-	 * @generated
-	 */
-	EAttribute getAPIParameter_ExclusiveMinimum();
-
-	/**
-	 * Returns the meta object for the attribute '{@link core.APIParameter#getMaxLength <em>Max Length</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Max Length</em>'.
-	 * @see core.APIParameter#getMaxLength()
-	 * @see #getAPIParameter()
-	 * @generated
-	 */
-	EAttribute getAPIParameter_MaxLength();
-
-	/**
-	 * Returns the meta object for the attribute '{@link core.APIParameter#getMinLength <em>Min Length</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Min Length</em>'.
-	 * @see core.APIParameter#getMinLength()
-	 * @see #getAPIParameter()
-	 * @generated
-	 */
-	EAttribute getAPIParameter_MinLength();
-
-	/**
-	 * Returns the meta object for the attribute '{@link core.APIParameter#getPattern <em>Pattern</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Pattern</em>'.
-	 * @see core.APIParameter#getPattern()
-	 * @see #getAPIParameter()
-	 * @generated
-	 */
-	EAttribute getAPIParameter_Pattern();
-
-	/**
-	 * Returns the meta object for the attribute '{@link core.APIParameter#getMaxItems <em>Max Items</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Max Items</em>'.
-	 * @see core.APIParameter#getMaxItems()
-	 * @see #getAPIParameter()
-	 * @generated
-	 */
-	EAttribute getAPIParameter_MaxItems();
-
-	/**
-	 * Returns the meta object for the attribute '{@link core.APIParameter#getMinItems <em>Min Items</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Min Items</em>'.
-	 * @see core.APIParameter#getMinItems()
-	 * @see #getAPIParameter()
-	 * @generated
-	 */
-	EAttribute getAPIParameter_MinItems();
-
-	/**
-	 * Returns the meta object for the attribute '{@link core.APIParameter#isUniqueItems <em>Unique Items</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Unique Items</em>'.
-	 * @see core.APIParameter#isUniqueItems()
-	 * @see #getAPIParameter()
-	 * @generated
-	 */
-	EAttribute getAPIParameter_UniqueItems();
-
-	/**
-	 * Returns the meta object for the attribute '{@link core.APIParameter#getMultipleOf <em>Multiple Of</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Multiple Of</em>'.
-	 * @see core.APIParameter#getMultipleOf()
-	 * @see #getAPIParameter()
-	 * @generated
-	 */
-	EAttribute getAPIParameter_MultipleOf();
-
-	/**
-	 * Returns the meta object for the reference '{@link core.APIParameter#getSchema <em>Schema</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Schema</em>'.
-	 * @see core.APIParameter#getSchema()
-	 * @see #getAPIParameter()
-	 * @generated
-	 */
-	EReference getAPIParameter_Schema();
-
-	/**
-	 * Returns the meta object for the attribute '{@link core.APIParameter#getDefault <em>Default</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Default</em>'.
-	 * @see core.APIParameter#getDefault()
-	 * @see #getAPIParameter()
-	 * @generated
-	 */
-	EAttribute getAPIParameter_Default();
-
-	/**
-	 * Returns the meta object for the attribute list '{@link core.APIParameter#getEnum <em>Enum</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Enum</em>'.
-	 * @see core.APIParameter#getEnum()
-	 * @see #getAPIParameter()
-	 * @generated
-	 */
-	EAttribute getAPIParameter_Enum();
-
-	/**
-	 * Returns the meta object for the attribute '{@link core.APIParameter#getGlobalName <em>Global Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Global Name</em>'.
-	 * @see core.APIParameter#getGlobalName()
-	 * @see #getAPIParameter()
-	 * @generated
-	 */
-	EAttribute getAPIParameter_GlobalName();
-
-	/**
-	 * Returns the meta object for class '{@link core.Items <em>Items</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Items</em>'.
-	 * @see core.Items
-	 * @generated
-	 */
-	EClass getItems();
-
-	/**
-	 * Returns the meta object for the attribute '{@link core.Items#getType <em>Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Type</em>'.
-	 * @see core.Items#getType()
-	 * @see #getItems()
-	 * @generated
-	 */
-	EAttribute getItems_Type();
-
-	/**
-	 * Returns the meta object for the attribute '{@link core.Items#getFormat <em>Format</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Format</em>'.
-	 * @see core.Items#getFormat()
-	 * @see #getItems()
-	 * @generated
-	 */
-	EAttribute getItems_Format();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link core.Items#getItems <em>Items</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Items</em>'.
-	 * @see core.Items#getItems()
-	 * @see #getItems()
-	 * @generated
-	 */
-	EReference getItems_Items();
-
-	/**
-	 * Returns the meta object for the attribute '{@link core.Items#getCollectionFormat <em>Collection Format</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Collection Format</em>'.
-	 * @see core.Items#getCollectionFormat()
-	 * @see #getItems()
-	 * @generated
-	 */
-	EAttribute getItems_CollectionFormat();
-
-	/**
-	 * Returns the meta object for the attribute '{@link core.Items#getMaximum <em>Maximum</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Maximum</em>'.
-	 * @see core.Items#getMaximum()
-	 * @see #getItems()
-	 * @generated
-	 */
-	EAttribute getItems_Maximum();
-
-	/**
-	 * Returns the meta object for the attribute '{@link core.Items#isExclusiveMaximum <em>Exclusive Maximum</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Exclusive Maximum</em>'.
-	 * @see core.Items#isExclusiveMaximum()
-	 * @see #getItems()
-	 * @generated
-	 */
-	EAttribute getItems_ExclusiveMaximum();
-
-	/**
-	 * Returns the meta object for the attribute '{@link core.Items#getMinimum <em>Minimum</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Minimum</em>'.
-	 * @see core.Items#getMinimum()
-	 * @see #getItems()
-	 * @generated
-	 */
-	EAttribute getItems_Minimum();
-
-	/**
-	 * Returns the meta object for the attribute '{@link core.Items#isExclusiveMinimum <em>Exclusive Minimum</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Exclusive Minimum</em>'.
-	 * @see core.Items#isExclusiveMinimum()
-	 * @see #getItems()
-	 * @generated
-	 */
-	EAttribute getItems_ExclusiveMinimum();
-
-	/**
-	 * Returns the meta object for the attribute '{@link core.Items#getMaxLength <em>Max Length</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Max Length</em>'.
-	 * @see core.Items#getMaxLength()
-	 * @see #getItems()
-	 * @generated
-	 */
-	EAttribute getItems_MaxLength();
-
-	/**
-	 * Returns the meta object for the attribute '{@link core.Items#getMinLength <em>Min Length</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Min Length</em>'.
-	 * @see core.Items#getMinLength()
-	 * @see #getItems()
-	 * @generated
-	 */
-	EAttribute getItems_MinLength();
-
-	/**
-	 * Returns the meta object for the attribute '{@link core.Items#getPattern <em>Pattern</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Pattern</em>'.
-	 * @see core.Items#getPattern()
-	 * @see #getItems()
-	 * @generated
-	 */
-	EAttribute getItems_Pattern();
-
-	/**
-	 * Returns the meta object for the attribute '{@link core.Items#getMaxItems <em>Max Items</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Max Items</em>'.
-	 * @see core.Items#getMaxItems()
-	 * @see #getItems()
-	 * @generated
-	 */
-	EAttribute getItems_MaxItems();
-
-	/**
-	 * Returns the meta object for the attribute '{@link core.Items#getMinItems <em>Min Items</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Min Items</em>'.
-	 * @see core.Items#getMinItems()
-	 * @see #getItems()
-	 * @generated
-	 */
-	EAttribute getItems_MinItems();
-
-	/**
-	 * Returns the meta object for the attribute '{@link core.Items#isUniqueItems <em>Unique Items</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Unique Items</em>'.
-	 * @see core.Items#isUniqueItems()
-	 * @see #getItems()
-	 * @generated
-	 */
-	EAttribute getItems_UniqueItems();
-
-	/**
-	 * Returns the meta object for the attribute '{@link core.Items#getMultipleOf <em>Multiple Of</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Multiple Of</em>'.
-	 * @see core.Items#getMultipleOf()
-	 * @see #getItems()
-	 * @generated
-	 */
-	EAttribute getItems_MultipleOf();
-
-	/**
-	 * Returns the meta object for the attribute '{@link core.Items#getDefault <em>Default</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Default</em>'.
-	 * @see core.Items#getDefault()
-	 * @see #getItems()
-	 * @generated
-	 */
-	EAttribute getItems_Default();
-
-	/**
-	 * Returns the meta object for the attribute list '{@link core.Items#getEnum <em>Enum</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Enum</em>'.
-	 * @see core.Items#getEnum()
-	 * @see #getItems()
-	 * @generated
-	 */
-	EAttribute getItems_Enum();
+	EClass getItemsDefinition();
 
 	/**
 	 * Returns the meta object for class '{@link core.Schema <em>Schema</em>}'.
@@ -3284,17 +3631,6 @@ public interface CorePackage extends EPackage {
 	EClass getSchema();
 
 	/**
-	 * Returns the meta object for the attribute '{@link core.Schema#getFormat <em>Format</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Format</em>'.
-	 * @see core.Schema#getFormat()
-	 * @see #getSchema()
-	 * @generated
-	 */
-	EAttribute getSchema_Format();
-
-	/**
 	 * Returns the meta object for the attribute '{@link core.Schema#getTitle <em>Title</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3304,138 +3640,6 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getSchema_Title();
-
-	/**
-	 * Returns the meta object for the attribute '{@link core.Schema#getDescription <em>Description</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Description</em>'.
-	 * @see core.Schema#getDescription()
-	 * @see #getSchema()
-	 * @generated
-	 */
-	EAttribute getSchema_Description();
-
-	/**
-	 * Returns the meta object for the attribute '{@link core.Schema#getMultipleOf <em>Multiple Of</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Multiple Of</em>'.
-	 * @see core.Schema#getMultipleOf()
-	 * @see #getSchema()
-	 * @generated
-	 */
-	EAttribute getSchema_MultipleOf();
-
-	/**
-	 * Returns the meta object for the attribute '{@link core.Schema#getMaximum <em>Maximum</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Maximum</em>'.
-	 * @see core.Schema#getMaximum()
-	 * @see #getSchema()
-	 * @generated
-	 */
-	EAttribute getSchema_Maximum();
-
-	/**
-	 * Returns the meta object for the attribute '{@link core.Schema#isExclusiveMaximum <em>Exclusive Maximum</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Exclusive Maximum</em>'.
-	 * @see core.Schema#isExclusiveMaximum()
-	 * @see #getSchema()
-	 * @generated
-	 */
-	EAttribute getSchema_ExclusiveMaximum();
-
-	/**
-	 * Returns the meta object for the attribute '{@link core.Schema#getMaxLength <em>Max Length</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Max Length</em>'.
-	 * @see core.Schema#getMaxLength()
-	 * @see #getSchema()
-	 * @generated
-	 */
-	EAttribute getSchema_MaxLength();
-
-	/**
-	 * Returns the meta object for the attribute '{@link core.Schema#getMinLength <em>Min Length</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Min Length</em>'.
-	 * @see core.Schema#getMinLength()
-	 * @see #getSchema()
-	 * @generated
-	 */
-	EAttribute getSchema_MinLength();
-
-	/**
-	 * Returns the meta object for the attribute '{@link core.Schema#getPattern <em>Pattern</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Pattern</em>'.
-	 * @see core.Schema#getPattern()
-	 * @see #getSchema()
-	 * @generated
-	 */
-	EAttribute getSchema_Pattern();
-
-	/**
-	 * Returns the meta object for the attribute '{@link core.Schema#getMinimum <em>Minimum</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Minimum</em>'.
-	 * @see core.Schema#getMinimum()
-	 * @see #getSchema()
-	 * @generated
-	 */
-	EAttribute getSchema_Minimum();
-
-	/**
-	 * Returns the meta object for the attribute '{@link core.Schema#isExclusiveMinimum <em>Exclusive Minimum</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Exclusive Minimum</em>'.
-	 * @see core.Schema#isExclusiveMinimum()
-	 * @see #getSchema()
-	 * @generated
-	 */
-	EAttribute getSchema_ExclusiveMinimum();
-
-	/**
-	 * Returns the meta object for the attribute '{@link core.Schema#getMaxItems <em>Max Items</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Max Items</em>'.
-	 * @see core.Schema#getMaxItems()
-	 * @see #getSchema()
-	 * @generated
-	 */
-	EAttribute getSchema_MaxItems();
-
-	/**
-	 * Returns the meta object for the attribute '{@link core.Schema#getMinItems <em>Min Items</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Min Items</em>'.
-	 * @see core.Schema#getMinItems()
-	 * @see #getSchema()
-	 * @generated
-	 */
-	EAttribute getSchema_MinItems();
-
-	/**
-	 * Returns the meta object for the attribute '{@link core.Schema#isUniqueItems <em>Unique Items</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Unique Items</em>'.
-	 * @see core.Schema#isUniqueItems()
-	 * @see #getSchema()
-	 * @generated
-	 */
-	EAttribute getSchema_UniqueItems();
 
 	/**
 	 * Returns the meta object for the attribute '{@link core.Schema#getMaxProperties <em>Max Properties</em>}'.
@@ -3471,17 +3675,6 @@ public interface CorePackage extends EPackage {
 	EAttribute getSchema_Required();
 
 	/**
-	 * Returns the meta object for the attribute '{@link core.Schema#getType <em>Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Type</em>'.
-	 * @see core.Schema#getType()
-	 * @see #getSchema()
-	 * @generated
-	 */
-	EAttribute getSchema_Type();
-
-	/**
 	 * Returns the meta object for the reference list '{@link core.Schema#getProperties <em>Properties</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3504,59 +3697,15 @@ public interface CorePackage extends EPackage {
 	EAttribute getSchema_Example();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link core.Schema#getEnum <em>Enum</em>}'.
+	 * Returns the meta object for the reference list '{@link core.Schema#getAllOf <em>All Of</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Enum</em>'.
-	 * @see core.Schema#getEnum()
-	 * @see #getSchema()
-	 * @generated
-	 */
-	EAttribute getSchema_Enum();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link core.Schema#getExternaldocs <em>Externaldocs</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Externaldocs</em>'.
-	 * @see core.Schema#getExternaldocs()
-	 * @see #getSchema()
-	 * @generated
-	 */
-	EReference getSchema_Externaldocs();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link core.Schema#getAllOf <em>All Of</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>All Of</em>'.
+	 * @return the meta object for the reference list '<em>All Of</em>'.
 	 * @see core.Schema#getAllOf()
 	 * @see #getSchema()
 	 * @generated
 	 */
 	EReference getSchema_AllOf();
-
-	/**
-	 * Returns the meta object for the attribute '{@link core.Schema#getRef <em>Ref</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Ref</em>'.
-	 * @see core.Schema#getRef()
-	 * @see #getSchema()
-	 * @generated
-	 */
-	EAttribute getSchema_Ref();
-
-	/**
-	 * Returns the meta object for the attribute '{@link core.Schema#getDefault <em>Default</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Default</em>'.
-	 * @see core.Schema#getDefault()
-	 * @see #getSchema()
-	 * @generated
-	 */
-	EAttribute getSchema_Default();
 
 	/**
 	 * Returns the meta object for the reference '{@link core.Schema#getItems <em>Items</em>}'.
@@ -3570,10 +3719,10 @@ public interface CorePackage extends EPackage {
 	EReference getSchema_Items();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link core.Schema#getAdditonalProperties <em>Additonal Properties</em>}'.
+	 * Returns the meta object for the reference '{@link core.Schema#getAdditonalProperties <em>Additonal Properties</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Additonal Properties</em>'.
+	 * @return the meta object for the reference '<em>Additonal Properties</em>'.
 	 * @see core.Schema#getAdditonalProperties()
 	 * @see #getSchema()
 	 * @generated
@@ -3592,11 +3741,11 @@ public interface CorePackage extends EPackage {
 	EAttribute getSchema_Discriminator();
 
 	/**
-	 * Returns the meta object for the attribute '{@link core.Schema#isReadOnly <em>Read Only</em>}'.
+	 * Returns the meta object for the attribute '{@link core.Schema#getReadOnly <em>Read Only</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Read Only</em>'.
-	 * @see core.Schema#isReadOnly()
+	 * @see core.Schema#getReadOnly()
 	 * @see #getSchema()
 	 * @generated
 	 */
@@ -3625,15 +3774,25 @@ public interface CorePackage extends EPackage {
 	EAttribute getSchema_Name();
 
 	/**
-	 * Returns the meta object for the reference '{@link core.Schema#getRefResolved <em>Ref Resolved</em>}'.
+	 * Returns the meta object for the reference '{@link core.Schema#getDeclaringContext <em>Declaring Context</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Ref Resolved</em>'.
-	 * @see core.Schema#getRefResolved()
+	 * @return the meta object for the reference '<em>Declaring Context</em>'.
+	 * @see core.Schema#getDeclaringContext()
 	 * @see #getSchema()
 	 * @generated
 	 */
-	EReference getSchema_RefResolved();
+	EReference getSchema_DeclaringContext();
+
+	/**
+	 * Returns the meta object for the '{@link core.Schema#getRef() <em>Get Ref</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Ref</em>' operation.
+	 * @see core.Schema#getRef()
+	 * @generated
+	 */
+	EOperation getSchema__GetRef();
 
 	/**
 	 * Returns the meta object for class '{@link core.Response <em>Response</em>}'.
@@ -3655,17 +3814,6 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getResponse_Description();
-
-	/**
-	 * Returns the meta object for the reference '{@link core.Response#getSchema <em>Schema</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Schema</em>'.
-	 * @see core.Response#getSchema()
-	 * @see #getResponse()
-	 * @generated
-	 */
-	EReference getResponse_Schema();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link core.Response#getHeaders <em>Headers</em>}'.
@@ -3701,38 +3849,6 @@ public interface CorePackage extends EPackage {
 	EAttribute getResponse_Code();
 
 	/**
-	 * Returns the meta object for class '{@link core.SecurityRequirement <em>Security Requirement</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Security Requirement</em>'.
-	 * @see core.SecurityRequirement
-	 * @generated
-	 */
-	EClass getSecurityRequirement();
-
-	/**
-	 * Returns the meta object for the attribute '{@link core.SecurityRequirement#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see core.SecurityRequirement#getName()
-	 * @see #getSecurityRequirement()
-	 * @generated
-	 */
-	EAttribute getSecurityRequirement_Name();
-
-	/**
-	 * Returns the meta object for the attribute list '{@link core.SecurityRequirement#getValues <em>Values</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Values</em>'.
-	 * @see core.SecurityRequirement#getValues()
-	 * @see #getSecurityRequirement()
-	 * @generated
-	 */
-	EAttribute getSecurityRequirement_Values();
-
-	/**
 	 * Returns the meta object for class '{@link core.Header <em>Header</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3741,204 +3857,6 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 */
 	EClass getHeader();
-
-	/**
-	 * Returns the meta object for the attribute '{@link core.Header#getDescription <em>Description</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Description</em>'.
-	 * @see core.Header#getDescription()
-	 * @see #getHeader()
-	 * @generated
-	 */
-	EAttribute getHeader_Description();
-
-	/**
-	 * Returns the meta object for the attribute '{@link core.Header#getType <em>Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Type</em>'.
-	 * @see core.Header#getType()
-	 * @see #getHeader()
-	 * @generated
-	 */
-	EAttribute getHeader_Type();
-
-	/**
-	 * Returns the meta object for the attribute '{@link core.Header#getFormat <em>Format</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Format</em>'.
-	 * @see core.Header#getFormat()
-	 * @see #getHeader()
-	 * @generated
-	 */
-	EAttribute getHeader_Format();
-
-	/**
-	 * Returns the meta object for the attribute '{@link core.Header#getCollectionFormat <em>Collection Format</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Collection Format</em>'.
-	 * @see core.Header#getCollectionFormat()
-	 * @see #getHeader()
-	 * @generated
-	 */
-	EAttribute getHeader_CollectionFormat();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link core.Header#getItems <em>Items</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Items</em>'.
-	 * @see core.Header#getItems()
-	 * @see #getHeader()
-	 * @generated
-	 */
-	EReference getHeader_Items();
-
-	/**
-	 * Returns the meta object for the attribute '{@link core.Header#getDefault <em>Default</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Default</em>'.
-	 * @see core.Header#getDefault()
-	 * @see #getHeader()
-	 * @generated
-	 */
-	EAttribute getHeader_Default();
-
-	/**
-	 * Returns the meta object for the attribute '{@link core.Header#isExclusiveMinimum <em>Exclusive Minimum</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Exclusive Minimum</em>'.
-	 * @see core.Header#isExclusiveMinimum()
-	 * @see #getHeader()
-	 * @generated
-	 */
-	EAttribute getHeader_ExclusiveMinimum();
-
-	/**
-	 * Returns the meta object for the attribute list '{@link core.Header#getEnum <em>Enum</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Enum</em>'.
-	 * @see core.Header#getEnum()
-	 * @see #getHeader()
-	 * @generated
-	 */
-	EAttribute getHeader_Enum();
-
-	/**
-	 * Returns the meta object for the attribute '{@link core.Header#getMaxItems <em>Max Items</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Max Items</em>'.
-	 * @see core.Header#getMaxItems()
-	 * @see #getHeader()
-	 * @generated
-	 */
-	EAttribute getHeader_MaxItems();
-
-	/**
-	 * Returns the meta object for the attribute '{@link core.Header#isUniqueItems <em>Unique Items</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Unique Items</em>'.
-	 * @see core.Header#isUniqueItems()
-	 * @see #getHeader()
-	 * @generated
-	 */
-	EAttribute getHeader_UniqueItems();
-
-	/**
-	 * Returns the meta object for the attribute '{@link core.Header#getPattern <em>Pattern</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Pattern</em>'.
-	 * @see core.Header#getPattern()
-	 * @see #getHeader()
-	 * @generated
-	 */
-	EAttribute getHeader_Pattern();
-
-	/**
-	 * Returns the meta object for the attribute '{@link core.Header#isExclusiveMaximum <em>Exclusive Maximum</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Exclusive Maximum</em>'.
-	 * @see core.Header#isExclusiveMaximum()
-	 * @see #getHeader()
-	 * @generated
-	 */
-	EAttribute getHeader_ExclusiveMaximum();
-
-	/**
-	 * Returns the meta object for the attribute '{@link core.Header#getMinimum <em>Minimum</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Minimum</em>'.
-	 * @see core.Header#getMinimum()
-	 * @see #getHeader()
-	 * @generated
-	 */
-	EAttribute getHeader_Minimum();
-
-	/**
-	 * Returns the meta object for the attribute '{@link core.Header#getMinLength <em>Min Length</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Min Length</em>'.
-	 * @see core.Header#getMinLength()
-	 * @see #getHeader()
-	 * @generated
-	 */
-	EAttribute getHeader_MinLength();
-
-	/**
-	 * Returns the meta object for the attribute '{@link core.Header#getMaxLength <em>Max Length</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Max Length</em>'.
-	 * @see core.Header#getMaxLength()
-	 * @see #getHeader()
-	 * @generated
-	 */
-	EAttribute getHeader_MaxLength();
-
-	/**
-	 * Returns the meta object for the attribute '{@link core.Header#getMinItems <em>Min Items</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Min Items</em>'.
-	 * @see core.Header#getMinItems()
-	 * @see #getHeader()
-	 * @generated
-	 */
-	EAttribute getHeader_MinItems();
-
-	/**
-	 * Returns the meta object for the attribute '{@link core.Header#getMaximum <em>Maximum</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Maximum</em>'.
-	 * @see core.Header#getMaximum()
-	 * @see #getHeader()
-	 * @generated
-	 */
-	EAttribute getHeader_Maximum();
-
-	/**
-	 * Returns the meta object for the attribute '{@link core.Header#getMultipleOf <em>Multiple Of</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Multiple Of</em>'.
-	 * @see core.Header#getMultipleOf()
-	 * @see #getHeader()
-	 * @generated
-	 */
-	EAttribute getHeader_MultipleOf();
 
 	/**
 	 * Returns the meta object for the attribute '{@link core.Header#getName <em>Name</em>}'.
@@ -3984,17 +3902,6 @@ public interface CorePackage extends EPackage {
 	EAttribute getTag_Description();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link core.Tag#getExternalDocs <em>External Docs</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>External Docs</em>'.
-	 * @see core.Tag#getExternalDocs()
-	 * @see #getTag()
-	 * @generated
-	 */
-	EReference getTag_ExternalDocs();
-
-	/**
 	 * Returns the meta object for class '{@link core.SecuritySchema <em>Security Schema</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4038,15 +3945,15 @@ public interface CorePackage extends EPackage {
 	EAttribute getSecuritySchema_Name();
 
 	/**
-	 * Returns the meta object for the attribute '{@link core.SecuritySchema#getIn <em>In</em>}'.
+	 * Returns the meta object for the attribute '{@link core.SecuritySchema#getLocation <em>Location</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>In</em>'.
-	 * @see core.SecuritySchema#getIn()
+	 * @return the meta object for the attribute '<em>Location</em>'.
+	 * @see core.SecuritySchema#getLocation()
 	 * @see #getSecuritySchema()
 	 * @generated
 	 */
-	EAttribute getSecuritySchema_In();
+	EAttribute getSecuritySchema_Location();
 
 	/**
 	 * Returns the meta object for the attribute '{@link core.SecuritySchema#getFlow <em>Flow</em>}'.
@@ -4201,36 +4108,203 @@ public interface CorePackage extends EPackage {
 	EAttribute getXMLElement_Wrapped();
 
 	/**
-	 * Returns the meta object for class '{@link core.Scope <em>Scope</em>}'.
+	 * Returns the meta object for class '{@link core.SecurityScope <em>Security Scope</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Scope</em>'.
-	 * @see core.Scope
+	 * @return the meta object for class '<em>Security Scope</em>'.
+	 * @see core.SecurityScope
 	 * @generated
 	 */
-	EClass getScope();
+	EClass getSecurityScope();
 
 	/**
-	 * Returns the meta object for the attribute '{@link core.Scope#getName <em>Name</em>}'.
+	 * Returns the meta object for the attribute '{@link core.SecurityScope#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see core.Scope#getName()
-	 * @see #getScope()
+	 * @see core.SecurityScope#getName()
+	 * @see #getSecurityScope()
 	 * @generated
 	 */
-	EAttribute getScope_Name();
+	EAttribute getSecurityScope_Name();
 
 	/**
-	 * Returns the meta object for the attribute '{@link core.Scope#getDescription <em>Description</em>}'.
+	 * Returns the meta object for the attribute '{@link core.SecurityScope#getDescription <em>Description</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Description</em>'.
-	 * @see core.Scope#getDescription()
-	 * @see #getScope()
+	 * @see core.SecurityScope#getDescription()
+	 * @see #getSecurityScope()
 	 * @generated
 	 */
-	EAttribute getScope_Description();
+	EAttribute getSecurityScope_Description();
+
+	/**
+	 * Returns the meta object for class '{@link core.ParamterDeclaringContext <em>Paramter Declaring Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Paramter Declaring Context</em>'.
+	 * @see core.ParamterDeclaringContext
+	 * @generated
+	 */
+	EClass getParamterDeclaringContext();
+
+	/**
+	 * Returns the meta object for class '{@link core.ParameterContext <em>Parameter Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Parameter Context</em>'.
+	 * @see core.ParameterContext
+	 * @generated
+	 */
+	EClass getParameterContext();
+
+	/**
+	 * Returns the meta object for the reference list '{@link core.ParameterContext#getParameters <em>Parameters</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Parameters</em>'.
+	 * @see core.ParameterContext#getParameters()
+	 * @see #getParameterContext()
+	 * @generated
+	 */
+	EReference getParameterContext_Parameters();
+
+	/**
+	 * Returns the meta object for class '{@link core.ResponseContext <em>Response Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Response Context</em>'.
+	 * @see core.ResponseContext
+	 * @generated
+	 */
+	EClass getResponseContext();
+
+	/**
+	 * Returns the meta object for class '{@link core.SchemaDeclaringContext <em>Schema Declaring Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Schema Declaring Context</em>'.
+	 * @see core.SchemaDeclaringContext
+	 * @generated
+	 */
+	EClass getSchemaDeclaringContext();
+
+	/**
+	 * Returns the meta object for class '{@link core.SchemaContext <em>Schema Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Schema Context</em>'.
+	 * @see core.SchemaContext
+	 * @generated
+	 */
+	EClass getSchemaContext();
+
+	/**
+	 * Returns the meta object for the reference '{@link core.SchemaContext#getSchema <em>Schema</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Schema</em>'.
+	 * @see core.SchemaContext#getSchema()
+	 * @see #getSchemaContext()
+	 * @generated
+	 */
+	EReference getSchemaContext_Schema();
+
+	/**
+	 * Returns the meta object for class '{@link core.ExternalDocsContext <em>External Docs Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>External Docs Context</em>'.
+	 * @see core.ExternalDocsContext
+	 * @generated
+	 */
+	EClass getExternalDocsContext();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link core.ExternalDocsContext#getExternalDocs <em>External Docs</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>External Docs</em>'.
+	 * @see core.ExternalDocsContext#getExternalDocs()
+	 * @see #getExternalDocsContext()
+	 * @generated
+	 */
+	EReference getExternalDocsContext_ExternalDocs();
+
+	/**
+	 * Returns the meta object for class '{@link core.ArrayContext <em>Array Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Array Context</em>'.
+	 * @see core.ArrayContext
+	 * @generated
+	 */
+	EClass getArrayContext();
+
+	/**
+	 * Returns the meta object for the attribute '{@link core.ArrayContext#getCollectionFormat <em>Collection Format</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Collection Format</em>'.
+	 * @see core.ArrayContext#getCollectionFormat()
+	 * @see #getArrayContext()
+	 * @generated
+	 */
+	EAttribute getArrayContext_CollectionFormat();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link core.ArrayContext#getItems <em>Items</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Items</em>'.
+	 * @see core.ArrayContext#getItems()
+	 * @see #getArrayContext()
+	 * @generated
+	 */
+	EReference getArrayContext_Items();
+
+	/**
+	 * Returns the meta object for class '{@link core.JSONPointer <em>JSON Pointer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>JSON Pointer</em>'.
+	 * @see core.JSONPointer
+	 * @generated
+	 */
+	EClass getJSONPointer();
+
+	/**
+	 * Returns the meta object for the attribute '{@link core.JSONPointer#getRef <em>Ref</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Ref</em>'.
+	 * @see core.JSONPointer#getRef()
+	 * @see #getJSONPointer()
+	 * @generated
+	 */
+	EAttribute getJSONPointer_Ref();
+
+	/**
+	 * Returns the meta object for class '{@link core.SecurityContext <em>Security Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Security Context</em>'.
+	 * @see core.SecurityContext
+	 * @generated
+	 */
+	EClass getSecurityContext();
+
+	/**
+	 * Returns the meta object for the reference list '{@link core.SecurityContext#getSecurityRequirement <em>Security Requirement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Security Requirement</em>'.
+	 * @see core.SecurityContext#getSecurityRequirement()
+	 * @see #getSecurityContext()
+	 * @generated
+	 */
+	EReference getSecurityContext_SecurityRequirement();
 
 	/**
 	 * Returns the meta object for enum '{@link core.SchemeType <em>Scheme Type</em>}'.
@@ -4293,14 +4367,14 @@ public interface CorePackage extends EPackage {
 	EEnum getSecuritySchemeType();
 
 	/**
-	 * Returns the meta object for enum '{@link core.JsonDataType <em>Json Data Type</em>}'.
+	 * Returns the meta object for enum '{@link core.JSONDataType <em>JSON Data Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Json Data Type</em>'.
-	 * @see core.JsonDataType
+	 * @return the meta object for enum '<em>JSON Data Type</em>'.
+	 * @see core.JSONDataType
 	 * @generated
 	 */
-	EEnum getJsonDataType();
+	EEnum getJSONDataType();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -4326,94 +4400,176 @@ public interface CorePackage extends EPackage {
 	 */
 	interface Literals {
 		/**
-		 * The meta object literal for the '{@link core.impl.ApiImpl <em>Api</em>}' class.
+		 * The meta object literal for the '{@link core.impl.JSONSchemaSubsetImpl <em>JSON Schema Subset</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see core.impl.ApiImpl
-		 * @see core.impl.CorePackageImpl#getApi()
+		 * @see core.impl.JSONSchemaSubsetImpl
+		 * @see core.impl.CorePackageImpl#getJSONSchemaSubset()
 		 * @generated
 		 */
-		EClass API = eINSTANCE.getApi();
+		EClass JSON_SCHEMA_SUBSET = eINSTANCE.getJSONSchemaSubset();
 
 		/**
-		 * The meta object literal for the '<em><b>Swagger</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute API__SWAGGER = eINSTANCE.getApi_Swagger();
+		EAttribute JSON_SCHEMA_SUBSET__TYPE = eINSTANCE.getJSONSchemaSubset_Type();
 
 		/**
-		 * The meta object literal for the '<em><b>Info</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Format</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference API__INFO = eINSTANCE.getApi_Info();
+		EAttribute JSON_SCHEMA_SUBSET__FORMAT = eINSTANCE.getJSONSchemaSubset_Format();
 
 		/**
-		 * The meta object literal for the '<em><b>Host</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute API__HOST = eINSTANCE.getApi_Host();
+		EAttribute JSON_SCHEMA_SUBSET__DESCRIPTION = eINSTANCE.getJSONSchemaSubset_Description();
 
 		/**
-		 * The meta object literal for the '<em><b>Base Path</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Maximum</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute API__BASE_PATH = eINSTANCE.getApi_BasePath();
+		EAttribute JSON_SCHEMA_SUBSET__MAXIMUM = eINSTANCE.getJSONSchemaSubset_Maximum();
 
 		/**
-		 * The meta object literal for the '<em><b>Schemes</b></em>' attribute list feature.
+		 * The meta object literal for the '<em><b>Exclusive Maximum</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute API__SCHEMES = eINSTANCE.getApi_Schemes();
+		EAttribute JSON_SCHEMA_SUBSET__EXCLUSIVE_MAXIMUM = eINSTANCE.getJSONSchemaSubset_ExclusiveMaximum();
 
 		/**
-		 * The meta object literal for the '<em><b>Consumes</b></em>' attribute list feature.
+		 * The meta object literal for the '<em><b>Minimum</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute API__CONSUMES = eINSTANCE.getApi_Consumes();
+		EAttribute JSON_SCHEMA_SUBSET__MINIMUM = eINSTANCE.getJSONSchemaSubset_Minimum();
 
 		/**
-		 * The meta object literal for the '<em><b>Produces</b></em>' attribute list feature.
+		 * The meta object literal for the '<em><b>Exclusive Minimum</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute API__PRODUCES = eINSTANCE.getApi_Produces();
+		EAttribute JSON_SCHEMA_SUBSET__EXCLUSIVE_MINIMUM = eINSTANCE.getJSONSchemaSubset_ExclusiveMinimum();
 
 		/**
-		 * The meta object literal for the '<em><b>Paths</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Max Length</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference API__PATHS = eINSTANCE.getApi_Paths();
+		EAttribute JSON_SCHEMA_SUBSET__MAX_LENGTH = eINSTANCE.getJSONSchemaSubset_MaxLength();
 
 		/**
-		 * The meta object literal for the '<em><b>Definitions</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Min Length</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference API__DEFINITIONS = eINSTANCE.getApi_Definitions();
+		EAttribute JSON_SCHEMA_SUBSET__MIN_LENGTH = eINSTANCE.getJSONSchemaSubset_MinLength();
 
 		/**
-		 * The meta object literal for the '<em><b>Parameters</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Pattern</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference API__PARAMETERS = eINSTANCE.getApi_Parameters();
+		EAttribute JSON_SCHEMA_SUBSET__PATTERN = eINSTANCE.getJSONSchemaSubset_Pattern();
+
+		/**
+		 * The meta object literal for the '<em><b>Max Items</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JSON_SCHEMA_SUBSET__MAX_ITEMS = eINSTANCE.getJSONSchemaSubset_MaxItems();
+
+		/**
+		 * The meta object literal for the '<em><b>Min Items</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JSON_SCHEMA_SUBSET__MIN_ITEMS = eINSTANCE.getJSONSchemaSubset_MinItems();
+
+		/**
+		 * The meta object literal for the '<em><b>Unique Items</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JSON_SCHEMA_SUBSET__UNIQUE_ITEMS = eINSTANCE.getJSONSchemaSubset_UniqueItems();
+
+		/**
+		 * The meta object literal for the '<em><b>Enum</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JSON_SCHEMA_SUBSET__ENUM = eINSTANCE.getJSONSchemaSubset_Enum();
+
+		/**
+		 * The meta object literal for the '<em><b>Default</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JSON_SCHEMA_SUBSET__DEFAULT = eINSTANCE.getJSONSchemaSubset_Default();
+
+		/**
+		 * The meta object literal for the '<em><b>Multiple Of</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JSON_SCHEMA_SUBSET__MULTIPLE_OF = eINSTANCE.getJSONSchemaSubset_MultipleOf();
+
+		/**
+		 * The meta object literal for the '{@link core.impl.RootImpl <em>Root</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see core.impl.RootImpl
+		 * @see core.impl.CorePackageImpl#getRoot()
+		 * @generated
+		 */
+		EClass ROOT = eINSTANCE.getRoot();
+
+		/**
+		 * The meta object literal for the '<em><b>Api</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ROOT__API = eINSTANCE.getRoot_Api();
+
+		/**
+		 * The meta object literal for the '<em><b>Paramters</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ROOT__PARAMTERS = eINSTANCE.getRoot_Paramters();
+
+		/**
+		 * The meta object literal for the '<em><b>Schemas</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ROOT__SCHEMAS = eINSTANCE.getRoot_Schemas();
 
 		/**
 		 * The meta object literal for the '<em><b>Responses</b></em>' containment reference list feature.
@@ -4421,7 +4577,97 @@ public interface CorePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference API__RESPONSES = eINSTANCE.getApi_Responses();
+		EReference ROOT__RESPONSES = eINSTANCE.getRoot_Responses();
+
+		/**
+		 * The meta object literal for the '{@link core.impl.APIImpl <em>API</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see core.impl.APIImpl
+		 * @see core.impl.CorePackageImpl#getAPI()
+		 * @generated
+		 */
+		EClass API = eINSTANCE.getAPI();
+
+		/**
+		 * The meta object literal for the '<em><b>Swagger</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute API__SWAGGER = eINSTANCE.getAPI_Swagger();
+
+		/**
+		 * The meta object literal for the '<em><b>Info</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference API__INFO = eINSTANCE.getAPI_Info();
+
+		/**
+		 * The meta object literal for the '<em><b>Host</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute API__HOST = eINSTANCE.getAPI_Host();
+
+		/**
+		 * The meta object literal for the '<em><b>Base Path</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute API__BASE_PATH = eINSTANCE.getAPI_BasePath();
+
+		/**
+		 * The meta object literal for the '<em><b>Schemes</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute API__SCHEMES = eINSTANCE.getAPI_Schemes();
+
+		/**
+		 * The meta object literal for the '<em><b>Consumes</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute API__CONSUMES = eINSTANCE.getAPI_Consumes();
+
+		/**
+		 * The meta object literal for the '<em><b>Produces</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute API__PRODUCES = eINSTANCE.getAPI_Produces();
+
+		/**
+		 * The meta object literal for the '<em><b>Paths</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference API__PATHS = eINSTANCE.getAPI_Paths();
+
+		/**
+		 * The meta object literal for the '<em><b>Definitions</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference API__DEFINITIONS = eINSTANCE.getAPI_Definitions();
+
+		/**
+		 * The meta object literal for the '<em><b>Responses</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference API__RESPONSES = eINSTANCE.getAPI_Responses();
 
 		/**
 		 * The meta object literal for the '<em><b>Security Definitions</b></em>' containment reference list feature.
@@ -4429,39 +4675,31 @@ public interface CorePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference API__SECURITY_DEFINITIONS = eINSTANCE.getApi_SecurityDefinitions();
+		EReference API__SECURITY_DEFINITIONS = eINSTANCE.getAPI_SecurityDefinitions();
 
 		/**
-		 * The meta object literal for the '<em><b>Security</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Tags</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference API__SECURITY = eINSTANCE.getApi_Security();
+		EReference API__TAGS = eINSTANCE.getAPI_Tags();
 
 		/**
-		 * The meta object literal for the '<em><b>Externaldocs</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Get Ref</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference API__EXTERNALDOCS = eINSTANCE.getApi_Externaldocs();
+		EOperation API___GET_REF = eINSTANCE.getAPI__GetRef();
 
 		/**
-		 * The meta object literal for the '<em><b>Tag</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Paths Is Set</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference API__TAG = eINSTANCE.getApi_Tag();
-
-		/**
-		 * The meta object literal for the '<em><b>Primitive Definitions</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference API__PRIMITIVE_DEFINITIONS = eINSTANCE.getApi_PrimitiveDefinitions();
+		EOperation API___PATHS_IS_SET = eINSTANCE.getAPI__PathsIsSet();
 
 		/**
 		 * The meta object literal for the '{@link core.impl.InfoImpl <em>Info</em>}' class.
@@ -4600,6 +4838,14 @@ public interface CorePackage extends EPackage {
 		EAttribute PATH__PATTERN = eINSTANCE.getPath_Pattern();
 
 		/**
+		 * The meta object literal for the '<em><b>Get</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PATH__GET = eINSTANCE.getPath_Get();
+
+		/**
 		 * The meta object literal for the '<em><b>Put</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4608,12 +4854,12 @@ public interface CorePackage extends EPackage {
 		EReference PATH__PUT = eINSTANCE.getPath_Put();
 
 		/**
-		 * The meta object literal for the '<em><b>Get</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Post</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PATH__GET = eINSTANCE.getPath_Get();
+		EReference PATH__POST = eINSTANCE.getPath_Post();
 
 		/**
 		 * The meta object literal for the '<em><b>Delete</b></em>' containment reference feature.
@@ -4632,14 +4878,6 @@ public interface CorePackage extends EPackage {
 		EReference PATH__OPTIONS = eINSTANCE.getPath_Options();
 
 		/**
-		 * The meta object literal for the '<em><b>Parameters</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PATH__PARAMETERS = eINSTANCE.getPath_Parameters();
-
-		/**
 		 * The meta object literal for the '<em><b>Head</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4648,28 +4886,12 @@ public interface CorePackage extends EPackage {
 		EReference PATH__HEAD = eINSTANCE.getPath_Head();
 
 		/**
-		 * The meta object literal for the '<em><b>Post</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PATH__POST = eINSTANCE.getPath_Post();
-
-		/**
 		 * The meta object literal for the '<em><b>Patch</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference PATH__PATCH = eINSTANCE.getPath_Patch();
-
-		/**
-		 * The meta object literal for the '<em><b>Ref</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PATH__REF = eINSTANCE.getPath_Ref();
 
 		/**
 		 * The meta object literal for the '{@link core.impl.APIOperationImpl <em>API Operation</em>}' class.
@@ -4682,12 +4904,12 @@ public interface CorePackage extends EPackage {
 		EClass API_OPERATION = eINSTANCE.getAPIOperation();
 
 		/**
-		 * The meta object literal for the '<em><b>Tags</b></em>' attribute list feature.
+		 * The meta object literal for the '<em><b>Tag References</b></em>' attribute list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute API_OPERATION__TAGS = eINSTANCE.getAPIOperation_Tags();
+		EAttribute API_OPERATION__TAG_REFERENCES = eINSTANCE.getAPIOperation_TagReferences();
 
 		/**
 		 * The meta object literal for the '<em><b>Summary</b></em>' attribute feature.
@@ -4704,14 +4926,6 @@ public interface CorePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute API_OPERATION__DESCRIPTION = eINSTANCE.getAPIOperation_Description();
-
-		/**
-		 * The meta object literal for the '<em><b>External Docs</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference API_OPERATION__EXTERNAL_DOCS = eINSTANCE.getAPIOperation_ExternalDocs();
 
 		/**
 		 * The meta object literal for the '<em><b>Operation Id</b></em>' attribute feature.
@@ -4738,15 +4952,7 @@ public interface CorePackage extends EPackage {
 		EAttribute API_OPERATION__PRODUCES = eINSTANCE.getAPIOperation_Produces();
 
 		/**
-		 * The meta object literal for the '<em><b>Parameters</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference API_OPERATION__PARAMETERS = eINSTANCE.getAPIOperation_Parameters();
-
-		/**
-		 * The meta object literal for the '<em><b>Responses</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Responses</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -4770,12 +4976,12 @@ public interface CorePackage extends EPackage {
 		EAttribute API_OPERATION__DEPRECATED = eINSTANCE.getAPIOperation_Deprecated();
 
 		/**
-		 * The meta object literal for the '<em><b>Security</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Path</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference API_OPERATION__SECURITY = eINSTANCE.getAPIOperation_Security();
+		EReference API_OPERATION__PATH = eINSTANCE.getAPIOperation_Path();
 
 		/**
 		 * The meta object literal for the '{@link core.impl.ExternalDocsImpl <em>External Docs</em>}' class.
@@ -4822,20 +5028,12 @@ public interface CorePackage extends EPackage {
 		EAttribute API_PARAMETER__NAME = eINSTANCE.getAPIParameter_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>In</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Location</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute API_PARAMETER__IN = eINSTANCE.getAPIParameter_In();
-
-		/**
-		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute API_PARAMETER__DESCRIPTION = eINSTANCE.getAPIParameter_Description();
+		EAttribute API_PARAMETER__LOCATION = eINSTANCE.getAPIParameter_Location();
 
 		/**
 		 * The meta object literal for the '<em><b>Required</b></em>' attribute feature.
@@ -4846,22 +5044,6 @@ public interface CorePackage extends EPackage {
 		EAttribute API_PARAMETER__REQUIRED = eINSTANCE.getAPIParameter_Required();
 
 		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute API_PARAMETER__TYPE = eINSTANCE.getAPIParameter_Type();
-
-		/**
-		 * The meta object literal for the '<em><b>Format</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute API_PARAMETER__FORMAT = eINSTANCE.getAPIParameter_Format();
-
-		/**
 		 * The meta object literal for the '<em><b>Allow Emply Value</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4870,286 +5052,30 @@ public interface CorePackage extends EPackage {
 		EAttribute API_PARAMETER__ALLOW_EMPLY_VALUE = eINSTANCE.getAPIParameter_AllowEmplyValue();
 
 		/**
-		 * The meta object literal for the '<em><b>Items</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Reference Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference API_PARAMETER__ITEMS = eINSTANCE.getAPIParameter_Items();
+		EAttribute API_PARAMETER__REFERENCE_NAME = eINSTANCE.getAPIParameter_ReferenceName();
 
 		/**
-		 * The meta object literal for the '<em><b>Collection Format</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Declaring Context</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute API_PARAMETER__COLLECTION_FORMAT = eINSTANCE.getAPIParameter_CollectionFormat();
+		EReference API_PARAMETER__DECLARING_CONTEXT = eINSTANCE.getAPIParameter_DeclaringContext();
 
 		/**
-		 * The meta object literal for the '<em><b>Maximum</b></em>' attribute feature.
+		 * The meta object literal for the '{@link core.impl.ItemsDefinitionImpl <em>Items Definition</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
+		 * @see core.impl.ItemsDefinitionImpl
+		 * @see core.impl.CorePackageImpl#getItemsDefinition()
 		 * @generated
 		 */
-		EAttribute API_PARAMETER__MAXIMUM = eINSTANCE.getAPIParameter_Maximum();
-
-		/**
-		 * The meta object literal for the '<em><b>Exclusive Maximum</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute API_PARAMETER__EXCLUSIVE_MAXIMUM = eINSTANCE.getAPIParameter_ExclusiveMaximum();
-
-		/**
-		 * The meta object literal for the '<em><b>Minimum</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute API_PARAMETER__MINIMUM = eINSTANCE.getAPIParameter_Minimum();
-
-		/**
-		 * The meta object literal for the '<em><b>Exclusive Minimum</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute API_PARAMETER__EXCLUSIVE_MINIMUM = eINSTANCE.getAPIParameter_ExclusiveMinimum();
-
-		/**
-		 * The meta object literal for the '<em><b>Max Length</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute API_PARAMETER__MAX_LENGTH = eINSTANCE.getAPIParameter_MaxLength();
-
-		/**
-		 * The meta object literal for the '<em><b>Min Length</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute API_PARAMETER__MIN_LENGTH = eINSTANCE.getAPIParameter_MinLength();
-
-		/**
-		 * The meta object literal for the '<em><b>Pattern</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute API_PARAMETER__PATTERN = eINSTANCE.getAPIParameter_Pattern();
-
-		/**
-		 * The meta object literal for the '<em><b>Max Items</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute API_PARAMETER__MAX_ITEMS = eINSTANCE.getAPIParameter_MaxItems();
-
-		/**
-		 * The meta object literal for the '<em><b>Min Items</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute API_PARAMETER__MIN_ITEMS = eINSTANCE.getAPIParameter_MinItems();
-
-		/**
-		 * The meta object literal for the '<em><b>Unique Items</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute API_PARAMETER__UNIQUE_ITEMS = eINSTANCE.getAPIParameter_UniqueItems();
-
-		/**
-		 * The meta object literal for the '<em><b>Multiple Of</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute API_PARAMETER__MULTIPLE_OF = eINSTANCE.getAPIParameter_MultipleOf();
-
-		/**
-		 * The meta object literal for the '<em><b>Schema</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference API_PARAMETER__SCHEMA = eINSTANCE.getAPIParameter_Schema();
-
-		/**
-		 * The meta object literal for the '<em><b>Default</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute API_PARAMETER__DEFAULT = eINSTANCE.getAPIParameter_Default();
-
-		/**
-		 * The meta object literal for the '<em><b>Enum</b></em>' attribute list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute API_PARAMETER__ENUM = eINSTANCE.getAPIParameter_Enum();
-
-		/**
-		 * The meta object literal for the '<em><b>Global Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute API_PARAMETER__GLOBAL_NAME = eINSTANCE.getAPIParameter_GlobalName();
-
-		/**
-		 * The meta object literal for the '{@link core.impl.ItemsImpl <em>Items</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see core.impl.ItemsImpl
-		 * @see core.impl.CorePackageImpl#getItems()
-		 * @generated
-		 */
-		EClass ITEMS = eINSTANCE.getItems();
-
-		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ITEMS__TYPE = eINSTANCE.getItems_Type();
-
-		/**
-		 * The meta object literal for the '<em><b>Format</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ITEMS__FORMAT = eINSTANCE.getItems_Format();
-
-		/**
-		 * The meta object literal for the '<em><b>Items</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ITEMS__ITEMS = eINSTANCE.getItems_Items();
-
-		/**
-		 * The meta object literal for the '<em><b>Collection Format</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ITEMS__COLLECTION_FORMAT = eINSTANCE.getItems_CollectionFormat();
-
-		/**
-		 * The meta object literal for the '<em><b>Maximum</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ITEMS__MAXIMUM = eINSTANCE.getItems_Maximum();
-
-		/**
-		 * The meta object literal for the '<em><b>Exclusive Maximum</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ITEMS__EXCLUSIVE_MAXIMUM = eINSTANCE.getItems_ExclusiveMaximum();
-
-		/**
-		 * The meta object literal for the '<em><b>Minimum</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ITEMS__MINIMUM = eINSTANCE.getItems_Minimum();
-
-		/**
-		 * The meta object literal for the '<em><b>Exclusive Minimum</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ITEMS__EXCLUSIVE_MINIMUM = eINSTANCE.getItems_ExclusiveMinimum();
-
-		/**
-		 * The meta object literal for the '<em><b>Max Length</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ITEMS__MAX_LENGTH = eINSTANCE.getItems_MaxLength();
-
-		/**
-		 * The meta object literal for the '<em><b>Min Length</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ITEMS__MIN_LENGTH = eINSTANCE.getItems_MinLength();
-
-		/**
-		 * The meta object literal for the '<em><b>Pattern</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ITEMS__PATTERN = eINSTANCE.getItems_Pattern();
-
-		/**
-		 * The meta object literal for the '<em><b>Max Items</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ITEMS__MAX_ITEMS = eINSTANCE.getItems_MaxItems();
-
-		/**
-		 * The meta object literal for the '<em><b>Min Items</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ITEMS__MIN_ITEMS = eINSTANCE.getItems_MinItems();
-
-		/**
-		 * The meta object literal for the '<em><b>Unique Items</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ITEMS__UNIQUE_ITEMS = eINSTANCE.getItems_UniqueItems();
-
-		/**
-		 * The meta object literal for the '<em><b>Multiple Of</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ITEMS__MULTIPLE_OF = eINSTANCE.getItems_MultipleOf();
-
-		/**
-		 * The meta object literal for the '<em><b>Default</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ITEMS__DEFAULT = eINSTANCE.getItems_Default();
-
-		/**
-		 * The meta object literal for the '<em><b>Enum</b></em>' attribute list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ITEMS__ENUM = eINSTANCE.getItems_Enum();
+		EClass ITEMS_DEFINITION = eINSTANCE.getItemsDefinition();
 
 		/**
 		 * The meta object literal for the '{@link core.impl.SchemaImpl <em>Schema</em>}' class.
@@ -5162,116 +5088,12 @@ public interface CorePackage extends EPackage {
 		EClass SCHEMA = eINSTANCE.getSchema();
 
 		/**
-		 * The meta object literal for the '<em><b>Format</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SCHEMA__FORMAT = eINSTANCE.getSchema_Format();
-
-		/**
 		 * The meta object literal for the '<em><b>Title</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute SCHEMA__TITLE = eINSTANCE.getSchema_Title();
-
-		/**
-		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SCHEMA__DESCRIPTION = eINSTANCE.getSchema_Description();
-
-		/**
-		 * The meta object literal for the '<em><b>Multiple Of</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SCHEMA__MULTIPLE_OF = eINSTANCE.getSchema_MultipleOf();
-
-		/**
-		 * The meta object literal for the '<em><b>Maximum</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SCHEMA__MAXIMUM = eINSTANCE.getSchema_Maximum();
-
-		/**
-		 * The meta object literal for the '<em><b>Exclusive Maximum</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SCHEMA__EXCLUSIVE_MAXIMUM = eINSTANCE.getSchema_ExclusiveMaximum();
-
-		/**
-		 * The meta object literal for the '<em><b>Max Length</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SCHEMA__MAX_LENGTH = eINSTANCE.getSchema_MaxLength();
-
-		/**
-		 * The meta object literal for the '<em><b>Min Length</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SCHEMA__MIN_LENGTH = eINSTANCE.getSchema_MinLength();
-
-		/**
-		 * The meta object literal for the '<em><b>Pattern</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SCHEMA__PATTERN = eINSTANCE.getSchema_Pattern();
-
-		/**
-		 * The meta object literal for the '<em><b>Minimum</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SCHEMA__MINIMUM = eINSTANCE.getSchema_Minimum();
-
-		/**
-		 * The meta object literal for the '<em><b>Exclusive Minimum</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SCHEMA__EXCLUSIVE_MINIMUM = eINSTANCE.getSchema_ExclusiveMinimum();
-
-		/**
-		 * The meta object literal for the '<em><b>Max Items</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SCHEMA__MAX_ITEMS = eINSTANCE.getSchema_MaxItems();
-
-		/**
-		 * The meta object literal for the '<em><b>Min Items</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SCHEMA__MIN_ITEMS = eINSTANCE.getSchema_MinItems();
-
-		/**
-		 * The meta object literal for the '<em><b>Unique Items</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SCHEMA__UNIQUE_ITEMS = eINSTANCE.getSchema_UniqueItems();
 
 		/**
 		 * The meta object literal for the '<em><b>Max Properties</b></em>' attribute feature.
@@ -5298,14 +5120,6 @@ public interface CorePackage extends EPackage {
 		EAttribute SCHEMA__REQUIRED = eINSTANCE.getSchema_Required();
 
 		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SCHEMA__TYPE = eINSTANCE.getSchema_Type();
-
-		/**
 		 * The meta object literal for the '<em><b>Properties</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5322,44 +5136,12 @@ public interface CorePackage extends EPackage {
 		EAttribute SCHEMA__EXAMPLE = eINSTANCE.getSchema_Example();
 
 		/**
-		 * The meta object literal for the '<em><b>Enum</b></em>' attribute list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SCHEMA__ENUM = eINSTANCE.getSchema_Enum();
-
-		/**
-		 * The meta object literal for the '<em><b>Externaldocs</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SCHEMA__EXTERNALDOCS = eINSTANCE.getSchema_Externaldocs();
-
-		/**
-		 * The meta object literal for the '<em><b>All Of</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>All Of</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference SCHEMA__ALL_OF = eINSTANCE.getSchema_AllOf();
-
-		/**
-		 * The meta object literal for the '<em><b>Ref</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SCHEMA__REF = eINSTANCE.getSchema_Ref();
-
-		/**
-		 * The meta object literal for the '<em><b>Default</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SCHEMA__DEFAULT = eINSTANCE.getSchema_Default();
 
 		/**
 		 * The meta object literal for the '<em><b>Items</b></em>' reference feature.
@@ -5370,7 +5152,7 @@ public interface CorePackage extends EPackage {
 		EReference SCHEMA__ITEMS = eINSTANCE.getSchema_Items();
 
 		/**
-		 * The meta object literal for the '<em><b>Additonal Properties</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Additonal Properties</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -5410,12 +5192,20 @@ public interface CorePackage extends EPackage {
 		EAttribute SCHEMA__NAME = eINSTANCE.getSchema_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Ref Resolved</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Declaring Context</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SCHEMA__REF_RESOLVED = eINSTANCE.getSchema_RefResolved();
+		EReference SCHEMA__DECLARING_CONTEXT = eINSTANCE.getSchema_DeclaringContext();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Ref</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SCHEMA___GET_REF = eINSTANCE.getSchema__GetRef();
 
 		/**
 		 * The meta object literal for the '{@link core.impl.ResponseImpl <em>Response</em>}' class.
@@ -5434,14 +5224,6 @@ public interface CorePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute RESPONSE__DESCRIPTION = eINSTANCE.getResponse_Description();
-
-		/**
-		 * The meta object literal for the '<em><b>Schema</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RESPONSE__SCHEMA = eINSTANCE.getResponse_Schema();
 
 		/**
 		 * The meta object literal for the '<em><b>Headers</b></em>' containment reference list feature.
@@ -5468,32 +5250,6 @@ public interface CorePackage extends EPackage {
 		EAttribute RESPONSE__CODE = eINSTANCE.getResponse_Code();
 
 		/**
-		 * The meta object literal for the '{@link core.impl.SecurityRequirementImpl <em>Security Requirement</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see core.impl.SecurityRequirementImpl
-		 * @see core.impl.CorePackageImpl#getSecurityRequirement()
-		 * @generated
-		 */
-		EClass SECURITY_REQUIREMENT = eINSTANCE.getSecurityRequirement();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SECURITY_REQUIREMENT__NAME = eINSTANCE.getSecurityRequirement_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Values</b></em>' attribute list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SECURITY_REQUIREMENT__VALUES = eINSTANCE.getSecurityRequirement_Values();
-
-		/**
 		 * The meta object literal for the '{@link core.impl.HeaderImpl <em>Header</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5502,150 +5258,6 @@ public interface CorePackage extends EPackage {
 		 * @generated
 		 */
 		EClass HEADER = eINSTANCE.getHeader();
-
-		/**
-		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute HEADER__DESCRIPTION = eINSTANCE.getHeader_Description();
-
-		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute HEADER__TYPE = eINSTANCE.getHeader_Type();
-
-		/**
-		 * The meta object literal for the '<em><b>Format</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute HEADER__FORMAT = eINSTANCE.getHeader_Format();
-
-		/**
-		 * The meta object literal for the '<em><b>Collection Format</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute HEADER__COLLECTION_FORMAT = eINSTANCE.getHeader_CollectionFormat();
-
-		/**
-		 * The meta object literal for the '<em><b>Items</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference HEADER__ITEMS = eINSTANCE.getHeader_Items();
-
-		/**
-		 * The meta object literal for the '<em><b>Default</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute HEADER__DEFAULT = eINSTANCE.getHeader_Default();
-
-		/**
-		 * The meta object literal for the '<em><b>Exclusive Minimum</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute HEADER__EXCLUSIVE_MINIMUM = eINSTANCE.getHeader_ExclusiveMinimum();
-
-		/**
-		 * The meta object literal for the '<em><b>Enum</b></em>' attribute list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute HEADER__ENUM = eINSTANCE.getHeader_Enum();
-
-		/**
-		 * The meta object literal for the '<em><b>Max Items</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute HEADER__MAX_ITEMS = eINSTANCE.getHeader_MaxItems();
-
-		/**
-		 * The meta object literal for the '<em><b>Unique Items</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute HEADER__UNIQUE_ITEMS = eINSTANCE.getHeader_UniqueItems();
-
-		/**
-		 * The meta object literal for the '<em><b>Pattern</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute HEADER__PATTERN = eINSTANCE.getHeader_Pattern();
-
-		/**
-		 * The meta object literal for the '<em><b>Exclusive Maximum</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute HEADER__EXCLUSIVE_MAXIMUM = eINSTANCE.getHeader_ExclusiveMaximum();
-
-		/**
-		 * The meta object literal for the '<em><b>Minimum</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute HEADER__MINIMUM = eINSTANCE.getHeader_Minimum();
-
-		/**
-		 * The meta object literal for the '<em><b>Min Length</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute HEADER__MIN_LENGTH = eINSTANCE.getHeader_MinLength();
-
-		/**
-		 * The meta object literal for the '<em><b>Max Length</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute HEADER__MAX_LENGTH = eINSTANCE.getHeader_MaxLength();
-
-		/**
-		 * The meta object literal for the '<em><b>Min Items</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute HEADER__MIN_ITEMS = eINSTANCE.getHeader_MinItems();
-
-		/**
-		 * The meta object literal for the '<em><b>Maximum</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute HEADER__MAXIMUM = eINSTANCE.getHeader_Maximum();
-
-		/**
-		 * The meta object literal for the '<em><b>Multiple Of</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute HEADER__MULTIPLE_OF = eINSTANCE.getHeader_MultipleOf();
 
 		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -5682,14 +5294,6 @@ public interface CorePackage extends EPackage {
 		EAttribute TAG__DESCRIPTION = eINSTANCE.getTag_Description();
 
 		/**
-		 * The meta object literal for the '<em><b>External Docs</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TAG__EXTERNAL_DOCS = eINSTANCE.getTag_ExternalDocs();
-
-		/**
 		 * The meta object literal for the '{@link core.impl.SecuritySchemaImpl <em>Security Schema</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5724,12 +5328,12 @@ public interface CorePackage extends EPackage {
 		EAttribute SECURITY_SCHEMA__NAME = eINSTANCE.getSecuritySchema_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>In</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Location</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SECURITY_SCHEMA__IN = eINSTANCE.getSecuritySchema_In();
+		EAttribute SECURITY_SCHEMA__LOCATION = eINSTANCE.getSecuritySchema_Location();
 
 		/**
 		 * The meta object literal for the '<em><b>Flow</b></em>' attribute feature.
@@ -5848,14 +5452,14 @@ public interface CorePackage extends EPackage {
 		EAttribute XML_ELEMENT__WRAPPED = eINSTANCE.getXMLElement_Wrapped();
 
 		/**
-		 * The meta object literal for the '{@link core.impl.ScopeImpl <em>Scope</em>}' class.
+		 * The meta object literal for the '{@link core.impl.SecurityScopeImpl <em>Security Scope</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see core.impl.ScopeImpl
-		 * @see core.impl.CorePackageImpl#getScope()
+		 * @see core.impl.SecurityScopeImpl
+		 * @see core.impl.CorePackageImpl#getSecurityScope()
 		 * @generated
 		 */
-		EClass SCOPE = eINSTANCE.getScope();
+		EClass SECURITY_SCOPE = eINSTANCE.getSecurityScope();
 
 		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -5863,7 +5467,7 @@ public interface CorePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SCOPE__NAME = eINSTANCE.getScope_Name();
+		EAttribute SECURITY_SCOPE__NAME = eINSTANCE.getSecurityScope_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
@@ -5871,7 +5475,153 @@ public interface CorePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SCOPE__DESCRIPTION = eINSTANCE.getScope_Description();
+		EAttribute SECURITY_SCOPE__DESCRIPTION = eINSTANCE.getSecurityScope_Description();
+
+		/**
+		 * The meta object literal for the '{@link core.impl.ParamterDeclaringContextImpl <em>Paramter Declaring Context</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see core.impl.ParamterDeclaringContextImpl
+		 * @see core.impl.CorePackageImpl#getParamterDeclaringContext()
+		 * @generated
+		 */
+		EClass PARAMTER_DECLARING_CONTEXT = eINSTANCE.getParamterDeclaringContext();
+
+		/**
+		 * The meta object literal for the '{@link core.impl.ParameterContextImpl <em>Parameter Context</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see core.impl.ParameterContextImpl
+		 * @see core.impl.CorePackageImpl#getParameterContext()
+		 * @generated
+		 */
+		EClass PARAMETER_CONTEXT = eINSTANCE.getParameterContext();
+
+		/**
+		 * The meta object literal for the '<em><b>Parameters</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARAMETER_CONTEXT__PARAMETERS = eINSTANCE.getParameterContext_Parameters();
+
+		/**
+		 * The meta object literal for the '{@link core.impl.ResponseContextImpl <em>Response Context</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see core.impl.ResponseContextImpl
+		 * @see core.impl.CorePackageImpl#getResponseContext()
+		 * @generated
+		 */
+		EClass RESPONSE_CONTEXT = eINSTANCE.getResponseContext();
+
+		/**
+		 * The meta object literal for the '{@link core.impl.SchemaDeclaringContextImpl <em>Schema Declaring Context</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see core.impl.SchemaDeclaringContextImpl
+		 * @see core.impl.CorePackageImpl#getSchemaDeclaringContext()
+		 * @generated
+		 */
+		EClass SCHEMA_DECLARING_CONTEXT = eINSTANCE.getSchemaDeclaringContext();
+
+		/**
+		 * The meta object literal for the '{@link core.impl.SchemaContextImpl <em>Schema Context</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see core.impl.SchemaContextImpl
+		 * @see core.impl.CorePackageImpl#getSchemaContext()
+		 * @generated
+		 */
+		EClass SCHEMA_CONTEXT = eINSTANCE.getSchemaContext();
+
+		/**
+		 * The meta object literal for the '<em><b>Schema</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SCHEMA_CONTEXT__SCHEMA = eINSTANCE.getSchemaContext_Schema();
+
+		/**
+		 * The meta object literal for the '{@link core.impl.ExternalDocsContextImpl <em>External Docs Context</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see core.impl.ExternalDocsContextImpl
+		 * @see core.impl.CorePackageImpl#getExternalDocsContext()
+		 * @generated
+		 */
+		EClass EXTERNAL_DOCS_CONTEXT = eINSTANCE.getExternalDocsContext();
+
+		/**
+		 * The meta object literal for the '<em><b>External Docs</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EXTERNAL_DOCS_CONTEXT__EXTERNAL_DOCS = eINSTANCE.getExternalDocsContext_ExternalDocs();
+
+		/**
+		 * The meta object literal for the '{@link core.impl.ArrayContextImpl <em>Array Context</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see core.impl.ArrayContextImpl
+		 * @see core.impl.CorePackageImpl#getArrayContext()
+		 * @generated
+		 */
+		EClass ARRAY_CONTEXT = eINSTANCE.getArrayContext();
+
+		/**
+		 * The meta object literal for the '<em><b>Collection Format</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ARRAY_CONTEXT__COLLECTION_FORMAT = eINSTANCE.getArrayContext_CollectionFormat();
+
+		/**
+		 * The meta object literal for the '<em><b>Items</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ARRAY_CONTEXT__ITEMS = eINSTANCE.getArrayContext_Items();
+
+		/**
+		 * The meta object literal for the '{@link core.impl.JSONPointerImpl <em>JSON Pointer</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see core.impl.JSONPointerImpl
+		 * @see core.impl.CorePackageImpl#getJSONPointer()
+		 * @generated
+		 */
+		EClass JSON_POINTER = eINSTANCE.getJSONPointer();
+
+		/**
+		 * The meta object literal for the '<em><b>Ref</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JSON_POINTER__REF = eINSTANCE.getJSONPointer_Ref();
+
+		/**
+		 * The meta object literal for the '{@link core.impl.SecurityContextImpl <em>Security Context</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see core.impl.SecurityContextImpl
+		 * @see core.impl.CorePackageImpl#getSecurityContext()
+		 * @generated
+		 */
+		EClass SECURITY_CONTEXT = eINSTANCE.getSecurityContext();
+
+		/**
+		 * The meta object literal for the '<em><b>Security Requirement</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SECURITY_CONTEXT__SECURITY_REQUIREMENT = eINSTANCE.getSecurityContext_SecurityRequirement();
 
 		/**
 		 * The meta object literal for the '{@link core.SchemeType <em>Scheme Type</em>}' enum.
@@ -5934,14 +5684,14 @@ public interface CorePackage extends EPackage {
 		EEnum SECURITY_SCHEME_TYPE = eINSTANCE.getSecuritySchemeType();
 
 		/**
-		 * The meta object literal for the '{@link core.JsonDataType <em>Json Data Type</em>}' enum.
+		 * The meta object literal for the '{@link core.JSONDataType <em>JSON Data Type</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see core.JsonDataType
-		 * @see core.impl.CorePackageImpl#getJsonDataType()
+		 * @see core.JSONDataType
+		 * @see core.impl.CorePackageImpl#getJSONDataType()
 		 * @generated
 		 */
-		EEnum JSON_DATA_TYPE = eINSTANCE.getJsonDataType();
+		EEnum JSON_DATA_TYPE = eINSTANCE.getJSONDataType();
 
 	}
 

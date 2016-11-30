@@ -4,8 +4,6 @@ package core;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>API Operation</b></em>'.
@@ -15,40 +13,39 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link core.APIOperation#getTags <em>Tags</em>}</li>
+ *   <li>{@link core.APIOperation#getTagReferences <em>Tag References</em>}</li>
  *   <li>{@link core.APIOperation#getSummary <em>Summary</em>}</li>
  *   <li>{@link core.APIOperation#getDescription <em>Description</em>}</li>
- *   <li>{@link core.APIOperation#getExternalDocs <em>External Docs</em>}</li>
  *   <li>{@link core.APIOperation#getOperationId <em>Operation Id</em>}</li>
  *   <li>{@link core.APIOperation#getConsumes <em>Consumes</em>}</li>
  *   <li>{@link core.APIOperation#getProduces <em>Produces</em>}</li>
- *   <li>{@link core.APIOperation#getParameters <em>Parameters</em>}</li>
  *   <li>{@link core.APIOperation#getResponses <em>Responses</em>}</li>
  *   <li>{@link core.APIOperation#getSchemes <em>Schemes</em>}</li>
- *   <li>{@link core.APIOperation#isDeprecated <em>Deprecated</em>}</li>
- *   <li>{@link core.APIOperation#getSecurity <em>Security</em>}</li>
+ *   <li>{@link core.APIOperation#getDeprecated <em>Deprecated</em>}</li>
+ *   <li>{@link core.APIOperation#getPath <em>Path</em>}</li>
  * </ul>
  *
  * @see core.CorePackage#getAPIOperation()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='oneBodyParameterAllowed oneFormDataParameterAllowed hasUniqueParameters xorFormAndBody requiredResponses'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL oneBodyParameterAllowed='self.parameters-> select(e | e.location = ParameterLocation::\'_body\') -> size() <= 1' oneFormDataParameterAllowed='self.parameters-> select(e | e.location = ParameterLocation::\'_formData\') -> size() <= 1' hasUniqueParameters='self.parameters -> collect(t | Tuple{name : String = t.name,location : ParameterLocation = t.location})->asSet() -> size() = self.parameters -> size()' xorFormAndBody='(parameters-> select(e | e.location =  ParameterLocation::_\'body\') -> size()=1 and parameters-> select(e | e.location =  ParameterLocation::_\'formData\') -> size()=0)\r\n\tor \r\n\t(parameters-> select(e | e.location =  ParameterLocation::_\'body\') -> size()=0 and parameters-> select(e | e.location =  ParameterLocation::_\'formData\') -> size()=1)\r\n\tor \r\n\t(parameters-> select(e | e.location =  ParameterLocation::_\'body\') -> size()=0 and parameters-> select(e | e.location =  ParameterLocation::_\'formData\') -> size()=0)\r\n\t' requiredResponses='self.responses -> size() <> 0'"
  * @generated
  */
-public interface APIOperation extends EObject {
+public interface APIOperation extends ParamterDeclaringContext, ResponseContext, SecurityContext, ParameterContext, ExternalDocsContext {
 	/**
-	 * Returns the value of the '<em><b>Tags</b></em>' attribute list.
+	 * Returns the value of the '<em><b>Tag References</b></em>' attribute list.
 	 * The list contents are of type {@link java.lang.String}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Tags</em>' attribute list isn't clear,
+	 * If the meaning of the '<em>Tag References</em>' attribute list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Tags</em>' attribute list.
-	 * @see core.CorePackage#getAPIOperation_Tags()
+	 * @return the value of the '<em>Tag References</em>' attribute list.
+	 * @see core.CorePackage#getAPIOperation_TagReferences()
 	 * @model
 	 * @generated
 	 */
-	EList<String> getTags();
+	EList<String> getTagReferences();
 
 	/**
 	 * Returns the value of the '<em><b>Summary</b></em>' attribute.
@@ -101,32 +98,6 @@ public interface APIOperation extends EObject {
 	 * @generated
 	 */
 	void setDescription(String value);
-
-	/**
-	 * Returns the value of the '<em><b>External Docs</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>External Docs</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>External Docs</em>' containment reference.
-	 * @see #setExternalDocs(ExternalDocs)
-	 * @see core.CorePackage#getAPIOperation_ExternalDocs()
-	 * @model containment="true"
-	 * @generated
-	 */
-	ExternalDocs getExternalDocs();
-
-	/**
-	 * Sets the value of the '{@link core.APIOperation#getExternalDocs <em>External Docs</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>External Docs</em>' containment reference.
-	 * @see #getExternalDocs()
-	 * @generated
-	 */
-	void setExternalDocs(ExternalDocs value);
 
 	/**
 	 * Returns the value of the '<em><b>Operation Id</b></em>' attribute.
@@ -187,23 +158,7 @@ public interface APIOperation extends EObject {
 	EList<String> getProduces();
 
 	/**
-	 * Returns the value of the '<em><b>Parameters</b></em>' containment reference list.
-	 * The list contents are of type {@link core.APIParameter}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Parameters</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Parameters</em>' containment reference list.
-	 * @see core.CorePackage#getAPIOperation_Parameters()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<APIParameter> getParameters();
-
-	/**
-	 * Returns the value of the '<em><b>Responses</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Responses</b></em>' reference list.
 	 * The list contents are of type {@link core.Response}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -211,9 +166,9 @@ public interface APIOperation extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Responses</em>' containment reference list.
+	 * @return the value of the '<em>Responses</em>' reference list.
 	 * @see core.CorePackage#getAPIOperation_Responses()
-	 * @model containment="true" required="true"
+	 * @model required="true"
 	 * @generated
 	 */
 	EList<Response> getResponses();
@@ -245,37 +200,49 @@ public interface APIOperation extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Deprecated</em>' attribute.
-	 * @see #setDeprecated(boolean)
+	 * @see #setDeprecated(Boolean)
 	 * @see core.CorePackage#getAPIOperation_Deprecated()
 	 * @model
 	 * @generated
 	 */
-	boolean isDeprecated();
+	Boolean getDeprecated();
 
 	/**
-	 * Sets the value of the '{@link core.APIOperation#isDeprecated <em>Deprecated</em>}' attribute.
+	 * Sets the value of the '{@link core.APIOperation#getDeprecated <em>Deprecated</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Deprecated</em>' attribute.
-	 * @see #isDeprecated()
+	 * @see #getDeprecated()
 	 * @generated
 	 */
-	void setDeprecated(boolean value);
+	void setDeprecated(Boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Security</b></em>' containment reference list.
-	 * The list contents are of type {@link core.SecurityRequirement}.
+	 * Returns the value of the '<em><b>Path</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link core.Path#getGet <em>Get</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Security</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Path</em>' container reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Security</em>' containment reference list.
-	 * @see core.CorePackage#getAPIOperation_Security()
-	 * @model containment="true"
+	 * @return the value of the '<em>Path</em>' container reference.
+	 * @see #setPath(Path)
+	 * @see core.CorePackage#getAPIOperation_Path()
+	 * @see core.Path#getGet
+	 * @model opposite="get" transient="false"
 	 * @generated
 	 */
-	EList<SecurityRequirement> getSecurity();
+	Path getPath();
+
+	/**
+	 * Sets the value of the '{@link core.APIOperation#getPath <em>Path</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Path</em>' container reference.
+	 * @see #getPath()
+	 * @generated
+	 */
+	void setPath(Path value);
 
 } // APIOperation

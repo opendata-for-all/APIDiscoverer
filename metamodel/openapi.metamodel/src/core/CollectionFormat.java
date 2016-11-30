@@ -19,6 +19,14 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum CollectionFormat implements Enumerator {
 	/**
+	 * The '<em><b>Unspecified</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #UNSPECIFIED_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	UNSPECIFIED(0, "unspecified", "unspecified"), /**
 	 * The '<em><b>Csv</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -26,7 +34,7 @@ public enum CollectionFormat implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CSV(0, "csv", "csv"),
+	CSV(1, "csv", "csv"),
 
 	/**
 	 * The '<em><b>Ssv</b></em>' literal object.
@@ -36,7 +44,7 @@ public enum CollectionFormat implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SSV(1, "ssv", "ssv"),
+	SSV(2, "ssv", "ssv"),
 
 	/**
 	 * The '<em><b>Tsv</b></em>' literal object.
@@ -46,7 +54,7 @@ public enum CollectionFormat implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	TSV(2, "tsv", "tsv"),
+	TSV(3, "tsv", "tsv"),
 
 	/**
 	 * The '<em><b>Pipes</b></em>' literal object.
@@ -56,7 +64,7 @@ public enum CollectionFormat implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PIPES(3, "pipes", "pipes"),
+	PIPES(4, "pipes", "pipes"),
 
 	/**
 	 * The '<em><b>Multi</b></em>' literal object.
@@ -66,7 +74,22 @@ public enum CollectionFormat implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MULTI(4, "multi", "multi");
+	MULTI(5, "multi", "multi");
+
+	/**
+	 * The '<em><b>Unspecified</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Unspecified</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #UNSPECIFIED
+	 * @model name="unspecified"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int UNSPECIFIED_VALUE = 0;
 
 	/**
 	 * The '<em><b>Csv</b></em>' literal value.
@@ -81,7 +104,7 @@ public enum CollectionFormat implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int CSV_VALUE = 0;
+	public static final int CSV_VALUE = 1;
 
 	/**
 	 * The '<em><b>Ssv</b></em>' literal value.
@@ -96,7 +119,7 @@ public enum CollectionFormat implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int SSV_VALUE = 1;
+	public static final int SSV_VALUE = 2;
 
 	/**
 	 * The '<em><b>Tsv</b></em>' literal value.
@@ -111,7 +134,7 @@ public enum CollectionFormat implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TSV_VALUE = 2;
+	public static final int TSV_VALUE = 3;
 
 	/**
 	 * The '<em><b>Pipes</b></em>' literal value.
@@ -126,7 +149,7 @@ public enum CollectionFormat implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int PIPES_VALUE = 3;
+	public static final int PIPES_VALUE = 4;
 
 	/**
 	 * The '<em><b>Multi</b></em>' literal value.
@@ -141,7 +164,7 @@ public enum CollectionFormat implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int MULTI_VALUE = 4;
+	public static final int MULTI_VALUE = 5;
 
 	/**
 	 * An array of all the '<em><b>Collection Format</b></em>' enumerators.
@@ -151,6 +174,7 @@ public enum CollectionFormat implements Enumerator {
 	 */
 	private static final CollectionFormat[] VALUES_ARRAY =
 		new CollectionFormat[] {
+			UNSPECIFIED,
 			CSV,
 			SSV,
 			TSV,
@@ -212,6 +236,7 @@ public enum CollectionFormat implements Enumerator {
 	 */
 	public static CollectionFormat get(int value) {
 		switch (value) {
+			case UNSPECIFIED_VALUE: return UNSPECIFIED;
 			case CSV_VALUE: return CSV;
 			case SSV_VALUE: return SSV;
 			case TSV_VALUE: return TSV;
