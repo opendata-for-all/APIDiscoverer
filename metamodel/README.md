@@ -3,7 +3,7 @@ OpenAPI metamodel
 
 Bahavioral element
 ------------------
-![Behavioral elements](images/core.png)
+![Behavioral elements](images/behavioral.png)
 
 A REST Web API is represented by the `API` element, which is the root element of our metamodel. This element includes attributes to specify the version of the API (`swagger` attribute), the host serving the API, the base path of the API, the supported transfer protocols of the API (`schemes` attribute) and the list of MIME types the API can consume/produce. It also includes references to the available paths, the data types used by the operations (`definitions` reference) and the possible responses of the API calls.
 
