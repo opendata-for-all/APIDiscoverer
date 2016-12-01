@@ -1,7 +1,7 @@
 OpenAPI metamodel
 =================
 
-Behavioral element
+Behavioral elements
 ------------------
 ![Behavioral elements](images/behavioral.png)
 
