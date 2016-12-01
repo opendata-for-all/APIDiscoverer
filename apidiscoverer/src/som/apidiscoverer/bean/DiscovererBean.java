@@ -49,19 +49,19 @@ public class DiscovererBean implements Serializable {
 	@PostConstruct
 	public void init() {
 		newAPIRequest = new APIRequest();
-		APIRequest temp = new APIRequest();
-		try {
-			temp.setUrl("http://petstore.swagger.io/v2/pet");
-		} catch (MalformedURLException e) {
-		}
-		temp.setHttpMethod(HttpMethod.POST);
-		temp.setBody("{\"id\": 123,\"category\": {\"id\": 1,\"name\": \"dogs\"},\"name\": \"doggie\",\"photoUrls\": [\"http://example.com\"],\"tags\": [{\"id\": 1,\"name\": \"black\"}],\"status\": \"available\"}");
-		try {
-			RESTClient.send(temp);
-		} catch (UnirestException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		APIRequest temp = new APIRequest();
+//		try {
+//			temp.setUrl("http://petstore.swagger.io/v2/pet");
+//		} catch (MalformedURLException e) {
+//		}
+//		temp.setHttpMethod(HttpMethod.POST);
+//		temp.setBody("{\"id\": 123,\"category\": {\"id\": 1,\"name\": \"dogs\"},\"name\": \"doggie\",\"photoUrls\": [\"http://example.com\"],\"tags\": [{\"id\": 1,\"name\": \"black\"}],\"status\": \"available\"}");
+//		try {
+//			RESTClient.send(temp);
+//		} catch (UnirestException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 		response = new Response();
 		discoverer = new Discoverer();
 		setRecords(new ArrayList<APIRequest>());
