@@ -202,37 +202,37 @@ public class PathItemProvider extends ParamterDeclaringContextItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.Literals.PATH__GET,
-				 CoreFactory.eINSTANCE.createAPIOperation()));
+				 CoreFactory.eINSTANCE.createOperation()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.Literals.PATH__PUT,
-				 CoreFactory.eINSTANCE.createAPIOperation()));
+				 CoreFactory.eINSTANCE.createOperation()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.Literals.PATH__POST,
-				 CoreFactory.eINSTANCE.createAPIOperation()));
+				 CoreFactory.eINSTANCE.createOperation()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.Literals.PATH__DELETE,
-				 CoreFactory.eINSTANCE.createAPIOperation()));
+				 CoreFactory.eINSTANCE.createOperation()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.Literals.PATH__OPTIONS,
-				 CoreFactory.eINSTANCE.createAPIOperation()));
+				 CoreFactory.eINSTANCE.createOperation()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.Literals.PATH__HEAD,
-				 CoreFactory.eINSTANCE.createAPIOperation()));
+				 CoreFactory.eINSTANCE.createOperation()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.Literals.PATH__PATCH,
-				 CoreFactory.eINSTANCE.createAPIOperation()));
+				 CoreFactory.eINSTANCE.createOperation()));
 	}
 
 	/**

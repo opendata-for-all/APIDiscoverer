@@ -124,7 +124,7 @@ public class CoreValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static Constraint apiOperation_oneBodyParameterAllowedInvOCL;
+	private static Constraint operation_oneBodyParameterAllowedInvOCL;
 
 	/**
 	 * The parsed OCL expression for the definition of the '<em>oneFormDataParameterAllowed</em>' invariant constraint.
@@ -132,7 +132,7 @@ public class CoreValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static Constraint apiOperation_oneFormDataParameterAllowedInvOCL;
+	private static Constraint operation_oneFormDataParameterAllowedInvOCL;
 
 	/**
 	 * The parsed OCL expression for the definition of the '<em>hasUniqueParameters</em>' invariant constraint.
@@ -140,7 +140,7 @@ public class CoreValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static Constraint apiOperation_hasUniqueParametersInvOCL;
+	private static Constraint operation_hasUniqueParametersInvOCL;
 
 	/**
 	 * The parsed OCL expression for the definition of the '<em>xorFormAndBody</em>' invariant constraint.
@@ -148,7 +148,7 @@ public class CoreValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static Constraint apiOperation_xorFormAndBodyInvOCL;
+	private static Constraint operation_xorFormAndBodyInvOCL;
 
 	/**
 	 * The parsed OCL expression for the definition of the '<em>requiredResponses</em>' invariant constraint.
@@ -156,7 +156,7 @@ public class CoreValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static Constraint apiOperation_requiredResponsesInvOCL;
+	private static Constraint operation_requiredResponsesInvOCL;
 
 	/**
 	 * The parsed OCL expression for the definition of the '<em>requiredURL</em>' invariant constraint.
@@ -172,7 +172,7 @@ public class CoreValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static Constraint apiParameter_requiredNameInvOCL;
+	private static Constraint parameter_requiredNameInvOCL;
 
 	/**
 	 * The parsed OCL expression for the definition of the '<em>requiredLocation</em>' invariant constraint.
@@ -180,7 +180,7 @@ public class CoreValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static Constraint apiParameter_requiredLocationInvOCL;
+	private static Constraint parameter_requiredLocationInvOCL;
 
 	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/Ecore/OCL";
 
@@ -230,12 +230,12 @@ public class CoreValidator extends EObjectValidator {
 				return validateLicense((License)value, diagnostics, context);
 			case CorePackage.PATH:
 				return validatePath((Path)value, diagnostics, context);
-			case CorePackage.API_OPERATION:
-				return validateAPIOperation((APIOperation)value, diagnostics, context);
+			case CorePackage.OPERATION:
+				return validateOperation((Operation)value, diagnostics, context);
 			case CorePackage.EXTERNAL_DOCS:
 				return validateExternalDocs((ExternalDocs)value, diagnostics, context);
-			case CorePackage.API_PARAMETER:
-				return validateAPIParameter((APIParameter)value, diagnostics, context);
+			case CorePackage.PARAMETER:
+				return validateParameter((Parameter)value, diagnostics, context);
 			case CorePackage.ITEMS_DEFINITION:
 				return validateItemsDefinition((ItemsDefinition)value, diagnostics, context);
 			case CorePackage.SCHEMA:
@@ -666,57 +666,57 @@ public class CoreValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateAPIOperation(APIOperation apiOperation, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		boolean result = validate_NoCircularContainment(apiOperation, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMultiplicityConforms(apiOperation, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(apiOperation, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(apiOperation, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(apiOperation, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(apiOperation, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(apiOperation, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(apiOperation, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(apiOperation, diagnostics, context);
-		if (result || diagnostics != null) result &= validateAPIOperation_oneBodyParameterAllowed(apiOperation, diagnostics, context);
-		if (result || diagnostics != null) result &= validateAPIOperation_oneFormDataParameterAllowed(apiOperation, diagnostics, context);
-		if (result || diagnostics != null) result &= validateAPIOperation_hasUniqueParameters(apiOperation, diagnostics, context);
-		if (result || diagnostics != null) result &= validateAPIOperation_xorFormAndBody(apiOperation, diagnostics, context);
-		if (result || diagnostics != null) result &= validateAPIOperation_requiredResponses(apiOperation, diagnostics, context);
+	public boolean validateOperation(Operation operation, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		boolean result = validate_NoCircularContainment(operation, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMultiplicityConforms(operation, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(operation, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(operation, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(operation, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(operation, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(operation, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(operation, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(operation, diagnostics, context);
+		if (result || diagnostics != null) result &= validateOperation_oneBodyParameterAllowed(operation, diagnostics, context);
+		if (result || diagnostics != null) result &= validateOperation_oneFormDataParameterAllowed(operation, diagnostics, context);
+		if (result || diagnostics != null) result &= validateOperation_hasUniqueParameters(operation, diagnostics, context);
+		if (result || diagnostics != null) result &= validateOperation_xorFormAndBody(operation, diagnostics, context);
+		if (result || diagnostics != null) result &= validateOperation_requiredResponses(operation, diagnostics, context);
 		return result;
 	}
 
 	/**
-	 * Validates the oneBodyParameterAllowed constraint of '<em>API Operation</em>'.
+	 * Validates the oneBodyParameterAllowed constraint of '<em>Operation</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateAPIOperation_oneBodyParameterAllowed(APIOperation apiOperation, DiagnosticChain diagnostics, Map<Object, Object> context) {
-        if (apiOperation_oneBodyParameterAllowedInvOCL == null) {
+	public boolean validateOperation_oneBodyParameterAllowed(Operation operation, DiagnosticChain diagnostics, Map<Object, Object> context) {
+        if (operation_oneBodyParameterAllowedInvOCL == null) {
 			OCL.Helper helper = OCL_ENV.createOCLHelper();
-			helper.setContext(CorePackage.Literals.API_OPERATION);
+			helper.setContext(CorePackage.Literals.OPERATION);
 			
-			EAnnotation ocl = CorePackage.Literals.API_OPERATION.getEAnnotation(OCL_ANNOTATION_SOURCE);
+			EAnnotation ocl = CorePackage.Literals.OPERATION.getEAnnotation(OCL_ANNOTATION_SOURCE);
 			String expr = ocl.getDetails().get("oneBodyParameterAllowed");
 			
 			try {
-				apiOperation_oneBodyParameterAllowedInvOCL = helper.createInvariant(expr);
+				operation_oneBodyParameterAllowedInvOCL = helper.createInvariant(expr);
 			}
 			catch (ParserException e) {
 				throw new UnsupportedOperationException(e.getLocalizedMessage());
 			}
 		}
 		
-		Query<EClassifier, ?, ?> query = OCL_ENV.createQuery(apiOperation_oneBodyParameterAllowedInvOCL);
+		Query<EClassifier, ?, ?> query = OCL_ENV.createQuery(operation_oneBodyParameterAllowedInvOCL);
 		
-		if (!query.check(apiOperation)) {
+		if (!query.check(operation)) {
 			if (diagnostics != null) {
 				diagnostics.add
 					(new BasicDiagnostic
 						(Diagnostic.ERROR,
 						 DIAGNOSTIC_SOURCE,
 						 0,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericConstraint_diagnostic", new Object[] { "oneBodyParameterAllowed", getObjectLabel(apiOperation, context) }),
-						 new Object[] { apiOperation }));
+						 EcorePlugin.INSTANCE.getString("_UI_GenericConstraint_diagnostic", new Object[] { "oneBodyParameterAllowed", getObjectLabel(operation, context) }),
+						 new Object[] { operation }));
 			}
 			return false;
 		}
@@ -724,38 +724,38 @@ public class CoreValidator extends EObjectValidator {
 	}
 
 	/**
-	 * Validates the oneFormDataParameterAllowed constraint of '<em>API Operation</em>'.
+	 * Validates the oneFormDataParameterAllowed constraint of '<em>Operation</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateAPIOperation_oneFormDataParameterAllowed(APIOperation apiOperation, DiagnosticChain diagnostics, Map<Object, Object> context) {
-        if (apiOperation_oneFormDataParameterAllowedInvOCL == null) {
+	public boolean validateOperation_oneFormDataParameterAllowed(Operation operation, DiagnosticChain diagnostics, Map<Object, Object> context) {
+        if (operation_oneFormDataParameterAllowedInvOCL == null) {
 			OCL.Helper helper = OCL_ENV.createOCLHelper();
-			helper.setContext(CorePackage.Literals.API_OPERATION);
+			helper.setContext(CorePackage.Literals.OPERATION);
 			
-			EAnnotation ocl = CorePackage.Literals.API_OPERATION.getEAnnotation(OCL_ANNOTATION_SOURCE);
+			EAnnotation ocl = CorePackage.Literals.OPERATION.getEAnnotation(OCL_ANNOTATION_SOURCE);
 			String expr = ocl.getDetails().get("oneFormDataParameterAllowed");
 			
 			try {
-				apiOperation_oneFormDataParameterAllowedInvOCL = helper.createInvariant(expr);
+				operation_oneFormDataParameterAllowedInvOCL = helper.createInvariant(expr);
 			}
 			catch (ParserException e) {
 				throw new UnsupportedOperationException(e.getLocalizedMessage());
 			}
 		}
 		
-		Query<EClassifier, ?, ?> query = OCL_ENV.createQuery(apiOperation_oneFormDataParameterAllowedInvOCL);
+		Query<EClassifier, ?, ?> query = OCL_ENV.createQuery(operation_oneFormDataParameterAllowedInvOCL);
 		
-		if (!query.check(apiOperation)) {
+		if (!query.check(operation)) {
 			if (diagnostics != null) {
 				diagnostics.add
 					(new BasicDiagnostic
 						(Diagnostic.ERROR,
 						 DIAGNOSTIC_SOURCE,
 						 0,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericConstraint_diagnostic", new Object[] { "oneFormDataParameterAllowed", getObjectLabel(apiOperation, context) }),
-						 new Object[] { apiOperation }));
+						 EcorePlugin.INSTANCE.getString("_UI_GenericConstraint_diagnostic", new Object[] { "oneFormDataParameterAllowed", getObjectLabel(operation, context) }),
+						 new Object[] { operation }));
 			}
 			return false;
 		}
@@ -763,38 +763,38 @@ public class CoreValidator extends EObjectValidator {
 	}
 
 	/**
-	 * Validates the hasUniqueParameters constraint of '<em>API Operation</em>'.
+	 * Validates the hasUniqueParameters constraint of '<em>Operation</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateAPIOperation_hasUniqueParameters(APIOperation apiOperation, DiagnosticChain diagnostics, Map<Object, Object> context) {
-        if (apiOperation_hasUniqueParametersInvOCL == null) {
+	public boolean validateOperation_hasUniqueParameters(Operation operation, DiagnosticChain diagnostics, Map<Object, Object> context) {
+        if (operation_hasUniqueParametersInvOCL == null) {
 			OCL.Helper helper = OCL_ENV.createOCLHelper();
-			helper.setContext(CorePackage.Literals.API_OPERATION);
+			helper.setContext(CorePackage.Literals.OPERATION);
 			
-			EAnnotation ocl = CorePackage.Literals.API_OPERATION.getEAnnotation(OCL_ANNOTATION_SOURCE);
+			EAnnotation ocl = CorePackage.Literals.OPERATION.getEAnnotation(OCL_ANNOTATION_SOURCE);
 			String expr = ocl.getDetails().get("hasUniqueParameters");
 			
 			try {
-				apiOperation_hasUniqueParametersInvOCL = helper.createInvariant(expr);
+				operation_hasUniqueParametersInvOCL = helper.createInvariant(expr);
 			}
 			catch (ParserException e) {
 				throw new UnsupportedOperationException(e.getLocalizedMessage());
 			}
 		}
 		
-		Query<EClassifier, ?, ?> query = OCL_ENV.createQuery(apiOperation_hasUniqueParametersInvOCL);
+		Query<EClassifier, ?, ?> query = OCL_ENV.createQuery(operation_hasUniqueParametersInvOCL);
 		
-		if (!query.check(apiOperation)) {
+		if (!query.check(operation)) {
 			if (diagnostics != null) {
 				diagnostics.add
 					(new BasicDiagnostic
 						(Diagnostic.ERROR,
 						 DIAGNOSTIC_SOURCE,
 						 0,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericConstraint_diagnostic", new Object[] { "hasUniqueParameters", getObjectLabel(apiOperation, context) }),
-						 new Object[] { apiOperation }));
+						 EcorePlugin.INSTANCE.getString("_UI_GenericConstraint_diagnostic", new Object[] { "hasUniqueParameters", getObjectLabel(operation, context) }),
+						 new Object[] { operation }));
 			}
 			return false;
 		}
@@ -802,38 +802,38 @@ public class CoreValidator extends EObjectValidator {
 	}
 
 	/**
-	 * Validates the xorFormAndBody constraint of '<em>API Operation</em>'.
+	 * Validates the xorFormAndBody constraint of '<em>Operation</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateAPIOperation_xorFormAndBody(APIOperation apiOperation, DiagnosticChain diagnostics, Map<Object, Object> context) {
-        if (apiOperation_xorFormAndBodyInvOCL == null) {
+	public boolean validateOperation_xorFormAndBody(Operation operation, DiagnosticChain diagnostics, Map<Object, Object> context) {
+        if (operation_xorFormAndBodyInvOCL == null) {
 			OCL.Helper helper = OCL_ENV.createOCLHelper();
-			helper.setContext(CorePackage.Literals.API_OPERATION);
+			helper.setContext(CorePackage.Literals.OPERATION);
 			
-			EAnnotation ocl = CorePackage.Literals.API_OPERATION.getEAnnotation(OCL_ANNOTATION_SOURCE);
+			EAnnotation ocl = CorePackage.Literals.OPERATION.getEAnnotation(OCL_ANNOTATION_SOURCE);
 			String expr = ocl.getDetails().get("xorFormAndBody");
 			
 			try {
-				apiOperation_xorFormAndBodyInvOCL = helper.createInvariant(expr);
+				operation_xorFormAndBodyInvOCL = helper.createInvariant(expr);
 			}
 			catch (ParserException e) {
 				throw new UnsupportedOperationException(e.getLocalizedMessage());
 			}
 		}
 		
-		Query<EClassifier, ?, ?> query = OCL_ENV.createQuery(apiOperation_xorFormAndBodyInvOCL);
+		Query<EClassifier, ?, ?> query = OCL_ENV.createQuery(operation_xorFormAndBodyInvOCL);
 		
-		if (!query.check(apiOperation)) {
+		if (!query.check(operation)) {
 			if (diagnostics != null) {
 				diagnostics.add
 					(new BasicDiagnostic
 						(Diagnostic.ERROR,
 						 DIAGNOSTIC_SOURCE,
 						 0,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericConstraint_diagnostic", new Object[] { "xorFormAndBody", getObjectLabel(apiOperation, context) }),
-						 new Object[] { apiOperation }));
+						 EcorePlugin.INSTANCE.getString("_UI_GenericConstraint_diagnostic", new Object[] { "xorFormAndBody", getObjectLabel(operation, context) }),
+						 new Object[] { operation }));
 			}
 			return false;
 		}
@@ -841,38 +841,38 @@ public class CoreValidator extends EObjectValidator {
 	}
 
 	/**
-	 * Validates the requiredResponses constraint of '<em>API Operation</em>'.
+	 * Validates the requiredResponses constraint of '<em>Operation</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateAPIOperation_requiredResponses(APIOperation apiOperation, DiagnosticChain diagnostics, Map<Object, Object> context) {
-        if (apiOperation_requiredResponsesInvOCL == null) {
+	public boolean validateOperation_requiredResponses(Operation operation, DiagnosticChain diagnostics, Map<Object, Object> context) {
+        if (operation_requiredResponsesInvOCL == null) {
 			OCL.Helper helper = OCL_ENV.createOCLHelper();
-			helper.setContext(CorePackage.Literals.API_OPERATION);
+			helper.setContext(CorePackage.Literals.OPERATION);
 			
-			EAnnotation ocl = CorePackage.Literals.API_OPERATION.getEAnnotation(OCL_ANNOTATION_SOURCE);
+			EAnnotation ocl = CorePackage.Literals.OPERATION.getEAnnotation(OCL_ANNOTATION_SOURCE);
 			String expr = ocl.getDetails().get("requiredResponses");
 			
 			try {
-				apiOperation_requiredResponsesInvOCL = helper.createInvariant(expr);
+				operation_requiredResponsesInvOCL = helper.createInvariant(expr);
 			}
 			catch (ParserException e) {
 				throw new UnsupportedOperationException(e.getLocalizedMessage());
 			}
 		}
 		
-		Query<EClassifier, ?, ?> query = OCL_ENV.createQuery(apiOperation_requiredResponsesInvOCL);
+		Query<EClassifier, ?, ?> query = OCL_ENV.createQuery(operation_requiredResponsesInvOCL);
 		
-		if (!query.check(apiOperation)) {
+		if (!query.check(operation)) {
 			if (diagnostics != null) {
 				diagnostics.add
 					(new BasicDiagnostic
 						(Diagnostic.ERROR,
 						 DIAGNOSTIC_SOURCE,
 						 0,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericConstraint_diagnostic", new Object[] { "requiredResponses", getObjectLabel(apiOperation, context) }),
-						 new Object[] { apiOperation }));
+						 EcorePlugin.INSTANCE.getString("_UI_GenericConstraint_diagnostic", new Object[] { "requiredResponses", getObjectLabel(operation, context) }),
+						 new Object[] { operation }));
 			}
 			return false;
 		}
@@ -942,54 +942,54 @@ public class CoreValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateAPIParameter(APIParameter apiParameter, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		boolean result = validate_NoCircularContainment(apiParameter, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMultiplicityConforms(apiParameter, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(apiParameter, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(apiParameter, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(apiParameter, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(apiParameter, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(apiParameter, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(apiParameter, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(apiParameter, diagnostics, context);
-		if (result || diagnostics != null) result &= validateAPIParameter_requiredName(apiParameter, diagnostics, context);
-		if (result || diagnostics != null) result &= validateAPIParameter_requiredLocation(apiParameter, diagnostics, context);
+	public boolean validateParameter(Parameter parameter, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		boolean result = validate_NoCircularContainment(parameter, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMultiplicityConforms(parameter, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(parameter, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(parameter, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(parameter, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(parameter, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(parameter, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(parameter, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(parameter, diagnostics, context);
+		if (result || diagnostics != null) result &= validateParameter_requiredName(parameter, diagnostics, context);
+		if (result || diagnostics != null) result &= validateParameter_requiredLocation(parameter, diagnostics, context);
 		return result;
 	}
 
 	/**
-	 * Validates the requiredName constraint of '<em>API Parameter</em>'.
+	 * Validates the requiredName constraint of '<em>Parameter</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateAPIParameter_requiredName(APIParameter apiParameter, DiagnosticChain diagnostics, Map<Object, Object> context) {
-        if (apiParameter_requiredNameInvOCL == null) {
+	public boolean validateParameter_requiredName(Parameter parameter, DiagnosticChain diagnostics, Map<Object, Object> context) {
+        if (parameter_requiredNameInvOCL == null) {
 			OCL.Helper helper = OCL_ENV.createOCLHelper();
-			helper.setContext(CorePackage.Literals.API_PARAMETER);
+			helper.setContext(CorePackage.Literals.PARAMETER);
 			
-			EAnnotation ocl = CorePackage.Literals.API_PARAMETER.getEAnnotation(OCL_ANNOTATION_SOURCE);
+			EAnnotation ocl = CorePackage.Literals.PARAMETER.getEAnnotation(OCL_ANNOTATION_SOURCE);
 			String expr = ocl.getDetails().get("requiredName");
 			
 			try {
-				apiParameter_requiredNameInvOCL = helper.createInvariant(expr);
+				parameter_requiredNameInvOCL = helper.createInvariant(expr);
 			}
 			catch (ParserException e) {
 				throw new UnsupportedOperationException(e.getLocalizedMessage());
 			}
 		}
 		
-		Query<EClassifier, ?, ?> query = OCL_ENV.createQuery(apiParameter_requiredNameInvOCL);
+		Query<EClassifier, ?, ?> query = OCL_ENV.createQuery(parameter_requiredNameInvOCL);
 		
-		if (!query.check(apiParameter)) {
+		if (!query.check(parameter)) {
 			if (diagnostics != null) {
 				diagnostics.add
 					(new BasicDiagnostic
 						(Diagnostic.ERROR,
 						 DIAGNOSTIC_SOURCE,
 						 0,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericConstraint_diagnostic", new Object[] { "requiredName", getObjectLabel(apiParameter, context) }),
-						 new Object[] { apiParameter }));
+						 EcorePlugin.INSTANCE.getString("_UI_GenericConstraint_diagnostic", new Object[] { "requiredName", getObjectLabel(parameter, context) }),
+						 new Object[] { parameter }));
 			}
 			return false;
 		}
@@ -997,38 +997,38 @@ public class CoreValidator extends EObjectValidator {
 	}
 
 	/**
-	 * Validates the requiredLocation constraint of '<em>API Parameter</em>'.
+	 * Validates the requiredLocation constraint of '<em>Parameter</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateAPIParameter_requiredLocation(APIParameter apiParameter, DiagnosticChain diagnostics, Map<Object, Object> context) {
-        if (apiParameter_requiredLocationInvOCL == null) {
+	public boolean validateParameter_requiredLocation(Parameter parameter, DiagnosticChain diagnostics, Map<Object, Object> context) {
+        if (parameter_requiredLocationInvOCL == null) {
 			OCL.Helper helper = OCL_ENV.createOCLHelper();
-			helper.setContext(CorePackage.Literals.API_PARAMETER);
+			helper.setContext(CorePackage.Literals.PARAMETER);
 			
-			EAnnotation ocl = CorePackage.Literals.API_PARAMETER.getEAnnotation(OCL_ANNOTATION_SOURCE);
+			EAnnotation ocl = CorePackage.Literals.PARAMETER.getEAnnotation(OCL_ANNOTATION_SOURCE);
 			String expr = ocl.getDetails().get("requiredLocation");
 			
 			try {
-				apiParameter_requiredLocationInvOCL = helper.createInvariant(expr);
+				parameter_requiredLocationInvOCL = helper.createInvariant(expr);
 			}
 			catch (ParserException e) {
 				throw new UnsupportedOperationException(e.getLocalizedMessage());
 			}
 		}
 		
-		Query<EClassifier, ?, ?> query = OCL_ENV.createQuery(apiParameter_requiredLocationInvOCL);
+		Query<EClassifier, ?, ?> query = OCL_ENV.createQuery(parameter_requiredLocationInvOCL);
 		
-		if (!query.check(apiParameter)) {
+		if (!query.check(parameter)) {
 			if (diagnostics != null) {
 				diagnostics.add
 					(new BasicDiagnostic
 						(Diagnostic.ERROR,
 						 DIAGNOSTIC_SOURCE,
 						 0,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericConstraint_diagnostic", new Object[] { "requiredLocation", getObjectLabel(apiParameter, context) }),
-						 new Object[] { apiParameter }));
+						 EcorePlugin.INSTANCE.getString("_UI_GenericConstraint_diagnostic", new Object[] { "requiredLocation", getObjectLabel(parameter, context) }),
+						 new Object[] { parameter }));
 			}
 			return false;
 		}

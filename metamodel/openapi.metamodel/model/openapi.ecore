@@ -23,7 +23,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Root">
     <eStructuralFeatures xsi:type="ecore:EReference" name="api" eType="#//API" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="paramters" upperBound="-1"
-        eType="#//APIParameter" containment="true"/>
+        eType="#//Parameter" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="schemas" upperBound="-1"
         eType="#//Schema" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="responses" upperBound="-1"
@@ -105,30 +105,24 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="url" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="SchemeType">
-    <eLiterals name="http"/>
-    <eLiterals name="https" value="1"/>
-    <eLiterals name="ws" value="2"/>
-    <eLiterals name="wss" value="3"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Path" eSuperTypes="#//ParamterDeclaringContext #//ParameterContext">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="pattern" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="get" eType="#//APIOperation"
-        containment="true" eOpposite="#//APIOperation/path"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="put" eType="#//APIOperation"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="get" eType="#//Operation"
+        containment="true" eOpposite="#//Operation/path"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="put" eType="#//Operation"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="post" eType="#//APIOperation"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="post" eType="#//Operation"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="delete" eType="#//APIOperation"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="delete" eType="#//Operation"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="options" eType="#//APIOperation"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="options" eType="#//Operation"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="head" eType="#//APIOperation"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="head" eType="#//Operation"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="patch" eType="#//APIOperation"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="patch" eType="#//Operation"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="APIOperation" eSuperTypes="#//ParamterDeclaringContext #//ResponseContext #//SecurityContext #//ParameterContext #//ExternalDocsContext">
+  <eClassifiers xsi:type="ecore:EClass" name="Operation" eSuperTypes="#//ParamterDeclaringContext #//ResponseContext #//SecurityContext #//ParameterContext #//ExternalDocsContext">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
       <details key="constraints" value="oneBodyParameterAllowed oneFormDataParameterAllowed hasUniqueParameters xorFormAndBody requiredResponses"/>
     </eAnnotations>
@@ -165,7 +159,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="url" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="APIParameter" eSuperTypes="#//SchemaDeclaringContext #//SchemaContext #//JSONSchemaSubset #//JSONPointer #//ArrayContext">
+  <eClassifiers xsi:type="ecore:EClass" name="Parameter" eSuperTypes="#//SchemaDeclaringContext #//SchemaContext #//JSONSchemaSubset #//JSONPointer #//ArrayContext">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
       <details key="constraints" value="requiredName requiredLocation"/>
     </eAnnotations>
@@ -184,7 +178,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Schema" eSuperTypes="#//JSONSchemaSubset #//SchemaDeclaringContext #//JSONPointer #//ExternalDocsContext">
     <eOperations name="getRef" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="body" value="if (getDeclaringContext() instanceof core.Api) {&#xD;&#xA;&#x9;return ((core.Api) getDeclaringContext()).getRef() + &quot;/defintions/&quot; + getName();&#xD;&#xA;&#x9;} else if (getDeclaringContext() instanceof Schema) {&#xD;&#xA;Schema context = (Schema) getDeclaringContext();&#x9;&#xD;&#xA;if (context.getProperties().contains(this))&#xD;&#xA;&#x9;return context.getRef() + &quot;/properties/&quot; + getName();&#xD;&#xA;else if (context.getItems().equals(this))&#xD;&#xA;&#x9;return context.getRef() + &quot;/items&quot;;&#xD;&#xA;else if (context.getAdditonalProperties().equals(this))&#xD;&#xA;&#x9;return context.getRef() + &quot;/additionalProperties&quot;;&#xD;&#xA;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;return &quot;&quot;;"/>
+        <details key="body" value="if (getDeclaringContext() instanceof core.API) {&#xD;&#xA;&#x9;return ((core.API) getDeclaringContext()).getRef() + &quot;/defintions/&quot; + getName();&#xD;&#xA;&#x9;} else if (getDeclaringContext() instanceof Schema) {&#xD;&#xA;Schema context = (Schema) getDeclaringContext();&#x9;&#xD;&#xA;if (context.getProperties().contains(this))&#xD;&#xA;&#x9;return context.getRef() + &quot;/properties/&quot; + getName();&#xD;&#xA;else if (context.getItems().equals(this))&#xD;&#xA;&#x9;return context.getRef() + &quot;/items&quot;;&#xD;&#xA;else if (context.getAdditonalProperties().equals(this))&#xD;&#xA;&#x9;return context.getRef() + &quot;/additionalProperties&quot;;&#xD;&#xA;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;return &quot;&quot;;"/>
       </eAnnotations>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -256,6 +250,32 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ref" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SecurityContext" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="securityRequirement" upperBound="-1"
+        eType="#//SecurityScope"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ParameterContext" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
+        eType="#//Parameter"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SchemaContext" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="schema" eType="#//Schema"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ExternalDocsContext" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="externalDocs" eType="#//ExternalDocs"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ArrayContext" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="collectionFormat" eType="#//CollectionFormat"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items" eType="#//ItemsDefinition"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="SchemeType">
+    <eLiterals name="http"/>
+    <eLiterals name="https" value="1"/>
+    <eLiterals name="ws" value="2"/>
+    <eLiterals name="wss" value="3"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ParameterLocation">
     <eLiterals name="unspecified" literal="unspecified"/>
     <eLiterals name="query" value="1"/>
@@ -300,25 +320,5 @@
     <eLiterals name="array" value="6" literal="array"/>
     <eLiterals name="file" value="8"/>
     <eLiterals name="null" value="7"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SecurityContext" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="securityRequirement" upperBound="-1"
-        eType="#//SecurityScope"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ParameterContext" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
-        eType="#//APIParameter"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SchemaContext" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="schema" eType="#//Schema"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ExternalDocsContext" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="externalDocs" eType="#//ExternalDocs"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ArrayContext" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="collectionFormat" eType="#//CollectionFormat"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="items" eType="#//ItemsDefinition"
-        containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

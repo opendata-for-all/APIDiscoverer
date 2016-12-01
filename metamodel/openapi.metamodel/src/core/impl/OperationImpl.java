@@ -2,11 +2,11 @@
  */
 package core.impl;
 
-import core.APIOperation;
-import core.APIParameter;
 import core.CorePackage;
 import core.ExternalDocs;
 import core.ExternalDocsContext;
+import core.Operation;
+import core.Parameter;
 import core.ParameterContext;
 import core.Path;
 import core.Response;
@@ -14,10 +14,12 @@ import core.ResponseContext;
 import core.SchemeType;
 import core.SecurityContext;
 import core.SecurityScope;
+
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -31,30 +33,30 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>API Operation</b></em>'.
+ * An implementation of the model object '<em><b>Operation</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link core.impl.APIOperationImpl#getSecurityRequirement <em>Security Requirement</em>}</li>
- *   <li>{@link core.impl.APIOperationImpl#getParameters <em>Parameters</em>}</li>
- *   <li>{@link core.impl.APIOperationImpl#getExternalDocs <em>External Docs</em>}</li>
- *   <li>{@link core.impl.APIOperationImpl#getTagReferences <em>Tag References</em>}</li>
- *   <li>{@link core.impl.APIOperationImpl#getSummary <em>Summary</em>}</li>
- *   <li>{@link core.impl.APIOperationImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link core.impl.APIOperationImpl#getOperationId <em>Operation Id</em>}</li>
- *   <li>{@link core.impl.APIOperationImpl#getConsumes <em>Consumes</em>}</li>
- *   <li>{@link core.impl.APIOperationImpl#getProduces <em>Produces</em>}</li>
- *   <li>{@link core.impl.APIOperationImpl#getResponses <em>Responses</em>}</li>
- *   <li>{@link core.impl.APIOperationImpl#getSchemes <em>Schemes</em>}</li>
- *   <li>{@link core.impl.APIOperationImpl#getDeprecated <em>Deprecated</em>}</li>
- *   <li>{@link core.impl.APIOperationImpl#getPath <em>Path</em>}</li>
+ *   <li>{@link core.impl.OperationImpl#getSecurityRequirement <em>Security Requirement</em>}</li>
+ *   <li>{@link core.impl.OperationImpl#getParameters <em>Parameters</em>}</li>
+ *   <li>{@link core.impl.OperationImpl#getExternalDocs <em>External Docs</em>}</li>
+ *   <li>{@link core.impl.OperationImpl#getTagReferences <em>Tag References</em>}</li>
+ *   <li>{@link core.impl.OperationImpl#getSummary <em>Summary</em>}</li>
+ *   <li>{@link core.impl.OperationImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link core.impl.OperationImpl#getOperationId <em>Operation Id</em>}</li>
+ *   <li>{@link core.impl.OperationImpl#getConsumes <em>Consumes</em>}</li>
+ *   <li>{@link core.impl.OperationImpl#getProduces <em>Produces</em>}</li>
+ *   <li>{@link core.impl.OperationImpl#getResponses <em>Responses</em>}</li>
+ *   <li>{@link core.impl.OperationImpl#getSchemes <em>Schemes</em>}</li>
+ *   <li>{@link core.impl.OperationImpl#getDeprecated <em>Deprecated</em>}</li>
+ *   <li>{@link core.impl.OperationImpl#getPath <em>Path</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class APIOperationImpl extends ParamterDeclaringContextImpl implements APIOperation {
+public class OperationImpl extends ParamterDeclaringContextImpl implements Operation {
 	/**
 	 * The cached value of the '{@link #getSecurityRequirement() <em>Security Requirement</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -73,7 +75,7 @@ public class APIOperationImpl extends ParamterDeclaringContextImpl implements AP
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<APIParameter> parameters;
+	protected EList<Parameter> parameters;
 
 	/**
 	 * The cached value of the '{@link #getExternalDocs() <em>External Docs</em>}' containment reference.
@@ -220,7 +222,7 @@ public class APIOperationImpl extends ParamterDeclaringContextImpl implements AP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected APIOperationImpl() {
+	protected OperationImpl() {
 		super();
 	}
 
@@ -231,7 +233,7 @@ public class APIOperationImpl extends ParamterDeclaringContextImpl implements AP
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return CorePackage.Literals.API_OPERATION;
+		return CorePackage.Literals.OPERATION;
 	}
 
 	/**
@@ -241,7 +243,7 @@ public class APIOperationImpl extends ParamterDeclaringContextImpl implements AP
 	 */
 	public EList<SecurityScope> getSecurityRequirement() {
 		if (securityRequirement == null) {
-			securityRequirement = new EObjectResolvingEList<SecurityScope>(SecurityScope.class, this, CorePackage.API_OPERATION__SECURITY_REQUIREMENT);
+			securityRequirement = new EObjectResolvingEList<SecurityScope>(SecurityScope.class, this, CorePackage.OPERATION__SECURITY_REQUIREMENT);
 		}
 		return securityRequirement;
 	}
@@ -251,41 +253,11 @@ public class APIOperationImpl extends ParamterDeclaringContextImpl implements AP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getSummary() {
-		return summary;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setSummary(String newSummary) {
-		String oldSummary = summary;
-		summary = newSummary;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.API_OPERATION__SUMMARY, oldSummary, summary));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getDescription() {
-		return description;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setDescription(String newDescription) {
-		String oldDescription = description;
-		description = newDescription;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.API_OPERATION__DESCRIPTION, oldDescription, description));
+	public EList<Parameter> getParameters() {
+		if (parameters == null) {
+			parameters = new EObjectResolvingEList<Parameter>(Parameter.class, this, CorePackage.OPERATION__PARAMETERS);
+		}
+		return parameters;
 	}
 
 	/**
@@ -306,7 +278,7 @@ public class APIOperationImpl extends ParamterDeclaringContextImpl implements AP
 		ExternalDocs oldExternalDocs = externalDocs;
 		externalDocs = newExternalDocs;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorePackage.API_OPERATION__EXTERNAL_DOCS, oldExternalDocs, newExternalDocs);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorePackage.OPERATION__EXTERNAL_DOCS, oldExternalDocs, newExternalDocs);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -321,14 +293,14 @@ public class APIOperationImpl extends ParamterDeclaringContextImpl implements AP
 		if (newExternalDocs != externalDocs) {
 			NotificationChain msgs = null;
 			if (externalDocs != null)
-				msgs = ((InternalEObject)externalDocs).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CorePackage.API_OPERATION__EXTERNAL_DOCS, null, msgs);
+				msgs = ((InternalEObject)externalDocs).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CorePackage.OPERATION__EXTERNAL_DOCS, null, msgs);
 			if (newExternalDocs != null)
-				msgs = ((InternalEObject)newExternalDocs).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CorePackage.API_OPERATION__EXTERNAL_DOCS, null, msgs);
+				msgs = ((InternalEObject)newExternalDocs).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CorePackage.OPERATION__EXTERNAL_DOCS, null, msgs);
 			msgs = basicSetExternalDocs(newExternalDocs, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.API_OPERATION__EXTERNAL_DOCS, newExternalDocs, newExternalDocs));
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.OPERATION__EXTERNAL_DOCS, newExternalDocs, newExternalDocs));
 	}
 
 	/**
@@ -338,9 +310,51 @@ public class APIOperationImpl extends ParamterDeclaringContextImpl implements AP
 	 */
 	public EList<String> getTagReferences() {
 		if (tagReferences == null) {
-			tagReferences = new EDataTypeUniqueEList<String>(String.class, this, CorePackage.API_OPERATION__TAG_REFERENCES);
+			tagReferences = new EDataTypeUniqueEList<String>(String.class, this, CorePackage.OPERATION__TAG_REFERENCES);
 		}
 		return tagReferences;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getSummary() {
+		return summary;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSummary(String newSummary) {
+		String oldSummary = summary;
+		summary = newSummary;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.OPERATION__SUMMARY, oldSummary, summary));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getDescription() {
+		return description;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDescription(String newDescription) {
+		String oldDescription = description;
+		description = newDescription;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.OPERATION__DESCRIPTION, oldDescription, description));
 	}
 
 	/**
@@ -361,7 +375,7 @@ public class APIOperationImpl extends ParamterDeclaringContextImpl implements AP
 		String oldOperationId = operationId;
 		operationId = newOperationId;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.API_OPERATION__OPERATION_ID, oldOperationId, operationId));
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.OPERATION__OPERATION_ID, oldOperationId, operationId));
 	}
 
 	/**
@@ -371,7 +385,7 @@ public class APIOperationImpl extends ParamterDeclaringContextImpl implements AP
 	 */
 	public EList<String> getConsumes() {
 		if (consumes == null) {
-			consumes = new EDataTypeUniqueEList<String>(String.class, this, CorePackage.API_OPERATION__CONSUMES);
+			consumes = new EDataTypeUniqueEList<String>(String.class, this, CorePackage.OPERATION__CONSUMES);
 		}
 		return consumes;
 	}
@@ -383,7 +397,7 @@ public class APIOperationImpl extends ParamterDeclaringContextImpl implements AP
 	 */
 	public EList<String> getProduces() {
 		if (produces == null) {
-			produces = new EDataTypeUniqueEList<String>(String.class, this, CorePackage.API_OPERATION__PRODUCES);
+			produces = new EDataTypeUniqueEList<String>(String.class, this, CorePackage.OPERATION__PRODUCES);
 		}
 		return produces;
 	}
@@ -393,21 +407,9 @@ public class APIOperationImpl extends ParamterDeclaringContextImpl implements AP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<APIParameter> getParameters() {
-		if (parameters == null) {
-			parameters = new EObjectResolvingEList<APIParameter>(APIParameter.class, this, CorePackage.API_OPERATION__PARAMETERS);
-		}
-		return parameters;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<Response> getResponses() {
 		if (responses == null) {
-			responses = new EObjectResolvingEList<Response>(Response.class, this, CorePackage.API_OPERATION__RESPONSES);
+			responses = new EObjectResolvingEList<Response>(Response.class, this, CorePackage.OPERATION__RESPONSES);
 		}
 		return responses;
 	}
@@ -419,7 +421,7 @@ public class APIOperationImpl extends ParamterDeclaringContextImpl implements AP
 	 */
 	public EList<SchemeType> getSchemes() {
 		if (schemes == null) {
-			schemes = new EDataTypeUniqueEList<SchemeType>(SchemeType.class, this, CorePackage.API_OPERATION__SCHEMES);
+			schemes = new EDataTypeUniqueEList<SchemeType>(SchemeType.class, this, CorePackage.OPERATION__SCHEMES);
 		}
 		return schemes;
 	}
@@ -442,7 +444,7 @@ public class APIOperationImpl extends ParamterDeclaringContextImpl implements AP
 		Boolean oldDeprecated = deprecated;
 		deprecated = newDeprecated;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.API_OPERATION__DEPRECATED, oldDeprecated, deprecated));
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.OPERATION__DEPRECATED, oldDeprecated, deprecated));
 	}
 
 	/**
@@ -451,7 +453,7 @@ public class APIOperationImpl extends ParamterDeclaringContextImpl implements AP
 	 * @generated
 	 */
 	public Path getPath() {
-		if (eContainerFeatureID() != CorePackage.API_OPERATION__PATH) return null;
+		if (eContainerFeatureID() != CorePackage.OPERATION__PATH) return null;
 		return (Path)eInternalContainer();
 	}
 
@@ -461,7 +463,7 @@ public class APIOperationImpl extends ParamterDeclaringContextImpl implements AP
 	 * @generated
 	 */
 	public NotificationChain basicSetPath(Path newPath, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newPath, CorePackage.API_OPERATION__PATH, msgs);
+		msgs = eBasicSetContainer((InternalEObject)newPath, CorePackage.OPERATION__PATH, msgs);
 		return msgs;
 	}
 
@@ -471,7 +473,7 @@ public class APIOperationImpl extends ParamterDeclaringContextImpl implements AP
 	 * @generated
 	 */
 	public void setPath(Path newPath) {
-		if (newPath != eInternalContainer() || (eContainerFeatureID() != CorePackage.API_OPERATION__PATH && newPath != null)) {
+		if (newPath != eInternalContainer() || (eContainerFeatureID() != CorePackage.OPERATION__PATH && newPath != null)) {
 			if (EcoreUtil.isAncestor(this, newPath))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
@@ -483,7 +485,7 @@ public class APIOperationImpl extends ParamterDeclaringContextImpl implements AP
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.API_OPERATION__PATH, newPath, newPath));
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.OPERATION__PATH, newPath, newPath));
 	}
 
 	/**
@@ -491,11 +493,10 @@ public class APIOperationImpl extends ParamterDeclaringContextImpl implements AP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case CorePackage.API_OPERATION__PATH:
+			case CorePackage.OPERATION__PATH:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetPath((Path)otherEnd, msgs);
@@ -511,9 +512,9 @@ public class APIOperationImpl extends ParamterDeclaringContextImpl implements AP
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case CorePackage.API_OPERATION__EXTERNAL_DOCS:
+			case CorePackage.OPERATION__EXTERNAL_DOCS:
 				return basicSetExternalDocs(null, msgs);
-			case CorePackage.API_OPERATION__PATH:
+			case CorePackage.OPERATION__PATH:
 				return basicSetPath(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -527,7 +528,7 @@ public class APIOperationImpl extends ParamterDeclaringContextImpl implements AP
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
-			case CorePackage.API_OPERATION__PATH:
+			case CorePackage.OPERATION__PATH:
 				return eInternalContainer().eInverseRemove(this, CorePackage.PATH__GET, Path.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
@@ -541,31 +542,31 @@ public class APIOperationImpl extends ParamterDeclaringContextImpl implements AP
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CorePackage.API_OPERATION__SECURITY_REQUIREMENT:
+			case CorePackage.OPERATION__SECURITY_REQUIREMENT:
 				return getSecurityRequirement();
-			case CorePackage.API_OPERATION__PARAMETERS:
+			case CorePackage.OPERATION__PARAMETERS:
 				return getParameters();
-			case CorePackage.API_OPERATION__EXTERNAL_DOCS:
+			case CorePackage.OPERATION__EXTERNAL_DOCS:
 				return getExternalDocs();
-			case CorePackage.API_OPERATION__TAG_REFERENCES:
+			case CorePackage.OPERATION__TAG_REFERENCES:
 				return getTagReferences();
-			case CorePackage.API_OPERATION__SUMMARY:
+			case CorePackage.OPERATION__SUMMARY:
 				return getSummary();
-			case CorePackage.API_OPERATION__DESCRIPTION:
+			case CorePackage.OPERATION__DESCRIPTION:
 				return getDescription();
-			case CorePackage.API_OPERATION__OPERATION_ID:
+			case CorePackage.OPERATION__OPERATION_ID:
 				return getOperationId();
-			case CorePackage.API_OPERATION__CONSUMES:
+			case CorePackage.OPERATION__CONSUMES:
 				return getConsumes();
-			case CorePackage.API_OPERATION__PRODUCES:
+			case CorePackage.OPERATION__PRODUCES:
 				return getProduces();
-			case CorePackage.API_OPERATION__RESPONSES:
+			case CorePackage.OPERATION__RESPONSES:
 				return getResponses();
-			case CorePackage.API_OPERATION__SCHEMES:
+			case CorePackage.OPERATION__SCHEMES:
 				return getSchemes();
-			case CorePackage.API_OPERATION__DEPRECATED:
+			case CorePackage.OPERATION__DEPRECATED:
 				return getDeprecated();
-			case CorePackage.API_OPERATION__PATH:
+			case CorePackage.OPERATION__PATH:
 				return getPath();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -580,50 +581,50 @@ public class APIOperationImpl extends ParamterDeclaringContextImpl implements AP
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CorePackage.API_OPERATION__SECURITY_REQUIREMENT:
+			case CorePackage.OPERATION__SECURITY_REQUIREMENT:
 				getSecurityRequirement().clear();
 				getSecurityRequirement().addAll((Collection<? extends SecurityScope>)newValue);
 				return;
-			case CorePackage.API_OPERATION__PARAMETERS:
+			case CorePackage.OPERATION__PARAMETERS:
 				getParameters().clear();
-				getParameters().addAll((Collection<? extends APIParameter>)newValue);
+				getParameters().addAll((Collection<? extends Parameter>)newValue);
 				return;
-			case CorePackage.API_OPERATION__EXTERNAL_DOCS:
+			case CorePackage.OPERATION__EXTERNAL_DOCS:
 				setExternalDocs((ExternalDocs)newValue);
 				return;
-			case CorePackage.API_OPERATION__TAG_REFERENCES:
+			case CorePackage.OPERATION__TAG_REFERENCES:
 				getTagReferences().clear();
 				getTagReferences().addAll((Collection<? extends String>)newValue);
 				return;
-			case CorePackage.API_OPERATION__SUMMARY:
+			case CorePackage.OPERATION__SUMMARY:
 				setSummary((String)newValue);
 				return;
-			case CorePackage.API_OPERATION__DESCRIPTION:
+			case CorePackage.OPERATION__DESCRIPTION:
 				setDescription((String)newValue);
 				return;
-			case CorePackage.API_OPERATION__OPERATION_ID:
+			case CorePackage.OPERATION__OPERATION_ID:
 				setOperationId((String)newValue);
 				return;
-			case CorePackage.API_OPERATION__CONSUMES:
+			case CorePackage.OPERATION__CONSUMES:
 				getConsumes().clear();
 				getConsumes().addAll((Collection<? extends String>)newValue);
 				return;
-			case CorePackage.API_OPERATION__PRODUCES:
+			case CorePackage.OPERATION__PRODUCES:
 				getProduces().clear();
 				getProduces().addAll((Collection<? extends String>)newValue);
 				return;
-			case CorePackage.API_OPERATION__RESPONSES:
+			case CorePackage.OPERATION__RESPONSES:
 				getResponses().clear();
 				getResponses().addAll((Collection<? extends Response>)newValue);
 				return;
-			case CorePackage.API_OPERATION__SCHEMES:
+			case CorePackage.OPERATION__SCHEMES:
 				getSchemes().clear();
 				getSchemes().addAll((Collection<? extends SchemeType>)newValue);
 				return;
-			case CorePackage.API_OPERATION__DEPRECATED:
+			case CorePackage.OPERATION__DEPRECATED:
 				setDeprecated((Boolean)newValue);
 				return;
-			case CorePackage.API_OPERATION__PATH:
+			case CorePackage.OPERATION__PATH:
 				setPath((Path)newValue);
 				return;
 		}
@@ -638,43 +639,43 @@ public class APIOperationImpl extends ParamterDeclaringContextImpl implements AP
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CorePackage.API_OPERATION__SECURITY_REQUIREMENT:
+			case CorePackage.OPERATION__SECURITY_REQUIREMENT:
 				getSecurityRequirement().clear();
 				return;
-			case CorePackage.API_OPERATION__PARAMETERS:
+			case CorePackage.OPERATION__PARAMETERS:
 				getParameters().clear();
 				return;
-			case CorePackage.API_OPERATION__EXTERNAL_DOCS:
+			case CorePackage.OPERATION__EXTERNAL_DOCS:
 				setExternalDocs((ExternalDocs)null);
 				return;
-			case CorePackage.API_OPERATION__TAG_REFERENCES:
+			case CorePackage.OPERATION__TAG_REFERENCES:
 				getTagReferences().clear();
 				return;
-			case CorePackage.API_OPERATION__SUMMARY:
+			case CorePackage.OPERATION__SUMMARY:
 				setSummary(SUMMARY_EDEFAULT);
 				return;
-			case CorePackage.API_OPERATION__DESCRIPTION:
+			case CorePackage.OPERATION__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
 				return;
-			case CorePackage.API_OPERATION__OPERATION_ID:
+			case CorePackage.OPERATION__OPERATION_ID:
 				setOperationId(OPERATION_ID_EDEFAULT);
 				return;
-			case CorePackage.API_OPERATION__CONSUMES:
+			case CorePackage.OPERATION__CONSUMES:
 				getConsumes().clear();
 				return;
-			case CorePackage.API_OPERATION__PRODUCES:
+			case CorePackage.OPERATION__PRODUCES:
 				getProduces().clear();
 				return;
-			case CorePackage.API_OPERATION__RESPONSES:
+			case CorePackage.OPERATION__RESPONSES:
 				getResponses().clear();
 				return;
-			case CorePackage.API_OPERATION__SCHEMES:
+			case CorePackage.OPERATION__SCHEMES:
 				getSchemes().clear();
 				return;
-			case CorePackage.API_OPERATION__DEPRECATED:
+			case CorePackage.OPERATION__DEPRECATED:
 				setDeprecated(DEPRECATED_EDEFAULT);
 				return;
-			case CorePackage.API_OPERATION__PATH:
+			case CorePackage.OPERATION__PATH:
 				setPath((Path)null);
 				return;
 		}
@@ -689,31 +690,31 @@ public class APIOperationImpl extends ParamterDeclaringContextImpl implements AP
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CorePackage.API_OPERATION__SECURITY_REQUIREMENT:
+			case CorePackage.OPERATION__SECURITY_REQUIREMENT:
 				return securityRequirement != null && !securityRequirement.isEmpty();
-			case CorePackage.API_OPERATION__PARAMETERS:
+			case CorePackage.OPERATION__PARAMETERS:
 				return parameters != null && !parameters.isEmpty();
-			case CorePackage.API_OPERATION__EXTERNAL_DOCS:
+			case CorePackage.OPERATION__EXTERNAL_DOCS:
 				return externalDocs != null;
-			case CorePackage.API_OPERATION__TAG_REFERENCES:
+			case CorePackage.OPERATION__TAG_REFERENCES:
 				return tagReferences != null && !tagReferences.isEmpty();
-			case CorePackage.API_OPERATION__SUMMARY:
+			case CorePackage.OPERATION__SUMMARY:
 				return SUMMARY_EDEFAULT == null ? summary != null : !SUMMARY_EDEFAULT.equals(summary);
-			case CorePackage.API_OPERATION__DESCRIPTION:
+			case CorePackage.OPERATION__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-			case CorePackage.API_OPERATION__OPERATION_ID:
+			case CorePackage.OPERATION__OPERATION_ID:
 				return OPERATION_ID_EDEFAULT == null ? operationId != null : !OPERATION_ID_EDEFAULT.equals(operationId);
-			case CorePackage.API_OPERATION__CONSUMES:
+			case CorePackage.OPERATION__CONSUMES:
 				return consumes != null && !consumes.isEmpty();
-			case CorePackage.API_OPERATION__PRODUCES:
+			case CorePackage.OPERATION__PRODUCES:
 				return produces != null && !produces.isEmpty();
-			case CorePackage.API_OPERATION__RESPONSES:
+			case CorePackage.OPERATION__RESPONSES:
 				return responses != null && !responses.isEmpty();
-			case CorePackage.API_OPERATION__SCHEMES:
+			case CorePackage.OPERATION__SCHEMES:
 				return schemes != null && !schemes.isEmpty();
-			case CorePackage.API_OPERATION__DEPRECATED:
+			case CorePackage.OPERATION__DEPRECATED:
 				return DEPRECATED_EDEFAULT == null ? deprecated != null : !DEPRECATED_EDEFAULT.equals(deprecated);
-			case CorePackage.API_OPERATION__PATH:
+			case CorePackage.OPERATION__PATH:
 				return getPath() != null;
 		}
 		return super.eIsSet(featureID);
@@ -733,19 +734,19 @@ public class APIOperationImpl extends ParamterDeclaringContextImpl implements AP
 		}
 		if (baseClass == SecurityContext.class) {
 			switch (derivedFeatureID) {
-				case CorePackage.API_OPERATION__SECURITY_REQUIREMENT: return CorePackage.SECURITY_CONTEXT__SECURITY_REQUIREMENT;
+				case CorePackage.OPERATION__SECURITY_REQUIREMENT: return CorePackage.SECURITY_CONTEXT__SECURITY_REQUIREMENT;
 				default: return -1;
 			}
 		}
 		if (baseClass == ParameterContext.class) {
 			switch (derivedFeatureID) {
-				case CorePackage.API_OPERATION__PARAMETERS: return CorePackage.PARAMETER_CONTEXT__PARAMETERS;
+				case CorePackage.OPERATION__PARAMETERS: return CorePackage.PARAMETER_CONTEXT__PARAMETERS;
 				default: return -1;
 			}
 		}
 		if (baseClass == ExternalDocsContext.class) {
 			switch (derivedFeatureID) {
-				case CorePackage.API_OPERATION__EXTERNAL_DOCS: return CorePackage.EXTERNAL_DOCS_CONTEXT__EXTERNAL_DOCS;
+				case CorePackage.OPERATION__EXTERNAL_DOCS: return CorePackage.EXTERNAL_DOCS_CONTEXT__EXTERNAL_DOCS;
 				default: return -1;
 			}
 		}
@@ -766,19 +767,19 @@ public class APIOperationImpl extends ParamterDeclaringContextImpl implements AP
 		}
 		if (baseClass == SecurityContext.class) {
 			switch (baseFeatureID) {
-				case CorePackage.SECURITY_CONTEXT__SECURITY_REQUIREMENT: return CorePackage.API_OPERATION__SECURITY_REQUIREMENT;
+				case CorePackage.SECURITY_CONTEXT__SECURITY_REQUIREMENT: return CorePackage.OPERATION__SECURITY_REQUIREMENT;
 				default: return -1;
 			}
 		}
 		if (baseClass == ParameterContext.class) {
 			switch (baseFeatureID) {
-				case CorePackage.PARAMETER_CONTEXT__PARAMETERS: return CorePackage.API_OPERATION__PARAMETERS;
+				case CorePackage.PARAMETER_CONTEXT__PARAMETERS: return CorePackage.OPERATION__PARAMETERS;
 				default: return -1;
 			}
 		}
 		if (baseClass == ExternalDocsContext.class) {
 			switch (baseFeatureID) {
-				case CorePackage.EXTERNAL_DOCS_CONTEXT__EXTERNAL_DOCS: return CorePackage.API_OPERATION__EXTERNAL_DOCS;
+				case CorePackage.EXTERNAL_DOCS_CONTEXT__EXTERNAL_DOCS: return CorePackage.OPERATION__EXTERNAL_DOCS;
 				default: return -1;
 			}
 		}
@@ -815,4 +816,4 @@ public class APIOperationImpl extends ParamterDeclaringContextImpl implements AP
 		return result.toString();
 	}
 
-} //APIOperationImpl
+} //OperationImpl

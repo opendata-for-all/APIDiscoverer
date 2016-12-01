@@ -14,6 +14,7 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -308,8 +309,8 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	 * @generated
 	 */
 	public String getRef() {
-		if (getDeclaringContext() instanceof core.Api) {
-			return ((core.Api) getDeclaringContext()).getRef() + "/defintions/" + getName();
+		if (getDeclaringContext() instanceof core.API) {
+			return ((core.API) getDeclaringContext()).getRef() + "/defintions/" + getName();
 			} else if (getDeclaringContext() instanceof Schema) {
 		Schema context = (Schema) getDeclaringContext();	
 		if (context.getProperties().contains(this))
@@ -363,6 +364,27 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.SCHEMA__EXTERNAL_DOCS, newExternalDocs, newExternalDocs));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.SCHEMA__NAME, oldName, name));
 	}
 
 	/**
@@ -445,18 +467,6 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Schema> getProperties() {
-		if (properties == null) {
-			properties = new EObjectResolvingEList<Schema>(Schema.class, this, CorePackage.SCHEMA__PROPERTIES);
-		}
-		return properties;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public String getExample() {
 		return example;
 	}
@@ -471,6 +481,60 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 		example = newExample;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.SCHEMA__EXAMPLE, oldExample, example));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getDiscriminator() {
+		return discriminator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDiscriminator(String newDiscriminator) {
+		String oldDiscriminator = discriminator;
+		discriminator = newDiscriminator;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.SCHEMA__DISCRIMINATOR, oldDiscriminator, discriminator));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Boolean getReadOnly() {
+		return readOnly;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setReadOnly(Boolean newReadOnly) {
+		Boolean oldReadOnly = readOnly;
+		readOnly = newReadOnly;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.SCHEMA__READ_ONLY, oldReadOnly, readOnly));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Schema> getProperties() {
+		if (properties == null) {
+			properties = new EObjectResolvingEList<Schema>(Schema.class, this, CorePackage.SCHEMA__PROPERTIES);
+		}
+		return properties;
 	}
 
 	/**
@@ -528,86 +592,6 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Schema getAdditonalProperties() {
-		if (additonalProperties != null && additonalProperties.eIsProxy()) {
-			InternalEObject oldAdditonalProperties = (InternalEObject)additonalProperties;
-			additonalProperties = (Schema)eResolveProxy(oldAdditonalProperties);
-			if (additonalProperties != oldAdditonalProperties) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CorePackage.SCHEMA__ADDITONAL_PROPERTIES, oldAdditonalProperties, additonalProperties));
-			}
-		}
-		return additonalProperties;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Schema basicGetAdditonalProperties() {
-		return additonalProperties;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setAdditonalProperties(Schema newAdditonalProperties) {
-		Schema oldAdditonalProperties = additonalProperties;
-		additonalProperties = newAdditonalProperties;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.SCHEMA__ADDITONAL_PROPERTIES, oldAdditonalProperties, additonalProperties));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getDiscriminator() {
-		return discriminator;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setDiscriminator(String newDiscriminator) {
-		String oldDiscriminator = discriminator;
-		discriminator = newDiscriminator;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.SCHEMA__DISCRIMINATOR, oldDiscriminator, discriminator));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Boolean getReadOnly() {
-		return readOnly;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setReadOnly(Boolean newReadOnly) {
-		Boolean oldReadOnly = readOnly;
-		readOnly = newReadOnly;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.SCHEMA__READ_ONLY, oldReadOnly, readOnly));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public XMLElement getXml() {
 		return xml;
 	}
@@ -651,8 +635,16 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getName() {
-		return name;
+	public Schema getAdditonalProperties() {
+		if (additonalProperties != null && additonalProperties.eIsProxy()) {
+			InternalEObject oldAdditonalProperties = (InternalEObject)additonalProperties;
+			additonalProperties = (Schema)eResolveProxy(oldAdditonalProperties);
+			if (additonalProperties != oldAdditonalProperties) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CorePackage.SCHEMA__ADDITONAL_PROPERTIES, oldAdditonalProperties, additonalProperties));
+			}
+		}
+		return additonalProperties;
 	}
 
 	/**
@@ -660,11 +652,20 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
+	public Schema basicGetAdditonalProperties() {
+		return additonalProperties;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAdditonalProperties(Schema newAdditonalProperties) {
+		Schema oldAdditonalProperties = additonalProperties;
+		additonalProperties = newAdditonalProperties;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.SCHEMA__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.SCHEMA__ADDITONAL_PROPERTIES, oldAdditonalProperties, additonalProperties));
 	}
 
 	/**

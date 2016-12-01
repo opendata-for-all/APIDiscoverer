@@ -117,14 +117,14 @@ public class CoreSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CorePackage.API_OPERATION: {
-				APIOperation apiOperation = (APIOperation)theEObject;
-				T result = caseAPIOperation(apiOperation);
-				if (result == null) result = caseParamterDeclaringContext(apiOperation);
-				if (result == null) result = caseResponseContext(apiOperation);
-				if (result == null) result = caseSecurityContext(apiOperation);
-				if (result == null) result = caseParameterContext(apiOperation);
-				if (result == null) result = caseExternalDocsContext(apiOperation);
+			case CorePackage.OPERATION: {
+				Operation operation = (Operation)theEObject;
+				T result = caseOperation(operation);
+				if (result == null) result = caseParamterDeclaringContext(operation);
+				if (result == null) result = caseResponseContext(operation);
+				if (result == null) result = caseSecurityContext(operation);
+				if (result == null) result = caseParameterContext(operation);
+				if (result == null) result = caseExternalDocsContext(operation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -134,14 +134,14 @@ public class CoreSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CorePackage.API_PARAMETER: {
-				APIParameter apiParameter = (APIParameter)theEObject;
-				T result = caseAPIParameter(apiParameter);
-				if (result == null) result = caseSchemaDeclaringContext(apiParameter);
-				if (result == null) result = caseSchemaContext(apiParameter);
-				if (result == null) result = caseJSONSchemaSubset(apiParameter);
-				if (result == null) result = caseJSONPointer(apiParameter);
-				if (result == null) result = caseArrayContext(apiParameter);
+			case CorePackage.PARAMETER: {
+				Parameter parameter = (Parameter)theEObject;
+				T result = caseParameter(parameter);
+				if (result == null) result = caseSchemaDeclaringContext(parameter);
+				if (result == null) result = caseSchemaContext(parameter);
+				if (result == null) result = caseJSONSchemaSubset(parameter);
+				if (result == null) result = caseJSONPointer(parameter);
+				if (result == null) result = caseArrayContext(parameter);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -374,17 +374,17 @@ public class CoreSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>API Operation</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Operation</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>API Operation</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Operation</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseAPIOperation(APIOperation object) {
+	public T caseOperation(Operation object) {
 		return null;
 	}
 
@@ -404,17 +404,17 @@ public class CoreSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>API Parameter</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Parameter</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>API Parameter</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Parameter</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseAPIParameter(APIParameter object) {
+	public T caseParameter(Parameter object) {
 		return null;
 	}
 

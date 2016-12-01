@@ -76,13 +76,13 @@ public interface CoreFactory extends EFactory {
 	Path createPath();
 
 	/**
-	 * Returns a new object of class '<em>API Operation</em>'.
+	 * Returns a new object of class '<em>Operation</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>API Operation</em>'.
+	 * @return a new object of class '<em>Operation</em>'.
 	 * @generated
 	 */
-	APIOperation createAPIOperation();
+	Operation createOperation();
 
 	/**
 	 * Returns a new object of class '<em>External Docs</em>'.
@@ -94,13 +94,13 @@ public interface CoreFactory extends EFactory {
 	ExternalDocs createExternalDocs();
 
 	/**
-	 * Returns a new object of class '<em>API Parameter</em>'.
+	 * Returns a new object of class '<em>Parameter</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>API Parameter</em>'.
+	 * @return a new object of class '<em>Parameter</em>'.
 	 * @generated
 	 */
-	APIParameter createAPIParameter();
+	Parameter createParameter();
 
 	/**
 	 * Returns a new object of class '<em>Items Definition</em>'.

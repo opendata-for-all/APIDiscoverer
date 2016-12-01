@@ -3,8 +3,8 @@
 package core.impl;
 
 import core.API;
-import core.APIParameter;
 import core.CorePackage;
+import core.Parameter;
 import core.Response;
 import core.Root;
 import core.Schema;
@@ -59,7 +59,7 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<APIParameter> paramters;
+	protected EList<Parameter> paramters;
 
 	/**
 	 * The cached value of the '{@link #getSchemas() <em>Schemas</em>}' containment reference list.
@@ -148,9 +148,9 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<APIParameter> getParamters() {
+	public EList<Parameter> getParamters() {
 		if (paramters == null) {
-			paramters = new EObjectContainmentEList<APIParameter>(APIParameter.class, this, CorePackage.ROOT__PARAMTERS);
+			paramters = new EObjectContainmentEList<Parameter>(Parameter.class, this, CorePackage.ROOT__PARAMTERS);
 		}
 		return paramters;
 	}
@@ -233,7 +233,7 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 				return;
 			case CorePackage.ROOT__PARAMTERS:
 				getParamters().clear();
-				getParamters().addAll((Collection<? extends APIParameter>)newValue);
+				getParamters().addAll((Collection<? extends Parameter>)newValue);
 				return;
 			case CorePackage.ROOT__SCHEMAS:
 				getSchemas().clear();

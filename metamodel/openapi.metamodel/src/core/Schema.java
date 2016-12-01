@@ -372,7 +372,7 @@ public interface Schema extends JSONSchemaSubset, SchemaDeclaringContext, JSONPo
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='if (getDeclaringContext() instanceof core.Api) {\r\n\treturn ((core.Api) getDeclaringContext()).getRef() + \"/defintions/\" + getName();\r\n\t} else if (getDeclaringContext() instanceof Schema) {\r\nSchema context = (Schema) getDeclaringContext();\t\r\nif (context.getProperties().contains(this))\r\n\treturn context.getRef() + \"/properties/\" + getName();\r\nelse if (context.getItems().equals(this))\r\n\treturn context.getRef() + \"/items\";\r\nelse if (context.getAdditonalProperties().equals(this))\r\n\treturn context.getRef() + \"/additionalProperties\";\r\n\t\t\t}\r\n\treturn \"\";'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='if (getDeclaringContext() instanceof core.API) {\r\n\treturn ((core.API) getDeclaringContext()).getRef() + \"/defintions/\" + getName();\r\n\t} else if (getDeclaringContext() instanceof Schema) {\r\nSchema context = (Schema) getDeclaringContext();\t\r\nif (context.getProperties().contains(this))\r\n\treturn context.getRef() + \"/properties/\" + getName();\r\nelse if (context.getItems().equals(this))\r\n\treturn context.getRef() + \"/items\";\r\nelse if (context.getAdditonalProperties().equals(this))\r\n\treturn context.getRef() + \"/additionalProperties\";\r\n\t\t\t}\r\n\treturn \"\";'"
 	 * @generated
 	 */
 	String getRef();

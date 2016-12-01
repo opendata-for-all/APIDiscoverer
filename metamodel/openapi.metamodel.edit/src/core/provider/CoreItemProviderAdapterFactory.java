@@ -210,26 +210,26 @@ public class CoreItemProviderAdapterFactory extends CoreAdapterFactory implement
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link core.APIOperation} instances.
+	 * This keeps track of the one adapter used for all {@link core.Operation} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected APIOperationItemProvider apiOperationItemProvider;
+	protected OperationItemProvider operationItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link core.APIOperation}.
+	 * This creates an adapter for a {@link core.Operation}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createAPIOperationAdapter() {
-		if (apiOperationItemProvider == null) {
-			apiOperationItemProvider = new APIOperationItemProvider(this);
+	public Adapter createOperationAdapter() {
+		if (operationItemProvider == null) {
+			operationItemProvider = new OperationItemProvider(this);
 		}
 
-		return apiOperationItemProvider;
+		return operationItemProvider;
 	}
 
 	/**
@@ -256,26 +256,26 @@ public class CoreItemProviderAdapterFactory extends CoreAdapterFactory implement
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link core.APIParameter} instances.
+	 * This keeps track of the one adapter used for all {@link core.Parameter} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected APIParameterItemProvider apiParameterItemProvider;
+	protected ParameterItemProvider parameterItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link core.APIParameter}.
+	 * This creates an adapter for a {@link core.Parameter}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createAPIParameterAdapter() {
-		if (apiParameterItemProvider == null) {
-			apiParameterItemProvider = new APIParameterItemProvider(this);
+	public Adapter createParameterAdapter() {
+		if (parameterItemProvider == null) {
+			parameterItemProvider = new ParameterItemProvider(this);
 		}
 
-		return apiParameterItemProvider;
+		return parameterItemProvider;
 	}
 
 	/**
@@ -590,9 +590,9 @@ public class CoreItemProviderAdapterFactory extends CoreAdapterFactory implement
 		if (contactItemProvider != null) contactItemProvider.dispose();
 		if (licenseItemProvider != null) licenseItemProvider.dispose();
 		if (pathItemProvider != null) pathItemProvider.dispose();
-		if (apiOperationItemProvider != null) apiOperationItemProvider.dispose();
+		if (operationItemProvider != null) operationItemProvider.dispose();
 		if (externalDocsItemProvider != null) externalDocsItemProvider.dispose();
-		if (apiParameterItemProvider != null) apiParameterItemProvider.dispose();
+		if (parameterItemProvider != null) parameterItemProvider.dispose();
 		if (itemsDefinitionItemProvider != null) itemsDefinitionItemProvider.dispose();
 		if (schemaItemProvider != null) schemaItemProvider.dispose();
 		if (responseItemProvider != null) responseItemProvider.dispose();

@@ -63,9 +63,9 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 			case CorePackage.CONTACT: return createContact();
 			case CorePackage.LICENSE: return createLicense();
 			case CorePackage.PATH: return createPath();
-			case CorePackage.API_OPERATION: return createAPIOperation();
+			case CorePackage.OPERATION: return createOperation();
 			case CorePackage.EXTERNAL_DOCS: return createExternalDocs();
-			case CorePackage.API_PARAMETER: return createAPIParameter();
+			case CorePackage.PARAMETER: return createParameter();
 			case CorePackage.ITEMS_DEFINITION: return createItemsDefinition();
 			case CorePackage.SCHEMA: return createSchema();
 			case CorePackage.RESPONSE: return createResponse();
@@ -199,9 +199,9 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public APIOperation createAPIOperation() {
-		APIOperationImpl apiOperation = new APIOperationImpl();
-		return apiOperation;
+	public Operation createOperation() {
+		OperationImpl operation = new OperationImpl();
+		return operation;
 	}
 
 	/**
@@ -219,9 +219,9 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public APIParameter createAPIParameter() {
-		APIParameterImpl apiParameter = new APIParameterImpl();
-		return apiParameter;
+	public Parameter createParameter() {
+		ParameterImpl parameter = new ParameterImpl();
+		return parameter;
 	}
 
 	/**

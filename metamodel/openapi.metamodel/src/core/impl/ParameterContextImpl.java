@@ -2,8 +2,8 @@
  */
 package core.impl;
 
-import core.APIParameter;
 import core.CorePackage;
+import core.Parameter;
 import core.ParameterContext;
 
 import java.util.Collection;
@@ -35,7 +35,7 @@ public abstract class ParameterContextImpl extends MinimalEObjectImpl.Container 
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<APIParameter> parameters;
+	protected EList<Parameter> parameters;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -61,9 +61,9 @@ public abstract class ParameterContextImpl extends MinimalEObjectImpl.Container 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<APIParameter> getParameters() {
+	public EList<Parameter> getParameters() {
 		if (parameters == null) {
-			parameters = new EObjectResolvingEList<APIParameter>(APIParameter.class, this, CorePackage.PARAMETER_CONTEXT__PARAMETERS);
+			parameters = new EObjectResolvingEList<Parameter>(Parameter.class, this, CorePackage.PARAMETER_CONTEXT__PARAMETERS);
 		}
 		return parameters;
 	}
@@ -93,7 +93,7 @@ public abstract class ParameterContextImpl extends MinimalEObjectImpl.Container 
 		switch (featureID) {
 			case CorePackage.PARAMETER_CONTEXT__PARAMETERS:
 				getParameters().clear();
-				getParameters().addAll((Collection<? extends APIParameter>)newValue);
+				getParameters().addAll((Collection<? extends Parameter>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

@@ -2,17 +2,18 @@
  */
 package core.tests;
 
-import core.APIOperation;
 import core.CoreFactory;
+import core.Operation;
+
 import junit.textui.TestRunner;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>API Operation</b></em>'.
+ * A test case for the model object '<em><b>Operation</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class APIOperationTest extends ParamterDeclaringContextTest {
+public class OperationTest extends ParamterDeclaringContextTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -20,28 +21,28 @@ public class APIOperationTest extends ParamterDeclaringContextTest {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(APIOperationTest.class);
+		TestRunner.run(OperationTest.class);
 	}
 
 	/**
-	 * Constructs a new API Operation test case with the given name.
+	 * Constructs a new Operation test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public APIOperationTest(String name) {
+	public OperationTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Returns the fixture for this API Operation test case.
+	 * Returns the fixture for this Operation test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	protected APIOperation getFixture() {
-		return (APIOperation)fixture;
+	protected Operation getFixture() {
+		return (Operation)fixture;
 	}
 
 	/**
@@ -52,7 +53,7 @@ public class APIOperationTest extends ParamterDeclaringContextTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(CoreFactory.eINSTANCE.createAPIOperation());
+		setFixture(CoreFactory.eINSTANCE.createOperation());
 	}
 
 	/**
@@ -66,4 +67,4 @@ public class APIOperationTest extends ParamterDeclaringContextTest {
 		setFixture(null);
 	}
 
-} //APIOperationTest
+} //OperationTest

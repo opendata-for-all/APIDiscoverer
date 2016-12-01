@@ -2,9 +2,9 @@
  */
 package core.impl;
 
-import core.APIOperation;
-import core.APIParameter;
 import core.CorePackage;
+import core.Operation;
+import core.Parameter;
 import core.ParameterContext;
 import core.Path;
 
@@ -51,7 +51,7 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<APIParameter> parameters;
+	protected EList<Parameter> parameters;
 
 	/**
 	 * The default value of the '{@link #getPattern() <em>Pattern</em>}' attribute.
@@ -81,7 +81,7 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 	 * @generated
 	 * @ordered
 	 */
-	protected APIOperation get;
+	protected Operation get;
 
 	/**
 	 * The cached value of the '{@link #getPut() <em>Put</em>}' containment reference.
@@ -91,7 +91,7 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 	 * @generated
 	 * @ordered
 	 */
-	protected APIOperation put;
+	protected Operation put;
 
 	/**
 	 * The cached value of the '{@link #getPost() <em>Post</em>}' containment reference.
@@ -101,7 +101,7 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 	 * @generated
 	 * @ordered
 	 */
-	protected APIOperation post;
+	protected Operation post;
 
 	/**
 	 * The cached value of the '{@link #getDelete() <em>Delete</em>}' containment reference.
@@ -111,7 +111,7 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 	 * @generated
 	 * @ordered
 	 */
-	protected APIOperation delete;
+	protected Operation delete;
 
 	/**
 	 * The cached value of the '{@link #getOptions() <em>Options</em>}' containment reference.
@@ -121,7 +121,7 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 	 * @generated
 	 * @ordered
 	 */
-	protected APIOperation options;
+	protected Operation options;
 
 	/**
 	 * The cached value of the '{@link #getHead() <em>Head</em>}' containment reference.
@@ -131,7 +131,7 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 	 * @generated
 	 * @ordered
 	 */
-	protected APIOperation head;
+	protected Operation head;
 
 	/**
 	 * The cached value of the '{@link #getPatch() <em>Patch</em>}' containment reference.
@@ -141,7 +141,7 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 	 * @generated
 	 * @ordered
 	 */
-	protected APIOperation patch;
+	protected Operation patch;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -188,9 +188,9 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<APIParameter> getParameters() {
+	public EList<Parameter> getParameters() {
 		if (parameters == null) {
-			parameters = new EObjectResolvingEList<APIParameter>(APIParameter.class, this, CorePackage.PATH__PARAMETERS);
+			parameters = new EObjectResolvingEList<Parameter>(Parameter.class, this, CorePackage.PATH__PARAMETERS);
 		}
 		return parameters;
 	}
@@ -200,7 +200,7 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public APIOperation getGet() {
+	public Operation getGet() {
 		return get;
 	}
 
@@ -209,8 +209,8 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetGet(APIOperation newGet, NotificationChain msgs) {
-		APIOperation oldGet = get;
+	public NotificationChain basicSetGet(Operation newGet, NotificationChain msgs) {
+		Operation oldGet = get;
 		get = newGet;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorePackage.PATH__GET, oldGet, newGet);
@@ -224,13 +224,13 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setGet(APIOperation newGet) {
+	public void setGet(Operation newGet) {
 		if (newGet != get) {
 			NotificationChain msgs = null;
 			if (get != null)
-				msgs = ((InternalEObject)get).eInverseRemove(this, CorePackage.API_OPERATION__PATH, APIOperation.class, msgs);
+				msgs = ((InternalEObject)get).eInverseRemove(this, CorePackage.OPERATION__PATH, Operation.class, msgs);
 			if (newGet != null)
-				msgs = ((InternalEObject)newGet).eInverseAdd(this, CorePackage.API_OPERATION__PATH, APIOperation.class, msgs);
+				msgs = ((InternalEObject)newGet).eInverseAdd(this, CorePackage.OPERATION__PATH, Operation.class, msgs);
 			msgs = basicSetGet(newGet, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -243,7 +243,7 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public APIOperation getPut() {
+	public Operation getPut() {
 		return put;
 	}
 
@@ -252,8 +252,8 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetPut(APIOperation newPut, NotificationChain msgs) {
-		APIOperation oldPut = put;
+	public NotificationChain basicSetPut(Operation newPut, NotificationChain msgs) {
+		Operation oldPut = put;
 		put = newPut;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorePackage.PATH__PUT, oldPut, newPut);
@@ -267,7 +267,7 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPut(APIOperation newPut) {
+	public void setPut(Operation newPut) {
 		if (newPut != put) {
 			NotificationChain msgs = null;
 			if (put != null)
@@ -286,7 +286,7 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public APIOperation getPost() {
+	public Operation getPost() {
 		return post;
 	}
 
@@ -295,8 +295,8 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetPost(APIOperation newPost, NotificationChain msgs) {
-		APIOperation oldPost = post;
+	public NotificationChain basicSetPost(Operation newPost, NotificationChain msgs) {
+		Operation oldPost = post;
 		post = newPost;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorePackage.PATH__POST, oldPost, newPost);
@@ -310,7 +310,7 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPost(APIOperation newPost) {
+	public void setPost(Operation newPost) {
 		if (newPost != post) {
 			NotificationChain msgs = null;
 			if (post != null)
@@ -329,7 +329,7 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public APIOperation getDelete() {
+	public Operation getDelete() {
 		return delete;
 	}
 
@@ -338,8 +338,8 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetDelete(APIOperation newDelete, NotificationChain msgs) {
-		APIOperation oldDelete = delete;
+	public NotificationChain basicSetDelete(Operation newDelete, NotificationChain msgs) {
+		Operation oldDelete = delete;
 		delete = newDelete;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorePackage.PATH__DELETE, oldDelete, newDelete);
@@ -353,7 +353,7 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDelete(APIOperation newDelete) {
+	public void setDelete(Operation newDelete) {
 		if (newDelete != delete) {
 			NotificationChain msgs = null;
 			if (delete != null)
@@ -372,7 +372,7 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public APIOperation getOptions() {
+	public Operation getOptions() {
 		return options;
 	}
 
@@ -381,8 +381,8 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetOptions(APIOperation newOptions, NotificationChain msgs) {
-		APIOperation oldOptions = options;
+	public NotificationChain basicSetOptions(Operation newOptions, NotificationChain msgs) {
+		Operation oldOptions = options;
 		options = newOptions;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorePackage.PATH__OPTIONS, oldOptions, newOptions);
@@ -396,7 +396,7 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setOptions(APIOperation newOptions) {
+	public void setOptions(Operation newOptions) {
 		if (newOptions != options) {
 			NotificationChain msgs = null;
 			if (options != null)
@@ -415,7 +415,7 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public APIOperation getHead() {
+	public Operation getHead() {
 		return head;
 	}
 
@@ -424,8 +424,8 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetHead(APIOperation newHead, NotificationChain msgs) {
-		APIOperation oldHead = head;
+	public NotificationChain basicSetHead(Operation newHead, NotificationChain msgs) {
+		Operation oldHead = head;
 		head = newHead;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorePackage.PATH__HEAD, oldHead, newHead);
@@ -439,7 +439,7 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setHead(APIOperation newHead) {
+	public void setHead(Operation newHead) {
 		if (newHead != head) {
 			NotificationChain msgs = null;
 			if (head != null)
@@ -458,7 +458,7 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public APIOperation getPatch() {
+	public Operation getPatch() {
 		return patch;
 	}
 
@@ -467,8 +467,8 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetPatch(APIOperation newPatch, NotificationChain msgs) {
-		APIOperation oldPatch = patch;
+	public NotificationChain basicSetPatch(Operation newPatch, NotificationChain msgs) {
+		Operation oldPatch = patch;
 		patch = newPatch;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorePackage.PATH__PATCH, oldPatch, newPatch);
@@ -482,7 +482,7 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPatch(APIOperation newPatch) {
+	public void setPatch(Operation newPatch) {
 		if (newPatch != patch) {
 			NotificationChain msgs = null;
 			if (patch != null)
@@ -507,7 +507,7 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 			case CorePackage.PATH__GET:
 				if (get != null)
 					msgs = ((InternalEObject)get).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CorePackage.PATH__GET, null, msgs);
-				return basicSetGet((APIOperation)otherEnd, msgs);
+				return basicSetGet((Operation)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -579,31 +579,31 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 		switch (featureID) {
 			case CorePackage.PATH__PARAMETERS:
 				getParameters().clear();
-				getParameters().addAll((Collection<? extends APIParameter>)newValue);
+				getParameters().addAll((Collection<? extends Parameter>)newValue);
 				return;
 			case CorePackage.PATH__PATTERN:
 				setPattern((String)newValue);
 				return;
 			case CorePackage.PATH__GET:
-				setGet((APIOperation)newValue);
+				setGet((Operation)newValue);
 				return;
 			case CorePackage.PATH__PUT:
-				setPut((APIOperation)newValue);
+				setPut((Operation)newValue);
 				return;
 			case CorePackage.PATH__POST:
-				setPost((APIOperation)newValue);
+				setPost((Operation)newValue);
 				return;
 			case CorePackage.PATH__DELETE:
-				setDelete((APIOperation)newValue);
+				setDelete((Operation)newValue);
 				return;
 			case CorePackage.PATH__OPTIONS:
-				setOptions((APIOperation)newValue);
+				setOptions((Operation)newValue);
 				return;
 			case CorePackage.PATH__HEAD:
-				setHead((APIOperation)newValue);
+				setHead((Operation)newValue);
 				return;
 			case CorePackage.PATH__PATCH:
-				setPatch((APIOperation)newValue);
+				setPatch((Operation)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -624,25 +624,25 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 				setPattern(PATTERN_EDEFAULT);
 				return;
 			case CorePackage.PATH__GET:
-				setGet((APIOperation)null);
+				setGet((Operation)null);
 				return;
 			case CorePackage.PATH__PUT:
-				setPut((APIOperation)null);
+				setPut((Operation)null);
 				return;
 			case CorePackage.PATH__POST:
-				setPost((APIOperation)null);
+				setPost((Operation)null);
 				return;
 			case CorePackage.PATH__DELETE:
-				setDelete((APIOperation)null);
+				setDelete((Operation)null);
 				return;
 			case CorePackage.PATH__OPTIONS:
-				setOptions((APIOperation)null);
+				setOptions((Operation)null);
 				return;
 			case CorePackage.PATH__HEAD:
-				setHead((APIOperation)null);
+				setHead((Operation)null);
 				return;
 			case CorePackage.PATH__PATCH:
-				setPatch((APIOperation)null);
+				setPatch((Operation)null);
 				return;
 		}
 		super.eUnset(featureID);

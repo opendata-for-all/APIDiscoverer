@@ -3,12 +3,12 @@
 package core.impl;
 
 import core.API;
-import core.APIParameter;
 import core.CorePackage;
 import core.ExternalDocs;
 import core.ExternalDocsContext;
 import core.Info;
 import core.JSONPointer;
+import core.Parameter;
 import core.ParameterContext;
 import core.Path;
 import core.Response;
@@ -97,7 +97,7 @@ public class APIImpl extends ParamterDeclaringContextImpl implements API {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<APIParameter> parameters;
+	protected EList<Parameter> parameters;
 
 	/**
 	 * The cached value of the '{@link #getExternalDocs() <em>External Docs</em>}' containment reference.
@@ -304,9 +304,9 @@ public class APIImpl extends ParamterDeclaringContextImpl implements API {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<APIParameter> getParameters() {
+	public EList<Parameter> getParameters() {
 		if (parameters == null) {
-			parameters = new EObjectResolvingEList<APIParameter>(APIParameter.class, this, CorePackage.API__PARAMETERS);
+			parameters = new EObjectResolvingEList<Parameter>(Parameter.class, this, CorePackage.API__PARAMETERS);
 		}
 		return parameters;
 	}
@@ -666,7 +666,7 @@ public class APIImpl extends ParamterDeclaringContextImpl implements API {
 				return;
 			case CorePackage.API__PARAMETERS:
 				getParameters().clear();
-				getParameters().addAll((Collection<? extends APIParameter>)newValue);
+				getParameters().addAll((Collection<? extends Parameter>)newValue);
 				return;
 			case CorePackage.API__EXTERNAL_DOCS:
 				setExternalDocs((ExternalDocs)newValue);

@@ -25,7 +25,7 @@ public interface ParameterContext extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Parameters</b></em>' reference list.
-	 * The list contents are of type {@link core.APIParameter}.
+	 * The list contents are of type {@link core.Parameter}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Parameters</em>' reference list isn't clear,
@@ -37,5 +37,5 @@ public interface ParameterContext extends EObject {
 	 * @model
 	 * @generated
 	 */
-	EList<APIParameter> getParameters();
+	EList<Parameter> getParameters();
 } // ParameterContext

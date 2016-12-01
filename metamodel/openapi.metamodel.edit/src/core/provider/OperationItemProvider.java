@@ -3,9 +3,9 @@
 package core.provider;
 
 
-import core.APIOperation;
 import core.CoreFactory;
 import core.CorePackage;
+import core.Operation;
 
 import java.util.Collection;
 import java.util.List;
@@ -21,19 +21,19 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link core.APIOperation} object.
+ * This is the item provider adapter for a {@link core.Operation} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class APIOperationItemProvider extends ParamterDeclaringContextItemProvider {
+public class OperationItemProvider extends ParamterDeclaringContextItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public APIOperationItemProvider(AdapterFactory adapterFactory) {
+	public OperationItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -56,6 +56,7 @@ public class APIOperationItemProvider extends ParamterDeclaringContextItemProvid
 			addOperationIdPropertyDescriptor(object);
 			addConsumesPropertyDescriptor(object);
 			addProducesPropertyDescriptor(object);
+			addResponsesPropertyDescriptor(object);
 			addSchemesPropertyDescriptor(object);
 			addDeprecatedPropertyDescriptor(object);
 		}
@@ -117,9 +118,9 @@ public class APIOperationItemProvider extends ParamterDeclaringContextItemProvid
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_APIOperation_tagReferences_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_APIOperation_tagReferences_feature", "_UI_APIOperation_type"),
-				 CorePackage.Literals.API_OPERATION__TAG_REFERENCES,
+				 getString("_UI_Operation_tagReferences_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Operation_tagReferences_feature", "_UI_Operation_type"),
+				 CorePackage.Literals.OPERATION__TAG_REFERENCES,
 				 true,
 				 false,
 				 false,
@@ -139,9 +140,9 @@ public class APIOperationItemProvider extends ParamterDeclaringContextItemProvid
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_APIOperation_summary_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_APIOperation_summary_feature", "_UI_APIOperation_type"),
-				 CorePackage.Literals.API_OPERATION__SUMMARY,
+				 getString("_UI_Operation_summary_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Operation_summary_feature", "_UI_Operation_type"),
+				 CorePackage.Literals.OPERATION__SUMMARY,
 				 true,
 				 false,
 				 false,
@@ -161,9 +162,9 @@ public class APIOperationItemProvider extends ParamterDeclaringContextItemProvid
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_APIOperation_description_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_APIOperation_description_feature", "_UI_APIOperation_type"),
-				 CorePackage.Literals.API_OPERATION__DESCRIPTION,
+				 getString("_UI_Operation_description_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Operation_description_feature", "_UI_Operation_type"),
+				 CorePackage.Literals.OPERATION__DESCRIPTION,
 				 true,
 				 false,
 				 false,
@@ -183,9 +184,9 @@ public class APIOperationItemProvider extends ParamterDeclaringContextItemProvid
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_APIOperation_operationId_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_APIOperation_operationId_feature", "_UI_APIOperation_type"),
-				 CorePackage.Literals.API_OPERATION__OPERATION_ID,
+				 getString("_UI_Operation_operationId_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Operation_operationId_feature", "_UI_Operation_type"),
+				 CorePackage.Literals.OPERATION__OPERATION_ID,
 				 true,
 				 false,
 				 false,
@@ -205,9 +206,9 @@ public class APIOperationItemProvider extends ParamterDeclaringContextItemProvid
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_APIOperation_consumes_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_APIOperation_consumes_feature", "_UI_APIOperation_type"),
-				 CorePackage.Literals.API_OPERATION__CONSUMES,
+				 getString("_UI_Operation_consumes_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Operation_consumes_feature", "_UI_Operation_type"),
+				 CorePackage.Literals.OPERATION__CONSUMES,
 				 true,
 				 false,
 				 false,
@@ -227,13 +228,35 @@ public class APIOperationItemProvider extends ParamterDeclaringContextItemProvid
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_APIOperation_produces_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_APIOperation_produces_feature", "_UI_APIOperation_type"),
-				 CorePackage.Literals.API_OPERATION__PRODUCES,
+				 getString("_UI_Operation_produces_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Operation_produces_feature", "_UI_Operation_type"),
+				 CorePackage.Literals.OPERATION__PRODUCES,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Responses feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addResponsesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Operation_responses_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Operation_responses_feature", "_UI_Operation_type"),
+				 CorePackage.Literals.OPERATION__RESPONSES,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}
@@ -249,9 +272,9 @@ public class APIOperationItemProvider extends ParamterDeclaringContextItemProvid
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_APIOperation_schemes_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_APIOperation_schemes_feature", "_UI_APIOperation_type"),
-				 CorePackage.Literals.API_OPERATION__SCHEMES,
+				 getString("_UI_Operation_schemes_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Operation_schemes_feature", "_UI_Operation_type"),
+				 CorePackage.Literals.OPERATION__SCHEMES,
 				 true,
 				 false,
 				 false,
@@ -271,9 +294,9 @@ public class APIOperationItemProvider extends ParamterDeclaringContextItemProvid
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_APIOperation_deprecated_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_APIOperation_deprecated_feature", "_UI_APIOperation_type"),
-				 CorePackage.Literals.API_OPERATION__DEPRECATED,
+				 getString("_UI_Operation_deprecated_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Operation_deprecated_feature", "_UI_Operation_type"),
+				 CorePackage.Literals.OPERATION__DEPRECATED,
 				 true,
 				 false,
 				 false,
@@ -295,7 +318,6 @@ public class APIOperationItemProvider extends ParamterDeclaringContextItemProvid
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(CorePackage.Literals.EXTERNAL_DOCS_CONTEXT__EXTERNAL_DOCS);
-			childrenFeatures.add(CorePackage.Literals.API_OPERATION__RESPONSES);
 		}
 		return childrenFeatures;
 	}
@@ -314,14 +336,14 @@ public class APIOperationItemProvider extends ParamterDeclaringContextItemProvid
 	}
 
 	/**
-	 * This returns APIOperation.gif.
+	 * This returns Operation.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/APIOperation"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Operation"));
 	}
 
 	/**
@@ -332,10 +354,10 @@ public class APIOperationItemProvider extends ParamterDeclaringContextItemProvid
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((APIOperation)object).getSummary();
+		String label = ((Operation)object).getSummary();
 		return label == null || label.length() == 0 ?
-			getString("_UI_APIOperation_type") :
-			getString("_UI_APIOperation_type") + " " + label;
+			getString("_UI_Operation_type") :
+			getString("_UI_Operation_type") + " " + label;
 	}
 	
 
@@ -350,19 +372,18 @@ public class APIOperationItemProvider extends ParamterDeclaringContextItemProvid
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(APIOperation.class)) {
-			case CorePackage.API_OPERATION__TAG_REFERENCES:
-			case CorePackage.API_OPERATION__SUMMARY:
-			case CorePackage.API_OPERATION__DESCRIPTION:
-			case CorePackage.API_OPERATION__OPERATION_ID:
-			case CorePackage.API_OPERATION__CONSUMES:
-			case CorePackage.API_OPERATION__PRODUCES:
-			case CorePackage.API_OPERATION__SCHEMES:
-			case CorePackage.API_OPERATION__DEPRECATED:
+		switch (notification.getFeatureID(Operation.class)) {
+			case CorePackage.OPERATION__TAG_REFERENCES:
+			case CorePackage.OPERATION__SUMMARY:
+			case CorePackage.OPERATION__DESCRIPTION:
+			case CorePackage.OPERATION__OPERATION_ID:
+			case CorePackage.OPERATION__CONSUMES:
+			case CorePackage.OPERATION__PRODUCES:
+			case CorePackage.OPERATION__SCHEMES:
+			case CorePackage.OPERATION__DEPRECATED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case CorePackage.API_OPERATION__EXTERNAL_DOCS:
-			case CorePackage.API_OPERATION__RESPONSES:
+			case CorePackage.OPERATION__EXTERNAL_DOCS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -384,11 +405,6 @@ public class APIOperationItemProvider extends ParamterDeclaringContextItemProvid
 			(createChildParameter
 				(CorePackage.Literals.EXTERNAL_DOCS_CONTEXT__EXTERNAL_DOCS,
 				 CoreFactory.eINSTANCE.createExternalDocs()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.Literals.API_OPERATION__RESPONSES,
-				 CoreFactory.eINSTANCE.createResponse()));
 	}
 
 }

@@ -32,7 +32,7 @@ public class CoreTests extends TestSuite {
 	public static Test suite() {
 		TestSuite suite = new CoreTests("core Tests");
 		suite.addTestSuite(APITest.class);
-		suite.addTestSuite(APIParameterTest.class);
+		suite.addTestSuite(ParameterTest.class);
 		suite.addTestSuite(SchemaTest.class);
 		return suite;
 	}

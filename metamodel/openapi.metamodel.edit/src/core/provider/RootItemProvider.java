@@ -162,7 +162,7 @@ public class RootItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.Literals.ROOT__PARAMTERS,
-				 CoreFactory.eINSTANCE.createAPIParameter()));
+				 CoreFactory.eINSTANCE.createParameter()));
 
 		newChildDescriptors.add
 			(createChildParameter

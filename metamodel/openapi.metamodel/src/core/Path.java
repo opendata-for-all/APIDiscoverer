@@ -54,7 +54,7 @@ public interface Path extends ParamterDeclaringContext, ParameterContext {
 
 	/**
 	 * Returns the value of the '<em><b>Get</b></em>' containment reference.
-	 * It is bidirectional and its opposite is '{@link core.APIOperation#getPath <em>Path</em>}'.
+	 * It is bidirectional and its opposite is '{@link core.Operation#getPath <em>Path</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Get</em>' containment reference isn't clear,
@@ -62,13 +62,13 @@ public interface Path extends ParamterDeclaringContext, ParameterContext {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Get</em>' containment reference.
-	 * @see #setGet(APIOperation)
+	 * @see #setGet(Operation)
 	 * @see core.CorePackage#getPath_Get()
-	 * @see core.APIOperation#getPath
+	 * @see core.Operation#getPath
 	 * @model opposite="path" containment="true"
 	 * @generated
 	 */
-	APIOperation getGet();
+	Operation getGet();
 
 	/**
 	 * Sets the value of the '{@link core.Path#getGet <em>Get</em>}' containment reference.
@@ -78,7 +78,7 @@ public interface Path extends ParamterDeclaringContext, ParameterContext {
 	 * @see #getGet()
 	 * @generated
 	 */
-	void setGet(APIOperation value);
+	void setGet(Operation value);
 
 	/**
 	 * Returns the value of the '<em><b>Put</b></em>' containment reference.
@@ -89,12 +89,12 @@ public interface Path extends ParamterDeclaringContext, ParameterContext {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Put</em>' containment reference.
-	 * @see #setPut(APIOperation)
+	 * @see #setPut(Operation)
 	 * @see core.CorePackage#getPath_Put()
 	 * @model containment="true"
 	 * @generated
 	 */
-	APIOperation getPut();
+	Operation getPut();
 
 	/**
 	 * Sets the value of the '{@link core.Path#getPut <em>Put</em>}' containment reference.
@@ -104,7 +104,7 @@ public interface Path extends ParamterDeclaringContext, ParameterContext {
 	 * @see #getPut()
 	 * @generated
 	 */
-	void setPut(APIOperation value);
+	void setPut(Operation value);
 
 	/**
 	 * Returns the value of the '<em><b>Post</b></em>' containment reference.
@@ -115,12 +115,12 @@ public interface Path extends ParamterDeclaringContext, ParameterContext {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Post</em>' containment reference.
-	 * @see #setPost(APIOperation)
+	 * @see #setPost(Operation)
 	 * @see core.CorePackage#getPath_Post()
 	 * @model containment="true"
 	 * @generated
 	 */
-	APIOperation getPost();
+	Operation getPost();
 
 	/**
 	 * Sets the value of the '{@link core.Path#getPost <em>Post</em>}' containment reference.
@@ -130,7 +130,7 @@ public interface Path extends ParamterDeclaringContext, ParameterContext {
 	 * @see #getPost()
 	 * @generated
 	 */
-	void setPost(APIOperation value);
+	void setPost(Operation value);
 
 	/**
 	 * Returns the value of the '<em><b>Delete</b></em>' containment reference.
@@ -141,12 +141,12 @@ public interface Path extends ParamterDeclaringContext, ParameterContext {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Delete</em>' containment reference.
-	 * @see #setDelete(APIOperation)
+	 * @see #setDelete(Operation)
 	 * @see core.CorePackage#getPath_Delete()
 	 * @model containment="true"
 	 * @generated
 	 */
-	APIOperation getDelete();
+	Operation getDelete();
 
 	/**
 	 * Sets the value of the '{@link core.Path#getDelete <em>Delete</em>}' containment reference.
@@ -156,7 +156,7 @@ public interface Path extends ParamterDeclaringContext, ParameterContext {
 	 * @see #getDelete()
 	 * @generated
 	 */
-	void setDelete(APIOperation value);
+	void setDelete(Operation value);
 
 	/**
 	 * Returns the value of the '<em><b>Options</b></em>' containment reference.
@@ -167,12 +167,12 @@ public interface Path extends ParamterDeclaringContext, ParameterContext {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Options</em>' containment reference.
-	 * @see #setOptions(APIOperation)
+	 * @see #setOptions(Operation)
 	 * @see core.CorePackage#getPath_Options()
 	 * @model containment="true"
 	 * @generated
 	 */
-	APIOperation getOptions();
+	Operation getOptions();
 
 	/**
 	 * Sets the value of the '{@link core.Path#getOptions <em>Options</em>}' containment reference.
@@ -182,7 +182,7 @@ public interface Path extends ParamterDeclaringContext, ParameterContext {
 	 * @see #getOptions()
 	 * @generated
 	 */
-	void setOptions(APIOperation value);
+	void setOptions(Operation value);
 
 	/**
 	 * Returns the value of the '<em><b>Head</b></em>' containment reference.
@@ -193,12 +193,12 @@ public interface Path extends ParamterDeclaringContext, ParameterContext {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Head</em>' containment reference.
-	 * @see #setHead(APIOperation)
+	 * @see #setHead(Operation)
 	 * @see core.CorePackage#getPath_Head()
 	 * @model containment="true"
 	 * @generated
 	 */
-	APIOperation getHead();
+	Operation getHead();
 
 	/**
 	 * Sets the value of the '{@link core.Path#getHead <em>Head</em>}' containment reference.
@@ -208,7 +208,7 @@ public interface Path extends ParamterDeclaringContext, ParameterContext {
 	 * @see #getHead()
 	 * @generated
 	 */
-	void setHead(APIOperation value);
+	void setHead(Operation value);
 
 	/**
 	 * Returns the value of the '<em><b>Patch</b></em>' containment reference.
@@ -219,12 +219,12 @@ public interface Path extends ParamterDeclaringContext, ParameterContext {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Patch</em>' containment reference.
-	 * @see #setPatch(APIOperation)
+	 * @see #setPatch(Operation)
 	 * @see core.CorePackage#getPath_Patch()
 	 * @model containment="true"
 	 * @generated
 	 */
-	APIOperation getPatch();
+	Operation getPatch();
 
 	/**
 	 * Sets the value of the '{@link core.Path#getPatch <em>Patch</em>}' containment reference.
@@ -234,6 +234,6 @@ public interface Path extends ParamterDeclaringContext, ParameterContext {
 	 * @see #getPatch()
 	 * @generated
 	 */
-	void setPatch(APIOperation value);
+	void setPatch(Operation value);
 
 } // Path

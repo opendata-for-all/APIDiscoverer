@@ -6,8 +6,8 @@ package core.provider;
 import core.CoreFactory;
 import core.CorePackage;
 import core.ItemsDefinition;
-
 import core.JSONDataType;
+
 import java.util.Collection;
 import java.util.List;
 

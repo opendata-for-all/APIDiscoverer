@@ -815,14 +815,14 @@ public interface CorePackage extends EPackage {
 	int PATH_OPERATION_COUNT = PARAMTER_DECLARING_CONTEXT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link core.impl.APIOperationImpl <em>API Operation</em>}' class.
+	 * The meta object id for the '{@link core.impl.OperationImpl <em>Operation</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see core.impl.APIOperationImpl
-	 * @see core.impl.CorePackageImpl#getAPIOperation()
+	 * @see core.impl.OperationImpl
+	 * @see core.impl.CorePackageImpl#getOperation()
 	 * @generated
 	 */
-	int API_OPERATION = 7;
+	int OPERATION = 7;
 
 	/**
 	 * The feature id for the '<em><b>Security Requirement</b></em>' reference list.
@@ -831,7 +831,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API_OPERATION__SECURITY_REQUIREMENT = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 0;
+	int OPERATION__SECURITY_REQUIREMENT = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Parameters</b></em>' reference list.
@@ -840,7 +840,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API_OPERATION__PARAMETERS = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 1;
+	int OPERATION__PARAMETERS = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>External Docs</b></em>' containment reference.
@@ -849,7 +849,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API_OPERATION__EXTERNAL_DOCS = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 2;
+	int OPERATION__EXTERNAL_DOCS = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Tag References</b></em>' attribute list.
@@ -858,7 +858,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API_OPERATION__TAG_REFERENCES = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 3;
+	int OPERATION__TAG_REFERENCES = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Summary</b></em>' attribute.
@@ -867,7 +867,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API_OPERATION__SUMMARY = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 4;
+	int OPERATION__SUMMARY = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -876,7 +876,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API_OPERATION__DESCRIPTION = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 5;
+	int OPERATION__DESCRIPTION = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Operation Id</b></em>' attribute.
@@ -885,7 +885,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API_OPERATION__OPERATION_ID = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 6;
+	int OPERATION__OPERATION_ID = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Consumes</b></em>' attribute list.
@@ -894,7 +894,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API_OPERATION__CONSUMES = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 7;
+	int OPERATION__CONSUMES = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Produces</b></em>' attribute list.
@@ -903,7 +903,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API_OPERATION__PRODUCES = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 8;
+	int OPERATION__PRODUCES = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Responses</b></em>' reference list.
@@ -912,7 +912,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API_OPERATION__RESPONSES = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 9;
+	int OPERATION__RESPONSES = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Schemes</b></em>' attribute list.
@@ -921,7 +921,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API_OPERATION__SCHEMES = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 10;
+	int OPERATION__SCHEMES = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Deprecated</b></em>' attribute.
@@ -930,7 +930,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API_OPERATION__DEPRECATED = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 11;
+	int OPERATION__DEPRECATED = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 11;
 
 	/**
 	 * The feature id for the '<em><b>Path</b></em>' container reference.
@@ -939,25 +939,25 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API_OPERATION__PATH = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 12;
+	int OPERATION__PATH = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 12;
 
 	/**
-	 * The number of structural features of the '<em>API Operation</em>' class.
+	 * The number of structural features of the '<em>Operation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int API_OPERATION_FEATURE_COUNT = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 13;
+	int OPERATION_FEATURE_COUNT = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 13;
 
 	/**
-	 * The number of operations of the '<em>API Operation</em>' class.
+	 * The number of operations of the '<em>Operation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int API_OPERATION_OPERATION_COUNT = PARAMTER_DECLARING_CONTEXT_OPERATION_COUNT + 0;
+	int OPERATION_OPERATION_COUNT = PARAMTER_DECLARING_CONTEXT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link core.impl.ExternalDocsImpl <em>External Docs</em>}' class.
@@ -1034,6 +1034,268 @@ public interface CorePackage extends EPackage {
 	int SCHEMA_DECLARING_CONTEXT_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link core.impl.ParameterImpl <em>Parameter</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see core.impl.ParameterImpl
+	 * @see core.impl.CorePackageImpl#getParameter()
+	 * @generated
+	 */
+	int PARAMETER = 9;
+
+	/**
+	 * The feature id for the '<em><b>Schema</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__SCHEMA = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__TYPE = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Format</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__FORMAT = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__DESCRIPTION = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Maximum</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__MAXIMUM = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Exclusive Maximum</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__EXCLUSIVE_MAXIMUM = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Minimum</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__MINIMUM = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Exclusive Minimum</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__EXCLUSIVE_MINIMUM = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 7;
+
+	/**
+	 * The feature id for the '<em><b>Max Length</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__MAX_LENGTH = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 8;
+
+	/**
+	 * The feature id for the '<em><b>Min Length</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__MIN_LENGTH = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 9;
+
+	/**
+	 * The feature id for the '<em><b>Pattern</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__PATTERN = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 10;
+
+	/**
+	 * The feature id for the '<em><b>Max Items</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__MAX_ITEMS = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 11;
+
+	/**
+	 * The feature id for the '<em><b>Min Items</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__MIN_ITEMS = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 12;
+
+	/**
+	 * The feature id for the '<em><b>Unique Items</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__UNIQUE_ITEMS = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 13;
+
+	/**
+	 * The feature id for the '<em><b>Enum</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__ENUM = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 14;
+
+	/**
+	 * The feature id for the '<em><b>Default</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__DEFAULT = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 15;
+
+	/**
+	 * The feature id for the '<em><b>Multiple Of</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__MULTIPLE_OF = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 16;
+
+	/**
+	 * The feature id for the '<em><b>Ref</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__REF = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 17;
+
+	/**
+	 * The feature id for the '<em><b>Collection Format</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__COLLECTION_FORMAT = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 18;
+
+	/**
+	 * The feature id for the '<em><b>Items</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__ITEMS = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 19;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__NAME = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 20;
+
+	/**
+	 * The feature id for the '<em><b>Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__LOCATION = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 21;
+
+	/**
+	 * The feature id for the '<em><b>Required</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__REQUIRED = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 22;
+
+	/**
+	 * The feature id for the '<em><b>Allow Emply Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__ALLOW_EMPLY_VALUE = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 23;
+
+	/**
+	 * The feature id for the '<em><b>Reference Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__REFERENCE_NAME = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 24;
+
+	/**
+	 * The feature id for the '<em><b>Declaring Context</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__DECLARING_CONTEXT = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 25;
+
+	/**
+	 * The number of structural features of the '<em>Parameter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_FEATURE_COUNT = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 26;
+
+	/**
+	 * The number of operations of the '<em>Parameter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_OPERATION_COUNT = SCHEMA_DECLARING_CONTEXT_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link core.impl.SchemaContextImpl <em>Schema Context</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1052,268 +1314,6 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 */
 	int ARRAY_CONTEXT = 27;
-
-	/**
-	 * The meta object id for the '{@link core.impl.APIParameterImpl <em>API Parameter</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see core.impl.APIParameterImpl
-	 * @see core.impl.CorePackageImpl#getAPIParameter()
-	 * @generated
-	 */
-	int API_PARAMETER = 9;
-
-	/**
-	 * The feature id for the '<em><b>Schema</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int API_PARAMETER__SCHEMA = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int API_PARAMETER__TYPE = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Format</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int API_PARAMETER__FORMAT = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int API_PARAMETER__DESCRIPTION = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Maximum</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int API_PARAMETER__MAXIMUM = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 4;
-
-	/**
-	 * The feature id for the '<em><b>Exclusive Maximum</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int API_PARAMETER__EXCLUSIVE_MAXIMUM = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 5;
-
-	/**
-	 * The feature id for the '<em><b>Minimum</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int API_PARAMETER__MINIMUM = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 6;
-
-	/**
-	 * The feature id for the '<em><b>Exclusive Minimum</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int API_PARAMETER__EXCLUSIVE_MINIMUM = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 7;
-
-	/**
-	 * The feature id for the '<em><b>Max Length</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int API_PARAMETER__MAX_LENGTH = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 8;
-
-	/**
-	 * The feature id for the '<em><b>Min Length</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int API_PARAMETER__MIN_LENGTH = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 9;
-
-	/**
-	 * The feature id for the '<em><b>Pattern</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int API_PARAMETER__PATTERN = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 10;
-
-	/**
-	 * The feature id for the '<em><b>Max Items</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int API_PARAMETER__MAX_ITEMS = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 11;
-
-	/**
-	 * The feature id for the '<em><b>Min Items</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int API_PARAMETER__MIN_ITEMS = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 12;
-
-	/**
-	 * The feature id for the '<em><b>Unique Items</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int API_PARAMETER__UNIQUE_ITEMS = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 13;
-
-	/**
-	 * The feature id for the '<em><b>Enum</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int API_PARAMETER__ENUM = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 14;
-
-	/**
-	 * The feature id for the '<em><b>Default</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int API_PARAMETER__DEFAULT = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 15;
-
-	/**
-	 * The feature id for the '<em><b>Multiple Of</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int API_PARAMETER__MULTIPLE_OF = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 16;
-
-	/**
-	 * The feature id for the '<em><b>Ref</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int API_PARAMETER__REF = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 17;
-
-	/**
-	 * The feature id for the '<em><b>Collection Format</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int API_PARAMETER__COLLECTION_FORMAT = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 18;
-
-	/**
-	 * The feature id for the '<em><b>Items</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int API_PARAMETER__ITEMS = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 19;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int API_PARAMETER__NAME = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 20;
-
-	/**
-	 * The feature id for the '<em><b>Location</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int API_PARAMETER__LOCATION = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 21;
-
-	/**
-	 * The feature id for the '<em><b>Required</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int API_PARAMETER__REQUIRED = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 22;
-
-	/**
-	 * The feature id for the '<em><b>Allow Emply Value</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int API_PARAMETER__ALLOW_EMPLY_VALUE = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 23;
-
-	/**
-	 * The feature id for the '<em><b>Reference Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int API_PARAMETER__REFERENCE_NAME = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 24;
-
-	/**
-	 * The feature id for the '<em><b>Declaring Context</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int API_PARAMETER__DECLARING_CONTEXT = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 25;
-
-	/**
-	 * The number of structural features of the '<em>API Parameter</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int API_PARAMETER_FEATURE_COUNT = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 26;
-
-	/**
-	 * The number of operations of the '<em>API Parameter</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int API_PARAMETER_OPERATION_COUNT = SCHEMA_DECLARING_CONTEXT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link core.impl.ItemsDefinitionImpl <em>Items Definition</em>}' class.
@@ -3383,124 +3383,124 @@ public interface CorePackage extends EPackage {
 	EReference getPath_Patch();
 
 	/**
-	 * Returns the meta object for class '{@link core.APIOperation <em>API Operation</em>}'.
+	 * Returns the meta object for class '{@link core.Operation <em>Operation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>API Operation</em>'.
-	 * @see core.APIOperation
+	 * @return the meta object for class '<em>Operation</em>'.
+	 * @see core.Operation
 	 * @generated
 	 */
-	EClass getAPIOperation();
+	EClass getOperation();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link core.APIOperation#getTagReferences <em>Tag References</em>}'.
+	 * Returns the meta object for the attribute list '{@link core.Operation#getTagReferences <em>Tag References</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute list '<em>Tag References</em>'.
-	 * @see core.APIOperation#getTagReferences()
-	 * @see #getAPIOperation()
+	 * @see core.Operation#getTagReferences()
+	 * @see #getOperation()
 	 * @generated
 	 */
-	EAttribute getAPIOperation_TagReferences();
+	EAttribute getOperation_TagReferences();
 
 	/**
-	 * Returns the meta object for the attribute '{@link core.APIOperation#getSummary <em>Summary</em>}'.
+	 * Returns the meta object for the attribute '{@link core.Operation#getSummary <em>Summary</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Summary</em>'.
-	 * @see core.APIOperation#getSummary()
-	 * @see #getAPIOperation()
+	 * @see core.Operation#getSummary()
+	 * @see #getOperation()
 	 * @generated
 	 */
-	EAttribute getAPIOperation_Summary();
+	EAttribute getOperation_Summary();
 
 	/**
-	 * Returns the meta object for the attribute '{@link core.APIOperation#getDescription <em>Description</em>}'.
+	 * Returns the meta object for the attribute '{@link core.Operation#getDescription <em>Description</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Description</em>'.
-	 * @see core.APIOperation#getDescription()
-	 * @see #getAPIOperation()
+	 * @see core.Operation#getDescription()
+	 * @see #getOperation()
 	 * @generated
 	 */
-	EAttribute getAPIOperation_Description();
+	EAttribute getOperation_Description();
 
 	/**
-	 * Returns the meta object for the attribute '{@link core.APIOperation#getOperationId <em>Operation Id</em>}'.
+	 * Returns the meta object for the attribute '{@link core.Operation#getOperationId <em>Operation Id</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Operation Id</em>'.
-	 * @see core.APIOperation#getOperationId()
-	 * @see #getAPIOperation()
+	 * @see core.Operation#getOperationId()
+	 * @see #getOperation()
 	 * @generated
 	 */
-	EAttribute getAPIOperation_OperationId();
+	EAttribute getOperation_OperationId();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link core.APIOperation#getConsumes <em>Consumes</em>}'.
+	 * Returns the meta object for the attribute list '{@link core.Operation#getConsumes <em>Consumes</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute list '<em>Consumes</em>'.
-	 * @see core.APIOperation#getConsumes()
-	 * @see #getAPIOperation()
+	 * @see core.Operation#getConsumes()
+	 * @see #getOperation()
 	 * @generated
 	 */
-	EAttribute getAPIOperation_Consumes();
+	EAttribute getOperation_Consumes();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link core.APIOperation#getProduces <em>Produces</em>}'.
+	 * Returns the meta object for the attribute list '{@link core.Operation#getProduces <em>Produces</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute list '<em>Produces</em>'.
-	 * @see core.APIOperation#getProduces()
-	 * @see #getAPIOperation()
+	 * @see core.Operation#getProduces()
+	 * @see #getOperation()
 	 * @generated
 	 */
-	EAttribute getAPIOperation_Produces();
+	EAttribute getOperation_Produces();
 
 	/**
-	 * Returns the meta object for the reference list '{@link core.APIOperation#getResponses <em>Responses</em>}'.
+	 * Returns the meta object for the reference list '{@link core.Operation#getResponses <em>Responses</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference list '<em>Responses</em>'.
-	 * @see core.APIOperation#getResponses()
-	 * @see #getAPIOperation()
+	 * @see core.Operation#getResponses()
+	 * @see #getOperation()
 	 * @generated
 	 */
-	EReference getAPIOperation_Responses();
+	EReference getOperation_Responses();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link core.APIOperation#getSchemes <em>Schemes</em>}'.
+	 * Returns the meta object for the attribute list '{@link core.Operation#getSchemes <em>Schemes</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute list '<em>Schemes</em>'.
-	 * @see core.APIOperation#getSchemes()
-	 * @see #getAPIOperation()
+	 * @see core.Operation#getSchemes()
+	 * @see #getOperation()
 	 * @generated
 	 */
-	EAttribute getAPIOperation_Schemes();
+	EAttribute getOperation_Schemes();
 
 	/**
-	 * Returns the meta object for the attribute '{@link core.APIOperation#getDeprecated <em>Deprecated</em>}'.
+	 * Returns the meta object for the attribute '{@link core.Operation#getDeprecated <em>Deprecated</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Deprecated</em>'.
-	 * @see core.APIOperation#getDeprecated()
-	 * @see #getAPIOperation()
+	 * @see core.Operation#getDeprecated()
+	 * @see #getOperation()
 	 * @generated
 	 */
-	EAttribute getAPIOperation_Deprecated();
+	EAttribute getOperation_Deprecated();
 
 	/**
-	 * Returns the meta object for the container reference '{@link core.APIOperation#getPath <em>Path</em>}'.
+	 * Returns the meta object for the container reference '{@link core.Operation#getPath <em>Path</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the container reference '<em>Path</em>'.
-	 * @see core.APIOperation#getPath()
-	 * @see #getAPIOperation()
+	 * @see core.Operation#getPath()
+	 * @see #getOperation()
 	 * @generated
 	 */
-	EReference getAPIOperation_Path();
+	EReference getOperation_Path();
 
 	/**
 	 * Returns the meta object for class '{@link core.ExternalDocs <em>External Docs</em>}'.
@@ -3535,80 +3535,80 @@ public interface CorePackage extends EPackage {
 	EAttribute getExternalDocs_Url();
 
 	/**
-	 * Returns the meta object for class '{@link core.APIParameter <em>API Parameter</em>}'.
+	 * Returns the meta object for class '{@link core.Parameter <em>Parameter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>API Parameter</em>'.
-	 * @see core.APIParameter
+	 * @return the meta object for class '<em>Parameter</em>'.
+	 * @see core.Parameter
 	 * @generated
 	 */
-	EClass getAPIParameter();
+	EClass getParameter();
 
 	/**
-	 * Returns the meta object for the attribute '{@link core.APIParameter#getName <em>Name</em>}'.
+	 * Returns the meta object for the attribute '{@link core.Parameter#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see core.APIParameter#getName()
-	 * @see #getAPIParameter()
+	 * @see core.Parameter#getName()
+	 * @see #getParameter()
 	 * @generated
 	 */
-	EAttribute getAPIParameter_Name();
+	EAttribute getParameter_Name();
 
 	/**
-	 * Returns the meta object for the attribute '{@link core.APIParameter#getLocation <em>Location</em>}'.
+	 * Returns the meta object for the attribute '{@link core.Parameter#getLocation <em>Location</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Location</em>'.
-	 * @see core.APIParameter#getLocation()
-	 * @see #getAPIParameter()
+	 * @see core.Parameter#getLocation()
+	 * @see #getParameter()
 	 * @generated
 	 */
-	EAttribute getAPIParameter_Location();
+	EAttribute getParameter_Location();
 
 	/**
-	 * Returns the meta object for the attribute '{@link core.APIParameter#getRequired <em>Required</em>}'.
+	 * Returns the meta object for the attribute '{@link core.Parameter#getRequired <em>Required</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Required</em>'.
-	 * @see core.APIParameter#getRequired()
-	 * @see #getAPIParameter()
+	 * @see core.Parameter#getRequired()
+	 * @see #getParameter()
 	 * @generated
 	 */
-	EAttribute getAPIParameter_Required();
+	EAttribute getParameter_Required();
 
 	/**
-	 * Returns the meta object for the attribute '{@link core.APIParameter#getAllowEmplyValue <em>Allow Emply Value</em>}'.
+	 * Returns the meta object for the attribute '{@link core.Parameter#getAllowEmplyValue <em>Allow Emply Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Allow Emply Value</em>'.
-	 * @see core.APIParameter#getAllowEmplyValue()
-	 * @see #getAPIParameter()
+	 * @see core.Parameter#getAllowEmplyValue()
+	 * @see #getParameter()
 	 * @generated
 	 */
-	EAttribute getAPIParameter_AllowEmplyValue();
+	EAttribute getParameter_AllowEmplyValue();
 
 	/**
-	 * Returns the meta object for the attribute '{@link core.APIParameter#getReferenceName <em>Reference Name</em>}'.
+	 * Returns the meta object for the attribute '{@link core.Parameter#getReferenceName <em>Reference Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Reference Name</em>'.
-	 * @see core.APIParameter#getReferenceName()
-	 * @see #getAPIParameter()
+	 * @see core.Parameter#getReferenceName()
+	 * @see #getParameter()
 	 * @generated
 	 */
-	EAttribute getAPIParameter_ReferenceName();
+	EAttribute getParameter_ReferenceName();
 
 	/**
-	 * Returns the meta object for the reference '{@link core.APIParameter#getDeclaringContext <em>Declaring Context</em>}'.
+	 * Returns the meta object for the reference '{@link core.Parameter#getDeclaringContext <em>Declaring Context</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Declaring Context</em>'.
-	 * @see core.APIParameter#getDeclaringContext()
-	 * @see #getAPIParameter()
+	 * @see core.Parameter#getDeclaringContext()
+	 * @see #getParameter()
 	 * @generated
 	 */
-	EReference getAPIParameter_DeclaringContext();
+	EReference getParameter_DeclaringContext();
 
 	/**
 	 * Returns the meta object for class '{@link core.ItemsDefinition <em>Items Definition</em>}'.
@@ -4894,14 +4894,14 @@ public interface CorePackage extends EPackage {
 		EReference PATH__PATCH = eINSTANCE.getPath_Patch();
 
 		/**
-		 * The meta object literal for the '{@link core.impl.APIOperationImpl <em>API Operation</em>}' class.
+		 * The meta object literal for the '{@link core.impl.OperationImpl <em>Operation</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see core.impl.APIOperationImpl
-		 * @see core.impl.CorePackageImpl#getAPIOperation()
+		 * @see core.impl.OperationImpl
+		 * @see core.impl.CorePackageImpl#getOperation()
 		 * @generated
 		 */
-		EClass API_OPERATION = eINSTANCE.getAPIOperation();
+		EClass OPERATION = eINSTANCE.getOperation();
 
 		/**
 		 * The meta object literal for the '<em><b>Tag References</b></em>' attribute list feature.
@@ -4909,7 +4909,7 @@ public interface CorePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute API_OPERATION__TAG_REFERENCES = eINSTANCE.getAPIOperation_TagReferences();
+		EAttribute OPERATION__TAG_REFERENCES = eINSTANCE.getOperation_TagReferences();
 
 		/**
 		 * The meta object literal for the '<em><b>Summary</b></em>' attribute feature.
@@ -4917,7 +4917,7 @@ public interface CorePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute API_OPERATION__SUMMARY = eINSTANCE.getAPIOperation_Summary();
+		EAttribute OPERATION__SUMMARY = eINSTANCE.getOperation_Summary();
 
 		/**
 		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
@@ -4925,7 +4925,7 @@ public interface CorePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute API_OPERATION__DESCRIPTION = eINSTANCE.getAPIOperation_Description();
+		EAttribute OPERATION__DESCRIPTION = eINSTANCE.getOperation_Description();
 
 		/**
 		 * The meta object literal for the '<em><b>Operation Id</b></em>' attribute feature.
@@ -4933,7 +4933,7 @@ public interface CorePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute API_OPERATION__OPERATION_ID = eINSTANCE.getAPIOperation_OperationId();
+		EAttribute OPERATION__OPERATION_ID = eINSTANCE.getOperation_OperationId();
 
 		/**
 		 * The meta object literal for the '<em><b>Consumes</b></em>' attribute list feature.
@@ -4941,7 +4941,7 @@ public interface CorePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute API_OPERATION__CONSUMES = eINSTANCE.getAPIOperation_Consumes();
+		EAttribute OPERATION__CONSUMES = eINSTANCE.getOperation_Consumes();
 
 		/**
 		 * The meta object literal for the '<em><b>Produces</b></em>' attribute list feature.
@@ -4949,7 +4949,7 @@ public interface CorePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute API_OPERATION__PRODUCES = eINSTANCE.getAPIOperation_Produces();
+		EAttribute OPERATION__PRODUCES = eINSTANCE.getOperation_Produces();
 
 		/**
 		 * The meta object literal for the '<em><b>Responses</b></em>' reference list feature.
@@ -4957,7 +4957,7 @@ public interface CorePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference API_OPERATION__RESPONSES = eINSTANCE.getAPIOperation_Responses();
+		EReference OPERATION__RESPONSES = eINSTANCE.getOperation_Responses();
 
 		/**
 		 * The meta object literal for the '<em><b>Schemes</b></em>' attribute list feature.
@@ -4965,7 +4965,7 @@ public interface CorePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute API_OPERATION__SCHEMES = eINSTANCE.getAPIOperation_Schemes();
+		EAttribute OPERATION__SCHEMES = eINSTANCE.getOperation_Schemes();
 
 		/**
 		 * The meta object literal for the '<em><b>Deprecated</b></em>' attribute feature.
@@ -4973,7 +4973,7 @@ public interface CorePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute API_OPERATION__DEPRECATED = eINSTANCE.getAPIOperation_Deprecated();
+		EAttribute OPERATION__DEPRECATED = eINSTANCE.getOperation_Deprecated();
 
 		/**
 		 * The meta object literal for the '<em><b>Path</b></em>' container reference feature.
@@ -4981,7 +4981,7 @@ public interface CorePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference API_OPERATION__PATH = eINSTANCE.getAPIOperation_Path();
+		EReference OPERATION__PATH = eINSTANCE.getOperation_Path();
 
 		/**
 		 * The meta object literal for the '{@link core.impl.ExternalDocsImpl <em>External Docs</em>}' class.
@@ -5010,14 +5010,14 @@ public interface CorePackage extends EPackage {
 		EAttribute EXTERNAL_DOCS__URL = eINSTANCE.getExternalDocs_Url();
 
 		/**
-		 * The meta object literal for the '{@link core.impl.APIParameterImpl <em>API Parameter</em>}' class.
+		 * The meta object literal for the '{@link core.impl.ParameterImpl <em>Parameter</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see core.impl.APIParameterImpl
-		 * @see core.impl.CorePackageImpl#getAPIParameter()
+		 * @see core.impl.ParameterImpl
+		 * @see core.impl.CorePackageImpl#getParameter()
 		 * @generated
 		 */
-		EClass API_PARAMETER = eINSTANCE.getAPIParameter();
+		EClass PARAMETER = eINSTANCE.getParameter();
 
 		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -5025,7 +5025,7 @@ public interface CorePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute API_PARAMETER__NAME = eINSTANCE.getAPIParameter_Name();
+		EAttribute PARAMETER__NAME = eINSTANCE.getParameter_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Location</b></em>' attribute feature.
@@ -5033,7 +5033,7 @@ public interface CorePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute API_PARAMETER__LOCATION = eINSTANCE.getAPIParameter_Location();
+		EAttribute PARAMETER__LOCATION = eINSTANCE.getParameter_Location();
 
 		/**
 		 * The meta object literal for the '<em><b>Required</b></em>' attribute feature.
@@ -5041,7 +5041,7 @@ public interface CorePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute API_PARAMETER__REQUIRED = eINSTANCE.getAPIParameter_Required();
+		EAttribute PARAMETER__REQUIRED = eINSTANCE.getParameter_Required();
 
 		/**
 		 * The meta object literal for the '<em><b>Allow Emply Value</b></em>' attribute feature.
@@ -5049,7 +5049,7 @@ public interface CorePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute API_PARAMETER__ALLOW_EMPLY_VALUE = eINSTANCE.getAPIParameter_AllowEmplyValue();
+		EAttribute PARAMETER__ALLOW_EMPLY_VALUE = eINSTANCE.getParameter_AllowEmplyValue();
 
 		/**
 		 * The meta object literal for the '<em><b>Reference Name</b></em>' attribute feature.
@@ -5057,7 +5057,7 @@ public interface CorePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute API_PARAMETER__REFERENCE_NAME = eINSTANCE.getAPIParameter_ReferenceName();
+		EAttribute PARAMETER__REFERENCE_NAME = eINSTANCE.getParameter_ReferenceName();
 
 		/**
 		 * The meta object literal for the '<em><b>Declaring Context</b></em>' reference feature.
@@ -5065,7 +5065,7 @@ public interface CorePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference API_PARAMETER__DECLARING_CONTEXT = eINSTANCE.getAPIParameter_DeclaringContext();
+		EReference PARAMETER__DECLARING_CONTEXT = eINSTANCE.getParameter_DeclaringContext();
 
 		/**
 		 * The meta object literal for the '{@link core.impl.ItemsDefinitionImpl <em>Items Definition</em>}' class.

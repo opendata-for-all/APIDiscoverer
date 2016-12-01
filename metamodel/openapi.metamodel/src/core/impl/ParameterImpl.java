@@ -2,7 +2,6 @@
  */
 package core.impl;
 
-import core.APIParameter;
 import core.ArrayContext;
 import core.CollectionFormat;
 import core.CorePackage;
@@ -10,15 +9,17 @@ import core.ItemsDefinition;
 import core.JSONDataType;
 import core.JSONPointer;
 import core.JSONSchemaSubset;
+import core.Parameter;
 import core.ParameterLocation;
 import core.ParamterDeclaringContext;
 import core.Schema;
-
 import core.SchemaContext;
+
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -30,43 +31,43 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>API Parameter</b></em>'.
+ * An implementation of the model object '<em><b>Parameter</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link core.impl.APIParameterImpl#getSchema <em>Schema</em>}</li>
- *   <li>{@link core.impl.APIParameterImpl#getType <em>Type</em>}</li>
- *   <li>{@link core.impl.APIParameterImpl#getFormat <em>Format</em>}</li>
- *   <li>{@link core.impl.APIParameterImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link core.impl.APIParameterImpl#getMaximum <em>Maximum</em>}</li>
- *   <li>{@link core.impl.APIParameterImpl#getExclusiveMaximum <em>Exclusive Maximum</em>}</li>
- *   <li>{@link core.impl.APIParameterImpl#getMinimum <em>Minimum</em>}</li>
- *   <li>{@link core.impl.APIParameterImpl#getExclusiveMinimum <em>Exclusive Minimum</em>}</li>
- *   <li>{@link core.impl.APIParameterImpl#getMaxLength <em>Max Length</em>}</li>
- *   <li>{@link core.impl.APIParameterImpl#getMinLength <em>Min Length</em>}</li>
- *   <li>{@link core.impl.APIParameterImpl#getPattern <em>Pattern</em>}</li>
- *   <li>{@link core.impl.APIParameterImpl#getMaxItems <em>Max Items</em>}</li>
- *   <li>{@link core.impl.APIParameterImpl#getMinItems <em>Min Items</em>}</li>
- *   <li>{@link core.impl.APIParameterImpl#getUniqueItems <em>Unique Items</em>}</li>
- *   <li>{@link core.impl.APIParameterImpl#getEnum <em>Enum</em>}</li>
- *   <li>{@link core.impl.APIParameterImpl#getDefault <em>Default</em>}</li>
- *   <li>{@link core.impl.APIParameterImpl#getMultipleOf <em>Multiple Of</em>}</li>
- *   <li>{@link core.impl.APIParameterImpl#getRef <em>Ref</em>}</li>
- *   <li>{@link core.impl.APIParameterImpl#getCollectionFormat <em>Collection Format</em>}</li>
- *   <li>{@link core.impl.APIParameterImpl#getItems <em>Items</em>}</li>
- *   <li>{@link core.impl.APIParameterImpl#getName <em>Name</em>}</li>
- *   <li>{@link core.impl.APIParameterImpl#getLocation <em>Location</em>}</li>
- *   <li>{@link core.impl.APIParameterImpl#getRequired <em>Required</em>}</li>
- *   <li>{@link core.impl.APIParameterImpl#getAllowEmplyValue <em>Allow Emply Value</em>}</li>
- *   <li>{@link core.impl.APIParameterImpl#getReferenceName <em>Reference Name</em>}</li>
- *   <li>{@link core.impl.APIParameterImpl#getDeclaringContext <em>Declaring Context</em>}</li>
+ *   <li>{@link core.impl.ParameterImpl#getSchema <em>Schema</em>}</li>
+ *   <li>{@link core.impl.ParameterImpl#getType <em>Type</em>}</li>
+ *   <li>{@link core.impl.ParameterImpl#getFormat <em>Format</em>}</li>
+ *   <li>{@link core.impl.ParameterImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link core.impl.ParameterImpl#getMaximum <em>Maximum</em>}</li>
+ *   <li>{@link core.impl.ParameterImpl#getExclusiveMaximum <em>Exclusive Maximum</em>}</li>
+ *   <li>{@link core.impl.ParameterImpl#getMinimum <em>Minimum</em>}</li>
+ *   <li>{@link core.impl.ParameterImpl#getExclusiveMinimum <em>Exclusive Minimum</em>}</li>
+ *   <li>{@link core.impl.ParameterImpl#getMaxLength <em>Max Length</em>}</li>
+ *   <li>{@link core.impl.ParameterImpl#getMinLength <em>Min Length</em>}</li>
+ *   <li>{@link core.impl.ParameterImpl#getPattern <em>Pattern</em>}</li>
+ *   <li>{@link core.impl.ParameterImpl#getMaxItems <em>Max Items</em>}</li>
+ *   <li>{@link core.impl.ParameterImpl#getMinItems <em>Min Items</em>}</li>
+ *   <li>{@link core.impl.ParameterImpl#getUniqueItems <em>Unique Items</em>}</li>
+ *   <li>{@link core.impl.ParameterImpl#getEnum <em>Enum</em>}</li>
+ *   <li>{@link core.impl.ParameterImpl#getDefault <em>Default</em>}</li>
+ *   <li>{@link core.impl.ParameterImpl#getMultipleOf <em>Multiple Of</em>}</li>
+ *   <li>{@link core.impl.ParameterImpl#getRef <em>Ref</em>}</li>
+ *   <li>{@link core.impl.ParameterImpl#getCollectionFormat <em>Collection Format</em>}</li>
+ *   <li>{@link core.impl.ParameterImpl#getItems <em>Items</em>}</li>
+ *   <li>{@link core.impl.ParameterImpl#getName <em>Name</em>}</li>
+ *   <li>{@link core.impl.ParameterImpl#getLocation <em>Location</em>}</li>
+ *   <li>{@link core.impl.ParameterImpl#getRequired <em>Required</em>}</li>
+ *   <li>{@link core.impl.ParameterImpl#getAllowEmplyValue <em>Allow Emply Value</em>}</li>
+ *   <li>{@link core.impl.ParameterImpl#getReferenceName <em>Reference Name</em>}</li>
+ *   <li>{@link core.impl.ParameterImpl#getDeclaringContext <em>Declaring Context</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class APIParameterImpl extends SchemaDeclaringContextImpl implements APIParameter {
+public class ParameterImpl extends SchemaDeclaringContextImpl implements Parameter {
 	/**
 	 * The cached value of the '{@link #getSchema() <em>Schema</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -542,7 +543,7 @@ public class APIParameterImpl extends SchemaDeclaringContextImpl implements APIP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected APIParameterImpl() {
+	protected ParameterImpl() {
 		super();
 	}
 
@@ -553,481 +554,7 @@ public class APIParameterImpl extends SchemaDeclaringContextImpl implements APIP
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return CorePackage.Literals.API_PARAMETER;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.API_PARAMETER__NAME, oldName, name));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ParameterLocation getLocation() {
-		return location;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setLocation(ParameterLocation newLocation) {
-		ParameterLocation oldLocation = location;
-		location = newLocation == null ? LOCATION_EDEFAULT : newLocation;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.API_PARAMETER__LOCATION, oldLocation, location));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getDescription() {
-		return description;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setDescription(String newDescription) {
-		String oldDescription = description;
-		description = newDescription;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.API_PARAMETER__DESCRIPTION, oldDescription, description));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Double getMaximum() {
-		return maximum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setMaximum(Double newMaximum) {
-		Double oldMaximum = maximum;
-		maximum = newMaximum;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.API_PARAMETER__MAXIMUM, oldMaximum, maximum));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Double getExclusiveMaximum() {
-		return exclusiveMaximum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setExclusiveMaximum(Double newExclusiveMaximum) {
-		Double oldExclusiveMaximum = exclusiveMaximum;
-		exclusiveMaximum = newExclusiveMaximum;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.API_PARAMETER__EXCLUSIVE_MAXIMUM, oldExclusiveMaximum, exclusiveMaximum));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Double getMinimum() {
-		return minimum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setMinimum(Double newMinimum) {
-		Double oldMinimum = minimum;
-		minimum = newMinimum;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.API_PARAMETER__MINIMUM, oldMinimum, minimum));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Boolean getExclusiveMinimum() {
-		return exclusiveMinimum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setExclusiveMinimum(Boolean newExclusiveMinimum) {
-		Boolean oldExclusiveMinimum = exclusiveMinimum;
-		exclusiveMinimum = newExclusiveMinimum;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.API_PARAMETER__EXCLUSIVE_MINIMUM, oldExclusiveMinimum, exclusiveMinimum));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Integer getMaxLength() {
-		return maxLength;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setMaxLength(Integer newMaxLength) {
-		Integer oldMaxLength = maxLength;
-		maxLength = newMaxLength;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.API_PARAMETER__MAX_LENGTH, oldMaxLength, maxLength));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Integer getMinLength() {
-		return minLength;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setMinLength(Integer newMinLength) {
-		Integer oldMinLength = minLength;
-		minLength = newMinLength;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.API_PARAMETER__MIN_LENGTH, oldMinLength, minLength));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getPattern() {
-		return pattern;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setPattern(String newPattern) {
-		String oldPattern = pattern;
-		pattern = newPattern;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.API_PARAMETER__PATTERN, oldPattern, pattern));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Integer getMaxItems() {
-		return maxItems;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setMaxItems(Integer newMaxItems) {
-		Integer oldMaxItems = maxItems;
-		maxItems = newMaxItems;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.API_PARAMETER__MAX_ITEMS, oldMaxItems, maxItems));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Integer getMinItems() {
-		return minItems;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setMinItems(Integer newMinItems) {
-		Integer oldMinItems = minItems;
-		minItems = newMinItems;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.API_PARAMETER__MIN_ITEMS, oldMinItems, minItems));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Boolean getUniqueItems() {
-		return uniqueItems;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setUniqueItems(Boolean newUniqueItems) {
-		Boolean oldUniqueItems = uniqueItems;
-		uniqueItems = newUniqueItems;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.API_PARAMETER__UNIQUE_ITEMS, oldUniqueItems, uniqueItems));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Boolean getRequired() {
-		return required;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRequired(Boolean newRequired) {
-		Boolean oldRequired = required;
-		required = newRequired;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.API_PARAMETER__REQUIRED, oldRequired, required));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public JSONDataType getType() {
-		return type;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setType(JSONDataType newType) {
-		JSONDataType oldType = type;
-		type = newType == null ? TYPE_EDEFAULT : newType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.API_PARAMETER__TYPE, oldType, type));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getFormat() {
-		return format;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setFormat(String newFormat) {
-		String oldFormat = format;
-		format = newFormat;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.API_PARAMETER__FORMAT, oldFormat, format));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Boolean getAllowEmplyValue() {
-		return allowEmplyValue;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setAllowEmplyValue(Boolean newAllowEmplyValue) {
-		Boolean oldAllowEmplyValue = allowEmplyValue;
-		allowEmplyValue = newAllowEmplyValue;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.API_PARAMETER__ALLOW_EMPLY_VALUE, oldAllowEmplyValue, allowEmplyValue));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ItemsDefinition getItems() {
-		return items;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetItems(ItemsDefinition newItems, NotificationChain msgs) {
-		ItemsDefinition oldItems = items;
-		items = newItems;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorePackage.API_PARAMETER__ITEMS, oldItems, newItems);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setItems(ItemsDefinition newItems) {
-		if (newItems != items) {
-			NotificationChain msgs = null;
-			if (items != null)
-				msgs = ((InternalEObject)items).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CorePackage.API_PARAMETER__ITEMS, null, msgs);
-			if (newItems != null)
-				msgs = ((InternalEObject)newItems).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CorePackage.API_PARAMETER__ITEMS, null, msgs);
-			msgs = basicSetItems(newItems, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.API_PARAMETER__ITEMS, newItems, newItems));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CollectionFormat getCollectionFormat() {
-		return collectionFormat;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setCollectionFormat(CollectionFormat newCollectionFormat) {
-		CollectionFormat oldCollectionFormat = collectionFormat;
-		collectionFormat = newCollectionFormat == null ? COLLECTION_FORMAT_EDEFAULT : newCollectionFormat;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.API_PARAMETER__COLLECTION_FORMAT, oldCollectionFormat, collectionFormat));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getDefault() {
-		return default_;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setDefault(String newDefault) {
-		String oldDefault = default_;
-		default_ = newDefault;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.API_PARAMETER__DEFAULT, oldDefault, default_));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public double getMultipleOf() {
-		return multipleOf;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setMultipleOf(double newMultipleOf) {
-		double oldMultipleOf = multipleOf;
-		multipleOf = newMultipleOf;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.API_PARAMETER__MULTIPLE_OF, oldMultipleOf, multipleOf));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getRef() {
-		// TODO: implement this method to return the 'Ref' attribute
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return CorePackage.Literals.PARAMETER;
 	}
 
 	/**
@@ -1041,7 +568,7 @@ public class APIParameterImpl extends SchemaDeclaringContextImpl implements APIP
 			schema = (Schema)eResolveProxy(oldSchema);
 			if (schema != oldSchema) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CorePackage.API_PARAMETER__SCHEMA, oldSchema, schema));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CorePackage.PARAMETER__SCHEMA, oldSchema, schema));
 			}
 		}
 		return schema;
@@ -1065,7 +592,280 @@ public class APIParameterImpl extends SchemaDeclaringContextImpl implements APIP
 		Schema oldSchema = schema;
 		schema = newSchema;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.API_PARAMETER__SCHEMA, oldSchema, schema));
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.PARAMETER__SCHEMA, oldSchema, schema));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public JSONDataType getType() {
+		return type;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setType(JSONDataType newType) {
+		JSONDataType oldType = type;
+		type = newType == null ? TYPE_EDEFAULT : newType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.PARAMETER__TYPE, oldType, type));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getFormat() {
+		return format;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFormat(String newFormat) {
+		String oldFormat = format;
+		format = newFormat;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.PARAMETER__FORMAT, oldFormat, format));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getDescription() {
+		return description;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDescription(String newDescription) {
+		String oldDescription = description;
+		description = newDescription;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.PARAMETER__DESCRIPTION, oldDescription, description));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Double getMaximum() {
+		return maximum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMaximum(Double newMaximum) {
+		Double oldMaximum = maximum;
+		maximum = newMaximum;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.PARAMETER__MAXIMUM, oldMaximum, maximum));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Double getExclusiveMaximum() {
+		return exclusiveMaximum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setExclusiveMaximum(Double newExclusiveMaximum) {
+		Double oldExclusiveMaximum = exclusiveMaximum;
+		exclusiveMaximum = newExclusiveMaximum;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.PARAMETER__EXCLUSIVE_MAXIMUM, oldExclusiveMaximum, exclusiveMaximum));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Double getMinimum() {
+		return minimum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMinimum(Double newMinimum) {
+		Double oldMinimum = minimum;
+		minimum = newMinimum;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.PARAMETER__MINIMUM, oldMinimum, minimum));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Boolean getExclusiveMinimum() {
+		return exclusiveMinimum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setExclusiveMinimum(Boolean newExclusiveMinimum) {
+		Boolean oldExclusiveMinimum = exclusiveMinimum;
+		exclusiveMinimum = newExclusiveMinimum;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.PARAMETER__EXCLUSIVE_MINIMUM, oldExclusiveMinimum, exclusiveMinimum));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Integer getMaxLength() {
+		return maxLength;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMaxLength(Integer newMaxLength) {
+		Integer oldMaxLength = maxLength;
+		maxLength = newMaxLength;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.PARAMETER__MAX_LENGTH, oldMaxLength, maxLength));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Integer getMinLength() {
+		return minLength;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMinLength(Integer newMinLength) {
+		Integer oldMinLength = minLength;
+		minLength = newMinLength;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.PARAMETER__MIN_LENGTH, oldMinLength, minLength));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getPattern() {
+		return pattern;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPattern(String newPattern) {
+		String oldPattern = pattern;
+		pattern = newPattern;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.PARAMETER__PATTERN, oldPattern, pattern));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Integer getMaxItems() {
+		return maxItems;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMaxItems(Integer newMaxItems) {
+		Integer oldMaxItems = maxItems;
+		maxItems = newMaxItems;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.PARAMETER__MAX_ITEMS, oldMaxItems, maxItems));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Integer getMinItems() {
+		return minItems;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMinItems(Integer newMinItems) {
+		Integer oldMinItems = minItems;
+		minItems = newMinItems;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.PARAMETER__MIN_ITEMS, oldMinItems, minItems));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Boolean getUniqueItems() {
+		return uniqueItems;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setUniqueItems(Boolean newUniqueItems) {
+		Boolean oldUniqueItems = uniqueItems;
+		uniqueItems = newUniqueItems;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.PARAMETER__UNIQUE_ITEMS, oldUniqueItems, uniqueItems));
 	}
 
 	/**
@@ -1075,9 +875,210 @@ public class APIParameterImpl extends SchemaDeclaringContextImpl implements APIP
 	 */
 	public EList<String> getEnum() {
 		if (enum_ == null) {
-			enum_ = new EDataTypeUniqueEList<String>(String.class, this, CorePackage.API_PARAMETER__ENUM);
+			enum_ = new EDataTypeUniqueEList<String>(String.class, this, CorePackage.PARAMETER__ENUM);
 		}
 		return enum_;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getDefault() {
+		return default_;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDefault(String newDefault) {
+		String oldDefault = default_;
+		default_ = newDefault;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.PARAMETER__DEFAULT, oldDefault, default_));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public double getMultipleOf() {
+		return multipleOf;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMultipleOf(double newMultipleOf) {
+		double oldMultipleOf = multipleOf;
+		multipleOf = newMultipleOf;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.PARAMETER__MULTIPLE_OF, oldMultipleOf, multipleOf));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getRef() {
+		// TODO: implement this method to return the 'Ref' attribute
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CollectionFormat getCollectionFormat() {
+		return collectionFormat;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCollectionFormat(CollectionFormat newCollectionFormat) {
+		CollectionFormat oldCollectionFormat = collectionFormat;
+		collectionFormat = newCollectionFormat == null ? COLLECTION_FORMAT_EDEFAULT : newCollectionFormat;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.PARAMETER__COLLECTION_FORMAT, oldCollectionFormat, collectionFormat));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ItemsDefinition getItems() {
+		return items;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetItems(ItemsDefinition newItems, NotificationChain msgs) {
+		ItemsDefinition oldItems = items;
+		items = newItems;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorePackage.PARAMETER__ITEMS, oldItems, newItems);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setItems(ItemsDefinition newItems) {
+		if (newItems != items) {
+			NotificationChain msgs = null;
+			if (items != null)
+				msgs = ((InternalEObject)items).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CorePackage.PARAMETER__ITEMS, null, msgs);
+			if (newItems != null)
+				msgs = ((InternalEObject)newItems).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CorePackage.PARAMETER__ITEMS, null, msgs);
+			msgs = basicSetItems(newItems, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.PARAMETER__ITEMS, newItems, newItems));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.PARAMETER__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ParameterLocation getLocation() {
+		return location;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLocation(ParameterLocation newLocation) {
+		ParameterLocation oldLocation = location;
+		location = newLocation == null ? LOCATION_EDEFAULT : newLocation;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.PARAMETER__LOCATION, oldLocation, location));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Boolean getRequired() {
+		return required;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRequired(Boolean newRequired) {
+		Boolean oldRequired = required;
+		required = newRequired;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.PARAMETER__REQUIRED, oldRequired, required));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Boolean getAllowEmplyValue() {
+		return allowEmplyValue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAllowEmplyValue(Boolean newAllowEmplyValue) {
+		Boolean oldAllowEmplyValue = allowEmplyValue;
+		allowEmplyValue = newAllowEmplyValue;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.PARAMETER__ALLOW_EMPLY_VALUE, oldAllowEmplyValue, allowEmplyValue));
 	}
 
 	/**
@@ -1098,7 +1099,7 @@ public class APIParameterImpl extends SchemaDeclaringContextImpl implements APIP
 		String oldReferenceName = referenceName;
 		referenceName = newReferenceName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.API_PARAMETER__REFERENCE_NAME, oldReferenceName, referenceName));
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.PARAMETER__REFERENCE_NAME, oldReferenceName, referenceName));
 	}
 
 	/**
@@ -1112,7 +1113,7 @@ public class APIParameterImpl extends SchemaDeclaringContextImpl implements APIP
 			declaringContext = (ParamterDeclaringContext)eResolveProxy(oldDeclaringContext);
 			if (declaringContext != oldDeclaringContext) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CorePackage.API_PARAMETER__DECLARING_CONTEXT, oldDeclaringContext, declaringContext));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CorePackage.PARAMETER__DECLARING_CONTEXT, oldDeclaringContext, declaringContext));
 			}
 		}
 		return declaringContext;
@@ -1136,7 +1137,7 @@ public class APIParameterImpl extends SchemaDeclaringContextImpl implements APIP
 		ParamterDeclaringContext oldDeclaringContext = declaringContext;
 		declaringContext = newDeclaringContext;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.API_PARAMETER__DECLARING_CONTEXT, oldDeclaringContext, declaringContext));
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.PARAMETER__DECLARING_CONTEXT, oldDeclaringContext, declaringContext));
 	}
 
 	/**
@@ -1147,7 +1148,7 @@ public class APIParameterImpl extends SchemaDeclaringContextImpl implements APIP
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case CorePackage.API_PARAMETER__ITEMS:
+			case CorePackage.PARAMETER__ITEMS:
 				return basicSetItems(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -1161,58 +1162,58 @@ public class APIParameterImpl extends SchemaDeclaringContextImpl implements APIP
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CorePackage.API_PARAMETER__SCHEMA:
+			case CorePackage.PARAMETER__SCHEMA:
 				if (resolve) return getSchema();
 				return basicGetSchema();
-			case CorePackage.API_PARAMETER__TYPE:
+			case CorePackage.PARAMETER__TYPE:
 				return getType();
-			case CorePackage.API_PARAMETER__FORMAT:
+			case CorePackage.PARAMETER__FORMAT:
 				return getFormat();
-			case CorePackage.API_PARAMETER__DESCRIPTION:
+			case CorePackage.PARAMETER__DESCRIPTION:
 				return getDescription();
-			case CorePackage.API_PARAMETER__MAXIMUM:
+			case CorePackage.PARAMETER__MAXIMUM:
 				return getMaximum();
-			case CorePackage.API_PARAMETER__EXCLUSIVE_MAXIMUM:
+			case CorePackage.PARAMETER__EXCLUSIVE_MAXIMUM:
 				return getExclusiveMaximum();
-			case CorePackage.API_PARAMETER__MINIMUM:
+			case CorePackage.PARAMETER__MINIMUM:
 				return getMinimum();
-			case CorePackage.API_PARAMETER__EXCLUSIVE_MINIMUM:
+			case CorePackage.PARAMETER__EXCLUSIVE_MINIMUM:
 				return getExclusiveMinimum();
-			case CorePackage.API_PARAMETER__MAX_LENGTH:
+			case CorePackage.PARAMETER__MAX_LENGTH:
 				return getMaxLength();
-			case CorePackage.API_PARAMETER__MIN_LENGTH:
+			case CorePackage.PARAMETER__MIN_LENGTH:
 				return getMinLength();
-			case CorePackage.API_PARAMETER__PATTERN:
+			case CorePackage.PARAMETER__PATTERN:
 				return getPattern();
-			case CorePackage.API_PARAMETER__MAX_ITEMS:
+			case CorePackage.PARAMETER__MAX_ITEMS:
 				return getMaxItems();
-			case CorePackage.API_PARAMETER__MIN_ITEMS:
+			case CorePackage.PARAMETER__MIN_ITEMS:
 				return getMinItems();
-			case CorePackage.API_PARAMETER__UNIQUE_ITEMS:
+			case CorePackage.PARAMETER__UNIQUE_ITEMS:
 				return getUniqueItems();
-			case CorePackage.API_PARAMETER__ENUM:
+			case CorePackage.PARAMETER__ENUM:
 				return getEnum();
-			case CorePackage.API_PARAMETER__DEFAULT:
+			case CorePackage.PARAMETER__DEFAULT:
 				return getDefault();
-			case CorePackage.API_PARAMETER__MULTIPLE_OF:
+			case CorePackage.PARAMETER__MULTIPLE_OF:
 				return getMultipleOf();
-			case CorePackage.API_PARAMETER__REF:
+			case CorePackage.PARAMETER__REF:
 				return getRef();
-			case CorePackage.API_PARAMETER__COLLECTION_FORMAT:
+			case CorePackage.PARAMETER__COLLECTION_FORMAT:
 				return getCollectionFormat();
-			case CorePackage.API_PARAMETER__ITEMS:
+			case CorePackage.PARAMETER__ITEMS:
 				return getItems();
-			case CorePackage.API_PARAMETER__NAME:
+			case CorePackage.PARAMETER__NAME:
 				return getName();
-			case CorePackage.API_PARAMETER__LOCATION:
+			case CorePackage.PARAMETER__LOCATION:
 				return getLocation();
-			case CorePackage.API_PARAMETER__REQUIRED:
+			case CorePackage.PARAMETER__REQUIRED:
 				return getRequired();
-			case CorePackage.API_PARAMETER__ALLOW_EMPLY_VALUE:
+			case CorePackage.PARAMETER__ALLOW_EMPLY_VALUE:
 				return getAllowEmplyValue();
-			case CorePackage.API_PARAMETER__REFERENCE_NAME:
+			case CorePackage.PARAMETER__REFERENCE_NAME:
 				return getReferenceName();
-			case CorePackage.API_PARAMETER__DECLARING_CONTEXT:
+			case CorePackage.PARAMETER__DECLARING_CONTEXT:
 				if (resolve) return getDeclaringContext();
 				return basicGetDeclaringContext();
 		}
@@ -1228,80 +1229,80 @@ public class APIParameterImpl extends SchemaDeclaringContextImpl implements APIP
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CorePackage.API_PARAMETER__SCHEMA:
+			case CorePackage.PARAMETER__SCHEMA:
 				setSchema((Schema)newValue);
 				return;
-			case CorePackage.API_PARAMETER__TYPE:
+			case CorePackage.PARAMETER__TYPE:
 				setType((JSONDataType)newValue);
 				return;
-			case CorePackage.API_PARAMETER__FORMAT:
+			case CorePackage.PARAMETER__FORMAT:
 				setFormat((String)newValue);
 				return;
-			case CorePackage.API_PARAMETER__DESCRIPTION:
+			case CorePackage.PARAMETER__DESCRIPTION:
 				setDescription((String)newValue);
 				return;
-			case CorePackage.API_PARAMETER__MAXIMUM:
+			case CorePackage.PARAMETER__MAXIMUM:
 				setMaximum((Double)newValue);
 				return;
-			case CorePackage.API_PARAMETER__EXCLUSIVE_MAXIMUM:
+			case CorePackage.PARAMETER__EXCLUSIVE_MAXIMUM:
 				setExclusiveMaximum((Double)newValue);
 				return;
-			case CorePackage.API_PARAMETER__MINIMUM:
+			case CorePackage.PARAMETER__MINIMUM:
 				setMinimum((Double)newValue);
 				return;
-			case CorePackage.API_PARAMETER__EXCLUSIVE_MINIMUM:
+			case CorePackage.PARAMETER__EXCLUSIVE_MINIMUM:
 				setExclusiveMinimum((Boolean)newValue);
 				return;
-			case CorePackage.API_PARAMETER__MAX_LENGTH:
+			case CorePackage.PARAMETER__MAX_LENGTH:
 				setMaxLength((Integer)newValue);
 				return;
-			case CorePackage.API_PARAMETER__MIN_LENGTH:
+			case CorePackage.PARAMETER__MIN_LENGTH:
 				setMinLength((Integer)newValue);
 				return;
-			case CorePackage.API_PARAMETER__PATTERN:
+			case CorePackage.PARAMETER__PATTERN:
 				setPattern((String)newValue);
 				return;
-			case CorePackage.API_PARAMETER__MAX_ITEMS:
+			case CorePackage.PARAMETER__MAX_ITEMS:
 				setMaxItems((Integer)newValue);
 				return;
-			case CorePackage.API_PARAMETER__MIN_ITEMS:
+			case CorePackage.PARAMETER__MIN_ITEMS:
 				setMinItems((Integer)newValue);
 				return;
-			case CorePackage.API_PARAMETER__UNIQUE_ITEMS:
+			case CorePackage.PARAMETER__UNIQUE_ITEMS:
 				setUniqueItems((Boolean)newValue);
 				return;
-			case CorePackage.API_PARAMETER__ENUM:
+			case CorePackage.PARAMETER__ENUM:
 				getEnum().clear();
 				getEnum().addAll((Collection<? extends String>)newValue);
 				return;
-			case CorePackage.API_PARAMETER__DEFAULT:
+			case CorePackage.PARAMETER__DEFAULT:
 				setDefault((String)newValue);
 				return;
-			case CorePackage.API_PARAMETER__MULTIPLE_OF:
+			case CorePackage.PARAMETER__MULTIPLE_OF:
 				setMultipleOf((Double)newValue);
 				return;
-			case CorePackage.API_PARAMETER__COLLECTION_FORMAT:
+			case CorePackage.PARAMETER__COLLECTION_FORMAT:
 				setCollectionFormat((CollectionFormat)newValue);
 				return;
-			case CorePackage.API_PARAMETER__ITEMS:
+			case CorePackage.PARAMETER__ITEMS:
 				setItems((ItemsDefinition)newValue);
 				return;
-			case CorePackage.API_PARAMETER__NAME:
+			case CorePackage.PARAMETER__NAME:
 				setName((String)newValue);
 				return;
-			case CorePackage.API_PARAMETER__LOCATION:
+			case CorePackage.PARAMETER__LOCATION:
 				setLocation((ParameterLocation)newValue);
 				return;
-			case CorePackage.API_PARAMETER__REQUIRED:
+			case CorePackage.PARAMETER__REQUIRED:
 				setRequired((Boolean)newValue);
 				return;
-			case CorePackage.API_PARAMETER__ALLOW_EMPLY_VALUE:
+			case CorePackage.PARAMETER__ALLOW_EMPLY_VALUE:
 				setAllowEmplyValue((Boolean)newValue);
 				return;
-			case CorePackage.API_PARAMETER__REFERENCE_NAME:
+			case CorePackage.PARAMETER__REFERENCE_NAME:
 				setReferenceName((String)newValue);
 				return;
-			case CorePackage.API_PARAMETER__DECLARING_CONTEXT:
+			case CorePackage.PARAMETER__DECLARING_CONTEXT:
 				setDeclaringContext((ParamterDeclaringContext)newValue);
 				return;
 		}
@@ -1316,79 +1317,79 @@ public class APIParameterImpl extends SchemaDeclaringContextImpl implements APIP
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CorePackage.API_PARAMETER__SCHEMA:
+			case CorePackage.PARAMETER__SCHEMA:
 				setSchema((Schema)null);
 				return;
-			case CorePackage.API_PARAMETER__TYPE:
+			case CorePackage.PARAMETER__TYPE:
 				setType(TYPE_EDEFAULT);
 				return;
-			case CorePackage.API_PARAMETER__FORMAT:
+			case CorePackage.PARAMETER__FORMAT:
 				setFormat(FORMAT_EDEFAULT);
 				return;
-			case CorePackage.API_PARAMETER__DESCRIPTION:
+			case CorePackage.PARAMETER__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
 				return;
-			case CorePackage.API_PARAMETER__MAXIMUM:
+			case CorePackage.PARAMETER__MAXIMUM:
 				setMaximum(MAXIMUM_EDEFAULT);
 				return;
-			case CorePackage.API_PARAMETER__EXCLUSIVE_MAXIMUM:
+			case CorePackage.PARAMETER__EXCLUSIVE_MAXIMUM:
 				setExclusiveMaximum(EXCLUSIVE_MAXIMUM_EDEFAULT);
 				return;
-			case CorePackage.API_PARAMETER__MINIMUM:
+			case CorePackage.PARAMETER__MINIMUM:
 				setMinimum(MINIMUM_EDEFAULT);
 				return;
-			case CorePackage.API_PARAMETER__EXCLUSIVE_MINIMUM:
+			case CorePackage.PARAMETER__EXCLUSIVE_MINIMUM:
 				setExclusiveMinimum(EXCLUSIVE_MINIMUM_EDEFAULT);
 				return;
-			case CorePackage.API_PARAMETER__MAX_LENGTH:
+			case CorePackage.PARAMETER__MAX_LENGTH:
 				setMaxLength(MAX_LENGTH_EDEFAULT);
 				return;
-			case CorePackage.API_PARAMETER__MIN_LENGTH:
+			case CorePackage.PARAMETER__MIN_LENGTH:
 				setMinLength(MIN_LENGTH_EDEFAULT);
 				return;
-			case CorePackage.API_PARAMETER__PATTERN:
+			case CorePackage.PARAMETER__PATTERN:
 				setPattern(PATTERN_EDEFAULT);
 				return;
-			case CorePackage.API_PARAMETER__MAX_ITEMS:
+			case CorePackage.PARAMETER__MAX_ITEMS:
 				setMaxItems(MAX_ITEMS_EDEFAULT);
 				return;
-			case CorePackage.API_PARAMETER__MIN_ITEMS:
+			case CorePackage.PARAMETER__MIN_ITEMS:
 				setMinItems(MIN_ITEMS_EDEFAULT);
 				return;
-			case CorePackage.API_PARAMETER__UNIQUE_ITEMS:
+			case CorePackage.PARAMETER__UNIQUE_ITEMS:
 				setUniqueItems(UNIQUE_ITEMS_EDEFAULT);
 				return;
-			case CorePackage.API_PARAMETER__ENUM:
+			case CorePackage.PARAMETER__ENUM:
 				getEnum().clear();
 				return;
-			case CorePackage.API_PARAMETER__DEFAULT:
+			case CorePackage.PARAMETER__DEFAULT:
 				setDefault(DEFAULT_EDEFAULT);
 				return;
-			case CorePackage.API_PARAMETER__MULTIPLE_OF:
+			case CorePackage.PARAMETER__MULTIPLE_OF:
 				setMultipleOf(MULTIPLE_OF_EDEFAULT);
 				return;
-			case CorePackage.API_PARAMETER__COLLECTION_FORMAT:
+			case CorePackage.PARAMETER__COLLECTION_FORMAT:
 				setCollectionFormat(COLLECTION_FORMAT_EDEFAULT);
 				return;
-			case CorePackage.API_PARAMETER__ITEMS:
+			case CorePackage.PARAMETER__ITEMS:
 				setItems((ItemsDefinition)null);
 				return;
-			case CorePackage.API_PARAMETER__NAME:
+			case CorePackage.PARAMETER__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case CorePackage.API_PARAMETER__LOCATION:
+			case CorePackage.PARAMETER__LOCATION:
 				setLocation(LOCATION_EDEFAULT);
 				return;
-			case CorePackage.API_PARAMETER__REQUIRED:
+			case CorePackage.PARAMETER__REQUIRED:
 				setRequired(REQUIRED_EDEFAULT);
 				return;
-			case CorePackage.API_PARAMETER__ALLOW_EMPLY_VALUE:
+			case CorePackage.PARAMETER__ALLOW_EMPLY_VALUE:
 				setAllowEmplyValue(ALLOW_EMPLY_VALUE_EDEFAULT);
 				return;
-			case CorePackage.API_PARAMETER__REFERENCE_NAME:
+			case CorePackage.PARAMETER__REFERENCE_NAME:
 				setReferenceName(REFERENCE_NAME_EDEFAULT);
 				return;
-			case CorePackage.API_PARAMETER__DECLARING_CONTEXT:
+			case CorePackage.PARAMETER__DECLARING_CONTEXT:
 				setDeclaringContext((ParamterDeclaringContext)null);
 				return;
 		}
@@ -1403,57 +1404,57 @@ public class APIParameterImpl extends SchemaDeclaringContextImpl implements APIP
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CorePackage.API_PARAMETER__SCHEMA:
+			case CorePackage.PARAMETER__SCHEMA:
 				return schema != null;
-			case CorePackage.API_PARAMETER__TYPE:
+			case CorePackage.PARAMETER__TYPE:
 				return type != TYPE_EDEFAULT;
-			case CorePackage.API_PARAMETER__FORMAT:
+			case CorePackage.PARAMETER__FORMAT:
 				return FORMAT_EDEFAULT == null ? format != null : !FORMAT_EDEFAULT.equals(format);
-			case CorePackage.API_PARAMETER__DESCRIPTION:
+			case CorePackage.PARAMETER__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-			case CorePackage.API_PARAMETER__MAXIMUM:
+			case CorePackage.PARAMETER__MAXIMUM:
 				return MAXIMUM_EDEFAULT == null ? maximum != null : !MAXIMUM_EDEFAULT.equals(maximum);
-			case CorePackage.API_PARAMETER__EXCLUSIVE_MAXIMUM:
+			case CorePackage.PARAMETER__EXCLUSIVE_MAXIMUM:
 				return EXCLUSIVE_MAXIMUM_EDEFAULT == null ? exclusiveMaximum != null : !EXCLUSIVE_MAXIMUM_EDEFAULT.equals(exclusiveMaximum);
-			case CorePackage.API_PARAMETER__MINIMUM:
+			case CorePackage.PARAMETER__MINIMUM:
 				return MINIMUM_EDEFAULT == null ? minimum != null : !MINIMUM_EDEFAULT.equals(minimum);
-			case CorePackage.API_PARAMETER__EXCLUSIVE_MINIMUM:
+			case CorePackage.PARAMETER__EXCLUSIVE_MINIMUM:
 				return EXCLUSIVE_MINIMUM_EDEFAULT == null ? exclusiveMinimum != null : !EXCLUSIVE_MINIMUM_EDEFAULT.equals(exclusiveMinimum);
-			case CorePackage.API_PARAMETER__MAX_LENGTH:
+			case CorePackage.PARAMETER__MAX_LENGTH:
 				return MAX_LENGTH_EDEFAULT == null ? maxLength != null : !MAX_LENGTH_EDEFAULT.equals(maxLength);
-			case CorePackage.API_PARAMETER__MIN_LENGTH:
+			case CorePackage.PARAMETER__MIN_LENGTH:
 				return MIN_LENGTH_EDEFAULT == null ? minLength != null : !MIN_LENGTH_EDEFAULT.equals(minLength);
-			case CorePackage.API_PARAMETER__PATTERN:
+			case CorePackage.PARAMETER__PATTERN:
 				return PATTERN_EDEFAULT == null ? pattern != null : !PATTERN_EDEFAULT.equals(pattern);
-			case CorePackage.API_PARAMETER__MAX_ITEMS:
+			case CorePackage.PARAMETER__MAX_ITEMS:
 				return MAX_ITEMS_EDEFAULT == null ? maxItems != null : !MAX_ITEMS_EDEFAULT.equals(maxItems);
-			case CorePackage.API_PARAMETER__MIN_ITEMS:
+			case CorePackage.PARAMETER__MIN_ITEMS:
 				return MIN_ITEMS_EDEFAULT == null ? minItems != null : !MIN_ITEMS_EDEFAULT.equals(minItems);
-			case CorePackage.API_PARAMETER__UNIQUE_ITEMS:
+			case CorePackage.PARAMETER__UNIQUE_ITEMS:
 				return UNIQUE_ITEMS_EDEFAULT == null ? uniqueItems != null : !UNIQUE_ITEMS_EDEFAULT.equals(uniqueItems);
-			case CorePackage.API_PARAMETER__ENUM:
+			case CorePackage.PARAMETER__ENUM:
 				return enum_ != null && !enum_.isEmpty();
-			case CorePackage.API_PARAMETER__DEFAULT:
+			case CorePackage.PARAMETER__DEFAULT:
 				return DEFAULT_EDEFAULT == null ? default_ != null : !DEFAULT_EDEFAULT.equals(default_);
-			case CorePackage.API_PARAMETER__MULTIPLE_OF:
+			case CorePackage.PARAMETER__MULTIPLE_OF:
 				return multipleOf != MULTIPLE_OF_EDEFAULT;
-			case CorePackage.API_PARAMETER__REF:
+			case CorePackage.PARAMETER__REF:
 				return REF_EDEFAULT == null ? getRef() != null : !REF_EDEFAULT.equals(getRef());
-			case CorePackage.API_PARAMETER__COLLECTION_FORMAT:
+			case CorePackage.PARAMETER__COLLECTION_FORMAT:
 				return collectionFormat != COLLECTION_FORMAT_EDEFAULT;
-			case CorePackage.API_PARAMETER__ITEMS:
+			case CorePackage.PARAMETER__ITEMS:
 				return items != null;
-			case CorePackage.API_PARAMETER__NAME:
+			case CorePackage.PARAMETER__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case CorePackage.API_PARAMETER__LOCATION:
+			case CorePackage.PARAMETER__LOCATION:
 				return location != LOCATION_EDEFAULT;
-			case CorePackage.API_PARAMETER__REQUIRED:
+			case CorePackage.PARAMETER__REQUIRED:
 				return REQUIRED_EDEFAULT == null ? required != null : !REQUIRED_EDEFAULT.equals(required);
-			case CorePackage.API_PARAMETER__ALLOW_EMPLY_VALUE:
+			case CorePackage.PARAMETER__ALLOW_EMPLY_VALUE:
 				return ALLOW_EMPLY_VALUE_EDEFAULT == null ? allowEmplyValue != null : !ALLOW_EMPLY_VALUE_EDEFAULT.equals(allowEmplyValue);
-			case CorePackage.API_PARAMETER__REFERENCE_NAME:
+			case CorePackage.PARAMETER__REFERENCE_NAME:
 				return REFERENCE_NAME_EDEFAULT == null ? referenceName != null : !REFERENCE_NAME_EDEFAULT.equals(referenceName);
-			case CorePackage.API_PARAMETER__DECLARING_CONTEXT:
+			case CorePackage.PARAMETER__DECLARING_CONTEXT:
 				return declaringContext != null;
 		}
 		return super.eIsSet(featureID);
@@ -1468,41 +1469,41 @@ public class APIParameterImpl extends SchemaDeclaringContextImpl implements APIP
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == SchemaContext.class) {
 			switch (derivedFeatureID) {
-				case CorePackage.API_PARAMETER__SCHEMA: return CorePackage.SCHEMA_CONTEXT__SCHEMA;
+				case CorePackage.PARAMETER__SCHEMA: return CorePackage.SCHEMA_CONTEXT__SCHEMA;
 				default: return -1;
 			}
 		}
 		if (baseClass == JSONSchemaSubset.class) {
 			switch (derivedFeatureID) {
-				case CorePackage.API_PARAMETER__TYPE: return CorePackage.JSON_SCHEMA_SUBSET__TYPE;
-				case CorePackage.API_PARAMETER__FORMAT: return CorePackage.JSON_SCHEMA_SUBSET__FORMAT;
-				case CorePackage.API_PARAMETER__DESCRIPTION: return CorePackage.JSON_SCHEMA_SUBSET__DESCRIPTION;
-				case CorePackage.API_PARAMETER__MAXIMUM: return CorePackage.JSON_SCHEMA_SUBSET__MAXIMUM;
-				case CorePackage.API_PARAMETER__EXCLUSIVE_MAXIMUM: return CorePackage.JSON_SCHEMA_SUBSET__EXCLUSIVE_MAXIMUM;
-				case CorePackage.API_PARAMETER__MINIMUM: return CorePackage.JSON_SCHEMA_SUBSET__MINIMUM;
-				case CorePackage.API_PARAMETER__EXCLUSIVE_MINIMUM: return CorePackage.JSON_SCHEMA_SUBSET__EXCLUSIVE_MINIMUM;
-				case CorePackage.API_PARAMETER__MAX_LENGTH: return CorePackage.JSON_SCHEMA_SUBSET__MAX_LENGTH;
-				case CorePackage.API_PARAMETER__MIN_LENGTH: return CorePackage.JSON_SCHEMA_SUBSET__MIN_LENGTH;
-				case CorePackage.API_PARAMETER__PATTERN: return CorePackage.JSON_SCHEMA_SUBSET__PATTERN;
-				case CorePackage.API_PARAMETER__MAX_ITEMS: return CorePackage.JSON_SCHEMA_SUBSET__MAX_ITEMS;
-				case CorePackage.API_PARAMETER__MIN_ITEMS: return CorePackage.JSON_SCHEMA_SUBSET__MIN_ITEMS;
-				case CorePackage.API_PARAMETER__UNIQUE_ITEMS: return CorePackage.JSON_SCHEMA_SUBSET__UNIQUE_ITEMS;
-				case CorePackage.API_PARAMETER__ENUM: return CorePackage.JSON_SCHEMA_SUBSET__ENUM;
-				case CorePackage.API_PARAMETER__DEFAULT: return CorePackage.JSON_SCHEMA_SUBSET__DEFAULT;
-				case CorePackage.API_PARAMETER__MULTIPLE_OF: return CorePackage.JSON_SCHEMA_SUBSET__MULTIPLE_OF;
+				case CorePackage.PARAMETER__TYPE: return CorePackage.JSON_SCHEMA_SUBSET__TYPE;
+				case CorePackage.PARAMETER__FORMAT: return CorePackage.JSON_SCHEMA_SUBSET__FORMAT;
+				case CorePackage.PARAMETER__DESCRIPTION: return CorePackage.JSON_SCHEMA_SUBSET__DESCRIPTION;
+				case CorePackage.PARAMETER__MAXIMUM: return CorePackage.JSON_SCHEMA_SUBSET__MAXIMUM;
+				case CorePackage.PARAMETER__EXCLUSIVE_MAXIMUM: return CorePackage.JSON_SCHEMA_SUBSET__EXCLUSIVE_MAXIMUM;
+				case CorePackage.PARAMETER__MINIMUM: return CorePackage.JSON_SCHEMA_SUBSET__MINIMUM;
+				case CorePackage.PARAMETER__EXCLUSIVE_MINIMUM: return CorePackage.JSON_SCHEMA_SUBSET__EXCLUSIVE_MINIMUM;
+				case CorePackage.PARAMETER__MAX_LENGTH: return CorePackage.JSON_SCHEMA_SUBSET__MAX_LENGTH;
+				case CorePackage.PARAMETER__MIN_LENGTH: return CorePackage.JSON_SCHEMA_SUBSET__MIN_LENGTH;
+				case CorePackage.PARAMETER__PATTERN: return CorePackage.JSON_SCHEMA_SUBSET__PATTERN;
+				case CorePackage.PARAMETER__MAX_ITEMS: return CorePackage.JSON_SCHEMA_SUBSET__MAX_ITEMS;
+				case CorePackage.PARAMETER__MIN_ITEMS: return CorePackage.JSON_SCHEMA_SUBSET__MIN_ITEMS;
+				case CorePackage.PARAMETER__UNIQUE_ITEMS: return CorePackage.JSON_SCHEMA_SUBSET__UNIQUE_ITEMS;
+				case CorePackage.PARAMETER__ENUM: return CorePackage.JSON_SCHEMA_SUBSET__ENUM;
+				case CorePackage.PARAMETER__DEFAULT: return CorePackage.JSON_SCHEMA_SUBSET__DEFAULT;
+				case CorePackage.PARAMETER__MULTIPLE_OF: return CorePackage.JSON_SCHEMA_SUBSET__MULTIPLE_OF;
 				default: return -1;
 			}
 		}
 		if (baseClass == JSONPointer.class) {
 			switch (derivedFeatureID) {
-				case CorePackage.API_PARAMETER__REF: return CorePackage.JSON_POINTER__REF;
+				case CorePackage.PARAMETER__REF: return CorePackage.JSON_POINTER__REF;
 				default: return -1;
 			}
 		}
 		if (baseClass == ArrayContext.class) {
 			switch (derivedFeatureID) {
-				case CorePackage.API_PARAMETER__COLLECTION_FORMAT: return CorePackage.ARRAY_CONTEXT__COLLECTION_FORMAT;
-				case CorePackage.API_PARAMETER__ITEMS: return CorePackage.ARRAY_CONTEXT__ITEMS;
+				case CorePackage.PARAMETER__COLLECTION_FORMAT: return CorePackage.ARRAY_CONTEXT__COLLECTION_FORMAT;
+				case CorePackage.PARAMETER__ITEMS: return CorePackage.ARRAY_CONTEXT__ITEMS;
 				default: return -1;
 			}
 		}
@@ -1518,41 +1519,41 @@ public class APIParameterImpl extends SchemaDeclaringContextImpl implements APIP
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == SchemaContext.class) {
 			switch (baseFeatureID) {
-				case CorePackage.SCHEMA_CONTEXT__SCHEMA: return CorePackage.API_PARAMETER__SCHEMA;
+				case CorePackage.SCHEMA_CONTEXT__SCHEMA: return CorePackage.PARAMETER__SCHEMA;
 				default: return -1;
 			}
 		}
 		if (baseClass == JSONSchemaSubset.class) {
 			switch (baseFeatureID) {
-				case CorePackage.JSON_SCHEMA_SUBSET__TYPE: return CorePackage.API_PARAMETER__TYPE;
-				case CorePackage.JSON_SCHEMA_SUBSET__FORMAT: return CorePackage.API_PARAMETER__FORMAT;
-				case CorePackage.JSON_SCHEMA_SUBSET__DESCRIPTION: return CorePackage.API_PARAMETER__DESCRIPTION;
-				case CorePackage.JSON_SCHEMA_SUBSET__MAXIMUM: return CorePackage.API_PARAMETER__MAXIMUM;
-				case CorePackage.JSON_SCHEMA_SUBSET__EXCLUSIVE_MAXIMUM: return CorePackage.API_PARAMETER__EXCLUSIVE_MAXIMUM;
-				case CorePackage.JSON_SCHEMA_SUBSET__MINIMUM: return CorePackage.API_PARAMETER__MINIMUM;
-				case CorePackage.JSON_SCHEMA_SUBSET__EXCLUSIVE_MINIMUM: return CorePackage.API_PARAMETER__EXCLUSIVE_MINIMUM;
-				case CorePackage.JSON_SCHEMA_SUBSET__MAX_LENGTH: return CorePackage.API_PARAMETER__MAX_LENGTH;
-				case CorePackage.JSON_SCHEMA_SUBSET__MIN_LENGTH: return CorePackage.API_PARAMETER__MIN_LENGTH;
-				case CorePackage.JSON_SCHEMA_SUBSET__PATTERN: return CorePackage.API_PARAMETER__PATTERN;
-				case CorePackage.JSON_SCHEMA_SUBSET__MAX_ITEMS: return CorePackage.API_PARAMETER__MAX_ITEMS;
-				case CorePackage.JSON_SCHEMA_SUBSET__MIN_ITEMS: return CorePackage.API_PARAMETER__MIN_ITEMS;
-				case CorePackage.JSON_SCHEMA_SUBSET__UNIQUE_ITEMS: return CorePackage.API_PARAMETER__UNIQUE_ITEMS;
-				case CorePackage.JSON_SCHEMA_SUBSET__ENUM: return CorePackage.API_PARAMETER__ENUM;
-				case CorePackage.JSON_SCHEMA_SUBSET__DEFAULT: return CorePackage.API_PARAMETER__DEFAULT;
-				case CorePackage.JSON_SCHEMA_SUBSET__MULTIPLE_OF: return CorePackage.API_PARAMETER__MULTIPLE_OF;
+				case CorePackage.JSON_SCHEMA_SUBSET__TYPE: return CorePackage.PARAMETER__TYPE;
+				case CorePackage.JSON_SCHEMA_SUBSET__FORMAT: return CorePackage.PARAMETER__FORMAT;
+				case CorePackage.JSON_SCHEMA_SUBSET__DESCRIPTION: return CorePackage.PARAMETER__DESCRIPTION;
+				case CorePackage.JSON_SCHEMA_SUBSET__MAXIMUM: return CorePackage.PARAMETER__MAXIMUM;
+				case CorePackage.JSON_SCHEMA_SUBSET__EXCLUSIVE_MAXIMUM: return CorePackage.PARAMETER__EXCLUSIVE_MAXIMUM;
+				case CorePackage.JSON_SCHEMA_SUBSET__MINIMUM: return CorePackage.PARAMETER__MINIMUM;
+				case CorePackage.JSON_SCHEMA_SUBSET__EXCLUSIVE_MINIMUM: return CorePackage.PARAMETER__EXCLUSIVE_MINIMUM;
+				case CorePackage.JSON_SCHEMA_SUBSET__MAX_LENGTH: return CorePackage.PARAMETER__MAX_LENGTH;
+				case CorePackage.JSON_SCHEMA_SUBSET__MIN_LENGTH: return CorePackage.PARAMETER__MIN_LENGTH;
+				case CorePackage.JSON_SCHEMA_SUBSET__PATTERN: return CorePackage.PARAMETER__PATTERN;
+				case CorePackage.JSON_SCHEMA_SUBSET__MAX_ITEMS: return CorePackage.PARAMETER__MAX_ITEMS;
+				case CorePackage.JSON_SCHEMA_SUBSET__MIN_ITEMS: return CorePackage.PARAMETER__MIN_ITEMS;
+				case CorePackage.JSON_SCHEMA_SUBSET__UNIQUE_ITEMS: return CorePackage.PARAMETER__UNIQUE_ITEMS;
+				case CorePackage.JSON_SCHEMA_SUBSET__ENUM: return CorePackage.PARAMETER__ENUM;
+				case CorePackage.JSON_SCHEMA_SUBSET__DEFAULT: return CorePackage.PARAMETER__DEFAULT;
+				case CorePackage.JSON_SCHEMA_SUBSET__MULTIPLE_OF: return CorePackage.PARAMETER__MULTIPLE_OF;
 				default: return -1;
 			}
 		}
 		if (baseClass == JSONPointer.class) {
 			switch (baseFeatureID) {
-				case CorePackage.JSON_POINTER__REF: return CorePackage.API_PARAMETER__REF;
+				case CorePackage.JSON_POINTER__REF: return CorePackage.PARAMETER__REF;
 				default: return -1;
 			}
 		}
 		if (baseClass == ArrayContext.class) {
 			switch (baseFeatureID) {
-				case CorePackage.ARRAY_CONTEXT__COLLECTION_FORMAT: return CorePackage.API_PARAMETER__COLLECTION_FORMAT;
-				case CorePackage.ARRAY_CONTEXT__ITEMS: return CorePackage.API_PARAMETER__ITEMS;
+				case CorePackage.ARRAY_CONTEXT__COLLECTION_FORMAT: return CorePackage.PARAMETER__COLLECTION_FORMAT;
+				case CorePackage.ARRAY_CONTEXT__ITEMS: return CorePackage.PARAMETER__ITEMS;
 				default: return -1;
 			}
 		}
@@ -1617,4 +1618,4 @@ public class APIParameterImpl extends SchemaDeclaringContextImpl implements APIP
 		return result.toString();
 	}
 
-} //APIParameterImpl
+} //ParameterImpl

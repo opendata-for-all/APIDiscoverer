@@ -96,16 +96,16 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 				return createPathAdapter();
 			}
 			@Override
-			public Adapter caseAPIOperation(APIOperation object) {
-				return createAPIOperationAdapter();
+			public Adapter caseOperation(Operation object) {
+				return createOperationAdapter();
 			}
 			@Override
 			public Adapter caseExternalDocs(ExternalDocs object) {
 				return createExternalDocsAdapter();
 			}
 			@Override
-			public Adapter caseAPIParameter(APIParameter object) {
-				return createAPIParameterAdapter();
+			public Adapter caseParameter(Parameter object) {
+				return createParameterAdapter();
 			}
 			@Override
 			public Adapter caseItemsDefinition(ItemsDefinition object) {
@@ -298,16 +298,16 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link core.APIOperation <em>API Operation</em>}'.
+	 * Creates a new adapter for an object of class '{@link core.Operation <em>Operation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see core.APIOperation
+	 * @see core.Operation
 	 * @generated
 	 */
-	public Adapter createAPIOperationAdapter() {
+	public Adapter createOperationAdapter() {
 		return null;
 	}
 
@@ -326,16 +326,16 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link core.APIParameter <em>API Parameter</em>}'.
+	 * Creates a new adapter for an object of class '{@link core.Parameter <em>Parameter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see core.APIParameter
+	 * @see core.Parameter
 	 * @generated
 	 */
-	public Adapter createAPIParameterAdapter() {
+	public Adapter createParameterAdapter() {
 		return null;
 	}
 

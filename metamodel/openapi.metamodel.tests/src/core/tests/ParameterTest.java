@@ -2,13 +2,14 @@
  */
 package core.tests;
 
-import core.APIParameter;
 import core.CoreFactory;
+import core.Parameter;
+
 import junit.textui.TestRunner;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>API Parameter</b></em>'.
+ * A test case for the model object '<em><b>Parameter</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are tested:
@@ -18,7 +19,7 @@ import junit.textui.TestRunner;
  * </p>
  * @generated
  */
-public class APIParameterTest extends SchemaDeclaringContextTest {
+public class ParameterTest extends SchemaDeclaringContextTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -26,28 +27,28 @@ public class APIParameterTest extends SchemaDeclaringContextTest {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(APIParameterTest.class);
+		TestRunner.run(ParameterTest.class);
 	}
 
 	/**
-	 * Constructs a new API Parameter test case with the given name.
+	 * Constructs a new Parameter test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public APIParameterTest(String name) {
+	public ParameterTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Returns the fixture for this API Parameter test case.
+	 * Returns the fixture for this Parameter test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	protected APIParameter getFixture() {
-		return (APIParameter)fixture;
+	protected Parameter getFixture() {
+		return (Parameter)fixture;
 	}
 
 	/**
@@ -58,7 +59,7 @@ public class APIParameterTest extends SchemaDeclaringContextTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(CoreFactory.eINSTANCE.createAPIParameter());
+		setFixture(CoreFactory.eINSTANCE.createParameter());
 	}
 
 	/**
@@ -85,4 +86,4 @@ public class APIParameterTest extends SchemaDeclaringContextTest {
 		fail();
 	}
 
-} //APIParameterTest
+} //ParameterTest

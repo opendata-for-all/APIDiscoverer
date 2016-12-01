@@ -54,7 +54,7 @@ public interface Root extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Paramters</b></em>' containment reference list.
-	 * The list contents are of type {@link core.APIParameter}.
+	 * The list contents are of type {@link core.Parameter}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Paramters</em>' containment reference list isn't clear,
@@ -66,7 +66,7 @@ public interface Root extends EObject {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<APIParameter> getParamters();
+	EList<Parameter> getParamters();
 
 	/**
 	 * Returns the value of the '<em><b>Schemas</b></em>' containment reference list.
