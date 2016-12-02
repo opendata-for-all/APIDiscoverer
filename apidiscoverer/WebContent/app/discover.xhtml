@@ -29,17 +29,16 @@ body {
 
 	<h:body>
 
-<p:dialog id="exceptionDialog" header="Oups" widgetVar="exceptionDialog"
-         >
-   There was a problem with your request<br/>
- <br />
+		<p:dialog id="exceptionDialog" header="Oups"
+			widgetVar="exceptionDialog">
+   There was a problem with your request<br />
+			<br />
 
-    <p:button onclick="PF('exceptionDialog').hide()" 
-              value="Close"
-             />
-</p:dialog>
+			<p:button onclick="PF('exceptionDialog').hide()" value="Close" />
+			<p:growl id="growl" showDetail="false" sticky="true" />
+		</p:dialog>
 		<p:layout fullPage="true" styleClass="ui-fluid">
-			<p:layoutUnit id="top" position="north" size="90">
+			<p:layoutUnit id="top" position="north" size="70">
 
 				<h:graphicImage library="image" name="apidiscoverer.png"
 					styleClass="logo" alt="APIDiscoverer" />
@@ -47,32 +46,22 @@ body {
 
 
 				<h:form>
-				<p:ajaxExceptionHandler type="java.lang.Exception"
-                        update="exceptionDialog"
-                        onexception="PF('exceptionDialog').show();" />
-					
+					<p:ajaxExceptionHandler type="java.lang.Exception"
+						update="exceptionDialog"
+						onexception="PF('exceptionDialog').show();" />
 
-					<p:slideMenu style="width:180px;float:right;hight:95px;">
+
+					<p:menu style="width:180px;float:right;hight:70px;">
 						<p:menuitem value="Start over" icon="ui-icon-refresh"
 							onclick="location.reload();" />
-						<p:submenu label="Download" icon="ui-icon-disk">
-							<p:menuitem value="basic" ajax="false" style="float:right"
-								actionListener="#{discovererBean.prepDownload}"
-								icon="ui-icon-disk">
-								<p:fileDownload value="#{discovererBean.download}" />
-							</p:menuitem>
-							<p:menuitem value="advanced" ajax="false" style="float:right"
-								actionListener="#{discovererBean.prepDownloadAdvanced}"
-								icon="ui-icon-disk">
-								<p:fileDownload value="#{discovererBean.downloadAdvanced}" />
-							</p:menuitem>
-						</p:submenu>
 
+						<p:menuitem value="Download" ajax="false" style="float:right"
+							actionListener="#{discovererBean.prepDownload}"
+							icon="ui-icon-disk">
+							<p:fileDownload value="#{discovererBean.download}" />
+						</p:menuitem>
 
-
-
-					</p:slideMenu>
-
+					</p:menu>
 
 				</h:form>
 
@@ -114,65 +103,126 @@ body {
 
 				</p:treeTable>
 			</p:layoutUnit>
-
+<h:form id="mainForm" prependId="false">
 			<p:layoutUnit id="center" position="center">
-				<p:layout>
-					<p:layoutUnit id="center-south" position="south" header="Response"
-						resizable="true" size="200" collapsible="true">
-						<h:form id="responseForm" prependId="false">
+				
+					<p:layout>
+						<p:layoutUnit id="center-north" position="north"
+							header="Collect examples" resizable="true" size="30"
+							collapsible="false">
+						</p:layoutUnit>
+						<p:layoutUnit id="center-center" position="center"
+							resizable="true" collapsible="false" size="500">
+
+							<h4 style="margin: 0 0">API call example</h4>
+							<p:separator />
+							<h5 style="margin-top: 10px">Request</h5>
+
+
 							<p:panelGrid columns="2"
 								columnClasses="ui-grid-col-2,ui-grid-col-10" layout="grid"
-								styleClass="ui-panelgrid-blank">
-								<h:outputText value="Status" />
-								<h:outputText value="#{discovererBean.response.status}" />
-
-								<p:outputLabel for="response_body" value="Body" />
-								<p:inputTextarea id="response_body" rows="10"
-									style="width: 100%;" value="#{discovererBean.response.body}" />
-
-							</p:panelGrid>
-						</h:form>
-					</p:layoutUnit>
-					<p:layoutUnit id="center-center" position="center" header="Request"
-						resizable="true" collapsible="false">
-						<h:form id="mainForm" prependId="false">
-							<p:messages id="msgs" showDetail="false" autoUpdate="true"
-								closable="true" />
-							<p:panelGrid columns="2"
-								columnClasses="ui-grid-col-2,ui-grid-col-10" layout="grid"
-								styleClass="ui-panelgrid-blank">
+								styleClass="ui-panelgrid-blank" id="requestPanelGrid">
 								<p:outputLabel for="url" value="Request URL" />
 								<p:inputText id="url" style="width: 100%;"
-									value="#{discovererBean.newAPIRequest.url}" required="true"
-									requiredMessage="Please enter a URL." >
-									</p:inputText>
+									value="#{discovererBean.jsonCallExample.jsonRequest.url}"
+									required="true" requiredMessage="Please enter a URL.">
+								</p:inputText>
 								<p:outputLabel for="method" value="Method" />
 								<p:selectOneButton id="method"
-									value="#{discovererBean.newAPIRequest.httpMethod}"  required="true"
-										requiredMessage="Please choose a method.">
+									value="#{discovererBean.jsonCallExample.jsonRequest.method}"
+									required="true" requiredMessage="Please choose a method.">
 									<f:selectItems value="#{httpMethodsBean.getMethods()}"
 										var="httpMethod" itemLabel="#{httpMethod.label}"
-										itemValue="#{httpMethod}"  />
+										itemValue="#{httpMethod}" />
 								</p:selectOneButton>
 								<p:outputLabel for="request_body" value="Body" />
-								<p:inputTextarea id="request_body" rows="10"
-									style="width: 100%;"
-									value="#{discovererBean.newAPIRequest.body}" />
+								<p:inputTextarea id="request_body" rows="8" style="width: 100%;"
+									value="#{discovererBean.jsonCallExample.jsonRequest.body}" />
 								<f:facet name="footer">
 									<p:commandButton id="btn_send" value="Send"
-										update="recordsTable responseForm mainForm modelTree msgs"
-										action="#{discovererBean.sendRequest}" style="float:right">
-
+										process="requestPanelGrid"
+										
+										update="requestPanelGrid responsePanelGrid growl"
+										actionListener="#{discovererBean.sendRequest}"
+										style="float:right">
+ <p:resetInput target="responsePanelGrid" />
 									</p:commandButton>
 								</f:facet>
 
 							</p:panelGrid>
-						</h:form>
-					</p:layoutUnit>
 
-				</p:layout>
+							<h5>Response</h5>
+
+							<p:panelGrid columns="2"
+								columnClasses="ui-grid-col-2,ui-grid-col-10" layout="grid"
+								styleClass="ui-panelgrid-blank" id="responsePanelGrid">
+								<p:outputLabel for="status" value="Status" />
+								<p:inputText id="status"
+									value="#{discovererBean.jsonCallExample.jsonResponse.status}"
+									required="true" />
+
+								<p:outputLabel for="response_body" value="Body" />
+								<p:inputTextarea id="response_body" rows="8"
+									style="width: 100%;"
+									value="#{discovererBean.jsonCallExample.jsonResponse.body}" />
+									<f:facet name="footer">
+				<p style="text-align: right; margin: 0px 0px 0px 0px;">
+				<p:commandButton id="btn_extractExample"
+									update="jsonPanelGrid responsePanelGrid requestPanelGrid growl"
+									process="responsePanelGrid,requestPanelGrid"
+									value="Extract example"
+									actionListener="#{discovererBean.extractExample}">
+								</p:commandButton>
+				</p>
+				</f:facet>
+							</p:panelGrid>
+
+
+
+
+
+
+
+
+
+
+			
+						</p:layoutUnit>
+						<p:layoutUnit id="center-east" position="east" resizable="true"
+							 collapsible="false" size="500">
+							<h4 style="margin: 0 0">API call example (JSON)</h4>
+							<p:separator />
+
+
+							<p:panelGrid columns="2"
+								columnClasses="ui-grid-col-2,ui-grid-col-10" layout="grid"
+								styleClass="ui-panelgrid-blank" id="jsonPanelGrid">
+								<p:outputLabel for="JSONContent" value="Content" />
+								<p:inputTextarea id="JSONContent" style="width: 100%" rows="30"
+									value="#{discovererBean.rowJsonCallExample}"
+									requiredMessage="Please enter a JSON" required="true">
+								</p:inputTextarea>
+
+								<f:facet name="footer">
+								<p style="text-align: right; margin: 0px 0px 0px 0px;">
+									<p:commandButton id="btn_discover" value="Discover" process="jsonPanelGrid"
+										actionListener="#{discovererBean.discover}"
+										update="requestPanelGrid responsePanelGrid recordsTable jsonPanelGrid modelTree growl">
+
+									</p:commandButton>
+								</p>
+							</f:facet>
+
+							</p:panelGrid>
+
+							
+						</p:layoutUnit>
+
+
+					</p:layout>
+			
 			</p:layoutUnit>
-
+	</h:form>
 		</p:layout>
 
 

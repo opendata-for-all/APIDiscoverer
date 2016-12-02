@@ -11,6 +11,7 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.ExternalContext;
@@ -19,6 +20,8 @@ import org.primefaces.model.DefaultStreamedContent;
 import org.primefaces.model.DefaultTreeNode;
 import org.primefaces.model.TreeNode;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import core.APIParameter;
 import core.Api;
@@ -29,8 +32,10 @@ import som.apidiscoverer.Discoverer;
 import som.apidiscoverer.Generator;
 import som.apidiscoverer.model.APIRequest;
 import som.apidiscoverer.model.HttpMethod;
+import som.apidiscoverer.model.JSONAPICallExample;
 import som.apidiscoverer.model.Response;
 import som.apidiscoverer.model.TreeNodeEntry;
+import som.apidiscoverer.util.JSONUtils;
 import som.apidiscoverer.util.RESTClient;
 
 @ManagedBean(name = "discovererBean")
@@ -45,23 +50,27 @@ public class DiscovererBean implements Serializable {
 	private DefaultStreamedContent download;
 	private DefaultStreamedContent downloadAdvanced;
 	private TreeNode apiTree;
+	private JSONAPICallExample jsonCallExample;
+	private String rowJsonCallExample;
+	private Gson gson;
 
 	@PostConstruct
 	public void init() {
+		GsonBuilder builder = new GsonBuilder().setPrettyPrinting();
+		gson = builder.create();
+		jsonCallExample = new JSONAPICallExample();
 		newAPIRequest = new APIRequest();
-//		APIRequest temp = new APIRequest();
-//		try {
-//			temp.setUrl("http://petstore.swagger.io/v2/pet");
-//		} catch (MalformedURLException e) {
-//		}
-//		temp.setHttpMethod(HttpMethod.POST);
-//		temp.setBody("{\"id\": 123,\"category\": {\"id\": 1,\"name\": \"dogs\"},\"name\": \"doggie\",\"photoUrls\": [\"http://example.com\"],\"tags\": [{\"id\": 1,\"name\": \"black\"}],\"status\": \"available\"}");
-//		try {
-//			RESTClient.send(temp);
-//		} catch (UnirestException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
+		APIRequest temp = new APIRequest();
+		temp.setUrl("http://petstore.swagger.io/v2/pet");
+		temp.setHttpMethod(HttpMethod.POST);
+		temp.setBody(
+				"{\"id\": 123,\"category\": {\"id\": 1,\"name\": \"dogs\"},\"name\": \"doggie\",\"photoUrls\": [\"http://example.com\"],\"tags\": [{\"id\": 1,\"name\": \"black\"}],\"status\": \"available\"}");
+		try {
+			RESTClient.send(temp);
+		} catch (UnirestException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		response = new Response();
 		discoverer = new Discoverer();
 		setRecords(new ArrayList<APIRequest>());
@@ -100,9 +109,9 @@ public class DiscovererBean implements Serializable {
 				for (core.Response response : path.getGet().getResponses()) {
 					TreeNode responseNode = new DefaultTreeNode(new TreeNodeEntry(response.getCode(), "-"),
 							responsesNode);
-					if(response.getSchema()!=null){
-						TreeNode schemaNode = new DefaultTreeNode(new TreeNodeEntry("schema", response.getSchema().getName()),
-								responseNode);
+					if (response.getSchema() != null) {
+						TreeNode schemaNode = new DefaultTreeNode(
+								new TreeNodeEntry("schema", response.getSchema().getName()), responseNode);
 						dispalaySchema(response.getSchema(), schemaNode);
 					}
 
@@ -119,10 +128,10 @@ public class DiscovererBean implements Serializable {
 				for (core.Response response : path.getPost().getResponses()) {
 					TreeNode responseNode = new DefaultTreeNode(new TreeNodeEntry(response.getCode(), "-"),
 							responsesNode);
-//					displayResponse(response,responseNode);
-					if(response.getSchema()!=null){
-						TreeNode schemaNode = new DefaultTreeNode(new TreeNodeEntry("schema", response.getSchema().getName()),
-								responseNode);
+					// displayResponse(response,responseNode);
+					if (response.getSchema() != null) {
+						TreeNode schemaNode = new DefaultTreeNode(
+								new TreeNodeEntry("schema", response.getSchema().getName()), responseNode);
 						dispalaySchema(response.getSchema(), schemaNode);
 					}
 
@@ -140,9 +149,9 @@ public class DiscovererBean implements Serializable {
 				for (core.Response response : path.getPut().getResponses()) {
 					TreeNode responseNode = new DefaultTreeNode(new TreeNodeEntry(response.getCode(), "-"),
 							responsesNode);
-					if(response.getSchema()!=null){
-						TreeNode schemaNode = new DefaultTreeNode(new TreeNodeEntry("schema", response.getSchema().getName()),
-								responseNode);
+					if (response.getSchema() != null) {
+						TreeNode schemaNode = new DefaultTreeNode(
+								new TreeNodeEntry("schema", response.getSchema().getName()), responseNode);
 						dispalaySchema(response.getSchema(), schemaNode);
 					}
 
@@ -161,12 +170,11 @@ public class DiscovererBean implements Serializable {
 				for (core.Response response : path.getDelete().getResponses()) {
 					TreeNode responseNode = new DefaultTreeNode(new TreeNodeEntry(response.getCode(), "-"),
 							responsesNode);
-					if(response.getSchema()!=null){
-						TreeNode schemaNode = new DefaultTreeNode(new TreeNodeEntry("schema", response.getSchema().getName()),
-								responseNode);
+					if (response.getSchema() != null) {
+						TreeNode schemaNode = new DefaultTreeNode(
+								new TreeNodeEntry("schema", response.getSchema().getName()), responseNode);
 						dispalaySchema(response.getSchema(), schemaNode);
 					}
-						
 
 				}
 
@@ -177,80 +185,82 @@ public class DiscovererBean implements Serializable {
 		TreeNode definitionsNode = new DefaultTreeNode(new TreeNodeEntry("definitions", "-"), apiNode);
 		for (Schema schema : api.getDefinitions()) {
 			TreeNode schemaNode = new DefaultTreeNode(new TreeNodeEntry(schema.getName(), "-"), definitionsNode);
-		dispalaySchema(schema,schemaNode);
+			dispalaySchema(schema, schemaNode);
 		}
 		return apiNode;
 
 	}
 
 	private void dispalaySchema(Schema schema, TreeNode schemaNode) {
-		if(schema.getProperties()!=null){
-		TreeNode propertiesNode = new DefaultTreeNode(new TreeNodeEntry("properties", "-"), schemaNode);
-		
-		for(Schema property :schema.getProperties()){
-		diplayProperty(property,propertiesNode);
-		
-		}}
-		if(schema.getItems() != null){
+		if (schema.getProperties() != null) {
+			TreeNode propertiesNode = new DefaultTreeNode(new TreeNodeEntry("properties", "-"), schemaNode);
+
+			for (Schema property : schema.getProperties()) {
+				diplayProperty(property, propertiesNode);
+
+			}
+		}
+		if (schema.getItems() != null) {
 			TreeNode itemsNode = new DefaultTreeNode(new TreeNodeEntry("items", "-"), schemaNode);
-			if(schema.getItems().getType().equals(JsonDataType.OBJECT)){
-					TreeNode itemNode = new DefaultTreeNode(new TreeNodeEntry(schema.getItems().getName(), "-"), itemsNode);
+			if (schema.getItems().getType().equals(JsonDataType.OBJECT)) {
+				TreeNode itemNode = new DefaultTreeNode(new TreeNodeEntry(schema.getItems().getName(), "-"), itemsNode);
+			} else {
+				TreeNode itemNode = new DefaultTreeNode(
+						new TreeNodeEntry(schema.getItems().getType().getLiteral(), "-"), itemsNode);
+
 			}
-			else {
-				TreeNode itemNode = new DefaultTreeNode(new TreeNodeEntry(schema.getItems().getType().getLiteral(), "-"), itemsNode);
-				
-			}
-			
+
 		}
 	}
 
 	private void diplayProperty(Schema property, TreeNode propertiesNode) {
-		if(property.getType().equals(JsonDataType.OBJECT))
-		{
-			TreeNode propertyNode = new DefaultTreeNode(new TreeNodeEntry(property.getName(), property.getRefResolved().getName()), propertiesNode);
-			
-		}else {
-			if(property.getType().equals(JsonDataType.ARRAY)){
-				TreeNode arrayNode = new DefaultTreeNode(new TreeNodeEntry(property.getName(), JsonDataType.ARRAY.getLiteral()), propertiesNode);
+		if (property.getType().equals(JsonDataType.OBJECT)) {
+			TreeNode propertyNode = new DefaultTreeNode(
+					new TreeNodeEntry(property.getName(), property.getRefResolved().getName()), propertiesNode);
+
+		} else {
+			if (property.getType().equals(JsonDataType.ARRAY)) {
+				TreeNode arrayNode = new DefaultTreeNode(
+						new TreeNodeEntry(property.getName(), JsonDataType.ARRAY.getLiteral()), propertiesNode);
 				TreeNode itemsNode = new DefaultTreeNode(new TreeNodeEntry("items", "-"), arrayNode);
-				if(property.getItems().getType().equals(JsonDataType.OBJECT)){
-						TreeNode itemNode = new DefaultTreeNode(new TreeNodeEntry(property.getItems().getName(), "-"), itemsNode);
+				if (property.getItems().getType().equals(JsonDataType.OBJECT)) {
+					TreeNode itemNode = new DefaultTreeNode(new TreeNodeEntry(property.getItems().getName(), "-"),
+							itemsNode);
+				} else {
+					TreeNode itemNode = new DefaultTreeNode(
+							new TreeNodeEntry(property.getItems().getType().getLiteral(), "-"), itemsNode);
+
 				}
-				else {
-					TreeNode itemNode = new DefaultTreeNode(new TreeNodeEntry(property.getItems().getType().getLiteral(), "-"), itemsNode);
-					
-				}
-				
-				
-				
-			}
-			else {
-				TreeNode propertyNode = new DefaultTreeNode(new TreeNodeEntry(property.getName(), property.getType().getLiteral()), propertiesNode);
-				
+
+			} else {
+				TreeNode propertyNode = new DefaultTreeNode(
+						new TreeNodeEntry(property.getName(), property.getType().getLiteral()), propertiesNode);
+
 			}
 		}
-		
+
 	}
 
 	private void displayResponse(core.Response response, TreeNode responseNode) {
-if(response.getSchema()!=null){
-	TreeNode schemaNode= new DefaultTreeNode(new TreeNodeEntry("schema",response.getSchema().getName()), responseNode);
-	
-	dispalaySchema(response.getSchema(), schemaNode);
-}
+		if (response.getSchema() != null) {
+			TreeNode schemaNode = new DefaultTreeNode(new TreeNodeEntry("schema", response.getSchema().getName()),
+					responseNode);
+
+			dispalaySchema(response.getSchema(), schemaNode);
+		}
 	}
 
 	public void prepDownload() throws Exception {
 		File temp = File.createTempFile("swagger", ".json");
 		FileWriter fileWritter = new FileWriter(temp.getPath(), true);
 		BufferedWriter bufferWritter = new BufferedWriter(fileWritter);
-		System.out.println(Generator.getJsonFromSwaggerModel(discoverer.getApi()).toString());
-		bufferWritter.write(Generator.getJsonFromSwaggerModel(discoverer.getApi()).toString());
+		bufferWritter.write(gson.toJson(Generator.getJsonFromSwaggerModel(discoverer.getApi())));
 		bufferWritter.close();
 		InputStream input = new FileInputStream(temp);
 		ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
 		setDownload(new DefaultStreamedContent(input, externalContext.getMimeType(temp.getName()), temp.getName()));
 	}
+
 	public void prepDownloadAdvanced() throws Exception {
 		discoverer.applyAdvancedHeurisitics();
 		File temp = File.createTempFile("swagger", ".json");
@@ -260,23 +270,59 @@ if(response.getSchema()!=null){
 		bufferWritter.close();
 		InputStream input = new FileInputStream(temp);
 		ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
-		setDownloadAdvanced(new DefaultStreamedContent(input, externalContext.getMimeType(temp.getName()), temp.getName()));
+		setDownloadAdvanced(
+				new DefaultStreamedContent(input, externalContext.getMimeType(temp.getName()), temp.getName()));
 	}
 
 	public void sendRequest() throws MalformedURLException, URISyntaxException {
 		try {
+			newAPIRequest = getAPIRequestFromAPICallExample(jsonCallExample);
 			newAPIRequest.decode();
 			response = RESTClient.send(newAPIRequest);
 			newAPIRequest.setResponse(response);
-			discoverer.discover(newAPIRequest);
-			records.add(newAPIRequest);
-			newAPIRequest = new APIRequest();
-			// response = new Response();
+			jsonCallExample.getJsonResponse().setStatus(String.valueOf(response.getStatus()));
+			jsonCallExample.getJsonResponse().setBody(response.getBody());
+			System.out.println(jsonCallExample.getJsonResponse().getBody());
 
 		} catch (UnirestException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
+	}
+
+	public void discover() throws MalformedURLException, URISyntaxException {
+		jsonCallExample = gson.fromJson(rowJsonCallExample, JSONAPICallExample.class);
+		newAPIRequest = getAPIRequestFromAPICallExample(jsonCallExample);
+		newAPIRequest.decode();
+		discoverer.discover(newAPIRequest);
+		records.add(newAPIRequest);
+		 FacesContext.getCurrentInstance().addMessage(null,
+	                new FacesMessage("API call example added"));
+		newAPIRequest = new APIRequest();
+		jsonCallExample = new JSONAPICallExample();
+		rowJsonCallExample = "";
+		response = new Response();
+		
+
+	}
+
+	private APIRequest getAPIRequestFromAPICallExample(JSONAPICallExample jsonCallExample) {
+		APIRequest apiRequest = new APIRequest();
+		apiRequest.setUrl(jsonCallExample.getJsonRequest().getUrl());
+		apiRequest.setHttpMethod(jsonCallExample.getJsonRequest().getMethod());
+		apiRequest.setBody(jsonCallExample.getJsonRequest().getBody());
+		if(jsonCallExample.getJsonResponse().getStatus()!=null && !jsonCallExample.getJsonResponse().getStatus().equals("") )
+		apiRequest.getResponse().setStatus(Integer.valueOf(jsonCallExample.getJsonResponse().getStatus()));
+		apiRequest.getResponse().setBody(jsonCallExample.getJsonResponse().getBody());
+		return apiRequest;
+	}
+
+	public void extractExample() {
+		rowJsonCallExample = gson.toJson(jsonCallExample);
+	}
+
+	public void extractExempleFromform() {
 
 	}
 
@@ -310,8 +356,6 @@ if(response.getSchema()!=null){
 		this.response = response;
 	}
 
-
-
 	public TreeNode getApiTree() {
 		return apiTree;
 	}
@@ -326,6 +370,22 @@ if(response.getSchema()!=null){
 
 	public void setDownloadAdvanced(DefaultStreamedContent downloadAdvanced) {
 		this.downloadAdvanced = downloadAdvanced;
+	}
+
+	public JSONAPICallExample getJsonCallExample() {
+		return jsonCallExample;
+	}
+
+	public void setJsonCallExample(JSONAPICallExample jsonCallExample) {
+		this.jsonCallExample = jsonCallExample;
+	}
+
+	public String getRowJsonCallExample() {
+		return rowJsonCallExample;
+	}
+
+	public void setRowJsonCallExample(String rowJsonCallExample) {
+		this.rowJsonCallExample = rowJsonCallExample;
 	}
 
 }

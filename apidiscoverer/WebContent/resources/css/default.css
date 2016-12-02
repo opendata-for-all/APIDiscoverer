@@ -6,9 +6,12 @@
 	position: absolute;
 	top: 5px;
 	left: 15px;
-	height: 70px;
+	height: 60px;
 }
 #top.ui-widget-content{
+	border: 0px; !important;
+}
+#center-north.ui-widget-content{
 	border: 0px; !important;
 }
 /* #center.ui-widget-content{ */

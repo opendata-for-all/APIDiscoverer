@@ -30,13 +30,14 @@ public class APIRequest {
 		queryParameters = new ArrayList();
 		pathParameters = new ArrayList<>();
 		paths = new ArrayList<>();
+		response = new Response();
 	}
 
 	public String getUrl() {
 		return url;
 	}
 
-	public void setUrl(String url) throws MalformedURLException {
+	public void setUrl(String url) {
 
 		this.url = url;
 	
