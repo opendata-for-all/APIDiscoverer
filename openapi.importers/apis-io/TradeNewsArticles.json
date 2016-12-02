@@ -1,0 +1,166 @@
+{
+  "swagger": 2,
+  "info": {
+    "title": "International Trade Administration Trade News & Articles",
+    "description": "The Trade News & Articles API provides in-depth news and articles written by Trade Specialists working in the Federal government. The news and articles are categorized by industry, country, and topic area. Developers can use this API to provide exporters with the latest insights into their industry and into the countries with which they would like to do business.",
+    "termsOfService": "http://developer.trade.gov/tos.html",
+    "version": "1.0"
+  },
+  "host": "api.trade.gov",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/trade_articles/search": {
+      "get": {
+        "summary": "Trade News And Articles",
+        "description": "The Trade News & Articles API provides in-depth news and articles written by Trade Specialists working in the Federal government. The news and articles are categorized by industry, country, and topic area. Developers can use this API to provide exporters with the latest insights into their industry and into the countries with which they would like to do business.",
+        "operationId": "news",
+        "parameters": [
+          {
+            "name": "keyword",
+            "in": "query",
+            "description": "Returns articles for a match in the content and title fields.",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          },
+          {
+            "name": "evergreen",
+            "in": "query",
+            "description": "Flag to designate articles that are always relevant to particular topic.",
+            "required": false,
+            "type": "boolean",
+            "format": "boolean"
+          },
+          {
+            "name": "pub_date_start",
+            "in": "query",
+            "description": "Returns articles created on or after a specific date.",
+            "required": false,
+            "type": "string",
+            "format": "date"
+          },
+          {
+            "name": "pub_date_end",
+            "in": "query",
+            "description": "Returns articles created on or before a specified date.",
+            "required": false,
+            "type": "string",
+            "format": "date"
+          },
+          {
+            "name": "update_date",
+            "in": "query",
+            "description": "Returns articles created on a specified date.",
+            "required": false,
+            "type": "string",
+            "format": "date"
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "description": "The size parameter allows you to configure the maximum amount of hits to be returned. ",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "The offset parameter defines the offset from the first result you want to fetch.",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Article Response"
+          }
+        },
+        "tags": [
+          "Government",
+          " Trade",
+          " News",
+          " Articles",
+          " Industries"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "Article": {
+      "properties": {
+        "id": {
+          "description": "Unique identifier for post",
+          "type": "string"
+        },
+        "evergreen": {
+          "description": "Flag to designate u201ctimelessu201d articles, always topically relevant",
+          "type": "string"
+        },
+        "content": {
+          "description": "Body of the article",
+          "type": "string"
+        },
+        "pub_date": {
+          "description": "Earliest date article can be published (default sort)",
+          "type": "string"
+        },
+        "title": {
+          "description": "Title of the article",
+          "type": "string"
+        },
+        "update_date": {
+          "description": "Date the article was last updated",
+          "type": "string"
+        },
+        "content_type": {
+          "description": "Type of content embodied by the article",
+          "type": "string"
+        },
+        "export_phase": {
+          "description": "Phase of exporting that a business should be in to benefit from the article",
+          "type": "string"
+        },
+        "industry": {
+          "description": "Industry category assigned to this article",
+          "type": "string"
+        },
+        "topic": {
+          "description": "Topic assigned to this article",
+          "type": "string"
+        },
+        "subtopic": {
+          "description": "Subtopic assigned to this article",
+          "type": "string"
+        },
+        "trade_region": {
+          "description": "Trade region covered by an articleu2019s content",
+          "type": "string"
+        },
+        "geo_region": {
+          "description": "World region covered by an articleu2019s content",
+          "type": "string"
+        },
+        "geo_subregion": {
+          "description": "Would sub-region covered by an articleu2019s content",
+          "type": "string"
+        },
+        "country": {
+          "description": "Country covered by an articleu2019s content",
+          "type": "string"
+        },
+        "keyword": {
+          "description": "Keywords assigned by the articleu2019s author",
+          "type": "string"
+        }
+      }
+    }
+  }
+}

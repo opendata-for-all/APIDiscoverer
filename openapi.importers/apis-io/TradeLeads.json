@@ -1,0 +1,167 @@
+{
+  "swagger": 2,
+  "info": {
+    "title": "International Trade Administration Trade Leads API",
+    "description": "The Trade Leads API provides contract opportunities for U.S. businesses selling their products and services overseas. These leads come from a variety of sources and we continue to expand the number of leads available.",
+    "termsOfService": "http://developer.trade.gov/tos.html",
+    "version": "1.0"
+  },
+  "host": "api.trade.gov",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/trade_leads/search": {
+      "get": {
+        "summary": "Overseas Contract Opportunities For US Businesses",
+        "description": "The Trade Leads API provides contract opportunities for U.S. businesses selling their products and services overseas. These leads come from a variety of sources and we continue to expand the number of leads available.",
+        "operationId": "opportunities",
+        "parameters": [
+          {
+            "name": "keyword",
+            "in": "query",
+            "description": "Searches for a match within the event_name and description fields.",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          },
+          {
+            "name": "industry",
+            "in": "query",
+            "description": "Searches for specific controlled industry names",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          },
+          {
+            "name": "countries",
+            "in": "query",
+            "description": "Returns office locations based on ISO alpha-2 country codes.",
+            "required": false,
+            "type": "string",
+            "format": "string"
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "description": "The size parameter allows you to configure the maximum amount of hits to be returned. ",
+            "required": false,
+            "type": "string",
+            "format": "string"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "The offset parameter defines the offset from the first result you want to fetch.",
+            "required": false,
+            "type": "string",
+            "format": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Lead Response"
+          }
+        },
+        "tags": [
+          "U.S.",
+          " Trade",
+          " Government",
+          " Overseas",
+          " Business",
+          " Contracts"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "Lead": {
+      "properties": {
+        "type": {
+          "description": "Trade lead source",
+          "type": "string"
+        },
+        "id": {
+          "description": "ID of the trade lead",
+          "type": "string"
+        },
+        "source": {
+          "description": "Source of the trade lead, typically an organization",
+          "type": "string"
+        },
+        "specific_location": {
+          "description": "Location of the opportunity",
+          "type": "string"
+        },
+        "project_number": {
+          "description": "Number for the opportunity",
+          "type": "string"
+        },
+        "industry": {
+          "description": "Industry category assigned to the opportunity",
+          "type": "string"
+        },
+        "project_size": {
+          "description": "Industry category assigned to the opportunity",
+          "type": "string"
+        },
+        "description": {
+          "description": "Description of the opportunity",
+          "type": "string"
+        },
+        "tags": {
+          "description": "Keywords of the opportunity",
+          "type": "string"
+        },
+        "publish_date": {
+          "description": "Date lead was posted",
+          "type": "string"
+        },
+        "end_date": {
+          "description": "Closing date for the lead",
+          "type": "string"
+        },
+        "funding_source": {
+          "description": "Funding source of the project",
+          "type": "string"
+        },
+        "borrowing_entity": {
+          "description": "Bank funding the project",
+          "type": "string"
+        },
+        "procurement_organization": {
+          "description": "Agency responsible for the contract",
+          "type": "string"
+        },
+        "project_pocs": {
+          "description": "Point of contact",
+          "type": "string"
+        },
+        "comments": {
+          "description": "comments about the project",
+          "type": "string"
+        },
+        "submitting_officer": {
+          "description": "Contract officer name",
+          "type": "string"
+        },
+        "submitting_officer_contact": {
+          "description": "Contract officer email",
+          "type": "string"
+        },
+        "url": {
+          "description": "URL that pertain to the bid",
+          "type": "string"
+        },
+        "status": {
+          "description": "Status of the lead (note this API only shows open leads)",
+          "type": "string"
+        }
+      }
+    }
+  }
+}
