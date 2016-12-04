@@ -27,6 +27,7 @@ import core.ParamterDeclaringContext;
 import core.Path;
 import core.Response;
 import core.ResponseContext;
+import core.ResponseDeclaringContext;
 import core.Root;
 import core.Schema;
 import core.SchemaContext;
@@ -239,6 +240,13 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * @generated
 	 */
 	private EClass arrayContextEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass responseDeclaringContextEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1305,6 +1313,15 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getResponse_DeclaringContext() {
+		return (EReference)responseEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getHeader() {
 		return headerEClass;
 	}
@@ -1656,6 +1673,15 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getResponseDeclaringContext() {
+		return responseDeclaringContextEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getJSONPointer() {
 		return jsonPointerEClass;
 	}
@@ -1893,6 +1919,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 		createEReference(responseEClass, RESPONSE__HEADERS);
 		createEReference(responseEClass, RESPONSE__EXAMPLES);
 		createEAttribute(responseEClass, RESPONSE__CODE);
+		createEReference(responseEClass, RESPONSE__DECLARING_CONTEXT);
 
 		headerEClass = createEClass(HEADER);
 		createEAttribute(headerEClass, HEADER__NAME);
@@ -1952,6 +1979,8 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 		createEAttribute(arrayContextEClass, ARRAY_CONTEXT__COLLECTION_FORMAT);
 		createEReference(arrayContextEClass, ARRAY_CONTEXT__ITEMS);
 
+		responseDeclaringContextEClass = createEClass(RESPONSE_DECLARING_CONTEXT);
+
 		// Create enums
 		schemeTypeEEnum = createEEnum(SCHEME_TYPE);
 		parameterLocationEEnum = createEEnum(PARAMETER_LOCATION);
@@ -1997,6 +2026,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 		apiEClass.getESuperTypes().add(this.getSecurityContext());
 		apiEClass.getESuperTypes().add(this.getParameterContext());
 		apiEClass.getESuperTypes().add(this.getExternalDocsContext());
+		apiEClass.getESuperTypes().add(this.getResponseDeclaringContext());
 		pathEClass.getESuperTypes().add(this.getParamterDeclaringContext());
 		pathEClass.getESuperTypes().add(this.getParameterContext());
 		operationEClass.getESuperTypes().add(this.getParamterDeclaringContext());
@@ -2004,6 +2034,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 		operationEClass.getESuperTypes().add(this.getSecurityContext());
 		operationEClass.getESuperTypes().add(this.getParameterContext());
 		operationEClass.getESuperTypes().add(this.getExternalDocsContext());
+		operationEClass.getESuperTypes().add(this.getResponseDeclaringContext());
 		parameterEClass.getESuperTypes().add(this.getSchemaDeclaringContext());
 		parameterEClass.getESuperTypes().add(this.getSchemaContext());
 		parameterEClass.getESuperTypes().add(this.getJSONSchemaSubset());
@@ -2140,6 +2171,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 		initEReference(getResponse_Headers(), this.getHeader(), null, "headers", null, 0, -1, Response.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getResponse_Examples(), this.getExample(), null, "examples", null, 0, -1, Response.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getResponse_Code(), ecorePackage.getEString(), "code", null, 0, 1, Response.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getResponse_DeclaringContext(), this.getResponseDeclaringContext(), null, "declaringContext", null, 0, 1, Response.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(headerEClass, Header.class, "Header", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getHeader_Name(), ecorePackage.getEString(), "name", null, 0, 1, Header.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2198,6 +2230,8 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 		initEClass(arrayContextEClass, ArrayContext.class, "ArrayContext", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getArrayContext_CollectionFormat(), this.getCollectionFormat(), "collectionFormat", null, 0, 1, ArrayContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getArrayContext_Items(), this.getItemsDefinition(), null, "items", null, 0, 1, ArrayContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(responseDeclaringContextEClass, ResponseDeclaringContext.class, "ResponseDeclaringContext", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(schemeTypeEEnum, SchemeType.class, "SchemeType");

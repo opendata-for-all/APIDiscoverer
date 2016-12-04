@@ -17,6 +17,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link core.Response#getHeaders <em>Headers</em>}</li>
  *   <li>{@link core.Response#getExamples <em>Examples</em>}</li>
  *   <li>{@link core.Response#getCode <em>Code</em>}</li>
+ *   <li>{@link core.Response#getDeclaringContext <em>Declaring Context</em>}</li>
  * </ul>
  *
  * @see core.CorePackage#getResponse()
@@ -107,5 +108,31 @@ public interface Response extends SchemaDeclaringContext, SchemaContext {
 	 * @generated
 	 */
 	void setCode(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Declaring Context</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Declaring Context</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Declaring Context</em>' reference.
+	 * @see #setDeclaringContext(ResponseDeclaringContext)
+	 * @see core.CorePackage#getResponse_DeclaringContext()
+	 * @model
+	 * @generated
+	 */
+	ResponseDeclaringContext getDeclaringContext();
+
+	/**
+	 * Sets the value of the '{@link core.Response#getDeclaringContext <em>Declaring Context</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Declaring Context</em>' reference.
+	 * @see #getDeclaringContext()
+	 * @generated
+	 */
+	void setDeclaringContext(ResponseDeclaringContext value);
 
 } // Response

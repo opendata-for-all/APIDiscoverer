@@ -13,6 +13,7 @@ import core.ParameterContext;
 import core.Path;
 import core.Response;
 import core.ResponseContext;
+import core.ResponseDeclaringContext;
 import core.Schema;
 import core.SchemaDeclaringContext;
 import core.SchemeType;
@@ -861,6 +862,11 @@ public class APIImpl extends ParamterDeclaringContextImpl implements API {
 				default: return -1;
 			}
 		}
+		if (baseClass == ResponseDeclaringContext.class) {
+			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -902,6 +908,11 @@ public class APIImpl extends ParamterDeclaringContextImpl implements API {
 		if (baseClass == ExternalDocsContext.class) {
 			switch (baseFeatureID) {
 				case CorePackage.EXTERNAL_DOCS_CONTEXT__EXTERNAL_DOCS: return CorePackage.API__EXTERNAL_DOCS;
+				default: return -1;
+			}
+		}
+		if (baseClass == ResponseDeclaringContext.class) {
+			switch (baseFeatureID) {
 				default: return -1;
 			}
 		}

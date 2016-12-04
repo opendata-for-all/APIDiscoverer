@@ -30,7 +30,7 @@ import org.eclipse.emf.common.util.EList;
  *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL oneBodyParameterAllowed='self.parameters-> select(e | e.location = ParameterLocation::\'_body\') -> size() <= 1' oneFormDataParameterAllowed='self.parameters-> select(e | e.location = ParameterLocation::\'_formData\') -> size() <= 1' hasUniqueParameters='self.parameters -> collect(t | Tuple{name : String = t.name,location : ParameterLocation = t.location})->asSet() -> size() = self.parameters -> size()' xorFormAndBody='(parameters-> select(e | e.location =  ParameterLocation::_\'body\') -> size()=1 and parameters-> select(e | e.location =  ParameterLocation::_\'formData\') -> size()=0)\r\n\tor \r\n\t(parameters-> select(e | e.location =  ParameterLocation::_\'body\') -> size()=0 and parameters-> select(e | e.location =  ParameterLocation::_\'formData\') -> size()=1)\r\n\tor \r\n\t(parameters-> select(e | e.location =  ParameterLocation::_\'body\') -> size()=0 and parameters-> select(e | e.location =  ParameterLocation::_\'formData\') -> size()=0)\r\n\t' requiredResponses='self.responses -> size() <> 0'"
  * @generated
  */
-public interface Operation extends ParamterDeclaringContext, ResponseContext, SecurityContext, ParameterContext, ExternalDocsContext {
+public interface Operation extends ParamterDeclaringContext, ResponseContext, SecurityContext, ParameterContext, ExternalDocsContext, ResponseDeclaringContext {
 	/**
 	 * Returns the value of the '<em><b>Tag References</b></em>' attribute list.
 	 * The list contents are of type {@link java.lang.String}.

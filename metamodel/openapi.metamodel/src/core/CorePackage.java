@@ -1886,13 +1886,22 @@ public interface CorePackage extends EPackage {
 	int RESPONSE__CODE = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Declaring Context</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESPONSE__DECLARING_CONTEXT = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Response</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESPONSE_FEATURE_COUNT = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 5;
+	int RESPONSE_FEATURE_COUNT = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of operations of the '<em>Response</em>' class.
@@ -2661,6 +2670,34 @@ public interface CorePackage extends EPackage {
 	int ARRAY_CONTEXT_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link core.impl.ResponseDeclaringContextImpl <em>Response Declaring Context</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see core.impl.ResponseDeclaringContextImpl
+	 * @see core.impl.CorePackageImpl#getResponseDeclaringContext()
+	 * @generated
+	 */
+	int RESPONSE_DECLARING_CONTEXT = 28;
+
+	/**
+	 * The number of structural features of the '<em>Response Declaring Context</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESPONSE_DECLARING_CONTEXT_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Response Declaring Context</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESPONSE_DECLARING_CONTEXT_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link core.SchemeType <em>Scheme Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2668,7 +2705,7 @@ public interface CorePackage extends EPackage {
 	 * @see core.impl.CorePackageImpl#getSchemeType()
 	 * @generated
 	 */
-	int SCHEME_TYPE = 28;
+	int SCHEME_TYPE = 29;
 
 	/**
 	 * The meta object id for the '{@link core.ParameterLocation <em>Parameter Location</em>}' enum.
@@ -2678,7 +2715,7 @@ public interface CorePackage extends EPackage {
 	 * @see core.impl.CorePackageImpl#getParameterLocation()
 	 * @generated
 	 */
-	int PARAMETER_LOCATION = 29;
+	int PARAMETER_LOCATION = 30;
 
 	/**
 	 * The meta object id for the '{@link core.CollectionFormat <em>Collection Format</em>}' enum.
@@ -2688,7 +2725,7 @@ public interface CorePackage extends EPackage {
 	 * @see core.impl.CorePackageImpl#getCollectionFormat()
 	 * @generated
 	 */
-	int COLLECTION_FORMAT = 30;
+	int COLLECTION_FORMAT = 31;
 
 	/**
 	 * The meta object id for the '{@link core.OAuth2FlowType <em>OAuth2 Flow Type</em>}' enum.
@@ -2698,7 +2735,7 @@ public interface CorePackage extends EPackage {
 	 * @see core.impl.CorePackageImpl#getOAuth2FlowType()
 	 * @generated
 	 */
-	int OAUTH2_FLOW_TYPE = 31;
+	int OAUTH2_FLOW_TYPE = 32;
 
 	/**
 	 * The meta object id for the '{@link core.APIKeyLocation <em>API Key Location</em>}' enum.
@@ -2708,7 +2745,7 @@ public interface CorePackage extends EPackage {
 	 * @see core.impl.CorePackageImpl#getAPIKeyLocation()
 	 * @generated
 	 */
-	int API_KEY_LOCATION = 32;
+	int API_KEY_LOCATION = 33;
 
 	/**
 	 * The meta object id for the '{@link core.SecuritySchemeType <em>Security Scheme Type</em>}' enum.
@@ -2718,7 +2755,7 @@ public interface CorePackage extends EPackage {
 	 * @see core.impl.CorePackageImpl#getSecuritySchemeType()
 	 * @generated
 	 */
-	int SECURITY_SCHEME_TYPE = 33;
+	int SECURITY_SCHEME_TYPE = 34;
 
 	/**
 	 * The meta object id for the '{@link core.JSONDataType <em>JSON Data Type</em>}' enum.
@@ -2728,7 +2765,7 @@ public interface CorePackage extends EPackage {
 	 * @see core.impl.CorePackageImpl#getJSONDataType()
 	 * @generated
 	 */
-	int JSON_DATA_TYPE = 34;
+	int JSON_DATA_TYPE = 35;
 
 
 	/**
@@ -3849,6 +3886,17 @@ public interface CorePackage extends EPackage {
 	EAttribute getResponse_Code();
 
 	/**
+	 * Returns the meta object for the reference '{@link core.Response#getDeclaringContext <em>Declaring Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Declaring Context</em>'.
+	 * @see core.Response#getDeclaringContext()
+	 * @see #getResponse()
+	 * @generated
+	 */
+	EReference getResponse_DeclaringContext();
+
+	/**
 	 * Returns the meta object for class '{@link core.Header <em>Header</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4263,6 +4311,16 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getArrayContext_Items();
+
+	/**
+	 * Returns the meta object for class '{@link core.ResponseDeclaringContext <em>Response Declaring Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Response Declaring Context</em>'.
+	 * @see core.ResponseDeclaringContext
+	 * @generated
+	 */
+	EClass getResponseDeclaringContext();
 
 	/**
 	 * Returns the meta object for class '{@link core.JSONPointer <em>JSON Pointer</em>}'.
@@ -5250,6 +5308,14 @@ public interface CorePackage extends EPackage {
 		EAttribute RESPONSE__CODE = eINSTANCE.getResponse_Code();
 
 		/**
+		 * The meta object literal for the '<em><b>Declaring Context</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RESPONSE__DECLARING_CONTEXT = eINSTANCE.getResponse_DeclaringContext();
+
+		/**
 		 * The meta object literal for the '{@link core.impl.HeaderImpl <em>Header</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5586,6 +5652,16 @@ public interface CorePackage extends EPackage {
 		 * @generated
 		 */
 		EReference ARRAY_CONTEXT__ITEMS = eINSTANCE.getArrayContext_Items();
+
+		/**
+		 * The meta object literal for the '{@link core.impl.ResponseDeclaringContextImpl <em>Response Declaring Context</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see core.impl.ResponseDeclaringContextImpl
+		 * @see core.impl.CorePackageImpl#getResponseDeclaringContext()
+		 * @generated
+		 */
+		EClass RESPONSE_DECLARING_CONTEXT = eINSTANCE.getResponseDeclaringContext();
 
 		/**
 		 * The meta object literal for the '{@link core.impl.JSONPointerImpl <em>JSON Pointer</em>}' class.

@@ -88,6 +88,7 @@ public class CoreSwitch<T> extends Switch<T> {
 				if (result == null) result = caseSecurityContext(api);
 				if (result == null) result = caseParameterContext(api);
 				if (result == null) result = caseExternalDocsContext(api);
+				if (result == null) result = caseResponseDeclaringContext(api);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -125,6 +126,7 @@ public class CoreSwitch<T> extends Switch<T> {
 				if (result == null) result = caseSecurityContext(operation);
 				if (result == null) result = caseParameterContext(operation);
 				if (result == null) result = caseExternalDocsContext(operation);
+				if (result == null) result = caseResponseDeclaringContext(operation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -261,6 +263,12 @@ public class CoreSwitch<T> extends Switch<T> {
 			case CorePackage.ARRAY_CONTEXT: {
 				ArrayContext arrayContext = (ArrayContext)theEObject;
 				T result = caseArrayContext(arrayContext);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CorePackage.RESPONSE_DECLARING_CONTEXT: {
+				ResponseDeclaringContext responseDeclaringContext = (ResponseDeclaringContext)theEObject;
+				T result = caseResponseDeclaringContext(responseDeclaringContext);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -655,6 +663,21 @@ public class CoreSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseArrayContext(ArrayContext object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Response Declaring Context</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Response Declaring Context</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseResponseDeclaringContext(ResponseDeclaringContext object) {
 		return null;
 	}
 

@@ -6,6 +6,7 @@ import core.CorePackage;
 import core.Example;
 import core.Header;
 import core.Response;
+import core.ResponseDeclaringContext;
 import core.Schema;
 
 import core.SchemaContext;
@@ -36,6 +37,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link core.impl.ResponseImpl#getHeaders <em>Headers</em>}</li>
  *   <li>{@link core.impl.ResponseImpl#getExamples <em>Examples</em>}</li>
  *   <li>{@link core.impl.ResponseImpl#getCode <em>Code</em>}</li>
+ *   <li>{@link core.impl.ResponseImpl#getDeclaringContext <em>Declaring Context</em>}</li>
  * </ul>
  *
  * @generated
@@ -110,6 +112,16 @@ public class ResponseImpl extends SchemaDeclaringContextImpl implements Response
 	 * @ordered
 	 */
 	protected String code = CODE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getDeclaringContext() <em>Declaring Context</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDeclaringContext()
+	 * @generated
+	 * @ordered
+	 */
+	protected ResponseDeclaringContext declaringContext;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -239,6 +251,44 @@ public class ResponseImpl extends SchemaDeclaringContextImpl implements Response
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ResponseDeclaringContext getDeclaringContext() {
+		if (declaringContext != null && declaringContext.eIsProxy()) {
+			InternalEObject oldDeclaringContext = (InternalEObject)declaringContext;
+			declaringContext = (ResponseDeclaringContext)eResolveProxy(oldDeclaringContext);
+			if (declaringContext != oldDeclaringContext) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CorePackage.RESPONSE__DECLARING_CONTEXT, oldDeclaringContext, declaringContext));
+			}
+		}
+		return declaringContext;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ResponseDeclaringContext basicGetDeclaringContext() {
+		return declaringContext;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDeclaringContext(ResponseDeclaringContext newDeclaringContext) {
+		ResponseDeclaringContext oldDeclaringContext = declaringContext;
+		declaringContext = newDeclaringContext;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.RESPONSE__DECLARING_CONTEXT, oldDeclaringContext, declaringContext));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -269,6 +319,9 @@ public class ResponseImpl extends SchemaDeclaringContextImpl implements Response
 				return getExamples();
 			case CorePackage.RESPONSE__CODE:
 				return getCode();
+			case CorePackage.RESPONSE__DECLARING_CONTEXT:
+				if (resolve) return getDeclaringContext();
+				return basicGetDeclaringContext();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -299,6 +352,9 @@ public class ResponseImpl extends SchemaDeclaringContextImpl implements Response
 			case CorePackage.RESPONSE__CODE:
 				setCode((String)newValue);
 				return;
+			case CorePackage.RESPONSE__DECLARING_CONTEXT:
+				setDeclaringContext((ResponseDeclaringContext)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -326,6 +382,9 @@ public class ResponseImpl extends SchemaDeclaringContextImpl implements Response
 			case CorePackage.RESPONSE__CODE:
 				setCode(CODE_EDEFAULT);
 				return;
+			case CorePackage.RESPONSE__DECLARING_CONTEXT:
+				setDeclaringContext((ResponseDeclaringContext)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -348,6 +407,8 @@ public class ResponseImpl extends SchemaDeclaringContextImpl implements Response
 				return examples != null && !examples.isEmpty();
 			case CorePackage.RESPONSE__CODE:
 				return CODE_EDEFAULT == null ? code != null : !CODE_EDEFAULT.equals(code);
+			case CorePackage.RESPONSE__DECLARING_CONTEXT:
+				return declaringContext != null;
 		}
 		return super.eIsSet(featureID);
 	}
