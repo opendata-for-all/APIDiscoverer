@@ -18,9 +18,11 @@ import com.google.gson.JsonParser;
 
 import core.Root;
 import core.API;
+import core.CollectionFormat;
 import core.CoreFactory;
 import core.CorePackage;
 import core.Info;
+import core.ItemsDefinition;
 import core.JSONDataType;
 import core.Operation;
 import core.ParameterLocation;
@@ -177,6 +179,13 @@ public class Discoverer {
 				apiRoot.getParamters().add(apiParameter);
 				apiOperation.getParameters().add(apiParameter);
 				parametersMap.put(parameterKey, apiParameter);
+			}
+			else {
+				apiParameter.setType(JSONDataType.ARRAY);
+				ItemsDefinition items = factory.createItemsDefinition();
+				items.setType(parameter.getType());
+				apiParameter.setItems(items);
+				apiParameter.setCollectionFormat(CollectionFormat.MULTI);
 			}
 
 		}

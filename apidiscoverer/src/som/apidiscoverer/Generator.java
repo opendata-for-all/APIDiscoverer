@@ -164,7 +164,15 @@ public class Generator {
 			private static void generateParameter(Parameter parameter, JsonObject parameterJson) {
 				parameterJson.addProperty("name", parameter.getName());
 				parameterJson.addProperty("in",parameter.getLocation().getLiteral());
+				if(!parameter.getType().equals(JSONDataType.UNSPECIFIED))
 				parameterJson.addProperty("type", parameter.getType().getLiteral());
+				if(parameter.getType().equals(JSONDataType.ARRAY)){
+					parameterJson.addProperty("collectionFormat", "multi");
+					
+					JsonObject items = new JsonObject(); 
+					items.addProperty("type", parameter.getItems().getType().getLiteral());
+					parameterJson.add("items", items);
+				}
 				if(parameter.getDescription()!= null)
 					parameterJson.addProperty("description", parameter.getDescription());
 				if( parameter.getRequired() != null)
@@ -195,11 +203,10 @@ public class Generator {
 							JsonObject schemaArray = new JsonObject();
 							responseJson.add("schema", schemaArray);
 							schemaArray.addProperty("type", JSONDataType.ARRAY.getLiteral());
-							JsonObject items = new JsonObject();
 							if(response.getSchema().getItems().getType().equals(JSONDataType.OBJECT)){
 								JsonObject refSchema = new JsonObject();
 								refSchema.addProperty("$ref", response.getSchema().getItems().getRef());
-								items.add("$ref", refSchema);
+								schemaArray.add("items", refSchema);
 							}
 							
 						}
