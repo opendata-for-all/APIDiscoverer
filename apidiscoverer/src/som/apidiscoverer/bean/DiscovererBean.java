@@ -23,9 +23,9 @@ import org.primefaces.model.TreeNode;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.mashape.unirest.http.exceptions.UnirestException;
-import core.APIParameter;
-import core.Api;
-import core.JsonDataType;
+import core.Parameter;
+import core.API;
+import core.JSONDataType;
 import core.Path;
 import core.Schema;
 import som.apidiscoverer.Discoverer;
@@ -48,7 +48,6 @@ public class DiscovererBean implements Serializable {
 	private Response response;
 	private Discoverer discoverer;
 	private DefaultStreamedContent download;
-	private DefaultStreamedContent downloadAdvanced;
 	private TreeNode apiTree;
 	private JSONAPICallExample jsonCallExample;
 	private String rowJsonCallExample;
@@ -86,7 +85,7 @@ public class DiscovererBean implements Serializable {
 	}
 
 	public TreeNode createTreeTable() {
-		Api api = discoverer.getApi();
+		API api = discoverer.getApi();
 
 		TreeNode apiNode = new DefaultTreeNode(new TreeNodeEntry("OpenAPI", "-"), null);
 		TreeNode hostNode = new DefaultTreeNode(new TreeNodeEntry("host", api.getHost()), apiNode);
@@ -101,9 +100,9 @@ public class DiscovererBean implements Serializable {
 
 				TreeNode operationGetNode = new DefaultTreeNode(new TreeNodeEntry("get", "-"), operationsNode);
 				TreeNode parametersNode = new DefaultTreeNode(new TreeNodeEntry("parameters", "-"), operationGetNode);
-				for (APIParameter parameter : path.getGet().getParameters()) {
+				for (Parameter parameter : path.getGet().getParameters()) {
 					TreeNode parameterNode = new DefaultTreeNode(
-							new TreeNodeEntry(parameter.getName(), parameter.getIn().getLiteral()), parametersNode);
+							new TreeNodeEntry(parameter.getName(), parameter.getLocation().getLiteral()), parametersNode);
 				}
 				TreeNode responsesNode = new DefaultTreeNode(new TreeNodeEntry("responses", "-"), operationGetNode);
 				for (core.Response response : path.getGet().getResponses()) {
@@ -120,9 +119,9 @@ public class DiscovererBean implements Serializable {
 			if (path.getPost() != null) {
 				TreeNode operationPostNode = new DefaultTreeNode(new TreeNodeEntry("post", "-"), operationsNode);
 				TreeNode parametersNode = new DefaultTreeNode(new TreeNodeEntry("parameters", "-"), operationPostNode);
-				for (APIParameter parameter : path.getPost().getParameters()) {
+				for (Parameter parameter : path.getPost().getParameters()) {
 					TreeNode parameterNode = new DefaultTreeNode(
-							new TreeNodeEntry(parameter.getName(), parameter.getIn().getLiteral()), parametersNode);
+							new TreeNodeEntry(parameter.getName(), parameter.getLocation().getLiteral()), parametersNode);
 				}
 				TreeNode responsesNode = new DefaultTreeNode(new TreeNodeEntry("responses", "-"), operationPostNode);
 				for (core.Response response : path.getPost().getResponses()) {
@@ -141,9 +140,9 @@ public class DiscovererBean implements Serializable {
 			if (path.getPut() != null) {
 				TreeNode operationPutNode = new DefaultTreeNode(new TreeNodeEntry("put", "-"), operationsNode);
 				TreeNode parametersNode = new DefaultTreeNode(new TreeNodeEntry("parameters", "-"), operationPutNode);
-				for (APIParameter parameter : path.getPut().getParameters()) {
+				for (Parameter parameter : path.getPut().getParameters()) {
 					TreeNode parameterNode = new DefaultTreeNode(
-							new TreeNodeEntry(parameter.getName(), parameter.getIn().getLiteral()), parametersNode);
+							new TreeNodeEntry(parameter.getName(), parameter.getLocation().getLiteral()), parametersNode);
 				}
 				TreeNode responsesNode = new DefaultTreeNode(new TreeNodeEntry("responses", "-"), operationPutNode);
 				for (core.Response response : path.getPut().getResponses()) {
@@ -162,9 +161,9 @@ public class DiscovererBean implements Serializable {
 				TreeNode operationDeletetNode = new DefaultTreeNode(new TreeNodeEntry("delete", "-"), operationsNode);
 				TreeNode parametersNode = new DefaultTreeNode(new TreeNodeEntry("parameters", "-"),
 						operationDeletetNode);
-				for (APIParameter parameter : path.getDelete().getParameters()) {
+				for (Parameter parameter : path.getDelete().getParameters()) {
 					TreeNode parameterNode = new DefaultTreeNode(
-							new TreeNodeEntry(parameter.getName(), parameter.getIn().getLiteral()), parametersNode);
+							new TreeNodeEntry(parameter.getName(), parameter.getLocation().getLiteral()), parametersNode);
 				}
 				TreeNode responsesNode = new DefaultTreeNode(new TreeNodeEntry("responses", "-"), operationDeletetNode);
 				for (core.Response response : path.getDelete().getResponses()) {
@@ -202,7 +201,7 @@ public class DiscovererBean implements Serializable {
 		}
 		if (schema.getItems() != null) {
 			TreeNode itemsNode = new DefaultTreeNode(new TreeNodeEntry("items", "-"), schemaNode);
-			if (schema.getItems().getType().equals(JsonDataType.OBJECT)) {
+			if (schema.getItems().getType().equals(JSONDataType.OBJECT)) {
 				TreeNode itemNode = new DefaultTreeNode(new TreeNodeEntry(schema.getItems().getName(), "-"), itemsNode);
 			} else {
 				TreeNode itemNode = new DefaultTreeNode(
@@ -214,16 +213,16 @@ public class DiscovererBean implements Serializable {
 	}
 
 	private void diplayProperty(Schema property, TreeNode propertiesNode) {
-		if (property.getType().equals(JsonDataType.OBJECT)) {
+		if (property.getType().equals(JSONDataType.OBJECT)) {
 			TreeNode propertyNode = new DefaultTreeNode(
-					new TreeNodeEntry(property.getName(), property.getRefResolved().getName()), propertiesNode);
+					new TreeNodeEntry(property.getName(), property.getName()), propertiesNode);
 
 		} else {
-			if (property.getType().equals(JsonDataType.ARRAY)) {
+			if (property.getType().equals(JSONDataType.ARRAY)) {
 				TreeNode arrayNode = new DefaultTreeNode(
-						new TreeNodeEntry(property.getName(), JsonDataType.ARRAY.getLiteral()), propertiesNode);
+						new TreeNodeEntry(property.getName(), JSONDataType.ARRAY.getLiteral()), propertiesNode);
 				TreeNode itemsNode = new DefaultTreeNode(new TreeNodeEntry("items", "-"), arrayNode);
-				if (property.getItems().getType().equals(JsonDataType.OBJECT)) {
+				if (property.getItems().getType().equals(JSONDataType.OBJECT)) {
 					TreeNode itemNode = new DefaultTreeNode(new TreeNodeEntry(property.getItems().getName(), "-"),
 							itemsNode);
 				} else {
@@ -254,25 +253,14 @@ public class DiscovererBean implements Serializable {
 		File temp = File.createTempFile("swagger", ".json");
 		FileWriter fileWritter = new FileWriter(temp.getPath(), true);
 		BufferedWriter bufferWritter = new BufferedWriter(fileWritter);
-		bufferWritter.write(gson.toJson(Generator.getJsonFromSwaggerModel(discoverer.getApi())));
+		bufferWritter.write(gson.toJson(Generator.getJsonFromSwaggerModel(discoverer.getApiRoot())));
 		bufferWritter.close();
 		InputStream input = new FileInputStream(temp);
 		ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
 		setDownload(new DefaultStreamedContent(input, externalContext.getMimeType(temp.getName()), temp.getName()));
 	}
 
-	public void prepDownloadAdvanced() throws Exception {
-		discoverer.applyAdvancedHeurisitics();
-		File temp = File.createTempFile("swagger", ".json");
-		FileWriter fileWritter = new FileWriter(temp.getPath(), true);
-		BufferedWriter bufferWritter = new BufferedWriter(fileWritter);
-		bufferWritter.write(Generator.getJsonFromSwaggerModel(discoverer.getApiAdvenced()).toString());
-		bufferWritter.close();
-		InputStream input = new FileInputStream(temp);
-		ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
-		setDownloadAdvanced(
-				new DefaultStreamedContent(input, externalContext.getMimeType(temp.getName()), temp.getName()));
-	}
+	
 
 	public void sendRequest() throws MalformedURLException, URISyntaxException {
 		try {
@@ -364,13 +352,7 @@ public class DiscovererBean implements Serializable {
 		this.apiTree = apiTree;
 	}
 
-	public DefaultStreamedContent getDownloadAdvanced() {
-		return downloadAdvanced;
-	}
 
-	public void setDownloadAdvanced(DefaultStreamedContent downloadAdvanced) {
-		this.downloadAdvanced = downloadAdvanced;
-	}
 
 	public JSONAPICallExample getJsonCallExample() {
 		return jsonCallExample;

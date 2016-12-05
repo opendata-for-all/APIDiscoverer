@@ -1,6 +1,6 @@
 package som.apidiscoverer.model;
 
-import core.JsonDataType;
+import core.JSONDataType;
 
 public class Parameter {
 	
@@ -19,12 +19,12 @@ public class Parameter {
 		this.value = value;
 	}
 	
-	public JsonDataType getType (){
+	public JSONDataType getType (){
 		String regex = "[0-9]+";
 		if(value.matches(regex)){
-			return JsonDataType.INTEGER;
+			return JSONDataType.INTEGER;
 		}
-		return JsonDataType.STRING;
+		return JSONDataType.STRING;
 	}
 	
 	

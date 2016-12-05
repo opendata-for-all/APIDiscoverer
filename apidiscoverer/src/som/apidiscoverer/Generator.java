@@ -1,22 +1,26 @@
 package som.apidiscoverer;
 
 import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import core.APIOperation;
-import core.APIParameter;
-import core.Api;
+
+import core.API;
 import core.Info;
-import core.JsonDataType;
+import core.JSONDataType;
+import core.Operation;
+import core.Parameter;
 import core.ParameterLocation;
 import core.Path;
 import core.Response;
+import core.Root;
 import core.Schema;
 import core.SchemeType;
 
 public class Generator {
 	
 	
-	public static JsonObject getJsonFromSwaggerModel(Api api) {
+	public static JsonObject getJsonFromSwaggerModel(Root root) {
+		API api = root.getApi();
 		JsonObject jsonObject = new JsonObject();
 		jsonObject.addProperty("swagger", api.getSwagger());
 		if(api.getInfo()!= null){
@@ -64,7 +68,7 @@ public class Generator {
 		jsonInfo.addProperty("version", info.getVersion());
 		
 	}
-			private static void generatePaths(Api api, JsonObject jsonPaths) {
+			private static void generatePaths(API api, JsonObject jsonPaths) {
 				for(Path path: api.getPaths()){
 					JsonObject jsonOperations = new JsonObject();
 					jsonPaths.add(path.getPattern(), jsonOperations);
@@ -100,10 +104,10 @@ public class Generator {
 					
 				}
 			}
-			private static void generateOperation(APIOperation operation, JsonObject jsonOperation) {
-				if(!operation.getTags().isEmpty()){
+			private static void generateOperation(Operation operation, JsonObject jsonOperation) {
+				if(!operation.getTagReferences().isEmpty()){
 					JsonArray tags = new JsonArray();
-					for(String tag: operation.getTags())
+					for(String tag: operation.getTagReferences())
 						tags.add( tag);
 					jsonOperation.add("tags", tags);
 				}
@@ -114,7 +118,9 @@ public class Generator {
 					jsonOperation.addProperty("description", operation.getDescription());
 				}
 				//TODO externalDocs
-				//TODO operationId
+				if(operation.getOperationId()!= null){
+					jsonOperation.addProperty("operationId", operation.getOperationId());
+				}
 				if(!operation.getConsumes().isEmpty()){
 					JsonArray consumesList = new JsonArray();
 					for(String consume : operation.getConsumes())
@@ -129,7 +135,7 @@ public class Generator {
 				}
 				if(!operation.getParameters().isEmpty()){
 					JsonArray paramatersJson = new JsonArray();
-					for(APIParameter parameter : operation.getParameters()){
+					for(Parameter parameter : operation.getParameters()){
 						JsonObject parameterJson = new JsonObject();
 						paramatersJson.add(parameterJson);
 						generateParameter(parameter,parameterJson);
@@ -155,17 +161,21 @@ public class Generator {
 				//TODO security
 			
 			}
-			private static void generateParameter(APIParameter parameter, JsonObject parameterJson) {
+			private static void generateParameter(Parameter parameter, JsonObject parameterJson) {
 				parameterJson.addProperty("name", parameter.getName());
-				parameterJson.addProperty("in",parameter.getIn().getLiteral());
+				parameterJson.addProperty("in",parameter.getLocation().getLiteral());
+				parameterJson.addProperty("type", parameter.getType().getLiteral());
 				if(parameter.getDescription()!= null)
 					parameterJson.addProperty("description", parameter.getDescription());
-				if( parameter.isRequired())
-				parameterJson.addProperty("required", parameter.isRequired());
-				if(parameter.getIn().equals(ParameterLocation.BODY)){
-					if(parameter.getSchema().getType().equals(JsonDataType.OBJECT))
-						parameterJson.addProperty("schema", "#/definitions/"+parameter.getSchema().getName());
-					else {
+				if( parameter.getRequired() != null)
+				parameterJson.addProperty("required", parameter.getRequired());
+				if(parameter.getLocation().equals(ParameterLocation.BODY)){
+					if(parameter.getSchema().getType().equals(JSONDataType.OBJECT)){
+						JsonObject refSchema = new JsonObject();
+						refSchema.addProperty("$ref", parameter.getSchema().getRef());
+						parameterJson.add("schema", refSchema);
+					
+					}else {
 						//TODO array and primitive
 					}
 				}
@@ -174,16 +184,23 @@ public class Generator {
 			private static void generateResponse(Response response, JsonObject responseJson) {
 				responseJson.addProperty("description", response.getDescription());
 				if(response.getSchema()!= null){
-					if(response.getSchema().getType().equals(JsonDataType.OBJECT))
-						responseJson.addProperty("schema", "#/definitions/"+response.getSchema().getName());
-					else {
-						if(response.getSchema().getType().equals(JsonDataType.ARRAY)){
+					if(response.getSchema().getType().equals(JSONDataType.OBJECT)){
+						JsonObject refSchema = new JsonObject();
+						refSchema.addProperty("$ref", response.getSchema().getRef());
+						responseJson.add("schema", refSchema);
+						
+					}
+						else {
+						if(response.getSchema().getType().equals(JSONDataType.ARRAY)){
 							JsonObject schemaArray = new JsonObject();
 							responseJson.add("schema", schemaArray);
-							schemaArray.addProperty("type", JsonDataType.ARRAY.getLiteral());
+							schemaArray.addProperty("type", JSONDataType.ARRAY.getLiteral());
 							JsonObject items = new JsonObject();
-							if(response.getSchema().getItems().getType().equals(JsonDataType.OBJECT))
-								items.addProperty("$ref", "#/definitions/"+response.getSchema().getItems().getName());
+							if(response.getSchema().getItems().getType().equals(JSONDataType.OBJECT)){
+								JsonObject refSchema = new JsonObject();
+								refSchema.addProperty("$ref", response.getSchema().getItems().getRef());
+								items.add("$ref", refSchema);
+							}
 							
 						}
 					}
@@ -192,7 +209,7 @@ public class Generator {
 			
 				
 			}
-			private static void generateDefinitions(Api api, JsonObject jsonDefinitions) {
+			private static void generateDefinitions(API api, JsonObject jsonDefinitions) {
 				for(Schema schema: api.getDefinitions()){
 					JsonObject schemaJson = new JsonObject();
 					jsonDefinitions.add(schema.getName(), schemaJson);
@@ -214,14 +231,14 @@ public class Generator {
 				}
 			}
 			private static void generateSchemaProperty(Schema property, JsonObject propertyJson) {
-				if(property.getType().equals(JsonDataType.OBJECT)){
-					propertyJson.addProperty("$ref", "#/definitions/"+property.getRefResolved().getName());
+				if(property.getType().equals(JSONDataType.OBJECT)){
+					propertyJson.addProperty("$ref", property.getRef());
 				}else {
-					if(property.getType().equals(JsonDataType.ARRAY)){
-						propertyJson.addProperty("type", JsonDataType.ARRAY.getLiteral());
+					if(property.getType().equals(JSONDataType.ARRAY)){
+						propertyJson.addProperty("type", JSONDataType.ARRAY.getLiteral());
 						JsonObject items = new JsonObject();
-						if(property.getItems().getType().equals(JsonDataType.OBJECT))
-							items.addProperty("$ref", "#/definitions/"+property.getItems().getName());
+						if(property.getItems().getType().equals(JSONDataType.OBJECT))
+							items.addProperty("$ref", property.getItems().getRef());
 						else 
 							items.addProperty("type", property.getItems().getType().getLiteral());
 						propertyJson.add("items", items);
