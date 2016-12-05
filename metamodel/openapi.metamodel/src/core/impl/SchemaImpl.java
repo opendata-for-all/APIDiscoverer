@@ -310,7 +310,7 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	 */
 	public String getRef() {
 		if (getDeclaringContext() instanceof core.API) {
-			return ((core.API) getDeclaringContext()).getRef() + "/defintions/" + getName();
+			return ((core.API) getDeclaringContext()).getRef() + "/definitions/" + getName();
 			} else if (getDeclaringContext() instanceof Schema) {
 		Schema context = (Schema) getDeclaringContext();	
 		if (context.getProperties().contains(this))
