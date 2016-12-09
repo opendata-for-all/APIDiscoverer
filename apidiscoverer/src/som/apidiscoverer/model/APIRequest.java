@@ -1,5 +1,6 @@
 package som.apidiscoverer.model;
 
+import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.URL;
@@ -7,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
+import core.CollectionFormat;
 import som.apidiscoverer.util.WordsUtils;
 
 public class APIRequest {
@@ -27,7 +29,7 @@ public class APIRequest {
 	private String basePath;
 
 	public APIRequest() {
-		queryParameters = new ArrayList();
+		queryParameters = new ArrayList<Parameter>();
 		pathParameters = new ArrayList<>();
 		paths = new ArrayList<>();
 		response = new Response();
@@ -40,15 +42,15 @@ public class APIRequest {
 	public void setUrl(String url) {
 
 		this.url = url;
-	
 
 	}
-	public void decode() throws MalformedURLException {
+
+	public void decode() throws MalformedURLException, UnsupportedEncodingException {
 		discoverURL(url);
-		
+
 	}
 
-	private void discoverURL(String url) throws MalformedURLException {
+	private void discoverURL(String url) throws MalformedURLException, UnsupportedEncodingException {
 		URL httpURL = new URL(url);
 		protocol = httpURL.getProtocol();
 		path = httpURL.getPath();
@@ -59,32 +61,32 @@ public class APIRequest {
 		if (path != null && !path.equals(""))
 			discoverPaths();
 		discoverPathParameters();
-		basePath = "/"+paths.get(0);
+		basePath = "/" + paths.get(0);
 		discoverOpenAPIPath();
 	}
 
 	private void discoverOpenAPIPath() {
-	openAPIPath = "";
-		for (int i = 1; i < paths.size(); i++){
-		if(!WordsUtils.isPathParameter(paths.get(i))){
-			openAPIPath += "/";
-			openAPIPath += paths.get(i);
+		openAPIPath = "";
+		for (int i = 1; i < paths.size(); i++) {
+			if (!WordsUtils.isPathParameter(paths.get(i))) {
+				openAPIPath += "/";
+				openAPIPath += paths.get(i);
+			} else {
+				openAPIPath += "/{" + getPathParameterName(paths.get(i)) + "}";
+			}
 		}
-		else {
-			openAPIPath += "/{"+getPathParameterName(paths.get(i))+"}";
-		}
-		}
-		
+
 	}
+
 	public String getSchemaName() throws URISyntaxException {
-			for (int i = paths.size() -1; i >= 0 ; i--){
-			if(WordsUtils.hasAMeaning(paths.get(i))){
+		for (int i = paths.size() - 1; i >= 0; i--) {
+			if (WordsUtils.hasAMeaning(paths.get(i))) {
 				return paths.get(i);
 			}
-			}
-			return "unkown";
-			
 		}
+		return "unkown";
+
+	}
 
 	private void discoverPaths() {
 		String[] pathParts = path.substring(1).split(Pattern.quote("/"));
@@ -93,17 +95,31 @@ public class APIRequest {
 		}
 	}
 
-	private void discoverQueryParameters() {
+	private void discoverQueryParameters() throws UnsupportedEncodingException {
 		String[] params = query.split(Pattern.quote("&"));
+		List<String> paramName = new ArrayList<String>();
 		for (String param : params) {
+
 			String[] values = param.split(Pattern.quote("="));
-			Parameter parameter = new Parameter();
-			parameter.setName(values[0]);
-			if (values.length == 2) {
-				parameter.setValue(values[1]);
-			} else
-				parameter.setValue("");
-			queryParameters.add(parameter);
+			if (!paramName.contains(values[0])) {
+				Parameter parameter = new Parameter();
+				parameter.setName(values[0]);
+
+				if (values.length == 2) {
+					parameter.setValue(values[1]);
+				} else
+					parameter.setValue("");
+				parameter.discoverParameter();
+				queryParameters.add(parameter);
+				paramName.add(values[0]);
+			} else {
+				Parameter parameter = new Parameter();
+				parameter.setName(values[0]);
+				parameter = queryParameters.get(queryParameters.indexOf(parameter));
+				parameter.setArray(true);
+				parameter.setCollectionFormat(CollectionFormat.MULTI);
+
+			}
 		}
 
 	}
@@ -139,8 +155,6 @@ public class APIRequest {
 	public void setBody(String body) {
 		this.body = body;
 	}
-
-	
 
 	public String getProtocol() {
 		return protocol;
@@ -183,8 +197,8 @@ public class APIRequest {
 	}
 
 	public void discoverPathParameters() {
-		for (String temp: paths) {
-			if(WordsUtils.isPathParameter(temp)){
+		for (String temp : paths) {
+			if (WordsUtils.isPathParameter(temp)) {
 				Parameter parameter = new Parameter();
 				parameter.setName(getPathParameterName(temp));
 				parameter.setValue(temp);
@@ -195,22 +209,18 @@ public class APIRequest {
 	}
 
 	public String getPathParameterName(String temp) {
-		return getPathParameterParent(temp)+"Id";
+		return getPathParameterParent(temp) + "Id";
 	}
 
-	
 	public String getPathParameterParent(String pathParameter) {
 		int index = paths.indexOf(pathParameter);
-		if(index > 0){
-			return paths.get(index-1);
-			
+		if (index > 0) {
+			return paths.get(index - 1);
+
 		}
 		return "path";
-		
 
 	}
-
-
 
 	public List<Parameter> getQueryParameters() {
 		return queryParameters;
@@ -243,7 +253,5 @@ public class APIRequest {
 	public void setBasePath(String basePath) {
 		this.basePath = basePath;
 	}
-
-	
 
 }

@@ -174,19 +174,28 @@ public class Discoverer {
 				apiParameter = factory.createParameter();
 				apiParameter.setLocation(ParameterLocation.QUERY);
 				apiParameter.setName(parameter.getName());
+				if(parameter.isArray()){
+					apiParameter.setType(JSONDataType.ARRAY);
+					apiParameter.setCollectionFormat(parameter.getCollectionFormat());
+					ItemsDefinition items = factory.createItemsDefinition();
+					items.setType(parameter.getType());
+					apiParameter.setItems(items);
+				}
+				else {
 				apiParameter.setType(parameter.getType());
+				}
 				apiParameter.setDeclaringContext(apiOperation);
 				apiRoot.getParamters().add(apiParameter);
 				apiOperation.getParameters().add(apiParameter);
 				parametersMap.put(parameterKey, apiParameter);
 			}
-			else {
-				apiParameter.setType(JSONDataType.ARRAY);
-				ItemsDefinition items = factory.createItemsDefinition();
-				items.setType(parameter.getType());
-				apiParameter.setItems(items);
-				apiParameter.setCollectionFormat(CollectionFormat.MULTI);
-			}
+//			else {
+//				apiParameter.setType(JSONDataType.ARRAY);
+//				ItemsDefinition items = factory.createItemsDefinition();
+//				items.setType(parameter.getType());
+//				apiParameter.setItems(items);
+//				apiParameter.setCollectionFormat(CollectionFormat.MULTI);
+//			}
 
 		}
 		for (Parameter parameter : apiResquest.getPathParameters()) {
@@ -296,7 +305,7 @@ public class Discoverer {
 			apiRoot.getResponses().add(response);
 			responsesMap.put(responseKey, response);
 			if (apiResquest.getResponse().getStatus() == 200) {
-				if (apiResquest.getResponse().getBody() != null) {
+				if (apiResquest.getResponse().getBody() != null && !apiResquest.getResponse().getBody().equals("")) {
 					JsonParser parser = new JsonParser();
 					JsonElement jsonSchemaInstance = parser.parse(apiResquest.getResponse().getBody());
 					if (jsonSchemaInstance.isJsonArray()) {

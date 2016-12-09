@@ -6,6 +6,7 @@ import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.InputStream;
 import java.io.Serializable;
+import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
@@ -262,7 +263,7 @@ public class DiscovererBean implements Serializable {
 
 	
 
-	public void sendRequest() throws MalformedURLException, URISyntaxException {
+	public void sendRequest() throws MalformedURLException, URISyntaxException, UnsupportedEncodingException {
 		try {
 			newAPIRequest = getAPIRequestFromAPICallExample(jsonCallExample);
 			newAPIRequest.decode();
@@ -279,7 +280,7 @@ public class DiscovererBean implements Serializable {
 
 	}
 
-	public void discover() throws MalformedURLException, URISyntaxException {
+	public void discover() throws MalformedURLException, URISyntaxException, UnsupportedEncodingException {
 		jsonCallExample = gson.fromJson(rowJsonCallExample, JSONAPICallExample.class);
 		newAPIRequest = getAPIRequestFromAPICallExample(jsonCallExample);
 		newAPIRequest.decode();
