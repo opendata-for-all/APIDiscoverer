@@ -2058,7 +2058,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 		initEAttribute(getJSONSchemaSubset_Format(), ecorePackage.getEString(), "format", null, 0, 1, JSONSchemaSubset.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJSONSchemaSubset_Description(), ecorePackage.getEString(), "description", null, 0, 1, JSONSchemaSubset.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJSONSchemaSubset_Maximum(), ecorePackage.getEDoubleObject(), "maximum", null, 0, 1, JSONSchemaSubset.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getJSONSchemaSubset_ExclusiveMaximum(), ecorePackage.getEDoubleObject(), "exclusiveMaximum", null, 0, 1, JSONSchemaSubset.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJSONSchemaSubset_ExclusiveMaximum(), ecorePackage.getEBooleanObject(), "exclusiveMaximum", null, 0, 1, JSONSchemaSubset.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJSONSchemaSubset_Minimum(), ecorePackage.getEDoubleObject(), "minimum", null, 0, 1, JSONSchemaSubset.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJSONSchemaSubset_ExclusiveMinimum(), ecorePackage.getEBooleanObject(), "exclusiveMinimum", null, 0, 1, JSONSchemaSubset.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJSONSchemaSubset_MaxLength(), ecorePackage.getEIntegerObject(), "maxLength", null, 0, 1, JSONSchemaSubset.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2276,10 +2276,10 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 
 		initEEnum(jsonDataTypeEEnum, JSONDataType.class, "JSONDataType");
 		addEEnumLiteral(jsonDataTypeEEnum, JSONDataType.UNSPECIFIED);
+		addEEnumLiteral(jsonDataTypeEEnum, JSONDataType.BOOLEAN);
 		addEEnumLiteral(jsonDataTypeEEnum, JSONDataType.INTEGER);
 		addEEnumLiteral(jsonDataTypeEEnum, JSONDataType.NUMBER);
 		addEEnumLiteral(jsonDataTypeEEnum, JSONDataType.STRING);
-		addEEnumLiteral(jsonDataTypeEEnum, JSONDataType.BOOLEAN);
 		addEEnumLiteral(jsonDataTypeEEnum, JSONDataType.OBJECT);
 		addEEnumLiteral(jsonDataTypeEEnum, JSONDataType.ARRAY);
 		addEEnumLiteral(jsonDataTypeEEnum, JSONDataType.FILE);

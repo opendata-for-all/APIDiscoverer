@@ -136,7 +136,7 @@ public abstract class JSONSchemaSubsetImpl extends MinimalEObjectImpl.Container 
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Double EXCLUSIVE_MAXIMUM_EDEFAULT = null;
+	protected static final Boolean EXCLUSIVE_MAXIMUM_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getExclusiveMaximum() <em>Exclusive Maximum</em>}' attribute.
@@ -146,7 +146,7 @@ public abstract class JSONSchemaSubsetImpl extends MinimalEObjectImpl.Container 
 	 * @generated
 	 * @ordered
 	 */
-	protected Double exclusiveMaximum = EXCLUSIVE_MAXIMUM_EDEFAULT;
+	protected Boolean exclusiveMaximum = EXCLUSIVE_MAXIMUM_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getMinimum() <em>Minimum</em>}' attribute.
@@ -466,7 +466,7 @@ public abstract class JSONSchemaSubsetImpl extends MinimalEObjectImpl.Container 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Double getExclusiveMaximum() {
+	public Boolean getExclusiveMaximum() {
 		return exclusiveMaximum;
 	}
 
@@ -475,8 +475,8 @@ public abstract class JSONSchemaSubsetImpl extends MinimalEObjectImpl.Container 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setExclusiveMaximum(Double newExclusiveMaximum) {
-		Double oldExclusiveMaximum = exclusiveMaximum;
+	public void setExclusiveMaximum(Boolean newExclusiveMaximum) {
+		Boolean oldExclusiveMaximum = exclusiveMaximum;
 		exclusiveMaximum = newExclusiveMaximum;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.JSON_SCHEMA_SUBSET__EXCLUSIVE_MAXIMUM, oldExclusiveMaximum, exclusiveMaximum));
@@ -770,7 +770,7 @@ public abstract class JSONSchemaSubsetImpl extends MinimalEObjectImpl.Container 
 				setMaximum((Double)newValue);
 				return;
 			case CorePackage.JSON_SCHEMA_SUBSET__EXCLUSIVE_MAXIMUM:
-				setExclusiveMaximum((Double)newValue);
+				setExclusiveMaximum((Boolean)newValue);
 				return;
 			case CorePackage.JSON_SCHEMA_SUBSET__MINIMUM:
 				setMinimum((Double)newValue);

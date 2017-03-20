@@ -154,12 +154,12 @@ public interface JSONSchemaSubset extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Exclusive Maximum</em>' attribute.
-	 * @see #setExclusiveMaximum(Double)
+	 * @see #setExclusiveMaximum(Boolean)
 	 * @see core.CorePackage#getJSONSchemaSubset_ExclusiveMaximum()
 	 * @model
 	 * @generated
 	 */
-	Double getExclusiveMaximum();
+	Boolean getExclusiveMaximum();
 
 	/**
 	 * Sets the value of the '{@link core.JSONSchemaSubset#getExclusiveMaximum <em>Exclusive Maximum</em>}' attribute.
@@ -169,7 +169,7 @@ public interface JSONSchemaSubset extends EObject {
 	 * @see #getExclusiveMaximum()
 	 * @generated
 	 */
-	void setExclusiveMaximum(Double value);
+	void setExclusiveMaximum(Boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Minimum</b></em>' attribute.

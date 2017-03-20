@@ -29,36 +29,6 @@ public enum JSONDataType implements Enumerator {
 	UNSPECIFIED(0, "unspecified", "unspecified"),
 
 	/**
-	 * The '<em><b>Integer</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #INTEGER_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	INTEGER(1, "integer", "integer"),
-
-	/**
-	 * The '<em><b>Number</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #NUMBER_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	NUMBER(2, "number", "number"),
-
-	/**
-	 * The '<em><b>String</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #STRING_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	STRING(3, "string", "string"),
-
-	/**
 	 * The '<em><b>Boolean</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -66,7 +36,31 @@ public enum JSONDataType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	BOOLEAN(4, "boolean", "boolean"),
+	BOOLEAN(1, "boolean", "boolean"), /**
+	 * The '<em><b>Integer</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #INTEGER_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	INTEGER(2, "integer", "integer"), /**
+	 * The '<em><b>Number</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #NUMBER_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	NUMBER(3, "number", "number"), /**
+	 * The '<em><b>String</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #STRING_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	STRING(4, "string", "string"),
 
 	/**
 	 * The '<em><b>Object</b></em>' literal object.
@@ -124,6 +118,21 @@ public enum JSONDataType implements Enumerator {
 	public static final int UNSPECIFIED_VALUE = 0;
 
 	/**
+	 * The '<em><b>Boolean</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Boolean</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #BOOLEAN
+	 * @model name="boolean"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int BOOLEAN_VALUE = 1;
+
+	/**
 	 * The '<em><b>Integer</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -136,7 +145,7 @@ public enum JSONDataType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int INTEGER_VALUE = 1;
+	public static final int INTEGER_VALUE = 2;
 
 	/**
 	 * The '<em><b>Number</b></em>' literal value.
@@ -151,7 +160,7 @@ public enum JSONDataType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int NUMBER_VALUE = 2;
+	public static final int NUMBER_VALUE = 3;
 
 	/**
 	 * The '<em><b>String</b></em>' literal value.
@@ -166,22 +175,7 @@ public enum JSONDataType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int STRING_VALUE = 3;
-
-	/**
-	 * The '<em><b>Boolean</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Boolean</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @see #BOOLEAN
-	 * @model name="boolean"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int BOOLEAN_VALUE = 4;
+	public static final int STRING_VALUE = 4;
 
 	/**
 	 * The '<em><b>Object</b></em>' literal value.
@@ -252,10 +246,10 @@ public enum JSONDataType implements Enumerator {
 	private static final JSONDataType[] VALUES_ARRAY =
 		new JSONDataType[] {
 			UNSPECIFIED,
+			BOOLEAN,
 			INTEGER,
 			NUMBER,
 			STRING,
-			BOOLEAN,
 			OBJECT,
 			ARRAY,
 			FILE,
@@ -317,10 +311,10 @@ public enum JSONDataType implements Enumerator {
 	public static JSONDataType get(int value) {
 		switch (value) {
 			case UNSPECIFIED_VALUE: return UNSPECIFIED;
+			case BOOLEAN_VALUE: return BOOLEAN;
 			case INTEGER_VALUE: return INTEGER;
 			case NUMBER_VALUE: return NUMBER;
 			case STRING_VALUE: return STRING;
-			case BOOLEAN_VALUE: return BOOLEAN;
 			case OBJECT_VALUE: return OBJECT;
 			case ARRAY_VALUE: return ARRAY;
 			case FILE_VALUE: return FILE;

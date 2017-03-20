@@ -166,7 +166,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Double EXCLUSIVE_MAXIMUM_EDEFAULT = null;
+	protected static final Boolean EXCLUSIVE_MAXIMUM_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getExclusiveMaximum() <em>Exclusive Maximum</em>}' attribute.
@@ -176,7 +176,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	 * @generated
 	 * @ordered
 	 */
-	protected Double exclusiveMaximum = EXCLUSIVE_MAXIMUM_EDEFAULT;
+	protected Boolean exclusiveMaximum = EXCLUSIVE_MAXIMUM_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getMinimum() <em>Minimum</em>}' attribute.
@@ -684,7 +684,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Double getExclusiveMaximum() {
+	public Boolean getExclusiveMaximum() {
 		return exclusiveMaximum;
 	}
 
@@ -693,8 +693,8 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setExclusiveMaximum(Double newExclusiveMaximum) {
-		Double oldExclusiveMaximum = exclusiveMaximum;
+	public void setExclusiveMaximum(Boolean newExclusiveMaximum) {
+		Boolean oldExclusiveMaximum = exclusiveMaximum;
 		exclusiveMaximum = newExclusiveMaximum;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.PARAMETER__EXCLUSIVE_MAXIMUM, oldExclusiveMaximum, exclusiveMaximum));
@@ -1245,7 +1245,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 				setMaximum((Double)newValue);
 				return;
 			case CorePackage.PARAMETER__EXCLUSIVE_MAXIMUM:
-				setExclusiveMaximum((Double)newValue);
+				setExclusiveMaximum((Boolean)newValue);
 				return;
 			case CorePackage.PARAMETER__MINIMUM:
 				setMinimum((Double)newValue);
