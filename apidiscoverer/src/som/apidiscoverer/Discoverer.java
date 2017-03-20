@@ -189,6 +189,15 @@ public class Discoverer {
 				apiOperation.getParameters().add(apiParameter);
 				parametersMap.put(parameterKey, apiParameter);
 			}
+			else {
+				if(apiParameter.getType().equals(JSONDataType.ARRAY)){
+					
+					apiParameter.getItems().setType(Parameter.getGeneralType(apiParameter.getType(),parameter.getType()));
+				}
+				else {
+					apiParameter.setType(Parameter.getGeneralType(apiParameter.getType(),parameter.getType()));
+				}
+			}
 //			else {
 //				apiParameter.setType(JSONDataType.ARRAY);
 //				ItemsDefinition items = factory.createItemsDefinition();
@@ -212,6 +221,11 @@ public class Discoverer {
 				apiParameter.setDeclaringContext(apiOperation);
 				apiRoot.getParamters().add(apiParameter);
 				parametersMap.put(parameterKey, apiParameter);
+			}
+			else {
+				
+						apiParameter.setType(Parameter.getGeneralType(apiParameter.getType(),parameter.getType()));
+				
 			}
 
 		}

@@ -61,18 +61,18 @@ public class APIRequest {
 		if (path != null && !path.equals(""))
 			discoverPaths();
 		discoverPathParameters();
-		basePath = "/" + paths.get(0);
+		basePath = "/" + (paths.isEmpty()?"":paths.get(0));
 		discoverOpenAPIPath();
 	}
 
 	private void discoverOpenAPIPath() {
-		openAPIPath = "";
+		openAPIPath = "/";
 		for (int i = 1; i < paths.size(); i++) {
 			if (!WordsUtils.isPathParameter(paths.get(i))) {
-				openAPIPath += "/";
+//				openAPIPath += "/";
 				openAPIPath += paths.get(i);
 			} else {
-				openAPIPath += "/{" + getPathParameterName(paths.get(i)) + "}";
+				openAPIPath += "{" + getPathParameterName(paths.get(i)) + "}";
 			}
 		}
 
