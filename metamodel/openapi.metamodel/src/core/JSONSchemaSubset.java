@@ -33,7 +33,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link core.JSONSchemaSubset#getMultipleOf <em>Multiple Of</em>}</li>
  * </ul>
  *
- * @see core.CorePackage#getJSONSchemaSubset()
+ * @see core.OpenAPIPackage#getJSONSchemaSubset()
  * @model abstract="true"
  * @generated
  */
@@ -50,7 +50,7 @@ public interface JSONSchemaSubset extends EObject {
 	 * @return the value of the '<em>Type</em>' attribute.
 	 * @see core.JSONDataType
 	 * @see #setType(JSONDataType)
-	 * @see core.CorePackage#getJSONSchemaSubset_Type()
+	 * @see core.OpenAPIPackage#getJSONSchemaSubset_Type()
 	 * @model
 	 * @generated
 	 */
@@ -77,7 +77,7 @@ public interface JSONSchemaSubset extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Format</em>' attribute.
 	 * @see #setFormat(String)
-	 * @see core.CorePackage#getJSONSchemaSubset_Format()
+	 * @see core.OpenAPIPackage#getJSONSchemaSubset_Format()
 	 * @model
 	 * @generated
 	 */
@@ -103,7 +103,7 @@ public interface JSONSchemaSubset extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Description</em>' attribute.
 	 * @see #setDescription(String)
-	 * @see core.CorePackage#getJSONSchemaSubset_Description()
+	 * @see core.OpenAPIPackage#getJSONSchemaSubset_Description()
 	 * @model
 	 * @generated
 	 */
@@ -129,7 +129,7 @@ public interface JSONSchemaSubset extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Maximum</em>' attribute.
 	 * @see #setMaximum(Double)
-	 * @see core.CorePackage#getJSONSchemaSubset_Maximum()
+	 * @see core.OpenAPIPackage#getJSONSchemaSubset_Maximum()
 	 * @model
 	 * @generated
 	 */
@@ -155,7 +155,7 @@ public interface JSONSchemaSubset extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Exclusive Maximum</em>' attribute.
 	 * @see #setExclusiveMaximum(Boolean)
-	 * @see core.CorePackage#getJSONSchemaSubset_ExclusiveMaximum()
+	 * @see core.OpenAPIPackage#getJSONSchemaSubset_ExclusiveMaximum()
 	 * @model
 	 * @generated
 	 */
@@ -181,7 +181,7 @@ public interface JSONSchemaSubset extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Minimum</em>' attribute.
 	 * @see #setMinimum(Double)
-	 * @see core.CorePackage#getJSONSchemaSubset_Minimum()
+	 * @see core.OpenAPIPackage#getJSONSchemaSubset_Minimum()
 	 * @model
 	 * @generated
 	 */
@@ -207,7 +207,7 @@ public interface JSONSchemaSubset extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Exclusive Minimum</em>' attribute.
 	 * @see #setExclusiveMinimum(Boolean)
-	 * @see core.CorePackage#getJSONSchemaSubset_ExclusiveMinimum()
+	 * @see core.OpenAPIPackage#getJSONSchemaSubset_ExclusiveMinimum()
 	 * @model
 	 * @generated
 	 */
@@ -233,7 +233,7 @@ public interface JSONSchemaSubset extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Max Length</em>' attribute.
 	 * @see #setMaxLength(Integer)
-	 * @see core.CorePackage#getJSONSchemaSubset_MaxLength()
+	 * @see core.OpenAPIPackage#getJSONSchemaSubset_MaxLength()
 	 * @model
 	 * @generated
 	 */
@@ -259,7 +259,7 @@ public interface JSONSchemaSubset extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Min Length</em>' attribute.
 	 * @see #setMinLength(Integer)
-	 * @see core.CorePackage#getJSONSchemaSubset_MinLength()
+	 * @see core.OpenAPIPackage#getJSONSchemaSubset_MinLength()
 	 * @model
 	 * @generated
 	 */
@@ -285,7 +285,7 @@ public interface JSONSchemaSubset extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Pattern</em>' attribute.
 	 * @see #setPattern(String)
-	 * @see core.CorePackage#getJSONSchemaSubset_Pattern()
+	 * @see core.OpenAPIPackage#getJSONSchemaSubset_Pattern()
 	 * @model
 	 * @generated
 	 */
@@ -311,7 +311,7 @@ public interface JSONSchemaSubset extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Max Items</em>' attribute.
 	 * @see #setMaxItems(Integer)
-	 * @see core.CorePackage#getJSONSchemaSubset_MaxItems()
+	 * @see core.OpenAPIPackage#getJSONSchemaSubset_MaxItems()
 	 * @model
 	 * @generated
 	 */
@@ -337,7 +337,7 @@ public interface JSONSchemaSubset extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Min Items</em>' attribute.
 	 * @see #setMinItems(Integer)
-	 * @see core.CorePackage#getJSONSchemaSubset_MinItems()
+	 * @see core.OpenAPIPackage#getJSONSchemaSubset_MinItems()
 	 * @model
 	 * @generated
 	 */
@@ -364,7 +364,7 @@ public interface JSONSchemaSubset extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Unique Items</em>' attribute.
 	 * @see #setUniqueItems(Boolean)
-	 * @see core.CorePackage#getJSONSchemaSubset_UniqueItems()
+	 * @see core.OpenAPIPackage#getJSONSchemaSubset_UniqueItems()
 	 * @model default="false"
 	 * @generated
 	 */
@@ -390,7 +390,7 @@ public interface JSONSchemaSubset extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Enum</em>' attribute list.
-	 * @see core.CorePackage#getJSONSchemaSubset_Enum()
+	 * @see core.OpenAPIPackage#getJSONSchemaSubset_Enum()
 	 * @model
 	 * @generated
 	 */
@@ -406,7 +406,7 @@ public interface JSONSchemaSubset extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Default</em>' attribute.
 	 * @see #setDefault(String)
-	 * @see core.CorePackage#getJSONSchemaSubset_Default()
+	 * @see core.OpenAPIPackage#getJSONSchemaSubset_Default()
 	 * @model
 	 * @generated
 	 */
@@ -432,7 +432,7 @@ public interface JSONSchemaSubset extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Multiple Of</em>' attribute.
 	 * @see #setMultipleOf(double)
-	 * @see core.CorePackage#getJSONSchemaSubset_MultipleOf()
+	 * @see core.OpenAPIPackage#getJSONSchemaSubset_MultipleOf()
 	 * @model
 	 * @generated
 	 */

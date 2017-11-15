@@ -5,9 +5,8 @@ package core.provider;
 
 import core.ArrayContext;
 import core.CollectionFormat;
-import core.CoreFactory;
-import core.CorePackage;
-
+import core.OpenAPIFactory;
+import core.OpenAPIPackage;
 import java.util.Collection;
 import java.util.List;
 
@@ -82,7 +81,7 @@ public class ArrayContextItemProvider
 				 getResourceLocator(),
 				 getString("_UI_ArrayContext_collectionFormat_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ArrayContext_collectionFormat_feature", "_UI_ArrayContext_type"),
-				 CorePackage.Literals.ARRAY_CONTEXT__COLLECTION_FORMAT,
+				 OpenAPIPackage.Literals.ARRAY_CONTEXT__COLLECTION_FORMAT,
 				 true,
 				 false,
 				 false,
@@ -103,7 +102,7 @@ public class ArrayContextItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(CorePackage.Literals.ARRAY_CONTEXT__ITEMS);
+			childrenFeatures.add(OpenAPIPackage.Literals.ARRAY_CONTEXT__ITEMS);
 		}
 		return childrenFeatures;
 	}
@@ -149,10 +148,10 @@ public class ArrayContextItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ArrayContext.class)) {
-			case CorePackage.ARRAY_CONTEXT__COLLECTION_FORMAT:
+			case OpenAPIPackage.ARRAY_CONTEXT__COLLECTION_FORMAT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case CorePackage.ARRAY_CONTEXT__ITEMS:
+			case OpenAPIPackage.ARRAY_CONTEXT__ITEMS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -172,8 +171,8 @@ public class ArrayContextItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.Literals.ARRAY_CONTEXT__ITEMS,
-				 CoreFactory.eINSTANCE.createItemsDefinition()));
+				(OpenAPIPackage.Literals.ARRAY_CONTEXT__ITEMS,
+				 OpenAPIFactory.eINSTANCE.createItemsDefinition()));
 	}
 
 	/**

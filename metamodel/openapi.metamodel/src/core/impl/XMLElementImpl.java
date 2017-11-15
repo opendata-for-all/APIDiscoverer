@@ -2,7 +2,7 @@
  */
 package core.impl;
 
-import core.CorePackage;
+import core.OpenAPIPackage;
 import core.XMLElement;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -146,7 +146,7 @@ public class XMLElementImpl extends MinimalEObjectImpl.Container implements XMLE
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return CorePackage.Literals.XML_ELEMENT;
+		return OpenAPIPackage.Literals.XML_ELEMENT;
 	}
 
 	/**
@@ -167,7 +167,7 @@ public class XMLElementImpl extends MinimalEObjectImpl.Container implements XMLE
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.XML_ELEMENT__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.XML_ELEMENT__NAME, oldName, name));
 	}
 
 	/**
@@ -188,7 +188,7 @@ public class XMLElementImpl extends MinimalEObjectImpl.Container implements XMLE
 		String oldNamespace = namespace;
 		namespace = newNamespace;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.XML_ELEMENT__NAMESPACE, oldNamespace, namespace));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.XML_ELEMENT__NAMESPACE, oldNamespace, namespace));
 	}
 
 	/**
@@ -209,7 +209,7 @@ public class XMLElementImpl extends MinimalEObjectImpl.Container implements XMLE
 		String oldPrefix = prefix;
 		prefix = newPrefix;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.XML_ELEMENT__PREFIX, oldPrefix, prefix));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.XML_ELEMENT__PREFIX, oldPrefix, prefix));
 	}
 
 	/**
@@ -230,7 +230,7 @@ public class XMLElementImpl extends MinimalEObjectImpl.Container implements XMLE
 		boolean oldAttribute = attribute;
 		attribute = newAttribute;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.XML_ELEMENT__ATTRIBUTE, oldAttribute, attribute));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.XML_ELEMENT__ATTRIBUTE, oldAttribute, attribute));
 	}
 
 	/**
@@ -251,7 +251,7 @@ public class XMLElementImpl extends MinimalEObjectImpl.Container implements XMLE
 		boolean oldWrapped = wrapped;
 		wrapped = newWrapped;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.XML_ELEMENT__WRAPPED, oldWrapped, wrapped));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.XML_ELEMENT__WRAPPED, oldWrapped, wrapped));
 	}
 
 	/**
@@ -262,15 +262,15 @@ public class XMLElementImpl extends MinimalEObjectImpl.Container implements XMLE
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CorePackage.XML_ELEMENT__NAME:
+			case OpenAPIPackage.XML_ELEMENT__NAME:
 				return getName();
-			case CorePackage.XML_ELEMENT__NAMESPACE:
+			case OpenAPIPackage.XML_ELEMENT__NAMESPACE:
 				return getNamespace();
-			case CorePackage.XML_ELEMENT__PREFIX:
+			case OpenAPIPackage.XML_ELEMENT__PREFIX:
 				return getPrefix();
-			case CorePackage.XML_ELEMENT__ATTRIBUTE:
+			case OpenAPIPackage.XML_ELEMENT__ATTRIBUTE:
 				return isAttribute();
-			case CorePackage.XML_ELEMENT__WRAPPED:
+			case OpenAPIPackage.XML_ELEMENT__WRAPPED:
 				return isWrapped();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -284,19 +284,19 @@ public class XMLElementImpl extends MinimalEObjectImpl.Container implements XMLE
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CorePackage.XML_ELEMENT__NAME:
+			case OpenAPIPackage.XML_ELEMENT__NAME:
 				setName((String)newValue);
 				return;
-			case CorePackage.XML_ELEMENT__NAMESPACE:
+			case OpenAPIPackage.XML_ELEMENT__NAMESPACE:
 				setNamespace((String)newValue);
 				return;
-			case CorePackage.XML_ELEMENT__PREFIX:
+			case OpenAPIPackage.XML_ELEMENT__PREFIX:
 				setPrefix((String)newValue);
 				return;
-			case CorePackage.XML_ELEMENT__ATTRIBUTE:
+			case OpenAPIPackage.XML_ELEMENT__ATTRIBUTE:
 				setAttribute((Boolean)newValue);
 				return;
-			case CorePackage.XML_ELEMENT__WRAPPED:
+			case OpenAPIPackage.XML_ELEMENT__WRAPPED:
 				setWrapped((Boolean)newValue);
 				return;
 		}
@@ -311,19 +311,19 @@ public class XMLElementImpl extends MinimalEObjectImpl.Container implements XMLE
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CorePackage.XML_ELEMENT__NAME:
+			case OpenAPIPackage.XML_ELEMENT__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case CorePackage.XML_ELEMENT__NAMESPACE:
+			case OpenAPIPackage.XML_ELEMENT__NAMESPACE:
 				setNamespace(NAMESPACE_EDEFAULT);
 				return;
-			case CorePackage.XML_ELEMENT__PREFIX:
+			case OpenAPIPackage.XML_ELEMENT__PREFIX:
 				setPrefix(PREFIX_EDEFAULT);
 				return;
-			case CorePackage.XML_ELEMENT__ATTRIBUTE:
+			case OpenAPIPackage.XML_ELEMENT__ATTRIBUTE:
 				setAttribute(ATTRIBUTE_EDEFAULT);
 				return;
-			case CorePackage.XML_ELEMENT__WRAPPED:
+			case OpenAPIPackage.XML_ELEMENT__WRAPPED:
 				setWrapped(WRAPPED_EDEFAULT);
 				return;
 		}
@@ -338,15 +338,15 @@ public class XMLElementImpl extends MinimalEObjectImpl.Container implements XMLE
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CorePackage.XML_ELEMENT__NAME:
+			case OpenAPIPackage.XML_ELEMENT__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case CorePackage.XML_ELEMENT__NAMESPACE:
+			case OpenAPIPackage.XML_ELEMENT__NAMESPACE:
 				return NAMESPACE_EDEFAULT == null ? namespace != null : !NAMESPACE_EDEFAULT.equals(namespace);
-			case CorePackage.XML_ELEMENT__PREFIX:
+			case OpenAPIPackage.XML_ELEMENT__PREFIX:
 				return PREFIX_EDEFAULT == null ? prefix != null : !PREFIX_EDEFAULT.equals(prefix);
-			case CorePackage.XML_ELEMENT__ATTRIBUTE:
+			case OpenAPIPackage.XML_ELEMENT__ATTRIBUTE:
 				return attribute != ATTRIBUTE_EDEFAULT;
-			case CorePackage.XML_ELEMENT__WRAPPED:
+			case OpenAPIPackage.XML_ELEMENT__WRAPPED:
 				return wrapped != WRAPPED_EDEFAULT;
 		}
 		return super.eIsSet(featureID);

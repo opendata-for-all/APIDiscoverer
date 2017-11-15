@@ -3,9 +3,9 @@
 package core.provider;
 
 
-import core.CorePackage;
 import core.JSONPointer;
 
+import core.OpenAPIPackage;
 import java.util.Collection;
 import java.util.List;
 
@@ -78,7 +78,7 @@ public class JSONPointerItemProvider
 				 getResourceLocator(),
 				 getString("_UI_JSONPointer_ref_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_JSONPointer_ref_feature", "_UI_JSONPointer_type"),
-				 CorePackage.Literals.JSON_POINTER__REF,
+				 OpenAPIPackage.Literals.JSON_POINTER__REF,
 				 false,
 				 false,
 				 false,
@@ -114,7 +114,7 @@ public class JSONPointerItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(JSONPointer.class)) {
-			case CorePackage.JSON_POINTER__REF:
+			case OpenAPIPackage.JSON_POINTER__REF:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

@@ -3,8 +3,8 @@
 package core.provider;
 
 
-import core.CoreFactory;
-import core.CorePackage;
+import core.OpenAPIFactory;
+import core.OpenAPIPackage;
 import core.SecuritySchema;
 
 import java.util.Collection;
@@ -88,7 +88,7 @@ public class SecuritySchemaItemProvider
 				 getResourceLocator(),
 				 getString("_UI_SecuritySchema_type_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_SecuritySchema_type_feature", "_UI_SecuritySchema_type"),
-				 CorePackage.Literals.SECURITY_SCHEMA__TYPE,
+				 OpenAPIPackage.Literals.SECURITY_SCHEMA__TYPE,
 				 true,
 				 false,
 				 false,
@@ -110,7 +110,7 @@ public class SecuritySchemaItemProvider
 				 getResourceLocator(),
 				 getString("_UI_SecuritySchema_description_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_SecuritySchema_description_feature", "_UI_SecuritySchema_type"),
-				 CorePackage.Literals.SECURITY_SCHEMA__DESCRIPTION,
+				 OpenAPIPackage.Literals.SECURITY_SCHEMA__DESCRIPTION,
 				 true,
 				 false,
 				 false,
@@ -132,7 +132,7 @@ public class SecuritySchemaItemProvider
 				 getResourceLocator(),
 				 getString("_UI_SecuritySchema_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_SecuritySchema_name_feature", "_UI_SecuritySchema_type"),
-				 CorePackage.Literals.SECURITY_SCHEMA__NAME,
+				 OpenAPIPackage.Literals.SECURITY_SCHEMA__NAME,
 				 true,
 				 false,
 				 false,
@@ -154,7 +154,7 @@ public class SecuritySchemaItemProvider
 				 getResourceLocator(),
 				 getString("_UI_SecuritySchema_location_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_SecuritySchema_location_feature", "_UI_SecuritySchema_type"),
-				 CorePackage.Literals.SECURITY_SCHEMA__LOCATION,
+				 OpenAPIPackage.Literals.SECURITY_SCHEMA__LOCATION,
 				 true,
 				 false,
 				 false,
@@ -176,7 +176,7 @@ public class SecuritySchemaItemProvider
 				 getResourceLocator(),
 				 getString("_UI_SecuritySchema_flow_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_SecuritySchema_flow_feature", "_UI_SecuritySchema_type"),
-				 CorePackage.Literals.SECURITY_SCHEMA__FLOW,
+				 OpenAPIPackage.Literals.SECURITY_SCHEMA__FLOW,
 				 true,
 				 false,
 				 false,
@@ -198,7 +198,7 @@ public class SecuritySchemaItemProvider
 				 getResourceLocator(),
 				 getString("_UI_SecuritySchema_authorizationUrl_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_SecuritySchema_authorizationUrl_feature", "_UI_SecuritySchema_type"),
-				 CorePackage.Literals.SECURITY_SCHEMA__AUTHORIZATION_URL,
+				 OpenAPIPackage.Literals.SECURITY_SCHEMA__AUTHORIZATION_URL,
 				 true,
 				 false,
 				 false,
@@ -220,7 +220,7 @@ public class SecuritySchemaItemProvider
 				 getResourceLocator(),
 				 getString("_UI_SecuritySchema_tokenUrl_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_SecuritySchema_tokenUrl_feature", "_UI_SecuritySchema_type"),
-				 CorePackage.Literals.SECURITY_SCHEMA__TOKEN_URL,
+				 OpenAPIPackage.Literals.SECURITY_SCHEMA__TOKEN_URL,
 				 true,
 				 false,
 				 false,
@@ -242,7 +242,7 @@ public class SecuritySchemaItemProvider
 				 getResourceLocator(),
 				 getString("_UI_SecuritySchema_globalName_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_SecuritySchema_globalName_feature", "_UI_SecuritySchema_type"),
-				 CorePackage.Literals.SECURITY_SCHEMA__GLOBAL_NAME,
+				 OpenAPIPackage.Literals.SECURITY_SCHEMA__GLOBAL_NAME,
 				 true,
 				 false,
 				 false,
@@ -263,7 +263,7 @@ public class SecuritySchemaItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(CorePackage.Literals.SECURITY_SCHEMA__SCOPES);
+			childrenFeatures.add(OpenAPIPackage.Literals.SECURITY_SCHEMA__SCOPES);
 		}
 		return childrenFeatures;
 	}
@@ -319,17 +319,17 @@ public class SecuritySchemaItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(SecuritySchema.class)) {
-			case CorePackage.SECURITY_SCHEMA__TYPE:
-			case CorePackage.SECURITY_SCHEMA__DESCRIPTION:
-			case CorePackage.SECURITY_SCHEMA__NAME:
-			case CorePackage.SECURITY_SCHEMA__LOCATION:
-			case CorePackage.SECURITY_SCHEMA__FLOW:
-			case CorePackage.SECURITY_SCHEMA__AUTHORIZATION_URL:
-			case CorePackage.SECURITY_SCHEMA__TOKEN_URL:
-			case CorePackage.SECURITY_SCHEMA__GLOBAL_NAME:
+			case OpenAPIPackage.SECURITY_SCHEMA__TYPE:
+			case OpenAPIPackage.SECURITY_SCHEMA__DESCRIPTION:
+			case OpenAPIPackage.SECURITY_SCHEMA__NAME:
+			case OpenAPIPackage.SECURITY_SCHEMA__LOCATION:
+			case OpenAPIPackage.SECURITY_SCHEMA__FLOW:
+			case OpenAPIPackage.SECURITY_SCHEMA__AUTHORIZATION_URL:
+			case OpenAPIPackage.SECURITY_SCHEMA__TOKEN_URL:
+			case OpenAPIPackage.SECURITY_SCHEMA__GLOBAL_NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case CorePackage.SECURITY_SCHEMA__SCOPES:
+			case OpenAPIPackage.SECURITY_SCHEMA__SCOPES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -349,8 +349,8 @@ public class SecuritySchemaItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.Literals.SECURITY_SCHEMA__SCOPES,
-				 CoreFactory.eINSTANCE.createSecurityScope()));
+				(OpenAPIPackage.Literals.SECURITY_SCHEMA__SCOPES,
+				 OpenAPIFactory.eINSTANCE.createSecurityScope()));
 	}
 
 	/**

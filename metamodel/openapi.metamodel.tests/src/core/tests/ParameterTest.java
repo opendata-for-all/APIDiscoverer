@@ -2,7 +2,7 @@
  */
 package core.tests;
 
-import core.CoreFactory;
+import core.OpenAPIFactory;
 import core.Parameter;
 
 import junit.textui.TestRunner;
@@ -59,7 +59,7 @@ public class ParameterTest extends SchemaDeclaringContextTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(CoreFactory.eINSTANCE.createParameter());
+		setFixture(OpenAPIFactory.eINSTANCE.createParameter());
 	}
 
 	/**

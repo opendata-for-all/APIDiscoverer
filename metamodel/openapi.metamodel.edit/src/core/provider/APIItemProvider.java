@@ -4,9 +4,8 @@ package core.provider;
 
 
 import core.API;
-import core.CoreFactory;
-import core.CorePackage;
-
+import core.OpenAPIFactory;
+import core.OpenAPIPackage;
 import java.util.Collection;
 import java.util.List;
 
@@ -75,7 +74,7 @@ public class APIItemProvider extends ParamterDeclaringContextItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_JSONPointer_ref_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_JSONPointer_ref_feature", "_UI_JSONPointer_type"),
-				 CorePackage.Literals.JSON_POINTER__REF,
+				 OpenAPIPackage.Literals.JSON_POINTER__REF,
 				 false,
 				 false,
 				 false,
@@ -97,7 +96,7 @@ public class APIItemProvider extends ParamterDeclaringContextItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_SecurityContext_securityRequirement_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_SecurityContext_securityRequirement_feature", "_UI_SecurityContext_type"),
-				 CorePackage.Literals.SECURITY_CONTEXT__SECURITY_REQUIREMENT,
+				 OpenAPIPackage.Literals.SECURITY_CONTEXT__SECURITY_REQUIREMENT,
 				 true,
 				 false,
 				 true,
@@ -119,7 +118,7 @@ public class APIItemProvider extends ParamterDeclaringContextItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_ParameterContext_parameters_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ParameterContext_parameters_feature", "_UI_ParameterContext_type"),
-				 CorePackage.Literals.PARAMETER_CONTEXT__PARAMETERS,
+				 OpenAPIPackage.Literals.PARAMETER_CONTEXT__PARAMETERS,
 				 true,
 				 false,
 				 true,
@@ -141,7 +140,7 @@ public class APIItemProvider extends ParamterDeclaringContextItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_API_swagger_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_API_swagger_feature", "_UI_API_type"),
-				 CorePackage.Literals.API__SWAGGER,
+				 OpenAPIPackage.Literals.API__SWAGGER,
 				 true,
 				 false,
 				 false,
@@ -163,7 +162,7 @@ public class APIItemProvider extends ParamterDeclaringContextItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_API_host_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_API_host_feature", "_UI_API_type"),
-				 CorePackage.Literals.API__HOST,
+				 OpenAPIPackage.Literals.API__HOST,
 				 true,
 				 false,
 				 false,
@@ -185,7 +184,7 @@ public class APIItemProvider extends ParamterDeclaringContextItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_API_basePath_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_API_basePath_feature", "_UI_API_type"),
-				 CorePackage.Literals.API__BASE_PATH,
+				 OpenAPIPackage.Literals.API__BASE_PATH,
 				 true,
 				 false,
 				 false,
@@ -207,7 +206,7 @@ public class APIItemProvider extends ParamterDeclaringContextItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_API_schemes_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_API_schemes_feature", "_UI_API_type"),
-				 CorePackage.Literals.API__SCHEMES,
+				 OpenAPIPackage.Literals.API__SCHEMES,
 				 true,
 				 false,
 				 false,
@@ -229,7 +228,7 @@ public class APIItemProvider extends ParamterDeclaringContextItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_API_consumes_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_API_consumes_feature", "_UI_API_type"),
-				 CorePackage.Literals.API__CONSUMES,
+				 OpenAPIPackage.Literals.API__CONSUMES,
 				 true,
 				 false,
 				 false,
@@ -251,7 +250,7 @@ public class APIItemProvider extends ParamterDeclaringContextItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_API_produces_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_API_produces_feature", "_UI_API_type"),
-				 CorePackage.Literals.API__PRODUCES,
+				 OpenAPIPackage.Literals.API__PRODUCES,
 				 true,
 				 false,
 				 false,
@@ -273,7 +272,7 @@ public class APIItemProvider extends ParamterDeclaringContextItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_API_definitions_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_API_definitions_feature", "_UI_API_type"),
-				 CorePackage.Literals.API__DEFINITIONS,
+				 OpenAPIPackage.Literals.API__DEFINITIONS,
 				 true,
 				 false,
 				 true,
@@ -294,12 +293,12 @@ public class APIItemProvider extends ParamterDeclaringContextItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(CorePackage.Literals.EXTERNAL_DOCS_CONTEXT__EXTERNAL_DOCS);
-			childrenFeatures.add(CorePackage.Literals.API__INFO);
-			childrenFeatures.add(CorePackage.Literals.API__PATHS);
-			childrenFeatures.add(CorePackage.Literals.API__RESPONSES);
-			childrenFeatures.add(CorePackage.Literals.API__SECURITY_DEFINITIONS);
-			childrenFeatures.add(CorePackage.Literals.API__TAGS);
+			childrenFeatures.add(OpenAPIPackage.Literals.EXTERNAL_DOCS_CONTEXT__EXTERNAL_DOCS);
+			childrenFeatures.add(OpenAPIPackage.Literals.API__INFO);
+			childrenFeatures.add(OpenAPIPackage.Literals.API__PATHS);
+			childrenFeatures.add(OpenAPIPackage.Literals.API__RESPONSES);
+			childrenFeatures.add(OpenAPIPackage.Literals.API__SECURITY_DEFINITIONS);
+			childrenFeatures.add(OpenAPIPackage.Literals.API__TAGS);
 		}
 		return childrenFeatures;
 	}
@@ -355,21 +354,21 @@ public class APIItemProvider extends ParamterDeclaringContextItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(API.class)) {
-			case CorePackage.API__REF:
-			case CorePackage.API__SWAGGER:
-			case CorePackage.API__HOST:
-			case CorePackage.API__BASE_PATH:
-			case CorePackage.API__SCHEMES:
-			case CorePackage.API__CONSUMES:
-			case CorePackage.API__PRODUCES:
+			case OpenAPIPackage.API__REF:
+			case OpenAPIPackage.API__SWAGGER:
+			case OpenAPIPackage.API__HOST:
+			case OpenAPIPackage.API__BASE_PATH:
+			case OpenAPIPackage.API__SCHEMES:
+			case OpenAPIPackage.API__CONSUMES:
+			case OpenAPIPackage.API__PRODUCES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case CorePackage.API__EXTERNAL_DOCS:
-			case CorePackage.API__INFO:
-			case CorePackage.API__PATHS:
-			case CorePackage.API__RESPONSES:
-			case CorePackage.API__SECURITY_DEFINITIONS:
-			case CorePackage.API__TAGS:
+			case OpenAPIPackage.API__EXTERNAL_DOCS:
+			case OpenAPIPackage.API__INFO:
+			case OpenAPIPackage.API__PATHS:
+			case OpenAPIPackage.API__RESPONSES:
+			case OpenAPIPackage.API__SECURITY_DEFINITIONS:
+			case OpenAPIPackage.API__TAGS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -389,33 +388,33 @@ public class APIItemProvider extends ParamterDeclaringContextItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.Literals.EXTERNAL_DOCS_CONTEXT__EXTERNAL_DOCS,
-				 CoreFactory.eINSTANCE.createExternalDocs()));
+				(OpenAPIPackage.Literals.EXTERNAL_DOCS_CONTEXT__EXTERNAL_DOCS,
+				 OpenAPIFactory.eINSTANCE.createExternalDocs()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.Literals.API__INFO,
-				 CoreFactory.eINSTANCE.createInfo()));
+				(OpenAPIPackage.Literals.API__INFO,
+				 OpenAPIFactory.eINSTANCE.createInfo()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.Literals.API__PATHS,
-				 CoreFactory.eINSTANCE.createPath()));
+				(OpenAPIPackage.Literals.API__PATHS,
+				 OpenAPIFactory.eINSTANCE.createPath()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.Literals.API__RESPONSES,
-				 CoreFactory.eINSTANCE.createResponse()));
+				(OpenAPIPackage.Literals.API__RESPONSES,
+				 OpenAPIFactory.eINSTANCE.createResponse()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.Literals.API__SECURITY_DEFINITIONS,
-				 CoreFactory.eINSTANCE.createSecuritySchema()));
+				(OpenAPIPackage.Literals.API__SECURITY_DEFINITIONS,
+				 OpenAPIFactory.eINSTANCE.createSecuritySchema()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.Literals.API__TAGS,
-				 CoreFactory.eINSTANCE.createTag()));
+				(OpenAPIPackage.Literals.API__TAGS,
+				 OpenAPIFactory.eINSTANCE.createTag()));
 	}
 
 }

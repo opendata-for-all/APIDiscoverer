@@ -4,9 +4,9 @@ package core.impl;
 
 import core.ArrayContext;
 import core.CollectionFormat;
-import core.CorePackage;
 import core.Header;
 import core.ItemsDefinition;
+import core.OpenAPIPackage;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -97,7 +97,7 @@ public class HeaderImpl extends JSONSchemaSubsetImpl implements Header {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return CorePackage.Literals.HEADER;
+		return OpenAPIPackage.Literals.HEADER;
 	}
 
 	/**
@@ -118,7 +118,7 @@ public class HeaderImpl extends JSONSchemaSubsetImpl implements Header {
 		CollectionFormat oldCollectionFormat = collectionFormat;
 		collectionFormat = newCollectionFormat == null ? COLLECTION_FORMAT_EDEFAULT : newCollectionFormat;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.HEADER__COLLECTION_FORMAT, oldCollectionFormat, collectionFormat));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.HEADER__COLLECTION_FORMAT, oldCollectionFormat, collectionFormat));
 	}
 
 	/**
@@ -139,7 +139,7 @@ public class HeaderImpl extends JSONSchemaSubsetImpl implements Header {
 		ItemsDefinition oldItems = items;
 		items = newItems;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorePackage.HEADER__ITEMS, oldItems, newItems);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OpenAPIPackage.HEADER__ITEMS, oldItems, newItems);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -154,14 +154,14 @@ public class HeaderImpl extends JSONSchemaSubsetImpl implements Header {
 		if (newItems != items) {
 			NotificationChain msgs = null;
 			if (items != null)
-				msgs = ((InternalEObject)items).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CorePackage.HEADER__ITEMS, null, msgs);
+				msgs = ((InternalEObject)items).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OpenAPIPackage.HEADER__ITEMS, null, msgs);
 			if (newItems != null)
-				msgs = ((InternalEObject)newItems).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CorePackage.HEADER__ITEMS, null, msgs);
+				msgs = ((InternalEObject)newItems).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OpenAPIPackage.HEADER__ITEMS, null, msgs);
 			msgs = basicSetItems(newItems, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.HEADER__ITEMS, newItems, newItems));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.HEADER__ITEMS, newItems, newItems));
 	}
 
 	/**
@@ -182,7 +182,7 @@ public class HeaderImpl extends JSONSchemaSubsetImpl implements Header {
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.HEADER__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.HEADER__NAME, oldName, name));
 	}
 
 	/**
@@ -193,7 +193,7 @@ public class HeaderImpl extends JSONSchemaSubsetImpl implements Header {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case CorePackage.HEADER__ITEMS:
+			case OpenAPIPackage.HEADER__ITEMS:
 				return basicSetItems(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -207,11 +207,11 @@ public class HeaderImpl extends JSONSchemaSubsetImpl implements Header {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CorePackage.HEADER__COLLECTION_FORMAT:
+			case OpenAPIPackage.HEADER__COLLECTION_FORMAT:
 				return getCollectionFormat();
-			case CorePackage.HEADER__ITEMS:
+			case OpenAPIPackage.HEADER__ITEMS:
 				return getItems();
-			case CorePackage.HEADER__NAME:
+			case OpenAPIPackage.HEADER__NAME:
 				return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -225,13 +225,13 @@ public class HeaderImpl extends JSONSchemaSubsetImpl implements Header {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CorePackage.HEADER__COLLECTION_FORMAT:
+			case OpenAPIPackage.HEADER__COLLECTION_FORMAT:
 				setCollectionFormat((CollectionFormat)newValue);
 				return;
-			case CorePackage.HEADER__ITEMS:
+			case OpenAPIPackage.HEADER__ITEMS:
 				setItems((ItemsDefinition)newValue);
 				return;
-			case CorePackage.HEADER__NAME:
+			case OpenAPIPackage.HEADER__NAME:
 				setName((String)newValue);
 				return;
 		}
@@ -246,13 +246,13 @@ public class HeaderImpl extends JSONSchemaSubsetImpl implements Header {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CorePackage.HEADER__COLLECTION_FORMAT:
+			case OpenAPIPackage.HEADER__COLLECTION_FORMAT:
 				setCollectionFormat(COLLECTION_FORMAT_EDEFAULT);
 				return;
-			case CorePackage.HEADER__ITEMS:
+			case OpenAPIPackage.HEADER__ITEMS:
 				setItems((ItemsDefinition)null);
 				return;
-			case CorePackage.HEADER__NAME:
+			case OpenAPIPackage.HEADER__NAME:
 				setName(NAME_EDEFAULT);
 				return;
 		}
@@ -267,11 +267,11 @@ public class HeaderImpl extends JSONSchemaSubsetImpl implements Header {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CorePackage.HEADER__COLLECTION_FORMAT:
+			case OpenAPIPackage.HEADER__COLLECTION_FORMAT:
 				return collectionFormat != COLLECTION_FORMAT_EDEFAULT;
-			case CorePackage.HEADER__ITEMS:
+			case OpenAPIPackage.HEADER__ITEMS:
 				return items != null;
-			case CorePackage.HEADER__NAME:
+			case OpenAPIPackage.HEADER__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
@@ -286,8 +286,8 @@ public class HeaderImpl extends JSONSchemaSubsetImpl implements Header {
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == ArrayContext.class) {
 			switch (derivedFeatureID) {
-				case CorePackage.HEADER__COLLECTION_FORMAT: return CorePackage.ARRAY_CONTEXT__COLLECTION_FORMAT;
-				case CorePackage.HEADER__ITEMS: return CorePackage.ARRAY_CONTEXT__ITEMS;
+				case OpenAPIPackage.HEADER__COLLECTION_FORMAT: return OpenAPIPackage.ARRAY_CONTEXT__COLLECTION_FORMAT;
+				case OpenAPIPackage.HEADER__ITEMS: return OpenAPIPackage.ARRAY_CONTEXT__ITEMS;
 				default: return -1;
 			}
 		}
@@ -303,8 +303,8 @@ public class HeaderImpl extends JSONSchemaSubsetImpl implements Header {
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == ArrayContext.class) {
 			switch (baseFeatureID) {
-				case CorePackage.ARRAY_CONTEXT__COLLECTION_FORMAT: return CorePackage.HEADER__COLLECTION_FORMAT;
-				case CorePackage.ARRAY_CONTEXT__ITEMS: return CorePackage.HEADER__ITEMS;
+				case OpenAPIPackage.ARRAY_CONTEXT__COLLECTION_FORMAT: return OpenAPIPackage.HEADER__COLLECTION_FORMAT;
+				case OpenAPIPackage.ARRAY_CONTEXT__ITEMS: return OpenAPIPackage.HEADER__ITEMS;
 				default: return -1;
 			}
 		}

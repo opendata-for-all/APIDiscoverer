@@ -3,10 +3,10 @@
 package core.provider;
 
 
-import core.CoreFactory;
-import core.CorePackage;
 import core.Header;
 
+import core.OpenAPIFactory;
+import core.OpenAPIPackage;
 import java.util.Collection;
 import java.util.List;
 
@@ -67,7 +67,7 @@ public class HeaderItemProvider extends JSONSchemaSubsetItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_ArrayContext_collectionFormat_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ArrayContext_collectionFormat_feature", "_UI_ArrayContext_type"),
-				 CorePackage.Literals.ARRAY_CONTEXT__COLLECTION_FORMAT,
+				 OpenAPIPackage.Literals.ARRAY_CONTEXT__COLLECTION_FORMAT,
 				 true,
 				 false,
 				 false,
@@ -89,7 +89,7 @@ public class HeaderItemProvider extends JSONSchemaSubsetItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_Header_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Header_name_feature", "_UI_Header_type"),
-				 CorePackage.Literals.HEADER__NAME,
+				 OpenAPIPackage.Literals.HEADER__NAME,
 				 true,
 				 false,
 				 false,
@@ -110,7 +110,7 @@ public class HeaderItemProvider extends JSONSchemaSubsetItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(CorePackage.Literals.ARRAY_CONTEXT__ITEMS);
+			childrenFeatures.add(OpenAPIPackage.Literals.ARRAY_CONTEXT__ITEMS);
 		}
 		return childrenFeatures;
 	}
@@ -166,11 +166,11 @@ public class HeaderItemProvider extends JSONSchemaSubsetItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Header.class)) {
-			case CorePackage.HEADER__COLLECTION_FORMAT:
-			case CorePackage.HEADER__NAME:
+			case OpenAPIPackage.HEADER__COLLECTION_FORMAT:
+			case OpenAPIPackage.HEADER__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case CorePackage.HEADER__ITEMS:
+			case OpenAPIPackage.HEADER__ITEMS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -190,8 +190,8 @@ public class HeaderItemProvider extends JSONSchemaSubsetItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.Literals.ARRAY_CONTEXT__ITEMS,
-				 CoreFactory.eINSTANCE.createItemsDefinition()));
+				(OpenAPIPackage.Literals.ARRAY_CONTEXT__ITEMS,
+				 OpenAPIFactory.eINSTANCE.createItemsDefinition()));
 	}
 
 }

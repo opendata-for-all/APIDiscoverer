@@ -17,7 +17,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link core.Schema#getTitle <em>Title</em>}</li>
  *   <li>{@link core.Schema#getMaxProperties <em>Max Properties</em>}</li>
  *   <li>{@link core.Schema#getMinProperties <em>Min Properties</em>}</li>
- *   <li>{@link core.Schema#getRequired <em>Required</em>}</li>
  *   <li>{@link core.Schema#getExample <em>Example</em>}</li>
  *   <li>{@link core.Schema#getDiscriminator <em>Discriminator</em>}</li>
  *   <li>{@link core.Schema#getReadOnly <em>Read Only</em>}</li>
@@ -27,9 +26,12 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link core.Schema#getXml <em>Xml</em>}</li>
  *   <li>{@link core.Schema#getAdditonalProperties <em>Additonal Properties</em>}</li>
  *   <li>{@link core.Schema#getDeclaringContext <em>Declaring Context</em>}</li>
+ *   <li>{@link core.Schema#getRequired <em>Required</em>}</li>
+ *   <li>{@link core.Schema#getValue <em>Value</em>}</li>
+ *   <li>{@link core.Schema#isAdditonalPropertiesAllowed <em>Additonal Properties Allowed</em>}</li>
  * </ul>
  *
- * @see core.CorePackage#getSchema()
+ * @see core.OpenAPIPackage#getSchema()
  * @model
  * @generated
  */
@@ -44,7 +46,7 @@ public interface Schema extends JSONSchemaSubset, SchemaDeclaringContext, JSONPo
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Title</em>' attribute.
 	 * @see #setTitle(String)
-	 * @see core.CorePackage#getSchema_Title()
+	 * @see core.OpenAPIPackage#getSchema_Title()
 	 * @model
 	 * @generated
 	 */
@@ -70,7 +72,7 @@ public interface Schema extends JSONSchemaSubset, SchemaDeclaringContext, JSONPo
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Max Properties</em>' attribute.
 	 * @see #setMaxProperties(Integer)
-	 * @see core.CorePackage#getSchema_MaxProperties()
+	 * @see core.OpenAPIPackage#getSchema_MaxProperties()
 	 * @model
 	 * @generated
 	 */
@@ -96,7 +98,7 @@ public interface Schema extends JSONSchemaSubset, SchemaDeclaringContext, JSONPo
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Min Properties</em>' attribute.
 	 * @see #setMinProperties(Integer)
-	 * @see core.CorePackage#getSchema_MinProperties()
+	 * @see core.OpenAPIPackage#getSchema_MinProperties()
 	 * @model
 	 * @generated
 	 */
@@ -113,20 +115,72 @@ public interface Schema extends JSONSchemaSubset, SchemaDeclaringContext, JSONPo
 	void setMinProperties(Integer value);
 
 	/**
-	 * Returns the value of the '<em><b>Required</b></em>' attribute list.
-	 * The list contents are of type {@link java.lang.String}.
+	 * Returns the value of the '<em><b>Required</b></em>' reference list.
+	 * The list contents are of type {@link core.Schema}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Required</em>' attribute list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Required</em>' attribute list.
-	 * @see core.CorePackage#getSchema_Required()
+	 * @return the value of the '<em>Required</em>' reference list.
+	 * @see core.OpenAPIPackage#getSchema_Required()
 	 * @model
 	 * @generated
 	 */
-	EList<String> getRequired();
+	EList<Schema> getRequired();
+
+	/**
+	 * Returns the value of the '<em><b>Value</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Value</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Value</em>' reference.
+	 * @see #setValue(Schema)
+	 * @see core.OpenAPIPackage#getSchema_Value()
+	 * @model
+	 * @generated
+	 */
+	Schema getValue();
+
+	/**
+	 * Sets the value of the '{@link core.Schema#getValue <em>Value</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Value</em>' reference.
+	 * @see #getValue()
+	 * @generated
+	 */
+	void setValue(Schema value);
+
+	/**
+	 * Returns the value of the '<em><b>Additonal Properties Allowed</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Additonal Properties Allowed</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Additonal Properties Allowed</em>' attribute.
+	 * @see #setAdditonalPropertiesAllowed(boolean)
+	 * @see core.OpenAPIPackage#getSchema_AdditonalPropertiesAllowed()
+	 * @model
+	 * @generated
+	 */
+	boolean isAdditonalPropertiesAllowed();
+
+	/**
+	 * Sets the value of the '{@link core.Schema#isAdditonalPropertiesAllowed <em>Additonal Properties Allowed</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Additonal Properties Allowed</em>' attribute.
+	 * @see #isAdditonalPropertiesAllowed()
+	 * @generated
+	 */
+	void setAdditonalPropertiesAllowed(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Properties</b></em>' reference list.
@@ -138,7 +192,7 @@ public interface Schema extends JSONSchemaSubset, SchemaDeclaringContext, JSONPo
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Properties</em>' reference list.
-	 * @see core.CorePackage#getSchema_Properties()
+	 * @see core.OpenAPIPackage#getSchema_Properties()
 	 * @model
 	 * @generated
 	 */
@@ -154,7 +208,7 @@ public interface Schema extends JSONSchemaSubset, SchemaDeclaringContext, JSONPo
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Example</em>' attribute.
 	 * @see #setExample(String)
-	 * @see core.CorePackage#getSchema_Example()
+	 * @see core.OpenAPIPackage#getSchema_Example()
 	 * @model
 	 * @generated
 	 */
@@ -180,7 +234,7 @@ public interface Schema extends JSONSchemaSubset, SchemaDeclaringContext, JSONPo
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>All Of</em>' reference list.
-	 * @see core.CorePackage#getSchema_AllOf()
+	 * @see core.OpenAPIPackage#getSchema_AllOf()
 	 * @model
 	 * @generated
 	 */
@@ -196,7 +250,7 @@ public interface Schema extends JSONSchemaSubset, SchemaDeclaringContext, JSONPo
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Items</em>' reference.
 	 * @see #setItems(Schema)
-	 * @see core.CorePackage#getSchema_Items()
+	 * @see core.OpenAPIPackage#getSchema_Items()
 	 * @model
 	 * @generated
 	 */
@@ -222,7 +276,7 @@ public interface Schema extends JSONSchemaSubset, SchemaDeclaringContext, JSONPo
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Additonal Properties</em>' reference.
 	 * @see #setAdditonalProperties(Schema)
-	 * @see core.CorePackage#getSchema_AdditonalProperties()
+	 * @see core.OpenAPIPackage#getSchema_AdditonalProperties()
 	 * @model
 	 * @generated
 	 */
@@ -248,7 +302,7 @@ public interface Schema extends JSONSchemaSubset, SchemaDeclaringContext, JSONPo
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Discriminator</em>' attribute.
 	 * @see #setDiscriminator(String)
-	 * @see core.CorePackage#getSchema_Discriminator()
+	 * @see core.OpenAPIPackage#getSchema_Discriminator()
 	 * @model
 	 * @generated
 	 */
@@ -274,7 +328,7 @@ public interface Schema extends JSONSchemaSubset, SchemaDeclaringContext, JSONPo
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Read Only</em>' attribute.
 	 * @see #setReadOnly(Boolean)
-	 * @see core.CorePackage#getSchema_ReadOnly()
+	 * @see core.OpenAPIPackage#getSchema_ReadOnly()
 	 * @model
 	 * @generated
 	 */
@@ -300,7 +354,7 @@ public interface Schema extends JSONSchemaSubset, SchemaDeclaringContext, JSONPo
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Xml</em>' containment reference.
 	 * @see #setXml(XMLElement)
-	 * @see core.CorePackage#getSchema_Xml()
+	 * @see core.OpenAPIPackage#getSchema_Xml()
 	 * @model containment="true"
 	 * @generated
 	 */
@@ -326,8 +380,8 @@ public interface Schema extends JSONSchemaSubset, SchemaDeclaringContext, JSONPo
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
-	 * @see core.CorePackage#getSchema_Name()
-	 * @model id="true"
+	 * @see core.OpenAPIPackage#getSchema_Name()
+	 * @model
 	 * @generated
 	 */
 	String getName();
@@ -352,7 +406,7 @@ public interface Schema extends JSONSchemaSubset, SchemaDeclaringContext, JSONPo
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Declaring Context</em>' reference.
 	 * @see #setDeclaringContext(SchemaDeclaringContext)
-	 * @see core.CorePackage#getSchema_DeclaringContext()
+	 * @see core.OpenAPIPackage#getSchema_DeclaringContext()
 	 * @model
 	 * @generated
 	 */

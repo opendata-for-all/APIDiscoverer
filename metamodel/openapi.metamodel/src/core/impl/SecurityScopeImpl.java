@@ -2,7 +2,7 @@
  */
 package core.impl;
 
-import core.CorePackage;
+import core.OpenAPIPackage;
 import core.SecurityScope;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -83,7 +83,7 @@ public class SecurityScopeImpl extends MinimalEObjectImpl.Container implements S
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return CorePackage.Literals.SECURITY_SCOPE;
+		return OpenAPIPackage.Literals.SECURITY_SCOPE;
 	}
 
 	/**
@@ -104,7 +104,7 @@ public class SecurityScopeImpl extends MinimalEObjectImpl.Container implements S
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.SECURITY_SCOPE__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.SECURITY_SCOPE__NAME, oldName, name));
 	}
 
 	/**
@@ -125,7 +125,7 @@ public class SecurityScopeImpl extends MinimalEObjectImpl.Container implements S
 		String oldDescription = description;
 		description = newDescription;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.SECURITY_SCOPE__DESCRIPTION, oldDescription, description));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.SECURITY_SCOPE__DESCRIPTION, oldDescription, description));
 	}
 
 	/**
@@ -136,9 +136,9 @@ public class SecurityScopeImpl extends MinimalEObjectImpl.Container implements S
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CorePackage.SECURITY_SCOPE__NAME:
+			case OpenAPIPackage.SECURITY_SCOPE__NAME:
 				return getName();
-			case CorePackage.SECURITY_SCOPE__DESCRIPTION:
+			case OpenAPIPackage.SECURITY_SCOPE__DESCRIPTION:
 				return getDescription();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -152,10 +152,10 @@ public class SecurityScopeImpl extends MinimalEObjectImpl.Container implements S
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CorePackage.SECURITY_SCOPE__NAME:
+			case OpenAPIPackage.SECURITY_SCOPE__NAME:
 				setName((String)newValue);
 				return;
-			case CorePackage.SECURITY_SCOPE__DESCRIPTION:
+			case OpenAPIPackage.SECURITY_SCOPE__DESCRIPTION:
 				setDescription((String)newValue);
 				return;
 		}
@@ -170,10 +170,10 @@ public class SecurityScopeImpl extends MinimalEObjectImpl.Container implements S
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CorePackage.SECURITY_SCOPE__NAME:
+			case OpenAPIPackage.SECURITY_SCOPE__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case CorePackage.SECURITY_SCOPE__DESCRIPTION:
+			case OpenAPIPackage.SECURITY_SCOPE__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
 				return;
 		}
@@ -188,9 +188,9 @@ public class SecurityScopeImpl extends MinimalEObjectImpl.Container implements S
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CorePackage.SECURITY_SCOPE__NAME:
+			case OpenAPIPackage.SECURITY_SCOPE__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case CorePackage.SECURITY_SCOPE__DESCRIPTION:
+			case OpenAPIPackage.SECURITY_SCOPE__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 		}
 		return super.eIsSet(featureID);

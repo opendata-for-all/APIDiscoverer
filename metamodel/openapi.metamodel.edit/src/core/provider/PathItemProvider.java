@@ -3,8 +3,8 @@
 package core.provider;
 
 
-import core.CoreFactory;
-import core.CorePackage;
+import core.OpenAPIFactory;
+import core.OpenAPIPackage;
 import core.Path;
 
 import java.util.Collection;
@@ -67,7 +67,7 @@ public class PathItemProvider extends ParamterDeclaringContextItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_ParameterContext_parameters_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ParameterContext_parameters_feature", "_UI_ParameterContext_type"),
-				 CorePackage.Literals.PARAMETER_CONTEXT__PARAMETERS,
+				 OpenAPIPackage.Literals.PARAMETER_CONTEXT__PARAMETERS,
 				 true,
 				 false,
 				 true,
@@ -89,7 +89,7 @@ public class PathItemProvider extends ParamterDeclaringContextItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_Path_pattern_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Path_pattern_feature", "_UI_Path_type"),
-				 CorePackage.Literals.PATH__PATTERN,
+				 OpenAPIPackage.Literals.PATH__PATTERN,
 				 true,
 				 false,
 				 false,
@@ -110,13 +110,13 @@ public class PathItemProvider extends ParamterDeclaringContextItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(CorePackage.Literals.PATH__GET);
-			childrenFeatures.add(CorePackage.Literals.PATH__PUT);
-			childrenFeatures.add(CorePackage.Literals.PATH__POST);
-			childrenFeatures.add(CorePackage.Literals.PATH__DELETE);
-			childrenFeatures.add(CorePackage.Literals.PATH__OPTIONS);
-			childrenFeatures.add(CorePackage.Literals.PATH__HEAD);
-			childrenFeatures.add(CorePackage.Literals.PATH__PATCH);
+			childrenFeatures.add(OpenAPIPackage.Literals.PATH__GET);
+			childrenFeatures.add(OpenAPIPackage.Literals.PATH__PUT);
+			childrenFeatures.add(OpenAPIPackage.Literals.PATH__POST);
+			childrenFeatures.add(OpenAPIPackage.Literals.PATH__DELETE);
+			childrenFeatures.add(OpenAPIPackage.Literals.PATH__OPTIONS);
+			childrenFeatures.add(OpenAPIPackage.Literals.PATH__HEAD);
+			childrenFeatures.add(OpenAPIPackage.Literals.PATH__PATCH);
 		}
 		return childrenFeatures;
 	}
@@ -172,16 +172,16 @@ public class PathItemProvider extends ParamterDeclaringContextItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Path.class)) {
-			case CorePackage.PATH__PATTERN:
+			case OpenAPIPackage.PATH__PATTERN:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case CorePackage.PATH__GET:
-			case CorePackage.PATH__PUT:
-			case CorePackage.PATH__POST:
-			case CorePackage.PATH__DELETE:
-			case CorePackage.PATH__OPTIONS:
-			case CorePackage.PATH__HEAD:
-			case CorePackage.PATH__PATCH:
+			case OpenAPIPackage.PATH__GET:
+			case OpenAPIPackage.PATH__PUT:
+			case OpenAPIPackage.PATH__POST:
+			case OpenAPIPackage.PATH__DELETE:
+			case OpenAPIPackage.PATH__OPTIONS:
+			case OpenAPIPackage.PATH__HEAD:
+			case OpenAPIPackage.PATH__PATCH:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -201,38 +201,38 @@ public class PathItemProvider extends ParamterDeclaringContextItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.Literals.PATH__GET,
-				 CoreFactory.eINSTANCE.createOperation()));
+				(OpenAPIPackage.Literals.PATH__GET,
+				 OpenAPIFactory.eINSTANCE.createOperation()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.Literals.PATH__PUT,
-				 CoreFactory.eINSTANCE.createOperation()));
+				(OpenAPIPackage.Literals.PATH__PUT,
+				 OpenAPIFactory.eINSTANCE.createOperation()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.Literals.PATH__POST,
-				 CoreFactory.eINSTANCE.createOperation()));
+				(OpenAPIPackage.Literals.PATH__POST,
+				 OpenAPIFactory.eINSTANCE.createOperation()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.Literals.PATH__DELETE,
-				 CoreFactory.eINSTANCE.createOperation()));
+				(OpenAPIPackage.Literals.PATH__DELETE,
+				 OpenAPIFactory.eINSTANCE.createOperation()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.Literals.PATH__OPTIONS,
-				 CoreFactory.eINSTANCE.createOperation()));
+				(OpenAPIPackage.Literals.PATH__OPTIONS,
+				 OpenAPIFactory.eINSTANCE.createOperation()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.Literals.PATH__HEAD,
-				 CoreFactory.eINSTANCE.createOperation()));
+				(OpenAPIPackage.Literals.PATH__HEAD,
+				 OpenAPIFactory.eINSTANCE.createOperation()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.Literals.PATH__PATCH,
-				 CoreFactory.eINSTANCE.createOperation()));
+				(OpenAPIPackage.Literals.PATH__PATCH,
+				 OpenAPIFactory.eINSTANCE.createOperation()));
 	}
 
 	/**
@@ -247,13 +247,13 @@ public class PathItemProvider extends ParamterDeclaringContextItemProvider {
 		Object childObject = child;
 
 		boolean qualify =
-			childFeature == CorePackage.Literals.PATH__GET ||
-			childFeature == CorePackage.Literals.PATH__PUT ||
-			childFeature == CorePackage.Literals.PATH__POST ||
-			childFeature == CorePackage.Literals.PATH__DELETE ||
-			childFeature == CorePackage.Literals.PATH__OPTIONS ||
-			childFeature == CorePackage.Literals.PATH__HEAD ||
-			childFeature == CorePackage.Literals.PATH__PATCH;
+			childFeature == OpenAPIPackage.Literals.PATH__GET ||
+			childFeature == OpenAPIPackage.Literals.PATH__PUT ||
+			childFeature == OpenAPIPackage.Literals.PATH__POST ||
+			childFeature == OpenAPIPackage.Literals.PATH__DELETE ||
+			childFeature == OpenAPIPackage.Literals.PATH__OPTIONS ||
+			childFeature == OpenAPIPackage.Literals.PATH__HEAD ||
+			childFeature == OpenAPIPackage.Literals.PATH__PATCH;
 
 		if (qualify) {
 			return getString

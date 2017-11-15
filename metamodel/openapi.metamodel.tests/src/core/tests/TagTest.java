@@ -2,7 +2,7 @@
  */
 package core.tests;
 
-import core.CoreFactory;
+import core.OpenAPIFactory;
 import core.Tag;
 import junit.textui.TestRunner;
 
@@ -52,7 +52,7 @@ public class TagTest extends ExternalDocsContextTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(CoreFactory.eINSTANCE.createTag());
+		setFixture(OpenAPIFactory.eINSTANCE.createTag());
 	}
 
 	/**

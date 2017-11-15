@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link core.SecurityScope#getDescription <em>Description</em>}</li>
  * </ul>
  *
- * @see core.CorePackage#getSecurityScope()
+ * @see core.OpenAPIPackage#getSecurityScope()
  * @model
  * @generated
  */
@@ -32,7 +32,7 @@ public interface SecurityScope extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
-	 * @see core.CorePackage#getSecurityScope_Name()
+	 * @see core.OpenAPIPackage#getSecurityScope_Name()
 	 * @model
 	 * @generated
 	 */
@@ -58,7 +58,7 @@ public interface SecurityScope extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Description</em>' attribute.
 	 * @see #setDescription(String)
-	 * @see core.CorePackage#getSecurityScope_Description()
+	 * @see core.OpenAPIPackage#getSecurityScope_Description()
 	 * @model
 	 * @generated
 	 */

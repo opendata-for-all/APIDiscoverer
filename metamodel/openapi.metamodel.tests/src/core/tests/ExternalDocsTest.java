@@ -2,9 +2,9 @@
  */
 package core.tests;
 
-import core.CoreFactory;
 import core.ExternalDocs;
 
+import core.OpenAPIFactory;
 import junit.framework.TestCase;
 
 import junit.textui.TestRunner;
@@ -72,7 +72,7 @@ public class ExternalDocsTest extends TestCase {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(CoreFactory.eINSTANCE.createExternalDocs());
+		setFixture(OpenAPIFactory.eINSTANCE.createExternalDocs());
 	}
 
 	/**

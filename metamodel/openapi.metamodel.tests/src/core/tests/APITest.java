@@ -3,8 +3,7 @@
 package core.tests;
 
 import core.API;
-import core.CoreFactory;
-
+import core.OpenAPIFactory;
 import junit.textui.TestRunner;
 
 /**
@@ -65,7 +64,7 @@ public class APITest extends ParamterDeclaringContextTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(CoreFactory.eINSTANCE.createAPI());
+		setFixture(OpenAPIFactory.eINSTANCE.createAPI());
 	}
 
 	/**

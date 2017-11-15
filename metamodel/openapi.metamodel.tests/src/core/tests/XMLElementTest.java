@@ -2,7 +2,7 @@
  */
 package core.tests;
 
-import core.CoreFactory;
+import core.OpenAPIFactory;
 import core.XMLElement;
 
 import junit.framework.TestCase;
@@ -72,7 +72,7 @@ public class XMLElementTest extends TestCase {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(CoreFactory.eINSTANCE.createXMLElement());
+		setFixture(OpenAPIFactory.eINSTANCE.createXMLElement());
 	}
 
 	/**

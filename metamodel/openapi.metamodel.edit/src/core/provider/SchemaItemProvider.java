@@ -3,8 +3,8 @@
 package core.provider;
 
 
-import core.CoreFactory;
-import core.CorePackage;
+import core.OpenAPIFactory;
+import core.OpenAPIPackage;
 import core.Schema;
 
 import java.util.Collection;
@@ -53,13 +53,15 @@ public class SchemaItemProvider extends JSONSchemaSubsetItemProvider {
 			addTitlePropertyDescriptor(object);
 			addMaxPropertiesPropertyDescriptor(object);
 			addMinPropertiesPropertyDescriptor(object);
-			addRequiredPropertyDescriptor(object);
 			addExamplePropertyDescriptor(object);
 			addDiscriminatorPropertyDescriptor(object);
 			addReadOnlyPropertyDescriptor(object);
 			addPropertiesPropertyDescriptor(object);
 			addItemsPropertyDescriptor(object);
 			addDeclaringContextPropertyDescriptor(object);
+			addRequiredPropertyDescriptor(object);
+			addValuePropertyDescriptor(object);
+			addAdditonalPropertiesAllowedPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -77,7 +79,7 @@ public class SchemaItemProvider extends JSONSchemaSubsetItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_JSONPointer_ref_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_JSONPointer_ref_feature", "_UI_JSONPointer_type"),
-				 CorePackage.Literals.JSON_POINTER__REF,
+				 OpenAPIPackage.Literals.JSON_POINTER__REF,
 				 false,
 				 false,
 				 false,
@@ -99,7 +101,7 @@ public class SchemaItemProvider extends JSONSchemaSubsetItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_Schema_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Schema_name_feature", "_UI_Schema_type"),
-				 CorePackage.Literals.SCHEMA__NAME,
+				 OpenAPIPackage.Literals.SCHEMA__NAME,
 				 true,
 				 false,
 				 false,
@@ -121,7 +123,7 @@ public class SchemaItemProvider extends JSONSchemaSubsetItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_Schema_title_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Schema_title_feature", "_UI_Schema_type"),
-				 CorePackage.Literals.SCHEMA__TITLE,
+				 OpenAPIPackage.Literals.SCHEMA__TITLE,
 				 true,
 				 false,
 				 false,
@@ -143,7 +145,7 @@ public class SchemaItemProvider extends JSONSchemaSubsetItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_Schema_maxProperties_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Schema_maxProperties_feature", "_UI_Schema_type"),
-				 CorePackage.Literals.SCHEMA__MAX_PROPERTIES,
+				 OpenAPIPackage.Literals.SCHEMA__MAX_PROPERTIES,
 				 true,
 				 false,
 				 false,
@@ -165,7 +167,7 @@ public class SchemaItemProvider extends JSONSchemaSubsetItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_Schema_minProperties_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Schema_minProperties_feature", "_UI_Schema_type"),
-				 CorePackage.Literals.SCHEMA__MIN_PROPERTIES,
+				 OpenAPIPackage.Literals.SCHEMA__MIN_PROPERTIES,
 				 true,
 				 false,
 				 false,
@@ -187,11 +189,55 @@ public class SchemaItemProvider extends JSONSchemaSubsetItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_Schema_required_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Schema_required_feature", "_UI_Schema_type"),
-				 CorePackage.Literals.SCHEMA__REQUIRED,
+				 OpenAPIPackage.Literals.SCHEMA__REQUIRED,
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Value feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addValuePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Schema_value_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Schema_value_feature", "_UI_Schema_type"),
+				 OpenAPIPackage.Literals.SCHEMA__VALUE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Additonal Properties Allowed feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAdditonalPropertiesAllowedPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Schema_additonalPropertiesAllowed_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Schema_additonalPropertiesAllowed_feature", "_UI_Schema_type"),
+				 OpenAPIPackage.Literals.SCHEMA__ADDITONAL_PROPERTIES_ALLOWED,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -209,7 +255,7 @@ public class SchemaItemProvider extends JSONSchemaSubsetItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_Schema_example_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Schema_example_feature", "_UI_Schema_type"),
-				 CorePackage.Literals.SCHEMA__EXAMPLE,
+				 OpenAPIPackage.Literals.SCHEMA__EXAMPLE,
 				 true,
 				 false,
 				 false,
@@ -231,7 +277,7 @@ public class SchemaItemProvider extends JSONSchemaSubsetItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_Schema_discriminator_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Schema_discriminator_feature", "_UI_Schema_type"),
-				 CorePackage.Literals.SCHEMA__DISCRIMINATOR,
+				 OpenAPIPackage.Literals.SCHEMA__DISCRIMINATOR,
 				 true,
 				 false,
 				 false,
@@ -253,7 +299,7 @@ public class SchemaItemProvider extends JSONSchemaSubsetItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_Schema_readOnly_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Schema_readOnly_feature", "_UI_Schema_type"),
-				 CorePackage.Literals.SCHEMA__READ_ONLY,
+				 OpenAPIPackage.Literals.SCHEMA__READ_ONLY,
 				 true,
 				 false,
 				 false,
@@ -275,7 +321,7 @@ public class SchemaItemProvider extends JSONSchemaSubsetItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_Schema_properties_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Schema_properties_feature", "_UI_Schema_type"),
-				 CorePackage.Literals.SCHEMA__PROPERTIES,
+				 OpenAPIPackage.Literals.SCHEMA__PROPERTIES,
 				 true,
 				 false,
 				 true,
@@ -297,7 +343,7 @@ public class SchemaItemProvider extends JSONSchemaSubsetItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_Schema_items_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Schema_items_feature", "_UI_Schema_type"),
-				 CorePackage.Literals.SCHEMA__ITEMS,
+				 OpenAPIPackage.Literals.SCHEMA__ITEMS,
 				 true,
 				 false,
 				 true,
@@ -319,7 +365,7 @@ public class SchemaItemProvider extends JSONSchemaSubsetItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_Schema_declaringContext_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Schema_declaringContext_feature", "_UI_Schema_type"),
-				 CorePackage.Literals.SCHEMA__DECLARING_CONTEXT,
+				 OpenAPIPackage.Literals.SCHEMA__DECLARING_CONTEXT,
 				 true,
 				 false,
 				 true,
@@ -340,10 +386,10 @@ public class SchemaItemProvider extends JSONSchemaSubsetItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(CorePackage.Literals.EXTERNAL_DOCS_CONTEXT__EXTERNAL_DOCS);
-			childrenFeatures.add(CorePackage.Literals.SCHEMA__ALL_OF);
-			childrenFeatures.add(CorePackage.Literals.SCHEMA__XML);
-			childrenFeatures.add(CorePackage.Literals.SCHEMA__ADDITONAL_PROPERTIES);
+			childrenFeatures.add(OpenAPIPackage.Literals.EXTERNAL_DOCS_CONTEXT__EXTERNAL_DOCS);
+			childrenFeatures.add(OpenAPIPackage.Literals.SCHEMA__ALL_OF);
+			childrenFeatures.add(OpenAPIPackage.Literals.SCHEMA__XML);
+			childrenFeatures.add(OpenAPIPackage.Literals.SCHEMA__ADDITONAL_PROPERTIES);
 		}
 		return childrenFeatures;
 	}
@@ -399,21 +445,22 @@ public class SchemaItemProvider extends JSONSchemaSubsetItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Schema.class)) {
-			case CorePackage.SCHEMA__REF:
-			case CorePackage.SCHEMA__NAME:
-			case CorePackage.SCHEMA__TITLE:
-			case CorePackage.SCHEMA__MAX_PROPERTIES:
-			case CorePackage.SCHEMA__MIN_PROPERTIES:
-			case CorePackage.SCHEMA__REQUIRED:
-			case CorePackage.SCHEMA__EXAMPLE:
-			case CorePackage.SCHEMA__DISCRIMINATOR:
-			case CorePackage.SCHEMA__READ_ONLY:
+			case OpenAPIPackage.SCHEMA__REF:
+			case OpenAPIPackage.SCHEMA__NAME:
+			case OpenAPIPackage.SCHEMA__TITLE:
+			case OpenAPIPackage.SCHEMA__MAX_PROPERTIES:
+			case OpenAPIPackage.SCHEMA__MIN_PROPERTIES:
+			case OpenAPIPackage.SCHEMA__EXAMPLE:
+			case OpenAPIPackage.SCHEMA__DISCRIMINATOR:
+			case OpenAPIPackage.SCHEMA__READ_ONLY:
+			case OpenAPIPackage.SCHEMA__REQUIRED:
+			case OpenAPIPackage.SCHEMA__ADDITONAL_PROPERTIES_ALLOWED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case CorePackage.SCHEMA__EXTERNAL_DOCS:
-			case CorePackage.SCHEMA__ALL_OF:
-			case CorePackage.SCHEMA__XML:
-			case CorePackage.SCHEMA__ADDITONAL_PROPERTIES:
+			case OpenAPIPackage.SCHEMA__EXTERNAL_DOCS:
+			case OpenAPIPackage.SCHEMA__ALL_OF:
+			case OpenAPIPackage.SCHEMA__XML:
+			case OpenAPIPackage.SCHEMA__ADDITONAL_PROPERTIES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -433,23 +480,23 @@ public class SchemaItemProvider extends JSONSchemaSubsetItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.Literals.EXTERNAL_DOCS_CONTEXT__EXTERNAL_DOCS,
-				 CoreFactory.eINSTANCE.createExternalDocs()));
+				(OpenAPIPackage.Literals.EXTERNAL_DOCS_CONTEXT__EXTERNAL_DOCS,
+				 OpenAPIFactory.eINSTANCE.createExternalDocs()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.Literals.SCHEMA__ALL_OF,
-				 CoreFactory.eINSTANCE.createSchema()));
+				(OpenAPIPackage.Literals.SCHEMA__ALL_OF,
+				 OpenAPIFactory.eINSTANCE.createSchema()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.Literals.SCHEMA__XML,
-				 CoreFactory.eINSTANCE.createXMLElement()));
+				(OpenAPIPackage.Literals.SCHEMA__XML,
+				 OpenAPIFactory.eINSTANCE.createXMLElement()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.Literals.SCHEMA__ADDITONAL_PROPERTIES,
-				 CoreFactory.eINSTANCE.createSchema()));
+				(OpenAPIPackage.Literals.SCHEMA__ADDITONAL_PROPERTIES,
+				 OpenAPIFactory.eINSTANCE.createSchema()));
 	}
 
 	/**
@@ -464,8 +511,8 @@ public class SchemaItemProvider extends JSONSchemaSubsetItemProvider {
 		Object childObject = child;
 
 		boolean qualify =
-			childFeature == CorePackage.Literals.SCHEMA__ALL_OF ||
-			childFeature == CorePackage.Literals.SCHEMA__ADDITONAL_PROPERTIES;
+			childFeature == OpenAPIPackage.Literals.SCHEMA__ALL_OF ||
+			childFeature == OpenAPIPackage.Literals.SCHEMA__ADDITONAL_PROPERTIES;
 
 		if (qualify) {
 			return getString

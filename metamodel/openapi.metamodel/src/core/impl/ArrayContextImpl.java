@@ -4,9 +4,9 @@ package core.impl;
 
 import core.ArrayContext;
 import core.CollectionFormat;
-import core.CorePackage;
 import core.ItemsDefinition;
 
+import core.OpenAPIPackage;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -77,7 +77,7 @@ public abstract class ArrayContextImpl extends MinimalEObjectImpl.Container impl
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return CorePackage.Literals.ARRAY_CONTEXT;
+		return OpenAPIPackage.Literals.ARRAY_CONTEXT;
 	}
 
 	/**
@@ -98,7 +98,7 @@ public abstract class ArrayContextImpl extends MinimalEObjectImpl.Container impl
 		CollectionFormat oldCollectionFormat = collectionFormat;
 		collectionFormat = newCollectionFormat == null ? COLLECTION_FORMAT_EDEFAULT : newCollectionFormat;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.ARRAY_CONTEXT__COLLECTION_FORMAT, oldCollectionFormat, collectionFormat));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.ARRAY_CONTEXT__COLLECTION_FORMAT, oldCollectionFormat, collectionFormat));
 	}
 
 	/**
@@ -119,7 +119,7 @@ public abstract class ArrayContextImpl extends MinimalEObjectImpl.Container impl
 		ItemsDefinition oldItems = items;
 		items = newItems;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorePackage.ARRAY_CONTEXT__ITEMS, oldItems, newItems);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OpenAPIPackage.ARRAY_CONTEXT__ITEMS, oldItems, newItems);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -134,14 +134,14 @@ public abstract class ArrayContextImpl extends MinimalEObjectImpl.Container impl
 		if (newItems != items) {
 			NotificationChain msgs = null;
 			if (items != null)
-				msgs = ((InternalEObject)items).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CorePackage.ARRAY_CONTEXT__ITEMS, null, msgs);
+				msgs = ((InternalEObject)items).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OpenAPIPackage.ARRAY_CONTEXT__ITEMS, null, msgs);
 			if (newItems != null)
-				msgs = ((InternalEObject)newItems).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CorePackage.ARRAY_CONTEXT__ITEMS, null, msgs);
+				msgs = ((InternalEObject)newItems).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OpenAPIPackage.ARRAY_CONTEXT__ITEMS, null, msgs);
 			msgs = basicSetItems(newItems, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.ARRAY_CONTEXT__ITEMS, newItems, newItems));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.ARRAY_CONTEXT__ITEMS, newItems, newItems));
 	}
 
 	/**
@@ -152,7 +152,7 @@ public abstract class ArrayContextImpl extends MinimalEObjectImpl.Container impl
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case CorePackage.ARRAY_CONTEXT__ITEMS:
+			case OpenAPIPackage.ARRAY_CONTEXT__ITEMS:
 				return basicSetItems(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -166,9 +166,9 @@ public abstract class ArrayContextImpl extends MinimalEObjectImpl.Container impl
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CorePackage.ARRAY_CONTEXT__COLLECTION_FORMAT:
+			case OpenAPIPackage.ARRAY_CONTEXT__COLLECTION_FORMAT:
 				return getCollectionFormat();
-			case CorePackage.ARRAY_CONTEXT__ITEMS:
+			case OpenAPIPackage.ARRAY_CONTEXT__ITEMS:
 				return getItems();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -182,10 +182,10 @@ public abstract class ArrayContextImpl extends MinimalEObjectImpl.Container impl
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CorePackage.ARRAY_CONTEXT__COLLECTION_FORMAT:
+			case OpenAPIPackage.ARRAY_CONTEXT__COLLECTION_FORMAT:
 				setCollectionFormat((CollectionFormat)newValue);
 				return;
-			case CorePackage.ARRAY_CONTEXT__ITEMS:
+			case OpenAPIPackage.ARRAY_CONTEXT__ITEMS:
 				setItems((ItemsDefinition)newValue);
 				return;
 		}
@@ -200,10 +200,10 @@ public abstract class ArrayContextImpl extends MinimalEObjectImpl.Container impl
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CorePackage.ARRAY_CONTEXT__COLLECTION_FORMAT:
+			case OpenAPIPackage.ARRAY_CONTEXT__COLLECTION_FORMAT:
 				setCollectionFormat(COLLECTION_FORMAT_EDEFAULT);
 				return;
-			case CorePackage.ARRAY_CONTEXT__ITEMS:
+			case OpenAPIPackage.ARRAY_CONTEXT__ITEMS:
 				setItems((ItemsDefinition)null);
 				return;
 		}
@@ -218,9 +218,9 @@ public abstract class ArrayContextImpl extends MinimalEObjectImpl.Container impl
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CorePackage.ARRAY_CONTEXT__COLLECTION_FORMAT:
+			case OpenAPIPackage.ARRAY_CONTEXT__COLLECTION_FORMAT:
 				return collectionFormat != COLLECTION_FORMAT_EDEFAULT;
-			case CorePackage.ARRAY_CONTEXT__ITEMS:
+			case OpenAPIPackage.ARRAY_CONTEXT__ITEMS:
 				return items != null;
 		}
 		return super.eIsSet(featureID);

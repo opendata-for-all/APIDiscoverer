@@ -2,7 +2,7 @@
  */
 package core.tests;
 
-import core.CoreFactory;
+import core.OpenAPIFactory;
 import core.Response;
 import junit.textui.TestRunner;
 
@@ -52,7 +52,7 @@ public class ResponseTest extends SchemaDeclaringContextTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(CoreFactory.eINSTANCE.createResponse());
+		setFixture(OpenAPIFactory.eINSTANCE.createResponse());
 	}
 
 	/**

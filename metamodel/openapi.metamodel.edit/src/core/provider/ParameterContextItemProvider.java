@@ -3,8 +3,7 @@
 package core.provider;
 
 
-import core.CorePackage;
-
+import core.OpenAPIPackage;
 import java.util.Collection;
 import java.util.List;
 
@@ -75,7 +74,7 @@ public class ParameterContextItemProvider
 				 getResourceLocator(),
 				 getString("_UI_ParameterContext_parameters_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ParameterContext_parameters_feature", "_UI_ParameterContext_type"),
-				 CorePackage.Literals.PARAMETER_CONTEXT__PARAMETERS,
+				 OpenAPIPackage.Literals.PARAMETER_CONTEXT__PARAMETERS,
 				 true,
 				 false,
 				 true,

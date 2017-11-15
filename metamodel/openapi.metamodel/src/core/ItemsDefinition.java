@@ -9,7 +9,7 @@ package core;
  * <!-- end-user-doc -->
  *
  *
- * @see core.CorePackage#getItemsDefinition()
+ * @see core.OpenAPIPackage#getItemsDefinition()
  * @model
  * @generated
  */

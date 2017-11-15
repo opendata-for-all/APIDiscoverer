@@ -13,7 +13,7 @@ import org.eclipse.emf.common.util.Enumerator;
  * A representation of the literals of the enumeration '<em><b>Collection Format</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- * @see core.CorePackage#getCollectionFormat()
+ * @see core.OpenAPIPackage#getCollectionFormat()
  * @model
  * @generated
  */

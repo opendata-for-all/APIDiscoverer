@@ -2,7 +2,7 @@
  */
 package core.impl;
 
-import core.CorePackage;
+import core.OpenAPIPackage;
 import core.ParamterDeclaringContext;
 
 import org.eclipse.emf.ecore.EClass;
@@ -33,7 +33,7 @@ public abstract class ParamterDeclaringContextImpl extends MinimalEObjectImpl.Co
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return CorePackage.Literals.PARAMTER_DECLARING_CONTEXT;
+		return OpenAPIPackage.Literals.PARAMTER_DECLARING_CONTEXT;
 	}
 
 } //ParamterDeclaringContextImpl

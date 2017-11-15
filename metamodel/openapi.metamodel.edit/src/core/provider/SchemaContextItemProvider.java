@@ -3,8 +3,7 @@
 package core.provider;
 
 
-import core.CorePackage;
-
+import core.OpenAPIPackage;
 import java.util.Collection;
 import java.util.List;
 
@@ -75,7 +74,7 @@ public class SchemaContextItemProvider
 				 getResourceLocator(),
 				 getString("_UI_SchemaContext_schema_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_SchemaContext_schema_feature", "_UI_SchemaContext_type"),
-				 CorePackage.Literals.SCHEMA_CONTEXT__SCHEMA,
+				 OpenAPIPackage.Literals.SCHEMA_CONTEXT__SCHEMA,
 				 true,
 				 false,
 				 true,

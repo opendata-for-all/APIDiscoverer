@@ -256,10 +256,10 @@ public class CoreValidator extends EObjectValidator {
 				return validateSecurityScope((SecurityScope)value, diagnostics, context);
 			case CorePackage.PARAMTER_DECLARING_CONTEXT:
 				return validateParamterDeclaringContext((ParamterDeclaringContext)value, diagnostics, context);
-			case CorePackage.RESPONSE_CONTEXT:
-				return validateResponseContext((ResponseContext)value, diagnostics, context);
 			case CorePackage.SCHEMA_DECLARING_CONTEXT:
 				return validateSchemaDeclaringContext((SchemaDeclaringContext)value, diagnostics, context);
+			case CorePackage.RESPONSE_DECLARING_CONTEXT:
+				return validateResponseDeclaringContext((ResponseDeclaringContext)value, diagnostics, context);
 			case CorePackage.JSON_POINTER:
 				return validateJSONPointer((JSONPointer)value, diagnostics, context);
 			case CorePackage.SECURITY_CONTEXT:
@@ -272,8 +272,6 @@ public class CoreValidator extends EObjectValidator {
 				return validateExternalDocsContext((ExternalDocsContext)value, diagnostics, context);
 			case CorePackage.ARRAY_CONTEXT:
 				return validateArrayContext((ArrayContext)value, diagnostics, context);
-			case CorePackage.RESPONSE_DECLARING_CONTEXT:
-				return validateResponseDeclaringContext((ResponseDeclaringContext)value, diagnostics, context);
 			case CorePackage.SCHEME_TYPE:
 				return validateSchemeType((SchemeType)value, diagnostics, context);
 			case CorePackage.PARAMETER_LOCATION:
@@ -1134,15 +1132,6 @@ public class CoreValidator extends EObjectValidator {
 	 */
 	public boolean validateParameterContext(ParameterContext parameterContext, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(parameterContext, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateResponseContext(ResponseContext responseContext, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(responseContext, diagnostics, context);
 	}
 
 	/**

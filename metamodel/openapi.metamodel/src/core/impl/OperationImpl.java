@@ -2,15 +2,14 @@
  */
 package core.impl;
 
-import core.CorePackage;
 import core.ExternalDocs;
 import core.ExternalDocsContext;
+import core.OpenAPIPackage;
 import core.Operation;
 import core.Parameter;
 import core.ParameterContext;
 import core.Path;
 import core.Response;
-import core.ResponseContext;
 import core.ResponseDeclaringContext;
 import core.SchemeType;
 import core.SecurityContext;
@@ -234,7 +233,7 @@ public class OperationImpl extends ParamterDeclaringContextImpl implements Opera
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return CorePackage.Literals.OPERATION;
+		return OpenAPIPackage.Literals.OPERATION;
 	}
 
 	/**
@@ -244,7 +243,7 @@ public class OperationImpl extends ParamterDeclaringContextImpl implements Opera
 	 */
 	public EList<SecurityScope> getSecurityRequirement() {
 		if (securityRequirement == null) {
-			securityRequirement = new EObjectResolvingEList<SecurityScope>(SecurityScope.class, this, CorePackage.OPERATION__SECURITY_REQUIREMENT);
+			securityRequirement = new EObjectResolvingEList<SecurityScope>(SecurityScope.class, this, OpenAPIPackage.OPERATION__SECURITY_REQUIREMENT);
 		}
 		return securityRequirement;
 	}
@@ -256,7 +255,7 @@ public class OperationImpl extends ParamterDeclaringContextImpl implements Opera
 	 */
 	public EList<Parameter> getParameters() {
 		if (parameters == null) {
-			parameters = new EObjectResolvingEList<Parameter>(Parameter.class, this, CorePackage.OPERATION__PARAMETERS);
+			parameters = new EObjectResolvingEList<Parameter>(Parameter.class, this, OpenAPIPackage.OPERATION__PARAMETERS);
 		}
 		return parameters;
 	}
@@ -279,7 +278,7 @@ public class OperationImpl extends ParamterDeclaringContextImpl implements Opera
 		ExternalDocs oldExternalDocs = externalDocs;
 		externalDocs = newExternalDocs;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorePackage.OPERATION__EXTERNAL_DOCS, oldExternalDocs, newExternalDocs);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OpenAPIPackage.OPERATION__EXTERNAL_DOCS, oldExternalDocs, newExternalDocs);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -294,14 +293,14 @@ public class OperationImpl extends ParamterDeclaringContextImpl implements Opera
 		if (newExternalDocs != externalDocs) {
 			NotificationChain msgs = null;
 			if (externalDocs != null)
-				msgs = ((InternalEObject)externalDocs).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CorePackage.OPERATION__EXTERNAL_DOCS, null, msgs);
+				msgs = ((InternalEObject)externalDocs).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OpenAPIPackage.OPERATION__EXTERNAL_DOCS, null, msgs);
 			if (newExternalDocs != null)
-				msgs = ((InternalEObject)newExternalDocs).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CorePackage.OPERATION__EXTERNAL_DOCS, null, msgs);
+				msgs = ((InternalEObject)newExternalDocs).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OpenAPIPackage.OPERATION__EXTERNAL_DOCS, null, msgs);
 			msgs = basicSetExternalDocs(newExternalDocs, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.OPERATION__EXTERNAL_DOCS, newExternalDocs, newExternalDocs));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.OPERATION__EXTERNAL_DOCS, newExternalDocs, newExternalDocs));
 	}
 
 	/**
@@ -311,7 +310,7 @@ public class OperationImpl extends ParamterDeclaringContextImpl implements Opera
 	 */
 	public EList<String> getTagReferences() {
 		if (tagReferences == null) {
-			tagReferences = new EDataTypeUniqueEList<String>(String.class, this, CorePackage.OPERATION__TAG_REFERENCES);
+			tagReferences = new EDataTypeUniqueEList<String>(String.class, this, OpenAPIPackage.OPERATION__TAG_REFERENCES);
 		}
 		return tagReferences;
 	}
@@ -334,7 +333,7 @@ public class OperationImpl extends ParamterDeclaringContextImpl implements Opera
 		String oldSummary = summary;
 		summary = newSummary;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.OPERATION__SUMMARY, oldSummary, summary));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.OPERATION__SUMMARY, oldSummary, summary));
 	}
 
 	/**
@@ -355,7 +354,7 @@ public class OperationImpl extends ParamterDeclaringContextImpl implements Opera
 		String oldDescription = description;
 		description = newDescription;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.OPERATION__DESCRIPTION, oldDescription, description));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.OPERATION__DESCRIPTION, oldDescription, description));
 	}
 
 	/**
@@ -376,7 +375,7 @@ public class OperationImpl extends ParamterDeclaringContextImpl implements Opera
 		String oldOperationId = operationId;
 		operationId = newOperationId;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.OPERATION__OPERATION_ID, oldOperationId, operationId));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.OPERATION__OPERATION_ID, oldOperationId, operationId));
 	}
 
 	/**
@@ -386,7 +385,7 @@ public class OperationImpl extends ParamterDeclaringContextImpl implements Opera
 	 */
 	public EList<String> getConsumes() {
 		if (consumes == null) {
-			consumes = new EDataTypeUniqueEList<String>(String.class, this, CorePackage.OPERATION__CONSUMES);
+			consumes = new EDataTypeUniqueEList<String>(String.class, this, OpenAPIPackage.OPERATION__CONSUMES);
 		}
 		return consumes;
 	}
@@ -398,7 +397,7 @@ public class OperationImpl extends ParamterDeclaringContextImpl implements Opera
 	 */
 	public EList<String> getProduces() {
 		if (produces == null) {
-			produces = new EDataTypeUniqueEList<String>(String.class, this, CorePackage.OPERATION__PRODUCES);
+			produces = new EDataTypeUniqueEList<String>(String.class, this, OpenAPIPackage.OPERATION__PRODUCES);
 		}
 		return produces;
 	}
@@ -410,7 +409,7 @@ public class OperationImpl extends ParamterDeclaringContextImpl implements Opera
 	 */
 	public EList<Response> getResponses() {
 		if (responses == null) {
-			responses = new EObjectResolvingEList<Response>(Response.class, this, CorePackage.OPERATION__RESPONSES);
+			responses = new EObjectResolvingEList<Response>(Response.class, this, OpenAPIPackage.OPERATION__RESPONSES);
 		}
 		return responses;
 	}
@@ -422,7 +421,7 @@ public class OperationImpl extends ParamterDeclaringContextImpl implements Opera
 	 */
 	public EList<SchemeType> getSchemes() {
 		if (schemes == null) {
-			schemes = new EDataTypeUniqueEList<SchemeType>(SchemeType.class, this, CorePackage.OPERATION__SCHEMES);
+			schemes = new EDataTypeUniqueEList<SchemeType>(SchemeType.class, this, OpenAPIPackage.OPERATION__SCHEMES);
 		}
 		return schemes;
 	}
@@ -445,7 +444,7 @@ public class OperationImpl extends ParamterDeclaringContextImpl implements Opera
 		Boolean oldDeprecated = deprecated;
 		deprecated = newDeprecated;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.OPERATION__DEPRECATED, oldDeprecated, deprecated));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.OPERATION__DEPRECATED, oldDeprecated, deprecated));
 	}
 
 	/**
@@ -454,7 +453,7 @@ public class OperationImpl extends ParamterDeclaringContextImpl implements Opera
 	 * @generated
 	 */
 	public Path getPath() {
-		if (eContainerFeatureID() != CorePackage.OPERATION__PATH) return null;
+		if (eContainerFeatureID() != OpenAPIPackage.OPERATION__PATH) return null;
 		return (Path)eInternalContainer();
 	}
 
@@ -464,7 +463,7 @@ public class OperationImpl extends ParamterDeclaringContextImpl implements Opera
 	 * @generated
 	 */
 	public NotificationChain basicSetPath(Path newPath, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newPath, CorePackage.OPERATION__PATH, msgs);
+		msgs = eBasicSetContainer((InternalEObject)newPath, OpenAPIPackage.OPERATION__PATH, msgs);
 		return msgs;
 	}
 
@@ -474,19 +473,19 @@ public class OperationImpl extends ParamterDeclaringContextImpl implements Opera
 	 * @generated
 	 */
 	public void setPath(Path newPath) {
-		if (newPath != eInternalContainer() || (eContainerFeatureID() != CorePackage.OPERATION__PATH && newPath != null)) {
+		if (newPath != eInternalContainer() || (eContainerFeatureID() != OpenAPIPackage.OPERATION__PATH && newPath != null)) {
 			if (EcoreUtil.isAncestor(this, newPath))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newPath != null)
-				msgs = ((InternalEObject)newPath).eInverseAdd(this, CorePackage.PATH__GET, Path.class, msgs);
+				msgs = ((InternalEObject)newPath).eInverseAdd(this, OpenAPIPackage.PATH__GET, Path.class, msgs);
 			msgs = basicSetPath(newPath, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.OPERATION__PATH, newPath, newPath));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.OPERATION__PATH, newPath, newPath));
 	}
 
 	/**
@@ -497,7 +496,7 @@ public class OperationImpl extends ParamterDeclaringContextImpl implements Opera
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case CorePackage.OPERATION__PATH:
+			case OpenAPIPackage.OPERATION__PATH:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetPath((Path)otherEnd, msgs);
@@ -513,9 +512,9 @@ public class OperationImpl extends ParamterDeclaringContextImpl implements Opera
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case CorePackage.OPERATION__EXTERNAL_DOCS:
+			case OpenAPIPackage.OPERATION__EXTERNAL_DOCS:
 				return basicSetExternalDocs(null, msgs);
-			case CorePackage.OPERATION__PATH:
+			case OpenAPIPackage.OPERATION__PATH:
 				return basicSetPath(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -529,8 +528,8 @@ public class OperationImpl extends ParamterDeclaringContextImpl implements Opera
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
-			case CorePackage.OPERATION__PATH:
-				return eInternalContainer().eInverseRemove(this, CorePackage.PATH__GET, Path.class, msgs);
+			case OpenAPIPackage.OPERATION__PATH:
+				return eInternalContainer().eInverseRemove(this, OpenAPIPackage.PATH__GET, Path.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -543,31 +542,31 @@ public class OperationImpl extends ParamterDeclaringContextImpl implements Opera
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CorePackage.OPERATION__SECURITY_REQUIREMENT:
+			case OpenAPIPackage.OPERATION__SECURITY_REQUIREMENT:
 				return getSecurityRequirement();
-			case CorePackage.OPERATION__PARAMETERS:
+			case OpenAPIPackage.OPERATION__PARAMETERS:
 				return getParameters();
-			case CorePackage.OPERATION__EXTERNAL_DOCS:
+			case OpenAPIPackage.OPERATION__EXTERNAL_DOCS:
 				return getExternalDocs();
-			case CorePackage.OPERATION__TAG_REFERENCES:
+			case OpenAPIPackage.OPERATION__TAG_REFERENCES:
 				return getTagReferences();
-			case CorePackage.OPERATION__SUMMARY:
+			case OpenAPIPackage.OPERATION__SUMMARY:
 				return getSummary();
-			case CorePackage.OPERATION__DESCRIPTION:
+			case OpenAPIPackage.OPERATION__DESCRIPTION:
 				return getDescription();
-			case CorePackage.OPERATION__OPERATION_ID:
+			case OpenAPIPackage.OPERATION__OPERATION_ID:
 				return getOperationId();
-			case CorePackage.OPERATION__CONSUMES:
+			case OpenAPIPackage.OPERATION__CONSUMES:
 				return getConsumes();
-			case CorePackage.OPERATION__PRODUCES:
+			case OpenAPIPackage.OPERATION__PRODUCES:
 				return getProduces();
-			case CorePackage.OPERATION__RESPONSES:
+			case OpenAPIPackage.OPERATION__RESPONSES:
 				return getResponses();
-			case CorePackage.OPERATION__SCHEMES:
+			case OpenAPIPackage.OPERATION__SCHEMES:
 				return getSchemes();
-			case CorePackage.OPERATION__DEPRECATED:
+			case OpenAPIPackage.OPERATION__DEPRECATED:
 				return getDeprecated();
-			case CorePackage.OPERATION__PATH:
+			case OpenAPIPackage.OPERATION__PATH:
 				return getPath();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -582,50 +581,50 @@ public class OperationImpl extends ParamterDeclaringContextImpl implements Opera
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CorePackage.OPERATION__SECURITY_REQUIREMENT:
+			case OpenAPIPackage.OPERATION__SECURITY_REQUIREMENT:
 				getSecurityRequirement().clear();
 				getSecurityRequirement().addAll((Collection<? extends SecurityScope>)newValue);
 				return;
-			case CorePackage.OPERATION__PARAMETERS:
+			case OpenAPIPackage.OPERATION__PARAMETERS:
 				getParameters().clear();
 				getParameters().addAll((Collection<? extends Parameter>)newValue);
 				return;
-			case CorePackage.OPERATION__EXTERNAL_DOCS:
+			case OpenAPIPackage.OPERATION__EXTERNAL_DOCS:
 				setExternalDocs((ExternalDocs)newValue);
 				return;
-			case CorePackage.OPERATION__TAG_REFERENCES:
+			case OpenAPIPackage.OPERATION__TAG_REFERENCES:
 				getTagReferences().clear();
 				getTagReferences().addAll((Collection<? extends String>)newValue);
 				return;
-			case CorePackage.OPERATION__SUMMARY:
+			case OpenAPIPackage.OPERATION__SUMMARY:
 				setSummary((String)newValue);
 				return;
-			case CorePackage.OPERATION__DESCRIPTION:
+			case OpenAPIPackage.OPERATION__DESCRIPTION:
 				setDescription((String)newValue);
 				return;
-			case CorePackage.OPERATION__OPERATION_ID:
+			case OpenAPIPackage.OPERATION__OPERATION_ID:
 				setOperationId((String)newValue);
 				return;
-			case CorePackage.OPERATION__CONSUMES:
+			case OpenAPIPackage.OPERATION__CONSUMES:
 				getConsumes().clear();
 				getConsumes().addAll((Collection<? extends String>)newValue);
 				return;
-			case CorePackage.OPERATION__PRODUCES:
+			case OpenAPIPackage.OPERATION__PRODUCES:
 				getProduces().clear();
 				getProduces().addAll((Collection<? extends String>)newValue);
 				return;
-			case CorePackage.OPERATION__RESPONSES:
+			case OpenAPIPackage.OPERATION__RESPONSES:
 				getResponses().clear();
 				getResponses().addAll((Collection<? extends Response>)newValue);
 				return;
-			case CorePackage.OPERATION__SCHEMES:
+			case OpenAPIPackage.OPERATION__SCHEMES:
 				getSchemes().clear();
 				getSchemes().addAll((Collection<? extends SchemeType>)newValue);
 				return;
-			case CorePackage.OPERATION__DEPRECATED:
+			case OpenAPIPackage.OPERATION__DEPRECATED:
 				setDeprecated((Boolean)newValue);
 				return;
-			case CorePackage.OPERATION__PATH:
+			case OpenAPIPackage.OPERATION__PATH:
 				setPath((Path)newValue);
 				return;
 		}
@@ -640,43 +639,43 @@ public class OperationImpl extends ParamterDeclaringContextImpl implements Opera
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CorePackage.OPERATION__SECURITY_REQUIREMENT:
+			case OpenAPIPackage.OPERATION__SECURITY_REQUIREMENT:
 				getSecurityRequirement().clear();
 				return;
-			case CorePackage.OPERATION__PARAMETERS:
+			case OpenAPIPackage.OPERATION__PARAMETERS:
 				getParameters().clear();
 				return;
-			case CorePackage.OPERATION__EXTERNAL_DOCS:
+			case OpenAPIPackage.OPERATION__EXTERNAL_DOCS:
 				setExternalDocs((ExternalDocs)null);
 				return;
-			case CorePackage.OPERATION__TAG_REFERENCES:
+			case OpenAPIPackage.OPERATION__TAG_REFERENCES:
 				getTagReferences().clear();
 				return;
-			case CorePackage.OPERATION__SUMMARY:
+			case OpenAPIPackage.OPERATION__SUMMARY:
 				setSummary(SUMMARY_EDEFAULT);
 				return;
-			case CorePackage.OPERATION__DESCRIPTION:
+			case OpenAPIPackage.OPERATION__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
 				return;
-			case CorePackage.OPERATION__OPERATION_ID:
+			case OpenAPIPackage.OPERATION__OPERATION_ID:
 				setOperationId(OPERATION_ID_EDEFAULT);
 				return;
-			case CorePackage.OPERATION__CONSUMES:
+			case OpenAPIPackage.OPERATION__CONSUMES:
 				getConsumes().clear();
 				return;
-			case CorePackage.OPERATION__PRODUCES:
+			case OpenAPIPackage.OPERATION__PRODUCES:
 				getProduces().clear();
 				return;
-			case CorePackage.OPERATION__RESPONSES:
+			case OpenAPIPackage.OPERATION__RESPONSES:
 				getResponses().clear();
 				return;
-			case CorePackage.OPERATION__SCHEMES:
+			case OpenAPIPackage.OPERATION__SCHEMES:
 				getSchemes().clear();
 				return;
-			case CorePackage.OPERATION__DEPRECATED:
+			case OpenAPIPackage.OPERATION__DEPRECATED:
 				setDeprecated(DEPRECATED_EDEFAULT);
 				return;
-			case CorePackage.OPERATION__PATH:
+			case OpenAPIPackage.OPERATION__PATH:
 				setPath((Path)null);
 				return;
 		}
@@ -691,31 +690,31 @@ public class OperationImpl extends ParamterDeclaringContextImpl implements Opera
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CorePackage.OPERATION__SECURITY_REQUIREMENT:
+			case OpenAPIPackage.OPERATION__SECURITY_REQUIREMENT:
 				return securityRequirement != null && !securityRequirement.isEmpty();
-			case CorePackage.OPERATION__PARAMETERS:
+			case OpenAPIPackage.OPERATION__PARAMETERS:
 				return parameters != null && !parameters.isEmpty();
-			case CorePackage.OPERATION__EXTERNAL_DOCS:
+			case OpenAPIPackage.OPERATION__EXTERNAL_DOCS:
 				return externalDocs != null;
-			case CorePackage.OPERATION__TAG_REFERENCES:
+			case OpenAPIPackage.OPERATION__TAG_REFERENCES:
 				return tagReferences != null && !tagReferences.isEmpty();
-			case CorePackage.OPERATION__SUMMARY:
+			case OpenAPIPackage.OPERATION__SUMMARY:
 				return SUMMARY_EDEFAULT == null ? summary != null : !SUMMARY_EDEFAULT.equals(summary);
-			case CorePackage.OPERATION__DESCRIPTION:
+			case OpenAPIPackage.OPERATION__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-			case CorePackage.OPERATION__OPERATION_ID:
+			case OpenAPIPackage.OPERATION__OPERATION_ID:
 				return OPERATION_ID_EDEFAULT == null ? operationId != null : !OPERATION_ID_EDEFAULT.equals(operationId);
-			case CorePackage.OPERATION__CONSUMES:
+			case OpenAPIPackage.OPERATION__CONSUMES:
 				return consumes != null && !consumes.isEmpty();
-			case CorePackage.OPERATION__PRODUCES:
+			case OpenAPIPackage.OPERATION__PRODUCES:
 				return produces != null && !produces.isEmpty();
-			case CorePackage.OPERATION__RESPONSES:
+			case OpenAPIPackage.OPERATION__RESPONSES:
 				return responses != null && !responses.isEmpty();
-			case CorePackage.OPERATION__SCHEMES:
+			case OpenAPIPackage.OPERATION__SCHEMES:
 				return schemes != null && !schemes.isEmpty();
-			case CorePackage.OPERATION__DEPRECATED:
+			case OpenAPIPackage.OPERATION__DEPRECATED:
 				return DEPRECATED_EDEFAULT == null ? deprecated != null : !DEPRECATED_EDEFAULT.equals(deprecated);
-			case CorePackage.OPERATION__PATH:
+			case OpenAPIPackage.OPERATION__PATH:
 				return getPath() != null;
 		}
 		return super.eIsSet(featureID);
@@ -728,26 +727,21 @@ public class OperationImpl extends ParamterDeclaringContextImpl implements Opera
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == ResponseContext.class) {
-			switch (derivedFeatureID) {
-				default: return -1;
-			}
-		}
 		if (baseClass == SecurityContext.class) {
 			switch (derivedFeatureID) {
-				case CorePackage.OPERATION__SECURITY_REQUIREMENT: return CorePackage.SECURITY_CONTEXT__SECURITY_REQUIREMENT;
+				case OpenAPIPackage.OPERATION__SECURITY_REQUIREMENT: return OpenAPIPackage.SECURITY_CONTEXT__SECURITY_REQUIREMENT;
 				default: return -1;
 			}
 		}
 		if (baseClass == ParameterContext.class) {
 			switch (derivedFeatureID) {
-				case CorePackage.OPERATION__PARAMETERS: return CorePackage.PARAMETER_CONTEXT__PARAMETERS;
+				case OpenAPIPackage.OPERATION__PARAMETERS: return OpenAPIPackage.PARAMETER_CONTEXT__PARAMETERS;
 				default: return -1;
 			}
 		}
 		if (baseClass == ExternalDocsContext.class) {
 			switch (derivedFeatureID) {
-				case CorePackage.OPERATION__EXTERNAL_DOCS: return CorePackage.EXTERNAL_DOCS_CONTEXT__EXTERNAL_DOCS;
+				case OpenAPIPackage.OPERATION__EXTERNAL_DOCS: return OpenAPIPackage.EXTERNAL_DOCS_CONTEXT__EXTERNAL_DOCS;
 				default: return -1;
 			}
 		}
@@ -766,26 +760,21 @@ public class OperationImpl extends ParamterDeclaringContextImpl implements Opera
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == ResponseContext.class) {
-			switch (baseFeatureID) {
-				default: return -1;
-			}
-		}
 		if (baseClass == SecurityContext.class) {
 			switch (baseFeatureID) {
-				case CorePackage.SECURITY_CONTEXT__SECURITY_REQUIREMENT: return CorePackage.OPERATION__SECURITY_REQUIREMENT;
+				case OpenAPIPackage.SECURITY_CONTEXT__SECURITY_REQUIREMENT: return OpenAPIPackage.OPERATION__SECURITY_REQUIREMENT;
 				default: return -1;
 			}
 		}
 		if (baseClass == ParameterContext.class) {
 			switch (baseFeatureID) {
-				case CorePackage.PARAMETER_CONTEXT__PARAMETERS: return CorePackage.OPERATION__PARAMETERS;
+				case OpenAPIPackage.PARAMETER_CONTEXT__PARAMETERS: return OpenAPIPackage.OPERATION__PARAMETERS;
 				default: return -1;
 			}
 		}
 		if (baseClass == ExternalDocsContext.class) {
 			switch (baseFeatureID) {
-				case CorePackage.EXTERNAL_DOCS_CONTEXT__EXTERNAL_DOCS: return CorePackage.OPERATION__EXTERNAL_DOCS;
+				case OpenAPIPackage.EXTERNAL_DOCS_CONTEXT__EXTERNAL_DOCS: return OpenAPIPackage.OPERATION__EXTERNAL_DOCS;
 				default: return -1;
 			}
 		}

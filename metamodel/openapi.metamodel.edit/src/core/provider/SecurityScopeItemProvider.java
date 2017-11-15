@@ -3,7 +3,7 @@
 package core.provider;
 
 
-import core.CorePackage;
+import core.OpenAPIPackage;
 import core.SecurityScope;
 
 import java.util.Collection;
@@ -79,7 +79,7 @@ public class SecurityScopeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_SecurityScope_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_SecurityScope_name_feature", "_UI_SecurityScope_type"),
-				 CorePackage.Literals.SECURITY_SCOPE__NAME,
+				 OpenAPIPackage.Literals.SECURITY_SCOPE__NAME,
 				 true,
 				 false,
 				 false,
@@ -101,7 +101,7 @@ public class SecurityScopeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_SecurityScope_description_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_SecurityScope_description_feature", "_UI_SecurityScope_type"),
-				 CorePackage.Literals.SECURITY_SCOPE__DESCRIPTION,
+				 OpenAPIPackage.Literals.SECURITY_SCOPE__DESCRIPTION,
 				 true,
 				 false,
 				 false,
@@ -148,8 +148,8 @@ public class SecurityScopeItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(SecurityScope.class)) {
-			case CorePackage.SECURITY_SCOPE__NAME:
-			case CorePackage.SECURITY_SCOPE__DESCRIPTION:
+			case OpenAPIPackage.SECURITY_SCOPE__NAME:
+			case OpenAPIPackage.SECURITY_SCOPE__DESCRIPTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

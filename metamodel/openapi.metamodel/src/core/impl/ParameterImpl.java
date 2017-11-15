@@ -4,11 +4,11 @@ package core.impl;
 
 import core.ArrayContext;
 import core.CollectionFormat;
-import core.CorePackage;
 import core.ItemsDefinition;
 import core.JSONDataType;
 import core.JSONPointer;
 import core.JSONSchemaSubset;
+import core.OpenAPIPackage;
 import core.Parameter;
 import core.ParameterLocation;
 import core.ParamterDeclaringContext;
@@ -554,7 +554,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return CorePackage.Literals.PARAMETER;
+		return OpenAPIPackage.Literals.PARAMETER;
 	}
 
 	/**
@@ -568,7 +568,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 			schema = (Schema)eResolveProxy(oldSchema);
 			if (schema != oldSchema) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CorePackage.PARAMETER__SCHEMA, oldSchema, schema));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, OpenAPIPackage.PARAMETER__SCHEMA, oldSchema, schema));
 			}
 		}
 		return schema;
@@ -592,7 +592,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 		Schema oldSchema = schema;
 		schema = newSchema;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.PARAMETER__SCHEMA, oldSchema, schema));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.PARAMETER__SCHEMA, oldSchema, schema));
 	}
 
 	/**
@@ -613,7 +613,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 		JSONDataType oldType = type;
 		type = newType == null ? TYPE_EDEFAULT : newType;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.PARAMETER__TYPE, oldType, type));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.PARAMETER__TYPE, oldType, type));
 	}
 
 	/**
@@ -634,7 +634,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 		String oldFormat = format;
 		format = newFormat;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.PARAMETER__FORMAT, oldFormat, format));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.PARAMETER__FORMAT, oldFormat, format));
 	}
 
 	/**
@@ -655,7 +655,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 		String oldDescription = description;
 		description = newDescription;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.PARAMETER__DESCRIPTION, oldDescription, description));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.PARAMETER__DESCRIPTION, oldDescription, description));
 	}
 
 	/**
@@ -676,7 +676,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 		Double oldMaximum = maximum;
 		maximum = newMaximum;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.PARAMETER__MAXIMUM, oldMaximum, maximum));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.PARAMETER__MAXIMUM, oldMaximum, maximum));
 	}
 
 	/**
@@ -697,7 +697,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 		Boolean oldExclusiveMaximum = exclusiveMaximum;
 		exclusiveMaximum = newExclusiveMaximum;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.PARAMETER__EXCLUSIVE_MAXIMUM, oldExclusiveMaximum, exclusiveMaximum));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.PARAMETER__EXCLUSIVE_MAXIMUM, oldExclusiveMaximum, exclusiveMaximum));
 	}
 
 	/**
@@ -718,7 +718,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 		Double oldMinimum = minimum;
 		minimum = newMinimum;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.PARAMETER__MINIMUM, oldMinimum, minimum));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.PARAMETER__MINIMUM, oldMinimum, minimum));
 	}
 
 	/**
@@ -739,7 +739,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 		Boolean oldExclusiveMinimum = exclusiveMinimum;
 		exclusiveMinimum = newExclusiveMinimum;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.PARAMETER__EXCLUSIVE_MINIMUM, oldExclusiveMinimum, exclusiveMinimum));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.PARAMETER__EXCLUSIVE_MINIMUM, oldExclusiveMinimum, exclusiveMinimum));
 	}
 
 	/**
@@ -760,7 +760,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 		Integer oldMaxLength = maxLength;
 		maxLength = newMaxLength;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.PARAMETER__MAX_LENGTH, oldMaxLength, maxLength));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.PARAMETER__MAX_LENGTH, oldMaxLength, maxLength));
 	}
 
 	/**
@@ -781,7 +781,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 		Integer oldMinLength = minLength;
 		minLength = newMinLength;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.PARAMETER__MIN_LENGTH, oldMinLength, minLength));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.PARAMETER__MIN_LENGTH, oldMinLength, minLength));
 	}
 
 	/**
@@ -802,7 +802,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 		String oldPattern = pattern;
 		pattern = newPattern;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.PARAMETER__PATTERN, oldPattern, pattern));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.PARAMETER__PATTERN, oldPattern, pattern));
 	}
 
 	/**
@@ -823,7 +823,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 		Integer oldMaxItems = maxItems;
 		maxItems = newMaxItems;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.PARAMETER__MAX_ITEMS, oldMaxItems, maxItems));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.PARAMETER__MAX_ITEMS, oldMaxItems, maxItems));
 	}
 
 	/**
@@ -844,7 +844,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 		Integer oldMinItems = minItems;
 		minItems = newMinItems;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.PARAMETER__MIN_ITEMS, oldMinItems, minItems));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.PARAMETER__MIN_ITEMS, oldMinItems, minItems));
 	}
 
 	/**
@@ -865,7 +865,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 		Boolean oldUniqueItems = uniqueItems;
 		uniqueItems = newUniqueItems;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.PARAMETER__UNIQUE_ITEMS, oldUniqueItems, uniqueItems));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.PARAMETER__UNIQUE_ITEMS, oldUniqueItems, uniqueItems));
 	}
 
 	/**
@@ -875,7 +875,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	 */
 	public EList<String> getEnum() {
 		if (enum_ == null) {
-			enum_ = new EDataTypeUniqueEList<String>(String.class, this, CorePackage.PARAMETER__ENUM);
+			enum_ = new EDataTypeUniqueEList<String>(String.class, this, OpenAPIPackage.PARAMETER__ENUM);
 		}
 		return enum_;
 	}
@@ -898,7 +898,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 		String oldDefault = default_;
 		default_ = newDefault;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.PARAMETER__DEFAULT, oldDefault, default_));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.PARAMETER__DEFAULT, oldDefault, default_));
 	}
 
 	/**
@@ -919,7 +919,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 		double oldMultipleOf = multipleOf;
 		multipleOf = newMultipleOf;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.PARAMETER__MULTIPLE_OF, oldMultipleOf, multipleOf));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.PARAMETER__MULTIPLE_OF, oldMultipleOf, multipleOf));
 	}
 
 	/**
@@ -951,7 +951,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 		CollectionFormat oldCollectionFormat = collectionFormat;
 		collectionFormat = newCollectionFormat == null ? COLLECTION_FORMAT_EDEFAULT : newCollectionFormat;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.PARAMETER__COLLECTION_FORMAT, oldCollectionFormat, collectionFormat));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.PARAMETER__COLLECTION_FORMAT, oldCollectionFormat, collectionFormat));
 	}
 
 	/**
@@ -972,7 +972,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 		ItemsDefinition oldItems = items;
 		items = newItems;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorePackage.PARAMETER__ITEMS, oldItems, newItems);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OpenAPIPackage.PARAMETER__ITEMS, oldItems, newItems);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -987,14 +987,14 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 		if (newItems != items) {
 			NotificationChain msgs = null;
 			if (items != null)
-				msgs = ((InternalEObject)items).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CorePackage.PARAMETER__ITEMS, null, msgs);
+				msgs = ((InternalEObject)items).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OpenAPIPackage.PARAMETER__ITEMS, null, msgs);
 			if (newItems != null)
-				msgs = ((InternalEObject)newItems).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CorePackage.PARAMETER__ITEMS, null, msgs);
+				msgs = ((InternalEObject)newItems).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OpenAPIPackage.PARAMETER__ITEMS, null, msgs);
 			msgs = basicSetItems(newItems, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.PARAMETER__ITEMS, newItems, newItems));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.PARAMETER__ITEMS, newItems, newItems));
 	}
 
 	/**
@@ -1015,7 +1015,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.PARAMETER__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.PARAMETER__NAME, oldName, name));
 	}
 
 	/**
@@ -1036,7 +1036,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 		ParameterLocation oldLocation = location;
 		location = newLocation == null ? LOCATION_EDEFAULT : newLocation;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.PARAMETER__LOCATION, oldLocation, location));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.PARAMETER__LOCATION, oldLocation, location));
 	}
 
 	/**
@@ -1057,7 +1057,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 		Boolean oldRequired = required;
 		required = newRequired;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.PARAMETER__REQUIRED, oldRequired, required));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.PARAMETER__REQUIRED, oldRequired, required));
 	}
 
 	/**
@@ -1078,7 +1078,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 		Boolean oldAllowEmplyValue = allowEmplyValue;
 		allowEmplyValue = newAllowEmplyValue;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.PARAMETER__ALLOW_EMPLY_VALUE, oldAllowEmplyValue, allowEmplyValue));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.PARAMETER__ALLOW_EMPLY_VALUE, oldAllowEmplyValue, allowEmplyValue));
 	}
 
 	/**
@@ -1099,7 +1099,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 		String oldReferenceName = referenceName;
 		referenceName = newReferenceName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.PARAMETER__REFERENCE_NAME, oldReferenceName, referenceName));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.PARAMETER__REFERENCE_NAME, oldReferenceName, referenceName));
 	}
 
 	/**
@@ -1113,7 +1113,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 			declaringContext = (ParamterDeclaringContext)eResolveProxy(oldDeclaringContext);
 			if (declaringContext != oldDeclaringContext) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CorePackage.PARAMETER__DECLARING_CONTEXT, oldDeclaringContext, declaringContext));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, OpenAPIPackage.PARAMETER__DECLARING_CONTEXT, oldDeclaringContext, declaringContext));
 			}
 		}
 		return declaringContext;
@@ -1137,7 +1137,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 		ParamterDeclaringContext oldDeclaringContext = declaringContext;
 		declaringContext = newDeclaringContext;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.PARAMETER__DECLARING_CONTEXT, oldDeclaringContext, declaringContext));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.PARAMETER__DECLARING_CONTEXT, oldDeclaringContext, declaringContext));
 	}
 
 	/**
@@ -1148,7 +1148,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case CorePackage.PARAMETER__ITEMS:
+			case OpenAPIPackage.PARAMETER__ITEMS:
 				return basicSetItems(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -1162,58 +1162,58 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CorePackage.PARAMETER__SCHEMA:
+			case OpenAPIPackage.PARAMETER__SCHEMA:
 				if (resolve) return getSchema();
 				return basicGetSchema();
-			case CorePackage.PARAMETER__TYPE:
+			case OpenAPIPackage.PARAMETER__TYPE:
 				return getType();
-			case CorePackage.PARAMETER__FORMAT:
+			case OpenAPIPackage.PARAMETER__FORMAT:
 				return getFormat();
-			case CorePackage.PARAMETER__DESCRIPTION:
+			case OpenAPIPackage.PARAMETER__DESCRIPTION:
 				return getDescription();
-			case CorePackage.PARAMETER__MAXIMUM:
+			case OpenAPIPackage.PARAMETER__MAXIMUM:
 				return getMaximum();
-			case CorePackage.PARAMETER__EXCLUSIVE_MAXIMUM:
+			case OpenAPIPackage.PARAMETER__EXCLUSIVE_MAXIMUM:
 				return getExclusiveMaximum();
-			case CorePackage.PARAMETER__MINIMUM:
+			case OpenAPIPackage.PARAMETER__MINIMUM:
 				return getMinimum();
-			case CorePackage.PARAMETER__EXCLUSIVE_MINIMUM:
+			case OpenAPIPackage.PARAMETER__EXCLUSIVE_MINIMUM:
 				return getExclusiveMinimum();
-			case CorePackage.PARAMETER__MAX_LENGTH:
+			case OpenAPIPackage.PARAMETER__MAX_LENGTH:
 				return getMaxLength();
-			case CorePackage.PARAMETER__MIN_LENGTH:
+			case OpenAPIPackage.PARAMETER__MIN_LENGTH:
 				return getMinLength();
-			case CorePackage.PARAMETER__PATTERN:
+			case OpenAPIPackage.PARAMETER__PATTERN:
 				return getPattern();
-			case CorePackage.PARAMETER__MAX_ITEMS:
+			case OpenAPIPackage.PARAMETER__MAX_ITEMS:
 				return getMaxItems();
-			case CorePackage.PARAMETER__MIN_ITEMS:
+			case OpenAPIPackage.PARAMETER__MIN_ITEMS:
 				return getMinItems();
-			case CorePackage.PARAMETER__UNIQUE_ITEMS:
+			case OpenAPIPackage.PARAMETER__UNIQUE_ITEMS:
 				return getUniqueItems();
-			case CorePackage.PARAMETER__ENUM:
+			case OpenAPIPackage.PARAMETER__ENUM:
 				return getEnum();
-			case CorePackage.PARAMETER__DEFAULT:
+			case OpenAPIPackage.PARAMETER__DEFAULT:
 				return getDefault();
-			case CorePackage.PARAMETER__MULTIPLE_OF:
+			case OpenAPIPackage.PARAMETER__MULTIPLE_OF:
 				return getMultipleOf();
-			case CorePackage.PARAMETER__REF:
+			case OpenAPIPackage.PARAMETER__REF:
 				return getRef();
-			case CorePackage.PARAMETER__COLLECTION_FORMAT:
+			case OpenAPIPackage.PARAMETER__COLLECTION_FORMAT:
 				return getCollectionFormat();
-			case CorePackage.PARAMETER__ITEMS:
+			case OpenAPIPackage.PARAMETER__ITEMS:
 				return getItems();
-			case CorePackage.PARAMETER__NAME:
+			case OpenAPIPackage.PARAMETER__NAME:
 				return getName();
-			case CorePackage.PARAMETER__LOCATION:
+			case OpenAPIPackage.PARAMETER__LOCATION:
 				return getLocation();
-			case CorePackage.PARAMETER__REQUIRED:
+			case OpenAPIPackage.PARAMETER__REQUIRED:
 				return getRequired();
-			case CorePackage.PARAMETER__ALLOW_EMPLY_VALUE:
+			case OpenAPIPackage.PARAMETER__ALLOW_EMPLY_VALUE:
 				return getAllowEmplyValue();
-			case CorePackage.PARAMETER__REFERENCE_NAME:
+			case OpenAPIPackage.PARAMETER__REFERENCE_NAME:
 				return getReferenceName();
-			case CorePackage.PARAMETER__DECLARING_CONTEXT:
+			case OpenAPIPackage.PARAMETER__DECLARING_CONTEXT:
 				if (resolve) return getDeclaringContext();
 				return basicGetDeclaringContext();
 		}
@@ -1229,80 +1229,80 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CorePackage.PARAMETER__SCHEMA:
+			case OpenAPIPackage.PARAMETER__SCHEMA:
 				setSchema((Schema)newValue);
 				return;
-			case CorePackage.PARAMETER__TYPE:
+			case OpenAPIPackage.PARAMETER__TYPE:
 				setType((JSONDataType)newValue);
 				return;
-			case CorePackage.PARAMETER__FORMAT:
+			case OpenAPIPackage.PARAMETER__FORMAT:
 				setFormat((String)newValue);
 				return;
-			case CorePackage.PARAMETER__DESCRIPTION:
+			case OpenAPIPackage.PARAMETER__DESCRIPTION:
 				setDescription((String)newValue);
 				return;
-			case CorePackage.PARAMETER__MAXIMUM:
+			case OpenAPIPackage.PARAMETER__MAXIMUM:
 				setMaximum((Double)newValue);
 				return;
-			case CorePackage.PARAMETER__EXCLUSIVE_MAXIMUM:
+			case OpenAPIPackage.PARAMETER__EXCLUSIVE_MAXIMUM:
 				setExclusiveMaximum((Boolean)newValue);
 				return;
-			case CorePackage.PARAMETER__MINIMUM:
+			case OpenAPIPackage.PARAMETER__MINIMUM:
 				setMinimum((Double)newValue);
 				return;
-			case CorePackage.PARAMETER__EXCLUSIVE_MINIMUM:
+			case OpenAPIPackage.PARAMETER__EXCLUSIVE_MINIMUM:
 				setExclusiveMinimum((Boolean)newValue);
 				return;
-			case CorePackage.PARAMETER__MAX_LENGTH:
+			case OpenAPIPackage.PARAMETER__MAX_LENGTH:
 				setMaxLength((Integer)newValue);
 				return;
-			case CorePackage.PARAMETER__MIN_LENGTH:
+			case OpenAPIPackage.PARAMETER__MIN_LENGTH:
 				setMinLength((Integer)newValue);
 				return;
-			case CorePackage.PARAMETER__PATTERN:
+			case OpenAPIPackage.PARAMETER__PATTERN:
 				setPattern((String)newValue);
 				return;
-			case CorePackage.PARAMETER__MAX_ITEMS:
+			case OpenAPIPackage.PARAMETER__MAX_ITEMS:
 				setMaxItems((Integer)newValue);
 				return;
-			case CorePackage.PARAMETER__MIN_ITEMS:
+			case OpenAPIPackage.PARAMETER__MIN_ITEMS:
 				setMinItems((Integer)newValue);
 				return;
-			case CorePackage.PARAMETER__UNIQUE_ITEMS:
+			case OpenAPIPackage.PARAMETER__UNIQUE_ITEMS:
 				setUniqueItems((Boolean)newValue);
 				return;
-			case CorePackage.PARAMETER__ENUM:
+			case OpenAPIPackage.PARAMETER__ENUM:
 				getEnum().clear();
 				getEnum().addAll((Collection<? extends String>)newValue);
 				return;
-			case CorePackage.PARAMETER__DEFAULT:
+			case OpenAPIPackage.PARAMETER__DEFAULT:
 				setDefault((String)newValue);
 				return;
-			case CorePackage.PARAMETER__MULTIPLE_OF:
+			case OpenAPIPackage.PARAMETER__MULTIPLE_OF:
 				setMultipleOf((Double)newValue);
 				return;
-			case CorePackage.PARAMETER__COLLECTION_FORMAT:
+			case OpenAPIPackage.PARAMETER__COLLECTION_FORMAT:
 				setCollectionFormat((CollectionFormat)newValue);
 				return;
-			case CorePackage.PARAMETER__ITEMS:
+			case OpenAPIPackage.PARAMETER__ITEMS:
 				setItems((ItemsDefinition)newValue);
 				return;
-			case CorePackage.PARAMETER__NAME:
+			case OpenAPIPackage.PARAMETER__NAME:
 				setName((String)newValue);
 				return;
-			case CorePackage.PARAMETER__LOCATION:
+			case OpenAPIPackage.PARAMETER__LOCATION:
 				setLocation((ParameterLocation)newValue);
 				return;
-			case CorePackage.PARAMETER__REQUIRED:
+			case OpenAPIPackage.PARAMETER__REQUIRED:
 				setRequired((Boolean)newValue);
 				return;
-			case CorePackage.PARAMETER__ALLOW_EMPLY_VALUE:
+			case OpenAPIPackage.PARAMETER__ALLOW_EMPLY_VALUE:
 				setAllowEmplyValue((Boolean)newValue);
 				return;
-			case CorePackage.PARAMETER__REFERENCE_NAME:
+			case OpenAPIPackage.PARAMETER__REFERENCE_NAME:
 				setReferenceName((String)newValue);
 				return;
-			case CorePackage.PARAMETER__DECLARING_CONTEXT:
+			case OpenAPIPackage.PARAMETER__DECLARING_CONTEXT:
 				setDeclaringContext((ParamterDeclaringContext)newValue);
 				return;
 		}
@@ -1317,79 +1317,79 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CorePackage.PARAMETER__SCHEMA:
+			case OpenAPIPackage.PARAMETER__SCHEMA:
 				setSchema((Schema)null);
 				return;
-			case CorePackage.PARAMETER__TYPE:
+			case OpenAPIPackage.PARAMETER__TYPE:
 				setType(TYPE_EDEFAULT);
 				return;
-			case CorePackage.PARAMETER__FORMAT:
+			case OpenAPIPackage.PARAMETER__FORMAT:
 				setFormat(FORMAT_EDEFAULT);
 				return;
-			case CorePackage.PARAMETER__DESCRIPTION:
+			case OpenAPIPackage.PARAMETER__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
 				return;
-			case CorePackage.PARAMETER__MAXIMUM:
+			case OpenAPIPackage.PARAMETER__MAXIMUM:
 				setMaximum(MAXIMUM_EDEFAULT);
 				return;
-			case CorePackage.PARAMETER__EXCLUSIVE_MAXIMUM:
+			case OpenAPIPackage.PARAMETER__EXCLUSIVE_MAXIMUM:
 				setExclusiveMaximum(EXCLUSIVE_MAXIMUM_EDEFAULT);
 				return;
-			case CorePackage.PARAMETER__MINIMUM:
+			case OpenAPIPackage.PARAMETER__MINIMUM:
 				setMinimum(MINIMUM_EDEFAULT);
 				return;
-			case CorePackage.PARAMETER__EXCLUSIVE_MINIMUM:
+			case OpenAPIPackage.PARAMETER__EXCLUSIVE_MINIMUM:
 				setExclusiveMinimum(EXCLUSIVE_MINIMUM_EDEFAULT);
 				return;
-			case CorePackage.PARAMETER__MAX_LENGTH:
+			case OpenAPIPackage.PARAMETER__MAX_LENGTH:
 				setMaxLength(MAX_LENGTH_EDEFAULT);
 				return;
-			case CorePackage.PARAMETER__MIN_LENGTH:
+			case OpenAPIPackage.PARAMETER__MIN_LENGTH:
 				setMinLength(MIN_LENGTH_EDEFAULT);
 				return;
-			case CorePackage.PARAMETER__PATTERN:
+			case OpenAPIPackage.PARAMETER__PATTERN:
 				setPattern(PATTERN_EDEFAULT);
 				return;
-			case CorePackage.PARAMETER__MAX_ITEMS:
+			case OpenAPIPackage.PARAMETER__MAX_ITEMS:
 				setMaxItems(MAX_ITEMS_EDEFAULT);
 				return;
-			case CorePackage.PARAMETER__MIN_ITEMS:
+			case OpenAPIPackage.PARAMETER__MIN_ITEMS:
 				setMinItems(MIN_ITEMS_EDEFAULT);
 				return;
-			case CorePackage.PARAMETER__UNIQUE_ITEMS:
+			case OpenAPIPackage.PARAMETER__UNIQUE_ITEMS:
 				setUniqueItems(UNIQUE_ITEMS_EDEFAULT);
 				return;
-			case CorePackage.PARAMETER__ENUM:
+			case OpenAPIPackage.PARAMETER__ENUM:
 				getEnum().clear();
 				return;
-			case CorePackage.PARAMETER__DEFAULT:
+			case OpenAPIPackage.PARAMETER__DEFAULT:
 				setDefault(DEFAULT_EDEFAULT);
 				return;
-			case CorePackage.PARAMETER__MULTIPLE_OF:
+			case OpenAPIPackage.PARAMETER__MULTIPLE_OF:
 				setMultipleOf(MULTIPLE_OF_EDEFAULT);
 				return;
-			case CorePackage.PARAMETER__COLLECTION_FORMAT:
+			case OpenAPIPackage.PARAMETER__COLLECTION_FORMAT:
 				setCollectionFormat(COLLECTION_FORMAT_EDEFAULT);
 				return;
-			case CorePackage.PARAMETER__ITEMS:
+			case OpenAPIPackage.PARAMETER__ITEMS:
 				setItems((ItemsDefinition)null);
 				return;
-			case CorePackage.PARAMETER__NAME:
+			case OpenAPIPackage.PARAMETER__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case CorePackage.PARAMETER__LOCATION:
+			case OpenAPIPackage.PARAMETER__LOCATION:
 				setLocation(LOCATION_EDEFAULT);
 				return;
-			case CorePackage.PARAMETER__REQUIRED:
+			case OpenAPIPackage.PARAMETER__REQUIRED:
 				setRequired(REQUIRED_EDEFAULT);
 				return;
-			case CorePackage.PARAMETER__ALLOW_EMPLY_VALUE:
+			case OpenAPIPackage.PARAMETER__ALLOW_EMPLY_VALUE:
 				setAllowEmplyValue(ALLOW_EMPLY_VALUE_EDEFAULT);
 				return;
-			case CorePackage.PARAMETER__REFERENCE_NAME:
+			case OpenAPIPackage.PARAMETER__REFERENCE_NAME:
 				setReferenceName(REFERENCE_NAME_EDEFAULT);
 				return;
-			case CorePackage.PARAMETER__DECLARING_CONTEXT:
+			case OpenAPIPackage.PARAMETER__DECLARING_CONTEXT:
 				setDeclaringContext((ParamterDeclaringContext)null);
 				return;
 		}
@@ -1404,57 +1404,57 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CorePackage.PARAMETER__SCHEMA:
+			case OpenAPIPackage.PARAMETER__SCHEMA:
 				return schema != null;
-			case CorePackage.PARAMETER__TYPE:
+			case OpenAPIPackage.PARAMETER__TYPE:
 				return type != TYPE_EDEFAULT;
-			case CorePackage.PARAMETER__FORMAT:
+			case OpenAPIPackage.PARAMETER__FORMAT:
 				return FORMAT_EDEFAULT == null ? format != null : !FORMAT_EDEFAULT.equals(format);
-			case CorePackage.PARAMETER__DESCRIPTION:
+			case OpenAPIPackage.PARAMETER__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-			case CorePackage.PARAMETER__MAXIMUM:
+			case OpenAPIPackage.PARAMETER__MAXIMUM:
 				return MAXIMUM_EDEFAULT == null ? maximum != null : !MAXIMUM_EDEFAULT.equals(maximum);
-			case CorePackage.PARAMETER__EXCLUSIVE_MAXIMUM:
+			case OpenAPIPackage.PARAMETER__EXCLUSIVE_MAXIMUM:
 				return EXCLUSIVE_MAXIMUM_EDEFAULT == null ? exclusiveMaximum != null : !EXCLUSIVE_MAXIMUM_EDEFAULT.equals(exclusiveMaximum);
-			case CorePackage.PARAMETER__MINIMUM:
+			case OpenAPIPackage.PARAMETER__MINIMUM:
 				return MINIMUM_EDEFAULT == null ? minimum != null : !MINIMUM_EDEFAULT.equals(minimum);
-			case CorePackage.PARAMETER__EXCLUSIVE_MINIMUM:
+			case OpenAPIPackage.PARAMETER__EXCLUSIVE_MINIMUM:
 				return EXCLUSIVE_MINIMUM_EDEFAULT == null ? exclusiveMinimum != null : !EXCLUSIVE_MINIMUM_EDEFAULT.equals(exclusiveMinimum);
-			case CorePackage.PARAMETER__MAX_LENGTH:
+			case OpenAPIPackage.PARAMETER__MAX_LENGTH:
 				return MAX_LENGTH_EDEFAULT == null ? maxLength != null : !MAX_LENGTH_EDEFAULT.equals(maxLength);
-			case CorePackage.PARAMETER__MIN_LENGTH:
+			case OpenAPIPackage.PARAMETER__MIN_LENGTH:
 				return MIN_LENGTH_EDEFAULT == null ? minLength != null : !MIN_LENGTH_EDEFAULT.equals(minLength);
-			case CorePackage.PARAMETER__PATTERN:
+			case OpenAPIPackage.PARAMETER__PATTERN:
 				return PATTERN_EDEFAULT == null ? pattern != null : !PATTERN_EDEFAULT.equals(pattern);
-			case CorePackage.PARAMETER__MAX_ITEMS:
+			case OpenAPIPackage.PARAMETER__MAX_ITEMS:
 				return MAX_ITEMS_EDEFAULT == null ? maxItems != null : !MAX_ITEMS_EDEFAULT.equals(maxItems);
-			case CorePackage.PARAMETER__MIN_ITEMS:
+			case OpenAPIPackage.PARAMETER__MIN_ITEMS:
 				return MIN_ITEMS_EDEFAULT == null ? minItems != null : !MIN_ITEMS_EDEFAULT.equals(minItems);
-			case CorePackage.PARAMETER__UNIQUE_ITEMS:
+			case OpenAPIPackage.PARAMETER__UNIQUE_ITEMS:
 				return UNIQUE_ITEMS_EDEFAULT == null ? uniqueItems != null : !UNIQUE_ITEMS_EDEFAULT.equals(uniqueItems);
-			case CorePackage.PARAMETER__ENUM:
+			case OpenAPIPackage.PARAMETER__ENUM:
 				return enum_ != null && !enum_.isEmpty();
-			case CorePackage.PARAMETER__DEFAULT:
+			case OpenAPIPackage.PARAMETER__DEFAULT:
 				return DEFAULT_EDEFAULT == null ? default_ != null : !DEFAULT_EDEFAULT.equals(default_);
-			case CorePackage.PARAMETER__MULTIPLE_OF:
+			case OpenAPIPackage.PARAMETER__MULTIPLE_OF:
 				return multipleOf != MULTIPLE_OF_EDEFAULT;
-			case CorePackage.PARAMETER__REF:
+			case OpenAPIPackage.PARAMETER__REF:
 				return REF_EDEFAULT == null ? getRef() != null : !REF_EDEFAULT.equals(getRef());
-			case CorePackage.PARAMETER__COLLECTION_FORMAT:
+			case OpenAPIPackage.PARAMETER__COLLECTION_FORMAT:
 				return collectionFormat != COLLECTION_FORMAT_EDEFAULT;
-			case CorePackage.PARAMETER__ITEMS:
+			case OpenAPIPackage.PARAMETER__ITEMS:
 				return items != null;
-			case CorePackage.PARAMETER__NAME:
+			case OpenAPIPackage.PARAMETER__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case CorePackage.PARAMETER__LOCATION:
+			case OpenAPIPackage.PARAMETER__LOCATION:
 				return location != LOCATION_EDEFAULT;
-			case CorePackage.PARAMETER__REQUIRED:
+			case OpenAPIPackage.PARAMETER__REQUIRED:
 				return REQUIRED_EDEFAULT == null ? required != null : !REQUIRED_EDEFAULT.equals(required);
-			case CorePackage.PARAMETER__ALLOW_EMPLY_VALUE:
+			case OpenAPIPackage.PARAMETER__ALLOW_EMPLY_VALUE:
 				return ALLOW_EMPLY_VALUE_EDEFAULT == null ? allowEmplyValue != null : !ALLOW_EMPLY_VALUE_EDEFAULT.equals(allowEmplyValue);
-			case CorePackage.PARAMETER__REFERENCE_NAME:
+			case OpenAPIPackage.PARAMETER__REFERENCE_NAME:
 				return REFERENCE_NAME_EDEFAULT == null ? referenceName != null : !REFERENCE_NAME_EDEFAULT.equals(referenceName);
-			case CorePackage.PARAMETER__DECLARING_CONTEXT:
+			case OpenAPIPackage.PARAMETER__DECLARING_CONTEXT:
 				return declaringContext != null;
 		}
 		return super.eIsSet(featureID);
@@ -1469,41 +1469,41 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == SchemaContext.class) {
 			switch (derivedFeatureID) {
-				case CorePackage.PARAMETER__SCHEMA: return CorePackage.SCHEMA_CONTEXT__SCHEMA;
+				case OpenAPIPackage.PARAMETER__SCHEMA: return OpenAPIPackage.SCHEMA_CONTEXT__SCHEMA;
 				default: return -1;
 			}
 		}
 		if (baseClass == JSONSchemaSubset.class) {
 			switch (derivedFeatureID) {
-				case CorePackage.PARAMETER__TYPE: return CorePackage.JSON_SCHEMA_SUBSET__TYPE;
-				case CorePackage.PARAMETER__FORMAT: return CorePackage.JSON_SCHEMA_SUBSET__FORMAT;
-				case CorePackage.PARAMETER__DESCRIPTION: return CorePackage.JSON_SCHEMA_SUBSET__DESCRIPTION;
-				case CorePackage.PARAMETER__MAXIMUM: return CorePackage.JSON_SCHEMA_SUBSET__MAXIMUM;
-				case CorePackage.PARAMETER__EXCLUSIVE_MAXIMUM: return CorePackage.JSON_SCHEMA_SUBSET__EXCLUSIVE_MAXIMUM;
-				case CorePackage.PARAMETER__MINIMUM: return CorePackage.JSON_SCHEMA_SUBSET__MINIMUM;
-				case CorePackage.PARAMETER__EXCLUSIVE_MINIMUM: return CorePackage.JSON_SCHEMA_SUBSET__EXCLUSIVE_MINIMUM;
-				case CorePackage.PARAMETER__MAX_LENGTH: return CorePackage.JSON_SCHEMA_SUBSET__MAX_LENGTH;
-				case CorePackage.PARAMETER__MIN_LENGTH: return CorePackage.JSON_SCHEMA_SUBSET__MIN_LENGTH;
-				case CorePackage.PARAMETER__PATTERN: return CorePackage.JSON_SCHEMA_SUBSET__PATTERN;
-				case CorePackage.PARAMETER__MAX_ITEMS: return CorePackage.JSON_SCHEMA_SUBSET__MAX_ITEMS;
-				case CorePackage.PARAMETER__MIN_ITEMS: return CorePackage.JSON_SCHEMA_SUBSET__MIN_ITEMS;
-				case CorePackage.PARAMETER__UNIQUE_ITEMS: return CorePackage.JSON_SCHEMA_SUBSET__UNIQUE_ITEMS;
-				case CorePackage.PARAMETER__ENUM: return CorePackage.JSON_SCHEMA_SUBSET__ENUM;
-				case CorePackage.PARAMETER__DEFAULT: return CorePackage.JSON_SCHEMA_SUBSET__DEFAULT;
-				case CorePackage.PARAMETER__MULTIPLE_OF: return CorePackage.JSON_SCHEMA_SUBSET__MULTIPLE_OF;
+				case OpenAPIPackage.PARAMETER__TYPE: return OpenAPIPackage.JSON_SCHEMA_SUBSET__TYPE;
+				case OpenAPIPackage.PARAMETER__FORMAT: return OpenAPIPackage.JSON_SCHEMA_SUBSET__FORMAT;
+				case OpenAPIPackage.PARAMETER__DESCRIPTION: return OpenAPIPackage.JSON_SCHEMA_SUBSET__DESCRIPTION;
+				case OpenAPIPackage.PARAMETER__MAXIMUM: return OpenAPIPackage.JSON_SCHEMA_SUBSET__MAXIMUM;
+				case OpenAPIPackage.PARAMETER__EXCLUSIVE_MAXIMUM: return OpenAPIPackage.JSON_SCHEMA_SUBSET__EXCLUSIVE_MAXIMUM;
+				case OpenAPIPackage.PARAMETER__MINIMUM: return OpenAPIPackage.JSON_SCHEMA_SUBSET__MINIMUM;
+				case OpenAPIPackage.PARAMETER__EXCLUSIVE_MINIMUM: return OpenAPIPackage.JSON_SCHEMA_SUBSET__EXCLUSIVE_MINIMUM;
+				case OpenAPIPackage.PARAMETER__MAX_LENGTH: return OpenAPIPackage.JSON_SCHEMA_SUBSET__MAX_LENGTH;
+				case OpenAPIPackage.PARAMETER__MIN_LENGTH: return OpenAPIPackage.JSON_SCHEMA_SUBSET__MIN_LENGTH;
+				case OpenAPIPackage.PARAMETER__PATTERN: return OpenAPIPackage.JSON_SCHEMA_SUBSET__PATTERN;
+				case OpenAPIPackage.PARAMETER__MAX_ITEMS: return OpenAPIPackage.JSON_SCHEMA_SUBSET__MAX_ITEMS;
+				case OpenAPIPackage.PARAMETER__MIN_ITEMS: return OpenAPIPackage.JSON_SCHEMA_SUBSET__MIN_ITEMS;
+				case OpenAPIPackage.PARAMETER__UNIQUE_ITEMS: return OpenAPIPackage.JSON_SCHEMA_SUBSET__UNIQUE_ITEMS;
+				case OpenAPIPackage.PARAMETER__ENUM: return OpenAPIPackage.JSON_SCHEMA_SUBSET__ENUM;
+				case OpenAPIPackage.PARAMETER__DEFAULT: return OpenAPIPackage.JSON_SCHEMA_SUBSET__DEFAULT;
+				case OpenAPIPackage.PARAMETER__MULTIPLE_OF: return OpenAPIPackage.JSON_SCHEMA_SUBSET__MULTIPLE_OF;
 				default: return -1;
 			}
 		}
 		if (baseClass == JSONPointer.class) {
 			switch (derivedFeatureID) {
-				case CorePackage.PARAMETER__REF: return CorePackage.JSON_POINTER__REF;
+				case OpenAPIPackage.PARAMETER__REF: return OpenAPIPackage.JSON_POINTER__REF;
 				default: return -1;
 			}
 		}
 		if (baseClass == ArrayContext.class) {
 			switch (derivedFeatureID) {
-				case CorePackage.PARAMETER__COLLECTION_FORMAT: return CorePackage.ARRAY_CONTEXT__COLLECTION_FORMAT;
-				case CorePackage.PARAMETER__ITEMS: return CorePackage.ARRAY_CONTEXT__ITEMS;
+				case OpenAPIPackage.PARAMETER__COLLECTION_FORMAT: return OpenAPIPackage.ARRAY_CONTEXT__COLLECTION_FORMAT;
+				case OpenAPIPackage.PARAMETER__ITEMS: return OpenAPIPackage.ARRAY_CONTEXT__ITEMS;
 				default: return -1;
 			}
 		}
@@ -1519,41 +1519,41 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == SchemaContext.class) {
 			switch (baseFeatureID) {
-				case CorePackage.SCHEMA_CONTEXT__SCHEMA: return CorePackage.PARAMETER__SCHEMA;
+				case OpenAPIPackage.SCHEMA_CONTEXT__SCHEMA: return OpenAPIPackage.PARAMETER__SCHEMA;
 				default: return -1;
 			}
 		}
 		if (baseClass == JSONSchemaSubset.class) {
 			switch (baseFeatureID) {
-				case CorePackage.JSON_SCHEMA_SUBSET__TYPE: return CorePackage.PARAMETER__TYPE;
-				case CorePackage.JSON_SCHEMA_SUBSET__FORMAT: return CorePackage.PARAMETER__FORMAT;
-				case CorePackage.JSON_SCHEMA_SUBSET__DESCRIPTION: return CorePackage.PARAMETER__DESCRIPTION;
-				case CorePackage.JSON_SCHEMA_SUBSET__MAXIMUM: return CorePackage.PARAMETER__MAXIMUM;
-				case CorePackage.JSON_SCHEMA_SUBSET__EXCLUSIVE_MAXIMUM: return CorePackage.PARAMETER__EXCLUSIVE_MAXIMUM;
-				case CorePackage.JSON_SCHEMA_SUBSET__MINIMUM: return CorePackage.PARAMETER__MINIMUM;
-				case CorePackage.JSON_SCHEMA_SUBSET__EXCLUSIVE_MINIMUM: return CorePackage.PARAMETER__EXCLUSIVE_MINIMUM;
-				case CorePackage.JSON_SCHEMA_SUBSET__MAX_LENGTH: return CorePackage.PARAMETER__MAX_LENGTH;
-				case CorePackage.JSON_SCHEMA_SUBSET__MIN_LENGTH: return CorePackage.PARAMETER__MIN_LENGTH;
-				case CorePackage.JSON_SCHEMA_SUBSET__PATTERN: return CorePackage.PARAMETER__PATTERN;
-				case CorePackage.JSON_SCHEMA_SUBSET__MAX_ITEMS: return CorePackage.PARAMETER__MAX_ITEMS;
-				case CorePackage.JSON_SCHEMA_SUBSET__MIN_ITEMS: return CorePackage.PARAMETER__MIN_ITEMS;
-				case CorePackage.JSON_SCHEMA_SUBSET__UNIQUE_ITEMS: return CorePackage.PARAMETER__UNIQUE_ITEMS;
-				case CorePackage.JSON_SCHEMA_SUBSET__ENUM: return CorePackage.PARAMETER__ENUM;
-				case CorePackage.JSON_SCHEMA_SUBSET__DEFAULT: return CorePackage.PARAMETER__DEFAULT;
-				case CorePackage.JSON_SCHEMA_SUBSET__MULTIPLE_OF: return CorePackage.PARAMETER__MULTIPLE_OF;
+				case OpenAPIPackage.JSON_SCHEMA_SUBSET__TYPE: return OpenAPIPackage.PARAMETER__TYPE;
+				case OpenAPIPackage.JSON_SCHEMA_SUBSET__FORMAT: return OpenAPIPackage.PARAMETER__FORMAT;
+				case OpenAPIPackage.JSON_SCHEMA_SUBSET__DESCRIPTION: return OpenAPIPackage.PARAMETER__DESCRIPTION;
+				case OpenAPIPackage.JSON_SCHEMA_SUBSET__MAXIMUM: return OpenAPIPackage.PARAMETER__MAXIMUM;
+				case OpenAPIPackage.JSON_SCHEMA_SUBSET__EXCLUSIVE_MAXIMUM: return OpenAPIPackage.PARAMETER__EXCLUSIVE_MAXIMUM;
+				case OpenAPIPackage.JSON_SCHEMA_SUBSET__MINIMUM: return OpenAPIPackage.PARAMETER__MINIMUM;
+				case OpenAPIPackage.JSON_SCHEMA_SUBSET__EXCLUSIVE_MINIMUM: return OpenAPIPackage.PARAMETER__EXCLUSIVE_MINIMUM;
+				case OpenAPIPackage.JSON_SCHEMA_SUBSET__MAX_LENGTH: return OpenAPIPackage.PARAMETER__MAX_LENGTH;
+				case OpenAPIPackage.JSON_SCHEMA_SUBSET__MIN_LENGTH: return OpenAPIPackage.PARAMETER__MIN_LENGTH;
+				case OpenAPIPackage.JSON_SCHEMA_SUBSET__PATTERN: return OpenAPIPackage.PARAMETER__PATTERN;
+				case OpenAPIPackage.JSON_SCHEMA_SUBSET__MAX_ITEMS: return OpenAPIPackage.PARAMETER__MAX_ITEMS;
+				case OpenAPIPackage.JSON_SCHEMA_SUBSET__MIN_ITEMS: return OpenAPIPackage.PARAMETER__MIN_ITEMS;
+				case OpenAPIPackage.JSON_SCHEMA_SUBSET__UNIQUE_ITEMS: return OpenAPIPackage.PARAMETER__UNIQUE_ITEMS;
+				case OpenAPIPackage.JSON_SCHEMA_SUBSET__ENUM: return OpenAPIPackage.PARAMETER__ENUM;
+				case OpenAPIPackage.JSON_SCHEMA_SUBSET__DEFAULT: return OpenAPIPackage.PARAMETER__DEFAULT;
+				case OpenAPIPackage.JSON_SCHEMA_SUBSET__MULTIPLE_OF: return OpenAPIPackage.PARAMETER__MULTIPLE_OF;
 				default: return -1;
 			}
 		}
 		if (baseClass == JSONPointer.class) {
 			switch (baseFeatureID) {
-				case CorePackage.JSON_POINTER__REF: return CorePackage.PARAMETER__REF;
+				case OpenAPIPackage.JSON_POINTER__REF: return OpenAPIPackage.PARAMETER__REF;
 				default: return -1;
 			}
 		}
 		if (baseClass == ArrayContext.class) {
 			switch (baseFeatureID) {
-				case CorePackage.ARRAY_CONTEXT__COLLECTION_FORMAT: return CorePackage.PARAMETER__COLLECTION_FORMAT;
-				case CorePackage.ARRAY_CONTEXT__ITEMS: return CorePackage.PARAMETER__ITEMS;
+				case OpenAPIPackage.ARRAY_CONTEXT__COLLECTION_FORMAT: return OpenAPIPackage.PARAMETER__COLLECTION_FORMAT;
+				case OpenAPIPackage.ARRAY_CONTEXT__ITEMS: return OpenAPIPackage.PARAMETER__ITEMS;
 				default: return -1;
 			}
 		}

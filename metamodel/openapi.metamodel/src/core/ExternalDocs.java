@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link core.ExternalDocs#getUrl <em>Url</em>}</li>
  * </ul>
  *
- * @see core.CorePackage#getExternalDocs()
+ * @see core.OpenAPIPackage#getExternalDocs()
  * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='requiredURL'"
  *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL requiredURL='not self.url.oclIsUndefined()'"
  * @generated
@@ -33,7 +33,7 @@ public interface ExternalDocs extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Description</em>' attribute.
 	 * @see #setDescription(String)
-	 * @see core.CorePackage#getExternalDocs_Description()
+	 * @see core.OpenAPIPackage#getExternalDocs_Description()
 	 * @model
 	 * @generated
 	 */
@@ -59,7 +59,7 @@ public interface ExternalDocs extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Url</em>' attribute.
 	 * @see #setUrl(String)
-	 * @see core.CorePackage#getExternalDocs_Url()
+	 * @see core.OpenAPIPackage#getExternalDocs_Url()
 	 * @model
 	 * @generated
 	 */

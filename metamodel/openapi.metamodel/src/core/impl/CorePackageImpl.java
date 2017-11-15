@@ -26,7 +26,6 @@ import core.ParameterLocation;
 import core.ParamterDeclaringContext;
 import core.Path;
 import core.Response;
-import core.ResponseContext;
 import core.ResponseDeclaringContext;
 import core.Root;
 import core.Schema;
@@ -205,13 +204,6 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * @generated
 	 */
 	private EClass parameterContextEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass responseContextEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1160,8 +1152,26 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSchema_Required() {
-		return (EAttribute)schemaEClass.getEStructuralFeatures().get(4);
+	public EReference getSchema_Required() {
+		return (EReference)schemaEClass.getEStructuralFeatures().get(13);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSchema_Value() {
+		return (EReference)schemaEClass.getEStructuralFeatures().get(14);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSchema_AdditonalPropertiesAllowed() {
+		return (EAttribute)schemaEClass.getEStructuralFeatures().get(15);
 	}
 
 	/**
@@ -1170,7 +1180,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * @generated
 	 */
 	public EReference getSchema_Properties() {
-		return (EReference)schemaEClass.getEStructuralFeatures().get(8);
+		return (EReference)schemaEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -1179,7 +1189,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * @generated
 	 */
 	public EAttribute getSchema_Example() {
-		return (EAttribute)schemaEClass.getEStructuralFeatures().get(5);
+		return (EAttribute)schemaEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -1188,7 +1198,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * @generated
 	 */
 	public EReference getSchema_AllOf() {
-		return (EReference)schemaEClass.getEStructuralFeatures().get(9);
+		return (EReference)schemaEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -1197,7 +1207,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * @generated
 	 */
 	public EReference getSchema_Items() {
-		return (EReference)schemaEClass.getEStructuralFeatures().get(10);
+		return (EReference)schemaEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -1206,7 +1216,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * @generated
 	 */
 	public EReference getSchema_AdditonalProperties() {
-		return (EReference)schemaEClass.getEStructuralFeatures().get(12);
+		return (EReference)schemaEClass.getEStructuralFeatures().get(11);
 	}
 
 	/**
@@ -1215,7 +1225,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * @generated
 	 */
 	public EAttribute getSchema_Discriminator() {
-		return (EAttribute)schemaEClass.getEStructuralFeatures().get(6);
+		return (EAttribute)schemaEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -1224,7 +1234,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * @generated
 	 */
 	public EAttribute getSchema_ReadOnly() {
-		return (EAttribute)schemaEClass.getEStructuralFeatures().get(7);
+		return (EAttribute)schemaEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -1233,7 +1243,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * @generated
 	 */
 	public EReference getSchema_Xml() {
-		return (EReference)schemaEClass.getEStructuralFeatures().get(11);
+		return (EReference)schemaEClass.getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -1251,7 +1261,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * @generated
 	 */
 	public EReference getSchema_DeclaringContext() {
-		return (EReference)schemaEClass.getEStructuralFeatures().get(13);
+		return (EReference)schemaEClass.getEStructuralFeatures().get(12);
 	}
 
 	/**
@@ -1315,6 +1325,15 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EReference getResponse_DeclaringContext() {
 		return (EReference)responseEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getResponse_ReferenceName() {
+		return (EAttribute)responseEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -1585,15 +1604,6 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EReference getParameterContext_Parameters() {
 		return (EReference)parameterContextEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getResponseContext() {
-		return responseContextEClass;
 	}
 
 	/**
@@ -1902,7 +1912,6 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 		createEAttribute(schemaEClass, SCHEMA__TITLE);
 		createEAttribute(schemaEClass, SCHEMA__MAX_PROPERTIES);
 		createEAttribute(schemaEClass, SCHEMA__MIN_PROPERTIES);
-		createEAttribute(schemaEClass, SCHEMA__REQUIRED);
 		createEAttribute(schemaEClass, SCHEMA__EXAMPLE);
 		createEAttribute(schemaEClass, SCHEMA__DISCRIMINATOR);
 		createEAttribute(schemaEClass, SCHEMA__READ_ONLY);
@@ -1912,6 +1921,9 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 		createEReference(schemaEClass, SCHEMA__XML);
 		createEReference(schemaEClass, SCHEMA__ADDITONAL_PROPERTIES);
 		createEReference(schemaEClass, SCHEMA__DECLARING_CONTEXT);
+		createEReference(schemaEClass, SCHEMA__REQUIRED);
+		createEReference(schemaEClass, SCHEMA__VALUE);
+		createEAttribute(schemaEClass, SCHEMA__ADDITONAL_PROPERTIES_ALLOWED);
 		createEOperation(schemaEClass, SCHEMA___GET_REF);
 
 		responseEClass = createEClass(RESPONSE);
@@ -1920,6 +1932,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 		createEReference(responseEClass, RESPONSE__EXAMPLES);
 		createEAttribute(responseEClass, RESPONSE__CODE);
 		createEReference(responseEClass, RESPONSE__DECLARING_CONTEXT);
+		createEAttribute(responseEClass, RESPONSE__REFERENCE_NAME);
 
 		headerEClass = createEClass(HEADER);
 		createEAttribute(headerEClass, HEADER__NAME);
@@ -1956,9 +1969,9 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 
 		paramterDeclaringContextEClass = createEClass(PARAMTER_DECLARING_CONTEXT);
 
-		responseContextEClass = createEClass(RESPONSE_CONTEXT);
-
 		schemaDeclaringContextEClass = createEClass(SCHEMA_DECLARING_CONTEXT);
+
+		responseDeclaringContextEClass = createEClass(RESPONSE_DECLARING_CONTEXT);
 
 		jsonPointerEClass = createEClass(JSON_POINTER);
 		createEAttribute(jsonPointerEClass, JSON_POINTER__REF);
@@ -1978,8 +1991,6 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 		arrayContextEClass = createEClass(ARRAY_CONTEXT);
 		createEAttribute(arrayContextEClass, ARRAY_CONTEXT__COLLECTION_FORMAT);
 		createEReference(arrayContextEClass, ARRAY_CONTEXT__ITEMS);
-
-		responseDeclaringContextEClass = createEClass(RESPONSE_DECLARING_CONTEXT);
 
 		// Create enums
 		schemeTypeEEnum = createEEnum(SCHEME_TYPE);
@@ -2020,7 +2031,6 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 
 		// Add supertypes to classes
 		apiEClass.getESuperTypes().add(this.getParamterDeclaringContext());
-		apiEClass.getESuperTypes().add(this.getResponseContext());
 		apiEClass.getESuperTypes().add(this.getSchemaDeclaringContext());
 		apiEClass.getESuperTypes().add(this.getJSONPointer());
 		apiEClass.getESuperTypes().add(this.getSecurityContext());
@@ -2030,7 +2040,6 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 		pathEClass.getESuperTypes().add(this.getParamterDeclaringContext());
 		pathEClass.getESuperTypes().add(this.getParameterContext());
 		operationEClass.getESuperTypes().add(this.getParamterDeclaringContext());
-		operationEClass.getESuperTypes().add(this.getResponseContext());
 		operationEClass.getESuperTypes().add(this.getSecurityContext());
 		operationEClass.getESuperTypes().add(this.getParameterContext());
 		operationEClass.getESuperTypes().add(this.getExternalDocsContext());
@@ -2149,11 +2158,10 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 		initEClass(itemsDefinitionEClass, ItemsDefinition.class, "ItemsDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(schemaEClass, Schema.class, "Schema", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSchema_Name(), ecorePackage.getEString(), "name", null, 0, 1, Schema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSchema_Name(), ecorePackage.getEString(), "name", null, 0, 1, Schema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSchema_Title(), ecorePackage.getEString(), "title", null, 0, 1, Schema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSchema_MaxProperties(), ecorePackage.getEIntegerObject(), "maxProperties", null, 0, 1, Schema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSchema_MinProperties(), ecorePackage.getEIntegerObject(), "minProperties", null, 0, 1, Schema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSchema_Required(), ecorePackage.getEString(), "required", null, 0, -1, Schema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSchema_Example(), ecorePackage.getEString(), "example", null, 0, 1, Schema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSchema_Discriminator(), ecorePackage.getEString(), "discriminator", null, 0, 1, Schema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSchema_ReadOnly(), ecorePackage.getEBooleanObject(), "readOnly", null, 0, 1, Schema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2163,6 +2171,9 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 		initEReference(getSchema_Xml(), this.getXMLElement(), null, "xml", null, 0, 1, Schema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSchema_AdditonalProperties(), this.getSchema(), null, "additonalProperties", null, 0, 1, Schema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSchema_DeclaringContext(), this.getSchemaDeclaringContext(), null, "declaringContext", null, 0, 1, Schema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSchema_Required(), this.getSchema(), null, "required", null, 0, -1, Schema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSchema_Value(), this.getSchema(), null, "value", null, 0, 1, Schema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSchema_AdditonalPropertiesAllowed(), ecorePackage.getEBoolean(), "additonalPropertiesAllowed", null, 0, 1, Schema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getSchema__GetRef(), ecorePackage.getEString(), "getRef", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -2172,6 +2183,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 		initEReference(getResponse_Examples(), this.getExample(), null, "examples", null, 0, -1, Response.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getResponse_Code(), ecorePackage.getEString(), "code", null, 0, 1, Response.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getResponse_DeclaringContext(), this.getResponseDeclaringContext(), null, "declaringContext", null, 0, 1, Response.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getResponse_ReferenceName(), ecorePackage.getEString(), "referenceName", null, 0, 1, Response.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(headerEClass, Header.class, "Header", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getHeader_Name(), ecorePackage.getEString(), "name", null, 0, 1, Header.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2208,9 +2220,9 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 
 		initEClass(paramterDeclaringContextEClass, ParamterDeclaringContext.class, "ParamterDeclaringContext", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(responseContextEClass, ResponseContext.class, "ResponseContext", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
 		initEClass(schemaDeclaringContextEClass, SchemaDeclaringContext.class, "SchemaDeclaringContext", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(responseDeclaringContextEClass, ResponseDeclaringContext.class, "ResponseDeclaringContext", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(jsonPointerEClass, JSONPointer.class, "JSONPointer", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getJSONPointer_Ref(), ecorePackage.getEString(), "ref", null, 0, 1, JSONPointer.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
@@ -2230,8 +2242,6 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 		initEClass(arrayContextEClass, ArrayContext.class, "ArrayContext", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getArrayContext_CollectionFormat(), this.getCollectionFormat(), "collectionFormat", null, 0, 1, ArrayContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getArrayContext_Items(), this.getItemsDefinition(), null, "items", null, 0, 1, ArrayContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(responseDeclaringContextEClass, ResponseDeclaringContext.class, "ResponseDeclaringContext", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(schemeTypeEEnum, SchemeType.class, "SchemeType");

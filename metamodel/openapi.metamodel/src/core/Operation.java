@@ -25,12 +25,12 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link core.Operation#getPath <em>Path</em>}</li>
  * </ul>
  *
- * @see core.CorePackage#getOperation()
+ * @see core.OpenAPIPackage#getOperation()
  * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='oneBodyParameterAllowed oneFormDataParameterAllowed hasUniqueParameters xorFormAndBody requiredResponses'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL oneBodyParameterAllowed='self.parameters-> select(e | e.location = ParameterLocation::\'_body\') -> size() <= 1' oneFormDataParameterAllowed='self.parameters-> select(e | e.location = ParameterLocation::\'_formData\') -> size() <= 1' hasUniqueParameters='self.parameters -> collect(t | Tuple{name : String = t.name,location : ParameterLocation = t.location})->asSet() -> size() = self.parameters -> size()' xorFormAndBody='(parameters-> select(e | e.location =  ParameterLocation::_\'body\') -> size()=1 and parameters-> select(e | e.location =  ParameterLocation::_\'formData\') -> size()=0)\r\n\tor \r\n\t(parameters-> select(e | e.location =  ParameterLocation::_\'body\') -> size()=0 and parameters-> select(e | e.location =  ParameterLocation::_\'formData\') -> size()=1)\r\n\tor \r\n\t(parameters-> select(e | e.location =  ParameterLocation::_\'body\') -> size()=0 and parameters-> select(e | e.location =  ParameterLocation::_\'formData\') -> size()=0)\r\n\t' requiredResponses='self.responses -> size() <> 0'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL oneBodyParameterAllowed='self.parameters-&gt; select(e | e.location = ParameterLocation::\'_body\') -&gt; size() &lt;= 1' oneFormDataParameterAllowed='self.parameters-&gt; select(e | e.location = ParameterLocation::\'_formData\') -&gt; size() &lt;= 1' hasUniqueParameters='self.parameters -&gt; collect(t | Tuple{name : String = t.name,location : ParameterLocation = t.location})-&gt;asSet() -&gt; size() = self.parameters -&gt; size()' xorFormAndBody='(parameters-&gt; select(e | e.location =  ParameterLocation::_\'body\') -&gt; size()=1 and parameters-&gt; select(e | e.location =  ParameterLocation::_\'formData\') -&gt; size()=0)\r\n\tor \r\n\t(parameters-&gt; select(e | e.location =  ParameterLocation::_\'body\') -&gt; size()=0 and parameters-&gt; select(e | e.location =  ParameterLocation::_\'formData\') -&gt; size()=1)\r\n\tor \r\n\t(parameters-&gt; select(e | e.location =  ParameterLocation::_\'body\') -&gt; size()=0 and parameters-&gt; select(e | e.location =  ParameterLocation::_\'formData\') -&gt; size()=0)\r\n\t' requiredResponses='self.responses -&gt; size() &lt;&gt; 0'"
  * @generated
  */
-public interface Operation extends ParamterDeclaringContext, ResponseContext, SecurityContext, ParameterContext, ExternalDocsContext, ResponseDeclaringContext {
+public interface Operation extends ParamterDeclaringContext, SecurityContext, ParameterContext, ExternalDocsContext, ResponseDeclaringContext {
 	/**
 	 * Returns the value of the '<em><b>Tag References</b></em>' attribute list.
 	 * The list contents are of type {@link java.lang.String}.
@@ -41,7 +41,7 @@ public interface Operation extends ParamterDeclaringContext, ResponseContext, Se
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Tag References</em>' attribute list.
-	 * @see core.CorePackage#getOperation_TagReferences()
+	 * @see core.OpenAPIPackage#getOperation_TagReferences()
 	 * @model
 	 * @generated
 	 */
@@ -57,7 +57,7 @@ public interface Operation extends ParamterDeclaringContext, ResponseContext, Se
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Summary</em>' attribute.
 	 * @see #setSummary(String)
-	 * @see core.CorePackage#getOperation_Summary()
+	 * @see core.OpenAPIPackage#getOperation_Summary()
 	 * @model
 	 * @generated
 	 */
@@ -83,7 +83,7 @@ public interface Operation extends ParamterDeclaringContext, ResponseContext, Se
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Description</em>' attribute.
 	 * @see #setDescription(String)
-	 * @see core.CorePackage#getOperation_Description()
+	 * @see core.OpenAPIPackage#getOperation_Description()
 	 * @model
 	 * @generated
 	 */
@@ -109,7 +109,7 @@ public interface Operation extends ParamterDeclaringContext, ResponseContext, Se
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Operation Id</em>' attribute.
 	 * @see #setOperationId(String)
-	 * @see core.CorePackage#getOperation_OperationId()
+	 * @see core.OpenAPIPackage#getOperation_OperationId()
 	 * @model
 	 * @generated
 	 */
@@ -135,7 +135,7 @@ public interface Operation extends ParamterDeclaringContext, ResponseContext, Se
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Consumes</em>' attribute list.
-	 * @see core.CorePackage#getOperation_Consumes()
+	 * @see core.OpenAPIPackage#getOperation_Consumes()
 	 * @model
 	 * @generated
 	 */
@@ -151,7 +151,7 @@ public interface Operation extends ParamterDeclaringContext, ResponseContext, Se
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Produces</em>' attribute list.
-	 * @see core.CorePackage#getOperation_Produces()
+	 * @see core.OpenAPIPackage#getOperation_Produces()
 	 * @model
 	 * @generated
 	 */
@@ -167,7 +167,7 @@ public interface Operation extends ParamterDeclaringContext, ResponseContext, Se
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Responses</em>' reference list.
-	 * @see core.CorePackage#getOperation_Responses()
+	 * @see core.OpenAPIPackage#getOperation_Responses()
 	 * @model required="true"
 	 * @generated
 	 */
@@ -185,7 +185,7 @@ public interface Operation extends ParamterDeclaringContext, ResponseContext, Se
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Schemes</em>' attribute list.
 	 * @see core.SchemeType
-	 * @see core.CorePackage#getOperation_Schemes()
+	 * @see core.OpenAPIPackage#getOperation_Schemes()
 	 * @model
 	 * @generated
 	 */
@@ -201,7 +201,7 @@ public interface Operation extends ParamterDeclaringContext, ResponseContext, Se
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Deprecated</em>' attribute.
 	 * @see #setDeprecated(Boolean)
-	 * @see core.CorePackage#getOperation_Deprecated()
+	 * @see core.OpenAPIPackage#getOperation_Deprecated()
 	 * @model
 	 * @generated
 	 */
@@ -228,7 +228,7 @@ public interface Operation extends ParamterDeclaringContext, ResponseContext, Se
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Path</em>' container reference.
 	 * @see #setPath(Path)
-	 * @see core.CorePackage#getOperation_Path()
+	 * @see core.OpenAPIPackage#getOperation_Path()
 	 * @see core.Path#getGet
 	 * @model opposite="get" transient="false"
 	 * @generated

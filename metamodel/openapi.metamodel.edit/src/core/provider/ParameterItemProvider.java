@@ -3,8 +3,8 @@
 package core.provider;
 
 
-import core.CoreFactory;
-import core.CorePackage;
+import core.OpenAPIFactory;
+import core.OpenAPIPackage;
 import core.Parameter;
 
 import java.util.Collection;
@@ -90,7 +90,7 @@ public class ParameterItemProvider extends SchemaDeclaringContextItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_SchemaContext_schema_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_SchemaContext_schema_feature", "_UI_SchemaContext_type"),
-				 CorePackage.Literals.SCHEMA_CONTEXT__SCHEMA,
+				 OpenAPIPackage.Literals.SCHEMA_CONTEXT__SCHEMA,
 				 true,
 				 false,
 				 true,
@@ -112,7 +112,7 @@ public class ParameterItemProvider extends SchemaDeclaringContextItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_JSONSchemaSubset_type_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_JSONSchemaSubset_type_feature", "_UI_JSONSchemaSubset_type"),
-				 CorePackage.Literals.JSON_SCHEMA_SUBSET__TYPE,
+				 OpenAPIPackage.Literals.JSON_SCHEMA_SUBSET__TYPE,
 				 true,
 				 false,
 				 false,
@@ -134,7 +134,7 @@ public class ParameterItemProvider extends SchemaDeclaringContextItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_JSONSchemaSubset_format_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_JSONSchemaSubset_format_feature", "_UI_JSONSchemaSubset_type"),
-				 CorePackage.Literals.JSON_SCHEMA_SUBSET__FORMAT,
+				 OpenAPIPackage.Literals.JSON_SCHEMA_SUBSET__FORMAT,
 				 true,
 				 false,
 				 false,
@@ -156,7 +156,7 @@ public class ParameterItemProvider extends SchemaDeclaringContextItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_JSONSchemaSubset_description_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_JSONSchemaSubset_description_feature", "_UI_JSONSchemaSubset_type"),
-				 CorePackage.Literals.JSON_SCHEMA_SUBSET__DESCRIPTION,
+				 OpenAPIPackage.Literals.JSON_SCHEMA_SUBSET__DESCRIPTION,
 				 true,
 				 false,
 				 false,
@@ -178,7 +178,7 @@ public class ParameterItemProvider extends SchemaDeclaringContextItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_JSONSchemaSubset_maximum_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_JSONSchemaSubset_maximum_feature", "_UI_JSONSchemaSubset_type"),
-				 CorePackage.Literals.JSON_SCHEMA_SUBSET__MAXIMUM,
+				 OpenAPIPackage.Literals.JSON_SCHEMA_SUBSET__MAXIMUM,
 				 true,
 				 false,
 				 false,
@@ -200,7 +200,7 @@ public class ParameterItemProvider extends SchemaDeclaringContextItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_JSONSchemaSubset_exclusiveMaximum_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_JSONSchemaSubset_exclusiveMaximum_feature", "_UI_JSONSchemaSubset_type"),
-				 CorePackage.Literals.JSON_SCHEMA_SUBSET__EXCLUSIVE_MAXIMUM,
+				 OpenAPIPackage.Literals.JSON_SCHEMA_SUBSET__EXCLUSIVE_MAXIMUM,
 				 true,
 				 false,
 				 false,
@@ -222,7 +222,7 @@ public class ParameterItemProvider extends SchemaDeclaringContextItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_JSONSchemaSubset_minimum_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_JSONSchemaSubset_minimum_feature", "_UI_JSONSchemaSubset_type"),
-				 CorePackage.Literals.JSON_SCHEMA_SUBSET__MINIMUM,
+				 OpenAPIPackage.Literals.JSON_SCHEMA_SUBSET__MINIMUM,
 				 true,
 				 false,
 				 false,
@@ -244,7 +244,7 @@ public class ParameterItemProvider extends SchemaDeclaringContextItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_JSONSchemaSubset_exclusiveMinimum_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_JSONSchemaSubset_exclusiveMinimum_feature", "_UI_JSONSchemaSubset_type"),
-				 CorePackage.Literals.JSON_SCHEMA_SUBSET__EXCLUSIVE_MINIMUM,
+				 OpenAPIPackage.Literals.JSON_SCHEMA_SUBSET__EXCLUSIVE_MINIMUM,
 				 true,
 				 false,
 				 false,
@@ -266,7 +266,7 @@ public class ParameterItemProvider extends SchemaDeclaringContextItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_JSONSchemaSubset_maxLength_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_JSONSchemaSubset_maxLength_feature", "_UI_JSONSchemaSubset_type"),
-				 CorePackage.Literals.JSON_SCHEMA_SUBSET__MAX_LENGTH,
+				 OpenAPIPackage.Literals.JSON_SCHEMA_SUBSET__MAX_LENGTH,
 				 true,
 				 false,
 				 false,
@@ -288,7 +288,7 @@ public class ParameterItemProvider extends SchemaDeclaringContextItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_JSONSchemaSubset_minLength_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_JSONSchemaSubset_minLength_feature", "_UI_JSONSchemaSubset_type"),
-				 CorePackage.Literals.JSON_SCHEMA_SUBSET__MIN_LENGTH,
+				 OpenAPIPackage.Literals.JSON_SCHEMA_SUBSET__MIN_LENGTH,
 				 true,
 				 false,
 				 false,
@@ -310,7 +310,7 @@ public class ParameterItemProvider extends SchemaDeclaringContextItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_JSONSchemaSubset_pattern_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_JSONSchemaSubset_pattern_feature", "_UI_JSONSchemaSubset_type"),
-				 CorePackage.Literals.JSON_SCHEMA_SUBSET__PATTERN,
+				 OpenAPIPackage.Literals.JSON_SCHEMA_SUBSET__PATTERN,
 				 true,
 				 false,
 				 false,
@@ -332,7 +332,7 @@ public class ParameterItemProvider extends SchemaDeclaringContextItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_JSONSchemaSubset_maxItems_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_JSONSchemaSubset_maxItems_feature", "_UI_JSONSchemaSubset_type"),
-				 CorePackage.Literals.JSON_SCHEMA_SUBSET__MAX_ITEMS,
+				 OpenAPIPackage.Literals.JSON_SCHEMA_SUBSET__MAX_ITEMS,
 				 true,
 				 false,
 				 false,
@@ -354,7 +354,7 @@ public class ParameterItemProvider extends SchemaDeclaringContextItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_JSONSchemaSubset_minItems_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_JSONSchemaSubset_minItems_feature", "_UI_JSONSchemaSubset_type"),
-				 CorePackage.Literals.JSON_SCHEMA_SUBSET__MIN_ITEMS,
+				 OpenAPIPackage.Literals.JSON_SCHEMA_SUBSET__MIN_ITEMS,
 				 true,
 				 false,
 				 false,
@@ -376,7 +376,7 @@ public class ParameterItemProvider extends SchemaDeclaringContextItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_JSONSchemaSubset_uniqueItems_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_JSONSchemaSubset_uniqueItems_feature", "_UI_JSONSchemaSubset_type"),
-				 CorePackage.Literals.JSON_SCHEMA_SUBSET__UNIQUE_ITEMS,
+				 OpenAPIPackage.Literals.JSON_SCHEMA_SUBSET__UNIQUE_ITEMS,
 				 true,
 				 false,
 				 false,
@@ -398,7 +398,7 @@ public class ParameterItemProvider extends SchemaDeclaringContextItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_JSONSchemaSubset_enum_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_JSONSchemaSubset_enum_feature", "_UI_JSONSchemaSubset_type"),
-				 CorePackage.Literals.JSON_SCHEMA_SUBSET__ENUM,
+				 OpenAPIPackage.Literals.JSON_SCHEMA_SUBSET__ENUM,
 				 true,
 				 false,
 				 false,
@@ -420,7 +420,7 @@ public class ParameterItemProvider extends SchemaDeclaringContextItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_JSONSchemaSubset_default_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_JSONSchemaSubset_default_feature", "_UI_JSONSchemaSubset_type"),
-				 CorePackage.Literals.JSON_SCHEMA_SUBSET__DEFAULT,
+				 OpenAPIPackage.Literals.JSON_SCHEMA_SUBSET__DEFAULT,
 				 true,
 				 false,
 				 false,
@@ -442,7 +442,7 @@ public class ParameterItemProvider extends SchemaDeclaringContextItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_JSONSchemaSubset_multipleOf_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_JSONSchemaSubset_multipleOf_feature", "_UI_JSONSchemaSubset_type"),
-				 CorePackage.Literals.JSON_SCHEMA_SUBSET__MULTIPLE_OF,
+				 OpenAPIPackage.Literals.JSON_SCHEMA_SUBSET__MULTIPLE_OF,
 				 true,
 				 false,
 				 false,
@@ -464,7 +464,7 @@ public class ParameterItemProvider extends SchemaDeclaringContextItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_JSONPointer_ref_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_JSONPointer_ref_feature", "_UI_JSONPointer_type"),
-				 CorePackage.Literals.JSON_POINTER__REF,
+				 OpenAPIPackage.Literals.JSON_POINTER__REF,
 				 false,
 				 false,
 				 false,
@@ -486,7 +486,7 @@ public class ParameterItemProvider extends SchemaDeclaringContextItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_ArrayContext_collectionFormat_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ArrayContext_collectionFormat_feature", "_UI_ArrayContext_type"),
-				 CorePackage.Literals.ARRAY_CONTEXT__COLLECTION_FORMAT,
+				 OpenAPIPackage.Literals.ARRAY_CONTEXT__COLLECTION_FORMAT,
 				 true,
 				 false,
 				 false,
@@ -508,7 +508,7 @@ public class ParameterItemProvider extends SchemaDeclaringContextItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_Parameter_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Parameter_name_feature", "_UI_Parameter_type"),
-				 CorePackage.Literals.PARAMETER__NAME,
+				 OpenAPIPackage.Literals.PARAMETER__NAME,
 				 true,
 				 false,
 				 false,
@@ -530,7 +530,7 @@ public class ParameterItemProvider extends SchemaDeclaringContextItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_Parameter_location_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Parameter_location_feature", "_UI_Parameter_type"),
-				 CorePackage.Literals.PARAMETER__LOCATION,
+				 OpenAPIPackage.Literals.PARAMETER__LOCATION,
 				 true,
 				 false,
 				 false,
@@ -552,7 +552,7 @@ public class ParameterItemProvider extends SchemaDeclaringContextItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_Parameter_required_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Parameter_required_feature", "_UI_Parameter_type"),
-				 CorePackage.Literals.PARAMETER__REQUIRED,
+				 OpenAPIPackage.Literals.PARAMETER__REQUIRED,
 				 true,
 				 false,
 				 false,
@@ -574,7 +574,7 @@ public class ParameterItemProvider extends SchemaDeclaringContextItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_Parameter_allowEmplyValue_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Parameter_allowEmplyValue_feature", "_UI_Parameter_type"),
-				 CorePackage.Literals.PARAMETER__ALLOW_EMPLY_VALUE,
+				 OpenAPIPackage.Literals.PARAMETER__ALLOW_EMPLY_VALUE,
 				 true,
 				 false,
 				 false,
@@ -596,7 +596,7 @@ public class ParameterItemProvider extends SchemaDeclaringContextItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_Parameter_referenceName_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Parameter_referenceName_feature", "_UI_Parameter_type"),
-				 CorePackage.Literals.PARAMETER__REFERENCE_NAME,
+				 OpenAPIPackage.Literals.PARAMETER__REFERENCE_NAME,
 				 true,
 				 false,
 				 false,
@@ -618,7 +618,7 @@ public class ParameterItemProvider extends SchemaDeclaringContextItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_Parameter_declaringContext_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Parameter_declaringContext_feature", "_UI_Parameter_type"),
-				 CorePackage.Literals.PARAMETER__DECLARING_CONTEXT,
+				 OpenAPIPackage.Literals.PARAMETER__DECLARING_CONTEXT,
 				 true,
 				 false,
 				 true,
@@ -639,7 +639,7 @@ public class ParameterItemProvider extends SchemaDeclaringContextItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(CorePackage.Literals.ARRAY_CONTEXT__ITEMS);
+			childrenFeatures.add(OpenAPIPackage.Literals.ARRAY_CONTEXT__ITEMS);
 		}
 		return childrenFeatures;
 	}
@@ -695,32 +695,32 @@ public class ParameterItemProvider extends SchemaDeclaringContextItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Parameter.class)) {
-			case CorePackage.PARAMETER__TYPE:
-			case CorePackage.PARAMETER__FORMAT:
-			case CorePackage.PARAMETER__DESCRIPTION:
-			case CorePackage.PARAMETER__MAXIMUM:
-			case CorePackage.PARAMETER__EXCLUSIVE_MAXIMUM:
-			case CorePackage.PARAMETER__MINIMUM:
-			case CorePackage.PARAMETER__EXCLUSIVE_MINIMUM:
-			case CorePackage.PARAMETER__MAX_LENGTH:
-			case CorePackage.PARAMETER__MIN_LENGTH:
-			case CorePackage.PARAMETER__PATTERN:
-			case CorePackage.PARAMETER__MAX_ITEMS:
-			case CorePackage.PARAMETER__MIN_ITEMS:
-			case CorePackage.PARAMETER__UNIQUE_ITEMS:
-			case CorePackage.PARAMETER__ENUM:
-			case CorePackage.PARAMETER__DEFAULT:
-			case CorePackage.PARAMETER__MULTIPLE_OF:
-			case CorePackage.PARAMETER__REF:
-			case CorePackage.PARAMETER__COLLECTION_FORMAT:
-			case CorePackage.PARAMETER__NAME:
-			case CorePackage.PARAMETER__LOCATION:
-			case CorePackage.PARAMETER__REQUIRED:
-			case CorePackage.PARAMETER__ALLOW_EMPLY_VALUE:
-			case CorePackage.PARAMETER__REFERENCE_NAME:
+			case OpenAPIPackage.PARAMETER__TYPE:
+			case OpenAPIPackage.PARAMETER__FORMAT:
+			case OpenAPIPackage.PARAMETER__DESCRIPTION:
+			case OpenAPIPackage.PARAMETER__MAXIMUM:
+			case OpenAPIPackage.PARAMETER__EXCLUSIVE_MAXIMUM:
+			case OpenAPIPackage.PARAMETER__MINIMUM:
+			case OpenAPIPackage.PARAMETER__EXCLUSIVE_MINIMUM:
+			case OpenAPIPackage.PARAMETER__MAX_LENGTH:
+			case OpenAPIPackage.PARAMETER__MIN_LENGTH:
+			case OpenAPIPackage.PARAMETER__PATTERN:
+			case OpenAPIPackage.PARAMETER__MAX_ITEMS:
+			case OpenAPIPackage.PARAMETER__MIN_ITEMS:
+			case OpenAPIPackage.PARAMETER__UNIQUE_ITEMS:
+			case OpenAPIPackage.PARAMETER__ENUM:
+			case OpenAPIPackage.PARAMETER__DEFAULT:
+			case OpenAPIPackage.PARAMETER__MULTIPLE_OF:
+			case OpenAPIPackage.PARAMETER__REF:
+			case OpenAPIPackage.PARAMETER__COLLECTION_FORMAT:
+			case OpenAPIPackage.PARAMETER__NAME:
+			case OpenAPIPackage.PARAMETER__LOCATION:
+			case OpenAPIPackage.PARAMETER__REQUIRED:
+			case OpenAPIPackage.PARAMETER__ALLOW_EMPLY_VALUE:
+			case OpenAPIPackage.PARAMETER__REFERENCE_NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case CorePackage.PARAMETER__ITEMS:
+			case OpenAPIPackage.PARAMETER__ITEMS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -740,8 +740,8 @@ public class ParameterItemProvider extends SchemaDeclaringContextItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.Literals.ARRAY_CONTEXT__ITEMS,
-				 CoreFactory.eINSTANCE.createItemsDefinition()));
+				(OpenAPIPackage.Literals.ARRAY_CONTEXT__ITEMS,
+				 OpenAPIFactory.eINSTANCE.createItemsDefinition()));
 	}
 
 }

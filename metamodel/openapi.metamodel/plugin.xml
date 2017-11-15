@@ -9,9 +9,17 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated swagger -->
       <package
-            uri="http://swagger.io/core"
+            uri="http://example.com/openAPI/core"
             class="core.CorePackage"
             genModel="model/openapi.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated openAPI -->
+      <package
+            uri="http://example.com/openAPI/core"
+            class="core.OpenAPIPackage"
+            genModel="model/openAPI.genmodel"/>
    </extension>
 
 </plugin>

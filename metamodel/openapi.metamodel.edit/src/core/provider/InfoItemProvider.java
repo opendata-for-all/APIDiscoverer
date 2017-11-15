@@ -3,10 +3,10 @@
 package core.provider;
 
 
-import core.CoreFactory;
-import core.CorePackage;
 import core.Info;
 
+import core.OpenAPIFactory;
+import core.OpenAPIPackage;
 import java.util.Collection;
 import java.util.List;
 
@@ -84,7 +84,7 @@ public class InfoItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Info_title_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Info_title_feature", "_UI_Info_type"),
-				 CorePackage.Literals.INFO__TITLE,
+				 OpenAPIPackage.Literals.INFO__TITLE,
 				 true,
 				 false,
 				 false,
@@ -106,7 +106,7 @@ public class InfoItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Info_description_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Info_description_feature", "_UI_Info_type"),
-				 CorePackage.Literals.INFO__DESCRIPTION,
+				 OpenAPIPackage.Literals.INFO__DESCRIPTION,
 				 true,
 				 false,
 				 false,
@@ -128,7 +128,7 @@ public class InfoItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Info_termsOfServices_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Info_termsOfServices_feature", "_UI_Info_type"),
-				 CorePackage.Literals.INFO__TERMS_OF_SERVICES,
+				 OpenAPIPackage.Literals.INFO__TERMS_OF_SERVICES,
 				 true,
 				 false,
 				 false,
@@ -150,7 +150,7 @@ public class InfoItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Info_version_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Info_version_feature", "_UI_Info_type"),
-				 CorePackage.Literals.INFO__VERSION,
+				 OpenAPIPackage.Literals.INFO__VERSION,
 				 true,
 				 false,
 				 false,
@@ -171,8 +171,8 @@ public class InfoItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(CorePackage.Literals.INFO__CONTACT);
-			childrenFeatures.add(CorePackage.Literals.INFO__LICENSE);
+			childrenFeatures.add(OpenAPIPackage.Literals.INFO__CONTACT);
+			childrenFeatures.add(OpenAPIPackage.Literals.INFO__LICENSE);
 		}
 		return childrenFeatures;
 	}
@@ -228,14 +228,14 @@ public class InfoItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Info.class)) {
-			case CorePackage.INFO__TITLE:
-			case CorePackage.INFO__DESCRIPTION:
-			case CorePackage.INFO__TERMS_OF_SERVICES:
-			case CorePackage.INFO__VERSION:
+			case OpenAPIPackage.INFO__TITLE:
+			case OpenAPIPackage.INFO__DESCRIPTION:
+			case OpenAPIPackage.INFO__TERMS_OF_SERVICES:
+			case OpenAPIPackage.INFO__VERSION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case CorePackage.INFO__CONTACT:
-			case CorePackage.INFO__LICENSE:
+			case OpenAPIPackage.INFO__CONTACT:
+			case OpenAPIPackage.INFO__LICENSE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -255,13 +255,13 @@ public class InfoItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.Literals.INFO__CONTACT,
-				 CoreFactory.eINSTANCE.createContact()));
+				(OpenAPIPackage.Literals.INFO__CONTACT,
+				 OpenAPIFactory.eINSTANCE.createContact()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.Literals.INFO__LICENSE,
-				 CoreFactory.eINSTANCE.createLicense()));
+				(OpenAPIPackage.Literals.INFO__LICENSE,
+				 OpenAPIFactory.eINSTANCE.createLicense()));
 	}
 
 	/**

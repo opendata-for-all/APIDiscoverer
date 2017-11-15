@@ -2,10 +2,10 @@
  */
 package core.impl;
 
-import core.CorePackage;
 import core.ExternalDocs;
 import core.ExternalDocsContext;
 
+import core.OpenAPIPackage;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -55,7 +55,7 @@ public abstract class ExternalDocsContextImpl extends MinimalEObjectImpl.Contain
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return CorePackage.Literals.EXTERNAL_DOCS_CONTEXT;
+		return OpenAPIPackage.Literals.EXTERNAL_DOCS_CONTEXT;
 	}
 
 	/**
@@ -76,7 +76,7 @@ public abstract class ExternalDocsContextImpl extends MinimalEObjectImpl.Contain
 		ExternalDocs oldExternalDocs = externalDocs;
 		externalDocs = newExternalDocs;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorePackage.EXTERNAL_DOCS_CONTEXT__EXTERNAL_DOCS, oldExternalDocs, newExternalDocs);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OpenAPIPackage.EXTERNAL_DOCS_CONTEXT__EXTERNAL_DOCS, oldExternalDocs, newExternalDocs);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -91,14 +91,14 @@ public abstract class ExternalDocsContextImpl extends MinimalEObjectImpl.Contain
 		if (newExternalDocs != externalDocs) {
 			NotificationChain msgs = null;
 			if (externalDocs != null)
-				msgs = ((InternalEObject)externalDocs).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CorePackage.EXTERNAL_DOCS_CONTEXT__EXTERNAL_DOCS, null, msgs);
+				msgs = ((InternalEObject)externalDocs).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OpenAPIPackage.EXTERNAL_DOCS_CONTEXT__EXTERNAL_DOCS, null, msgs);
 			if (newExternalDocs != null)
-				msgs = ((InternalEObject)newExternalDocs).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CorePackage.EXTERNAL_DOCS_CONTEXT__EXTERNAL_DOCS, null, msgs);
+				msgs = ((InternalEObject)newExternalDocs).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OpenAPIPackage.EXTERNAL_DOCS_CONTEXT__EXTERNAL_DOCS, null, msgs);
 			msgs = basicSetExternalDocs(newExternalDocs, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.EXTERNAL_DOCS_CONTEXT__EXTERNAL_DOCS, newExternalDocs, newExternalDocs));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.EXTERNAL_DOCS_CONTEXT__EXTERNAL_DOCS, newExternalDocs, newExternalDocs));
 	}
 
 	/**
@@ -109,7 +109,7 @@ public abstract class ExternalDocsContextImpl extends MinimalEObjectImpl.Contain
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case CorePackage.EXTERNAL_DOCS_CONTEXT__EXTERNAL_DOCS:
+			case OpenAPIPackage.EXTERNAL_DOCS_CONTEXT__EXTERNAL_DOCS:
 				return basicSetExternalDocs(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -123,7 +123,7 @@ public abstract class ExternalDocsContextImpl extends MinimalEObjectImpl.Contain
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CorePackage.EXTERNAL_DOCS_CONTEXT__EXTERNAL_DOCS:
+			case OpenAPIPackage.EXTERNAL_DOCS_CONTEXT__EXTERNAL_DOCS:
 				return getExternalDocs();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -137,7 +137,7 @@ public abstract class ExternalDocsContextImpl extends MinimalEObjectImpl.Contain
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CorePackage.EXTERNAL_DOCS_CONTEXT__EXTERNAL_DOCS:
+			case OpenAPIPackage.EXTERNAL_DOCS_CONTEXT__EXTERNAL_DOCS:
 				setExternalDocs((ExternalDocs)newValue);
 				return;
 		}
@@ -152,7 +152,7 @@ public abstract class ExternalDocsContextImpl extends MinimalEObjectImpl.Contain
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CorePackage.EXTERNAL_DOCS_CONTEXT__EXTERNAL_DOCS:
+			case OpenAPIPackage.EXTERNAL_DOCS_CONTEXT__EXTERNAL_DOCS:
 				setExternalDocs((ExternalDocs)null);
 				return;
 		}
@@ -167,7 +167,7 @@ public abstract class ExternalDocsContextImpl extends MinimalEObjectImpl.Contain
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CorePackage.EXTERNAL_DOCS_CONTEXT__EXTERNAL_DOCS:
+			case OpenAPIPackage.EXTERNAL_DOCS_CONTEXT__EXTERNAL_DOCS:
 				return externalDocs != null;
 		}
 		return super.eIsSet(featureID);

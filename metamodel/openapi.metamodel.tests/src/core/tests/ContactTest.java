@@ -3,8 +3,7 @@
 package core.tests;
 
 import core.Contact;
-import core.CoreFactory;
-
+import core.OpenAPIFactory;
 import junit.framework.TestCase;
 
 import junit.textui.TestRunner;
@@ -72,7 +71,7 @@ public class ContactTest extends TestCase {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(CoreFactory.eINSTANCE.createContact());
+		setFixture(OpenAPIFactory.eINSTANCE.createContact());
 	}
 
 	/**

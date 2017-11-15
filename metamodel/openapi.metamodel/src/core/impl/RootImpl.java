@@ -3,7 +3,7 @@
 package core.impl;
 
 import core.API;
-import core.CorePackage;
+import core.OpenAPIPackage;
 import core.Parameter;
 import core.Response;
 import core.Root;
@@ -97,7 +97,7 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return CorePackage.Literals.ROOT;
+		return OpenAPIPackage.Literals.ROOT;
 	}
 
 	/**
@@ -118,7 +118,7 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 		API oldApi = api;
 		api = newApi;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorePackage.ROOT__API, oldApi, newApi);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OpenAPIPackage.ROOT__API, oldApi, newApi);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -133,14 +133,14 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 		if (newApi != api) {
 			NotificationChain msgs = null;
 			if (api != null)
-				msgs = ((InternalEObject)api).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CorePackage.ROOT__API, null, msgs);
+				msgs = ((InternalEObject)api).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OpenAPIPackage.ROOT__API, null, msgs);
 			if (newApi != null)
-				msgs = ((InternalEObject)newApi).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CorePackage.ROOT__API, null, msgs);
+				msgs = ((InternalEObject)newApi).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OpenAPIPackage.ROOT__API, null, msgs);
 			msgs = basicSetApi(newApi, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.ROOT__API, newApi, newApi));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.ROOT__API, newApi, newApi));
 	}
 
 	/**
@@ -150,7 +150,7 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 	 */
 	public EList<Parameter> getParamters() {
 		if (paramters == null) {
-			paramters = new EObjectContainmentEList<Parameter>(Parameter.class, this, CorePackage.ROOT__PARAMTERS);
+			paramters = new EObjectContainmentEList<Parameter>(Parameter.class, this, OpenAPIPackage.ROOT__PARAMTERS);
 		}
 		return paramters;
 	}
@@ -162,7 +162,7 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 	 */
 	public EList<Schema> getSchemas() {
 		if (schemas == null) {
-			schemas = new EObjectContainmentEList<Schema>(Schema.class, this, CorePackage.ROOT__SCHEMAS);
+			schemas = new EObjectContainmentEList<Schema>(Schema.class, this, OpenAPIPackage.ROOT__SCHEMAS);
 		}
 		return schemas;
 	}
@@ -174,7 +174,7 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 	 */
 	public EList<Response> getResponses() {
 		if (responses == null) {
-			responses = new EObjectContainmentEList<Response>(Response.class, this, CorePackage.ROOT__RESPONSES);
+			responses = new EObjectContainmentEList<Response>(Response.class, this, OpenAPIPackage.ROOT__RESPONSES);
 		}
 		return responses;
 	}
@@ -187,13 +187,13 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case CorePackage.ROOT__API:
+			case OpenAPIPackage.ROOT__API:
 				return basicSetApi(null, msgs);
-			case CorePackage.ROOT__PARAMTERS:
+			case OpenAPIPackage.ROOT__PARAMTERS:
 				return ((InternalEList<?>)getParamters()).basicRemove(otherEnd, msgs);
-			case CorePackage.ROOT__SCHEMAS:
+			case OpenAPIPackage.ROOT__SCHEMAS:
 				return ((InternalEList<?>)getSchemas()).basicRemove(otherEnd, msgs);
-			case CorePackage.ROOT__RESPONSES:
+			case OpenAPIPackage.ROOT__RESPONSES:
 				return ((InternalEList<?>)getResponses()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -207,13 +207,13 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CorePackage.ROOT__API:
+			case OpenAPIPackage.ROOT__API:
 				return getApi();
-			case CorePackage.ROOT__PARAMTERS:
+			case OpenAPIPackage.ROOT__PARAMTERS:
 				return getParamters();
-			case CorePackage.ROOT__SCHEMAS:
+			case OpenAPIPackage.ROOT__SCHEMAS:
 				return getSchemas();
-			case CorePackage.ROOT__RESPONSES:
+			case OpenAPIPackage.ROOT__RESPONSES:
 				return getResponses();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -228,18 +228,18 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CorePackage.ROOT__API:
+			case OpenAPIPackage.ROOT__API:
 				setApi((API)newValue);
 				return;
-			case CorePackage.ROOT__PARAMTERS:
+			case OpenAPIPackage.ROOT__PARAMTERS:
 				getParamters().clear();
 				getParamters().addAll((Collection<? extends Parameter>)newValue);
 				return;
-			case CorePackage.ROOT__SCHEMAS:
+			case OpenAPIPackage.ROOT__SCHEMAS:
 				getSchemas().clear();
 				getSchemas().addAll((Collection<? extends Schema>)newValue);
 				return;
-			case CorePackage.ROOT__RESPONSES:
+			case OpenAPIPackage.ROOT__RESPONSES:
 				getResponses().clear();
 				getResponses().addAll((Collection<? extends Response>)newValue);
 				return;
@@ -255,16 +255,16 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CorePackage.ROOT__API:
+			case OpenAPIPackage.ROOT__API:
 				setApi((API)null);
 				return;
-			case CorePackage.ROOT__PARAMTERS:
+			case OpenAPIPackage.ROOT__PARAMTERS:
 				getParamters().clear();
 				return;
-			case CorePackage.ROOT__SCHEMAS:
+			case OpenAPIPackage.ROOT__SCHEMAS:
 				getSchemas().clear();
 				return;
-			case CorePackage.ROOT__RESPONSES:
+			case OpenAPIPackage.ROOT__RESPONSES:
 				getResponses().clear();
 				return;
 		}
@@ -279,13 +279,13 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CorePackage.ROOT__API:
+			case OpenAPIPackage.ROOT__API:
 				return api != null;
-			case CorePackage.ROOT__PARAMTERS:
+			case OpenAPIPackage.ROOT__PARAMTERS:
 				return paramters != null && !paramters.isEmpty();
-			case CorePackage.ROOT__SCHEMAS:
+			case OpenAPIPackage.ROOT__SCHEMAS:
 				return schemas != null && !schemas.isEmpty();
-			case CorePackage.ROOT__RESPONSES:
+			case OpenAPIPackage.ROOT__RESPONSES:
 				return responses != null && !responses.isEmpty();
 		}
 		return super.eIsSet(featureID);

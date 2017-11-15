@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link core.Root#getResponses <em>Responses</em>}</li>
  * </ul>
  *
- * @see core.CorePackage#getRoot()
+ * @see core.OpenAPIPackage#getRoot()
  * @model
  * @generated
  */
@@ -36,7 +36,7 @@ public interface Root extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Api</em>' containment reference.
 	 * @see #setApi(API)
-	 * @see core.CorePackage#getRoot_Api()
+	 * @see core.OpenAPIPackage#getRoot_Api()
 	 * @model containment="true"
 	 * @generated
 	 */
@@ -62,7 +62,7 @@ public interface Root extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Paramters</em>' containment reference list.
-	 * @see core.CorePackage#getRoot_Paramters()
+	 * @see core.OpenAPIPackage#getRoot_Paramters()
 	 * @model containment="true"
 	 * @generated
 	 */
@@ -78,7 +78,7 @@ public interface Root extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Schemas</em>' containment reference list.
-	 * @see core.CorePackage#getRoot_Schemas()
+	 * @see core.OpenAPIPackage#getRoot_Schemas()
 	 * @model containment="true"
 	 * @generated
 	 */
@@ -94,7 +94,7 @@ public interface Root extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Responses</em>' containment reference list.
-	 * @see core.CorePackage#getRoot_Responses()
+	 * @see core.OpenAPIPackage#getRoot_Responses()
 	 * @model containment="true"
 	 * @generated
 	 */

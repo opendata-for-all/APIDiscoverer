@@ -21,7 +21,7 @@ package core;
  *   <li>{@link core.Path#getPatch <em>Patch</em>}</li>
  * </ul>
  *
- * @see core.CorePackage#getPath()
+ * @see core.OpenAPIPackage#getPath()
  * @model
  * @generated
  */
@@ -36,7 +36,7 @@ public interface Path extends ParamterDeclaringContext, ParameterContext {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Pattern</em>' attribute.
 	 * @see #setPattern(String)
-	 * @see core.CorePackage#getPath_Pattern()
+	 * @see core.OpenAPIPackage#getPath_Pattern()
 	 * @model
 	 * @generated
 	 */
@@ -63,7 +63,7 @@ public interface Path extends ParamterDeclaringContext, ParameterContext {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Get</em>' containment reference.
 	 * @see #setGet(Operation)
-	 * @see core.CorePackage#getPath_Get()
+	 * @see core.OpenAPIPackage#getPath_Get()
 	 * @see core.Operation#getPath
 	 * @model opposite="path" containment="true"
 	 * @generated
@@ -90,7 +90,7 @@ public interface Path extends ParamterDeclaringContext, ParameterContext {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Put</em>' containment reference.
 	 * @see #setPut(Operation)
-	 * @see core.CorePackage#getPath_Put()
+	 * @see core.OpenAPIPackage#getPath_Put()
 	 * @model containment="true"
 	 * @generated
 	 */
@@ -116,7 +116,7 @@ public interface Path extends ParamterDeclaringContext, ParameterContext {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Post</em>' containment reference.
 	 * @see #setPost(Operation)
-	 * @see core.CorePackage#getPath_Post()
+	 * @see core.OpenAPIPackage#getPath_Post()
 	 * @model containment="true"
 	 * @generated
 	 */
@@ -142,7 +142,7 @@ public interface Path extends ParamterDeclaringContext, ParameterContext {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Delete</em>' containment reference.
 	 * @see #setDelete(Operation)
-	 * @see core.CorePackage#getPath_Delete()
+	 * @see core.OpenAPIPackage#getPath_Delete()
 	 * @model containment="true"
 	 * @generated
 	 */
@@ -168,7 +168,7 @@ public interface Path extends ParamterDeclaringContext, ParameterContext {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Options</em>' containment reference.
 	 * @see #setOptions(Operation)
-	 * @see core.CorePackage#getPath_Options()
+	 * @see core.OpenAPIPackage#getPath_Options()
 	 * @model containment="true"
 	 * @generated
 	 */
@@ -194,7 +194,7 @@ public interface Path extends ParamterDeclaringContext, ParameterContext {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Head</em>' containment reference.
 	 * @see #setHead(Operation)
-	 * @see core.CorePackage#getPath_Head()
+	 * @see core.OpenAPIPackage#getPath_Head()
 	 * @model containment="true"
 	 * @generated
 	 */
@@ -220,7 +220,7 @@ public interface Path extends ParamterDeclaringContext, ParameterContext {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Patch</em>' containment reference.
 	 * @see #setPatch(Operation)
-	 * @see core.CorePackage#getPath_Patch()
+	 * @see core.OpenAPIPackage#getPath_Patch()
 	 * @model containment="true"
 	 * @generated
 	 */

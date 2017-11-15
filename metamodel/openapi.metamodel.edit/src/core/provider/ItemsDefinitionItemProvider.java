@@ -3,11 +3,11 @@
 package core.provider;
 
 
-import core.CoreFactory;
-import core.CorePackage;
 import core.ItemsDefinition;
 import core.JSONDataType;
 
+import core.OpenAPIFactory;
+import core.OpenAPIPackage;
 import java.util.Collection;
 import java.util.List;
 
@@ -67,7 +67,7 @@ public class ItemsDefinitionItemProvider extends JSONSchemaSubsetItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_ArrayContext_collectionFormat_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ArrayContext_collectionFormat_feature", "_UI_ArrayContext_type"),
-				 CorePackage.Literals.ARRAY_CONTEXT__COLLECTION_FORMAT,
+				 OpenAPIPackage.Literals.ARRAY_CONTEXT__COLLECTION_FORMAT,
 				 true,
 				 false,
 				 false,
@@ -88,7 +88,7 @@ public class ItemsDefinitionItemProvider extends JSONSchemaSubsetItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(CorePackage.Literals.ARRAY_CONTEXT__ITEMS);
+			childrenFeatures.add(OpenAPIPackage.Literals.ARRAY_CONTEXT__ITEMS);
 		}
 		return childrenFeatures;
 	}
@@ -145,10 +145,10 @@ public class ItemsDefinitionItemProvider extends JSONSchemaSubsetItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ItemsDefinition.class)) {
-			case CorePackage.ITEMS_DEFINITION__COLLECTION_FORMAT:
+			case OpenAPIPackage.ITEMS_DEFINITION__COLLECTION_FORMAT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case CorePackage.ITEMS_DEFINITION__ITEMS:
+			case OpenAPIPackage.ITEMS_DEFINITION__ITEMS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -168,8 +168,8 @@ public class ItemsDefinitionItemProvider extends JSONSchemaSubsetItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.Literals.ARRAY_CONTEXT__ITEMS,
-				 CoreFactory.eINSTANCE.createItemsDefinition()));
+				(OpenAPIPackage.Literals.ARRAY_CONTEXT__ITEMS,
+				 OpenAPIFactory.eINSTANCE.createItemsDefinition()));
 	}
 
 }

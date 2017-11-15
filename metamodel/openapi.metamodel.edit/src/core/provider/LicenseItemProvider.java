@@ -3,9 +3,9 @@
 package core.provider;
 
 
-import core.CorePackage;
 import core.License;
 
+import core.OpenAPIPackage;
 import java.util.Collection;
 import java.util.List;
 
@@ -79,7 +79,7 @@ public class LicenseItemProvider
 				 getResourceLocator(),
 				 getString("_UI_License_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_License_name_feature", "_UI_License_type"),
-				 CorePackage.Literals.LICENSE__NAME,
+				 OpenAPIPackage.Literals.LICENSE__NAME,
 				 true,
 				 false,
 				 false,
@@ -101,7 +101,7 @@ public class LicenseItemProvider
 				 getResourceLocator(),
 				 getString("_UI_License_url_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_License_url_feature", "_UI_License_type"),
-				 CorePackage.Literals.LICENSE__URL,
+				 OpenAPIPackage.Literals.LICENSE__URL,
 				 true,
 				 false,
 				 false,
@@ -148,8 +148,8 @@ public class LicenseItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(License.class)) {
-			case CorePackage.LICENSE__NAME:
-			case CorePackage.LICENSE__URL:
+			case OpenAPIPackage.LICENSE__NAME:
+			case OpenAPIPackage.LICENSE__URL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

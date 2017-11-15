@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link core.ArrayContext#getItems <em>Items</em>}</li>
  * </ul>
  *
- * @see core.CorePackage#getArrayContext()
+ * @see core.OpenAPIPackage#getArrayContext()
  * @model abstract="true"
  * @generated
  */
@@ -34,7 +34,7 @@ public interface ArrayContext extends EObject {
 	 * @return the value of the '<em>Collection Format</em>' attribute.
 	 * @see core.CollectionFormat
 	 * @see #setCollectionFormat(CollectionFormat)
-	 * @see core.CorePackage#getArrayContext_CollectionFormat()
+	 * @see core.OpenAPIPackage#getArrayContext_CollectionFormat()
 	 * @model
 	 * @generated
 	 */
@@ -61,7 +61,7 @@ public interface ArrayContext extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Items</em>' containment reference.
 	 * @see #setItems(ItemsDefinition)
-	 * @see core.CorePackage#getArrayContext_Items()
+	 * @see core.OpenAPIPackage#getArrayContext_Items()
 	 * @model containment="true"
 	 * @generated
 	 */

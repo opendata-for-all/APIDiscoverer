@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link core.ExternalDocsContext#getExternalDocs <em>External Docs</em>}</li>
  * </ul>
  *
- * @see core.CorePackage#getExternalDocsContext()
+ * @see core.OpenAPIPackage#getExternalDocsContext()
  * @model abstract="true"
  * @generated
  */
@@ -31,7 +31,7 @@ public interface ExternalDocsContext extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>External Docs</em>' containment reference.
 	 * @see #setExternalDocs(ExternalDocs)
-	 * @see core.CorePackage#getExternalDocsContext_ExternalDocs()
+	 * @see core.OpenAPIPackage#getExternalDocsContext_ExternalDocs()
 	 * @model containment="true"
 	 * @generated
 	 */

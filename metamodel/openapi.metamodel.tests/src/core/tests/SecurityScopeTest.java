@@ -2,7 +2,7 @@
  */
 package core.tests;
 
-import core.CoreFactory;
+import core.OpenAPIFactory;
 import core.SecurityScope;
 
 import junit.framework.TestCase;
@@ -72,7 +72,7 @@ public class SecurityScopeTest extends TestCase {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(CoreFactory.eINSTANCE.createSecurityScope());
+		setFixture(OpenAPIFactory.eINSTANCE.createSecurityScope());
 	}
 
 	/**

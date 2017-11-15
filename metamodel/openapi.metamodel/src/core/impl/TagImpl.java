@@ -2,7 +2,7 @@
  */
 package core.impl;
 
-import core.CorePackage;
+import core.OpenAPIPackage;
 import core.Tag;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -80,7 +80,7 @@ public class TagImpl extends ExternalDocsContextImpl implements Tag {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return CorePackage.Literals.TAG;
+		return OpenAPIPackage.Literals.TAG;
 	}
 
 	/**
@@ -101,7 +101,7 @@ public class TagImpl extends ExternalDocsContextImpl implements Tag {
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.TAG__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.TAG__NAME, oldName, name));
 	}
 
 	/**
@@ -122,7 +122,7 @@ public class TagImpl extends ExternalDocsContextImpl implements Tag {
 		String oldDescription = description;
 		description = newDescription;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.TAG__DESCRIPTION, oldDescription, description));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.TAG__DESCRIPTION, oldDescription, description));
 	}
 
 	/**
@@ -133,9 +133,9 @@ public class TagImpl extends ExternalDocsContextImpl implements Tag {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CorePackage.TAG__NAME:
+			case OpenAPIPackage.TAG__NAME:
 				return getName();
-			case CorePackage.TAG__DESCRIPTION:
+			case OpenAPIPackage.TAG__DESCRIPTION:
 				return getDescription();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -149,10 +149,10 @@ public class TagImpl extends ExternalDocsContextImpl implements Tag {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CorePackage.TAG__NAME:
+			case OpenAPIPackage.TAG__NAME:
 				setName((String)newValue);
 				return;
-			case CorePackage.TAG__DESCRIPTION:
+			case OpenAPIPackage.TAG__DESCRIPTION:
 				setDescription((String)newValue);
 				return;
 		}
@@ -167,10 +167,10 @@ public class TagImpl extends ExternalDocsContextImpl implements Tag {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CorePackage.TAG__NAME:
+			case OpenAPIPackage.TAG__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case CorePackage.TAG__DESCRIPTION:
+			case OpenAPIPackage.TAG__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
 				return;
 		}
@@ -185,9 +185,9 @@ public class TagImpl extends ExternalDocsContextImpl implements Tag {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CorePackage.TAG__NAME:
+			case OpenAPIPackage.TAG__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case CorePackage.TAG__DESCRIPTION:
+			case OpenAPIPackage.TAG__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 		}
 		return super.eIsSet(featureID);

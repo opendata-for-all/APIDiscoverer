@@ -5,7 +5,8 @@
     rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
     complianceLevel="7.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
   <foreignModel>openAPI.ecore</foreignModel>
-  <genPackages prefix="Core" disposableProviderFactory="true" ecorePackage="openAPI.ecore#/">
+  <genPackages prefix="OpenAPI" disposableProviderFactory="true" fileExtensions="oas"
+      ecorePackage="openAPI.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="openAPI.ecore#//SchemeType">
       <genEnumLiterals ecoreEnumLiteral="openAPI.ecore#//SchemeType/http"/>
       <genEnumLiterals ecoreEnumLiteral="openAPI.ecore#//SchemeType/https"/>
@@ -46,30 +47,34 @@
       <genEnumLiterals ecoreEnumLiteral="openAPI.ecore#//SecuritySchemeType/apiKey"/>
       <genEnumLiterals ecoreEnumLiteral="openAPI.ecore#//SecuritySchemeType/oauth2"/>
     </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="openAPI.ecore#//JsonDataType">
-      <genEnumLiterals ecoreEnumLiteral="openAPI.ecore#//JsonDataType/unspecified"/>
-      <genEnumLiterals ecoreEnumLiteral="openAPI.ecore#//JsonDataType/integer"/>
-      <genEnumLiterals ecoreEnumLiteral="openAPI.ecore#//JsonDataType/number"/>
-      <genEnumLiterals ecoreEnumLiteral="openAPI.ecore#//JsonDataType/string"/>
-      <genEnumLiterals ecoreEnumLiteral="openAPI.ecore#//JsonDataType/boolean"/>
-      <genEnumLiterals ecoreEnumLiteral="openAPI.ecore#//JsonDataType/object"/>
-      <genEnumLiterals ecoreEnumLiteral="openAPI.ecore#//JsonDataType/array"/>
-      <genEnumLiterals ecoreEnumLiteral="openAPI.ecore#//JsonDataType/file"/>
-      <genEnumLiterals ecoreEnumLiteral="openAPI.ecore#//JsonDataType/null"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="openAPI.ecore#//JSONDataType">
+      <genEnumLiterals ecoreEnumLiteral="openAPI.ecore#//JSONDataType/unspecified"/>
+      <genEnumLiterals ecoreEnumLiteral="openAPI.ecore#//JSONDataType/boolean"/>
+      <genEnumLiterals ecoreEnumLiteral="openAPI.ecore#//JSONDataType/integer"/>
+      <genEnumLiterals ecoreEnumLiteral="openAPI.ecore#//JSONDataType/number"/>
+      <genEnumLiterals ecoreEnumLiteral="openAPI.ecore#//JSONDataType/string"/>
+      <genEnumLiterals ecoreEnumLiteral="openAPI.ecore#//JSONDataType/object"/>
+      <genEnumLiterals ecoreEnumLiteral="openAPI.ecore#//JSONDataType/array"/>
+      <genEnumLiterals ecoreEnumLiteral="openAPI.ecore#//JSONDataType/file"/>
+      <genEnumLiterals ecoreEnumLiteral="openAPI.ecore#//JSONDataType/null"/>
     </genEnums>
-    <genClasses image="false" ecoreClass="openAPI.ecore#//JsonSchemaValidation">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//JsonSchemaValidation/maximum"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//JsonSchemaValidation/exclusiveMaximum"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//JsonSchemaValidation/minimum"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//JsonSchemaValidation/exclusiveMinimum"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//JsonSchemaValidation/maxLength"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//JsonSchemaValidation/minLength"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//JsonSchemaValidation/pattern"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//JsonSchemaValidation/maxItems"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//JsonSchemaValidation/minItems"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//JsonSchemaValidation/uniqueItems"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//JsonSchemaValidation/enum"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//JsonSchemaValidation/multipleOf"/>
+    <genClasses image="false" ecoreClass="openAPI.ecore#//JSONSchemaSubset">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//JSONSchemaSubset/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//JSONSchemaSubset/format"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//JSONSchemaSubset/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//JSONSchemaSubset/maximum"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//JSONSchemaSubset/exclusiveMaximum"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//JSONSchemaSubset/minimum"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//JSONSchemaSubset/exclusiveMinimum"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//JSONSchemaSubset/maxLength"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//JSONSchemaSubset/minLength"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//JSONSchemaSubset/pattern"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//JSONSchemaSubset/maxItems"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//JSONSchemaSubset/minItems"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//JSONSchemaSubset/uniqueItems"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//JSONSchemaSubset/enum"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//JSONSchemaSubset/default"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//JSONSchemaSubset/multipleOf"/>
     </genClasses>
     <genClasses ecoreClass="openAPI.ecore#//Root">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openAPI.ecore#//Root/api"/>
@@ -77,23 +82,21 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openAPI.ecore#//Root/schemas"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openAPI.ecore#//Root/responses"/>
     </genClasses>
-    <genClasses ecoreClass="openAPI.ecore#//Api">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//Api/swagger"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openAPI.ecore#//Api/info"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//Api/host"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//Api/basePath"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//Api/schemes"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//Api/consumes"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//Api/produces"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openAPI.ecore#//Api/paths"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openAPI.ecore#//Api/definitions"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openAPI.ecore#//Api/parameters"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openAPI.ecore#//Api/responses"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openAPI.ecore#//Api/securityDefinitions"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openAPI.ecore#//Api/security"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openAPI.ecore#//Api/externaldocs"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openAPI.ecore#//Api/tag"/>
-      <genOperations ecoreOperation="openAPI.ecore#//Api/getRef"/>
+    <genClasses ecoreClass="openAPI.ecore#//API">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//API/swagger"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openAPI.ecore#//API/info"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//API/host"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//API/basePath"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//API/schemes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//API/consumes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//API/produces"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openAPI.ecore#//API/paths"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openAPI.ecore#//API/definitions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openAPI.ecore#//API/responses"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openAPI.ecore#//API/securityDefinitions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openAPI.ecore#//API/tags"/>
+      <genOperations ecoreOperation="openAPI.ecore#//API/getRef"/>
+      <genOperations ecoreOperation="openAPI.ecore#//API/pathsIsSet"/>
     </genClasses>
     <genClasses ecoreClass="openAPI.ecore#//Info">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//Info/title"/>
@@ -114,7 +117,6 @@
     </genClasses>
     <genClasses ecoreClass="openAPI.ecore#//Path">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//Path/pattern"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openAPI.ecore#//Path/parameters"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openAPI.ecore#//Path/get"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openAPI.ecore#//Path/put"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openAPI.ecore#//Path/post"/>
@@ -123,101 +125,70 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openAPI.ecore#//Path/head"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openAPI.ecore#//Path/patch"/>
     </genClasses>
-    <genClasses ecoreClass="openAPI.ecore#//APIOperation">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//APIOperation/tags"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//APIOperation/summary"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//APIOperation/description"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openAPI.ecore#//APIOperation/externalDocs"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//APIOperation/operationId"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//APIOperation/consumes"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//APIOperation/produces"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openAPI.ecore#//APIOperation/parameters"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openAPI.ecore#//APIOperation/responses"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//APIOperation/schemes"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//APIOperation/deprecated"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openAPI.ecore#//APIOperation/security"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference openAPI.ecore#//APIOperation/path"/>
+    <genClasses ecoreClass="openAPI.ecore#//Operation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//Operation/tagReferences"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//Operation/summary"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//Operation/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//Operation/operationId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//Operation/consumes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//Operation/produces"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openAPI.ecore#//Operation/responses"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//Operation/schemes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//Operation/deprecated"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference openAPI.ecore#//Operation/path"/>
     </genClasses>
     <genClasses ecoreClass="openAPI.ecore#//ExternalDocs">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//ExternalDocs/description"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//ExternalDocs/url"/>
     </genClasses>
-    <genClasses ecoreClass="openAPI.ecore#//APIParameter">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//APIParameter/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//APIParameter/location"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//APIParameter/description"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//APIParameter/required"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//APIParameter/type"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//APIParameter/format"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//APIParameter/allowEmplyValue"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openAPI.ecore#//APIParameter/items"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//APIParameter/collectionFormat"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//APIParameter/default"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openAPI.ecore#//APIParameter/schema"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//APIParameter/enum"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//APIParameter/referenceName"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openAPI.ecore#//APIParameter/operations"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openAPI.ecore#//APIParameter/declaringContext"/>
+    <genClasses ecoreClass="openAPI.ecore#//Parameter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//Parameter/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//Parameter/location"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//Parameter/required"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//Parameter/allowEmplyValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//Parameter/referenceName"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openAPI.ecore#//Parameter/declaringContext"/>
     </genClasses>
-    <genClasses ecoreClass="openAPI.ecore#//ItemsDefinition">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//ItemsDefinition/type"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//ItemsDefinition/format"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openAPI.ecore#//ItemsDefinition/items"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//ItemsDefinition/collectionFormat"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//ItemsDefinition/default"/>
-    </genClasses>
+    <genClasses ecoreClass="openAPI.ecore#//ItemsDefinition"/>
     <genClasses ecoreClass="openAPI.ecore#//Schema">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//Schema/format"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//Schema/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//Schema/title"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//Schema/description"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//Schema/maxProperties"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//Schema/minProperties"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//Schema/required"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//Schema/type"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openAPI.ecore#//Schema/properties"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//Schema/example"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openAPI.ecore#//Schema/externaldocs"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openAPI.ecore#//Schema/allOf"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//Schema/default"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openAPI.ecore#//Schema/items"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openAPI.ecore#//Schema/additonalProperties"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//Schema/discriminator"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//Schema/readOnly"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openAPI.ecore#//Schema/properties"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openAPI.ecore#//Schema/allOf"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openAPI.ecore#//Schema/items"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openAPI.ecore#//Schema/xml"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//Schema/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openAPI.ecore#//Schema/additonalProperties"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openAPI.ecore#//Schema/declaringContext"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference openAPI.ecore#//Schema/required"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openAPI.ecore#//Schema/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//Schema/additonalPropertiesAllowed"/>
       <genOperations ecoreOperation="openAPI.ecore#//Schema/getRef"/>
     </genClasses>
     <genClasses ecoreClass="openAPI.ecore#//Response">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//Response/description"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openAPI.ecore#//Response/schema"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openAPI.ecore#//Response/headers"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openAPI.ecore#//Response/examples"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//Response/code"/>
-    </genClasses>
-    <genClasses ecoreClass="openAPI.ecore#//SecurityRequirement">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//SecurityRequirement/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//SecurityRequirement/values"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openAPI.ecore#//Response/declaringContext"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//Response/referenceName"/>
     </genClasses>
     <genClasses ecoreClass="openAPI.ecore#//Header">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//Header/description"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//Header/type"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//Header/format"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//Header/collectionFormat"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openAPI.ecore#//Header/items"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//Header/default"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//Header/name"/>
     </genClasses>
     <genClasses ecoreClass="openAPI.ecore#//Tag">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//Tag/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//Tag/description"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openAPI.ecore#//Tag/externalDocs"/>
     </genClasses>
     <genClasses ecoreClass="openAPI.ecore#//SecuritySchema">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//SecuritySchema/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//SecuritySchema/description"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//SecuritySchema/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//SecuritySchema/in"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//SecuritySchema/location"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//SecuritySchema/flow"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//SecuritySchema/authorizationUrl"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//SecuritySchema/tokenUrl"/>
@@ -235,15 +206,31 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//XMLElement/attribute"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//XMLElement/wrapped"/>
     </genClasses>
-    <genClasses ecoreClass="openAPI.ecore#//Scope">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//Scope/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//Scope/description"/>
+    <genClasses ecoreClass="openAPI.ecore#//SecurityScope">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//SecurityScope/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//SecurityScope/description"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="openAPI.ecore#//ParameterContext"/>
-    <genClasses image="false" ecoreClass="openAPI.ecore#//ResponseContext"/>
-    <genClasses image="false" ecoreClass="openAPI.ecore#//SchemaContext"/>
+    <genClasses image="false" ecoreClass="openAPI.ecore#//ParamterDeclaringContext"/>
+    <genClasses image="false" ecoreClass="openAPI.ecore#//SchemaDeclaringContext"/>
+    <genClasses image="false" ecoreClass="openAPI.ecore#//ResponseDeclaringContext"/>
     <genClasses image="false" ecoreClass="openAPI.ecore#//JSONPointer">
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//JSONPointer/ref"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="openAPI.ecore#//SecurityContext">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openAPI.ecore#//SecurityContext/securityRequirement"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="openAPI.ecore#//ParameterContext">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openAPI.ecore#//ParameterContext/parameters"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="openAPI.ecore#//SchemaContext">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openAPI.ecore#//SchemaContext/schema"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="openAPI.ecore#//ExternalDocsContext">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openAPI.ecore#//ExternalDocsContext/externalDocs"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="openAPI.ecore#//ArrayContext">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openAPI.ecore#//ArrayContext/collectionFormat"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openAPI.ecore#//ArrayContext/items"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

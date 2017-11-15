@@ -29,7 +29,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="responses" upperBound="-1"
         eType="#//Response" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="API" eSuperTypes="#//ParamterDeclaringContext #//ResponseContext #//SchemaDeclaringContext #//JSONPointer #//SecurityContext #//ParameterContext #//ExternalDocsContext #//ResponseDeclaringContext">
+  <eClassifiers xsi:type="ecore:EClass" name="API" eSuperTypes="#//ParamterDeclaringContext #//SchemaDeclaringContext #//JSONPointer #//SecurityContext #//ParameterContext #//ExternalDocsContext #//ResponseDeclaringContext">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
       <details key="constraints" value="requiredSwaggerVersion correctSwaggerVersion requiredInfoReference requiredPaths"/>
     </eAnnotations>
@@ -122,7 +122,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="patch" eType="#//Operation"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Operation" eSuperTypes="#//ParamterDeclaringContext #//ResponseContext #//SecurityContext #//ParameterContext #//ExternalDocsContext #//ResponseDeclaringContext">
+  <eClassifiers xsi:type="ecore:EClass" name="Operation" eSuperTypes="#//ParamterDeclaringContext #//SecurityContext #//ParameterContext #//ExternalDocsContext #//ResponseDeclaringContext">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
       <details key="constraints" value="oneBodyParameterAllowed oneFormDataParameterAllowed hasUniqueParameters xorFormAndBody requiredResponses"/>
     </eAnnotations>
@@ -181,13 +181,10 @@
         <details key="body" value="if (getDeclaringContext() instanceof core.API) {&#xD;&#xA;&#x9;return ((core.API) getDeclaringContext()).getRef() + &quot;/definitions/&quot; + getName();&#xD;&#xA;&#x9;} else if (getDeclaringContext() instanceof Schema) {&#xD;&#xA;Schema context = (Schema) getDeclaringContext();&#x9;&#xD;&#xA;if (context.getProperties().contains(this))&#xD;&#xA;&#x9;return context.getRef() + &quot;/properties/&quot; + getName();&#xD;&#xA;else if (context.getItems().equals(this))&#xD;&#xA;&#x9;return context.getRef() + &quot;/items&quot;;&#xD;&#xA;else if (context.getAdditonalProperties().equals(this))&#xD;&#xA;&#x9;return context.getRef() + &quot;/additionalProperties&quot;;&#xD;&#xA;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;return &quot;&quot;;"/>
       </eAnnotations>
     </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxProperties" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="minProperties" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="required" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="example" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="discriminator" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="readOnly" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
@@ -200,6 +197,11 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="additonalProperties" eType="#//Schema"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="declaringContext" eType="#//SchemaDeclaringContext"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="required" upperBound="-1"
+        eType="#//Schema"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//Schema"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="additonalPropertiesAllowed"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Response" eSuperTypes="#//SchemaDeclaringContext #//SchemaContext">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -209,6 +211,7 @@
         eType="#//Example" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="code" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="declaringContext" eType="#//ResponseDeclaringContext"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="referenceName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Header" eSuperTypes="#//JSONSchemaSubset #//ArrayContext">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -245,8 +248,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ParamterDeclaringContext" abstract="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ResponseContext" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="SchemaDeclaringContext" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ResponseDeclaringContext" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="JSONPointer" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ref" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         changeable="false" volatile="true" transient="true" derived="true"/>
@@ -322,5 +325,4 @@
     <eLiterals name="file" value="8"/>
     <eLiterals name="null" value="7"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ResponseDeclaringContext" abstract="true"/>
 </ecore:EPackage>

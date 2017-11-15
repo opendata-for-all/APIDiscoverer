@@ -82,7 +82,6 @@ public class CoreSwitch<T> extends Switch<T> {
 				API api = (API)theEObject;
 				T result = caseAPI(api);
 				if (result == null) result = caseParamterDeclaringContext(api);
-				if (result == null) result = caseResponseContext(api);
 				if (result == null) result = caseSchemaDeclaringContext(api);
 				if (result == null) result = caseJSONPointer(api);
 				if (result == null) result = caseSecurityContext(api);
@@ -122,7 +121,6 @@ public class CoreSwitch<T> extends Switch<T> {
 				Operation operation = (Operation)theEObject;
 				T result = caseOperation(operation);
 				if (result == null) result = caseParamterDeclaringContext(operation);
-				if (result == null) result = caseResponseContext(operation);
 				if (result == null) result = caseSecurityContext(operation);
 				if (result == null) result = caseParameterContext(operation);
 				if (result == null) result = caseExternalDocsContext(operation);
@@ -218,15 +216,15 @@ public class CoreSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CorePackage.RESPONSE_CONTEXT: {
-				ResponseContext responseContext = (ResponseContext)theEObject;
-				T result = caseResponseContext(responseContext);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case CorePackage.SCHEMA_DECLARING_CONTEXT: {
 				SchemaDeclaringContext schemaDeclaringContext = (SchemaDeclaringContext)theEObject;
 				T result = caseSchemaDeclaringContext(schemaDeclaringContext);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CorePackage.RESPONSE_DECLARING_CONTEXT: {
+				ResponseDeclaringContext responseDeclaringContext = (ResponseDeclaringContext)theEObject;
+				T result = caseResponseDeclaringContext(responseDeclaringContext);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -263,12 +261,6 @@ public class CoreSwitch<T> extends Switch<T> {
 			case CorePackage.ARRAY_CONTEXT: {
 				ArrayContext arrayContext = (ArrayContext)theEObject;
 				T result = caseArrayContext(arrayContext);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case CorePackage.RESPONSE_DECLARING_CONTEXT: {
-				ResponseDeclaringContext responseDeclaringContext = (ResponseDeclaringContext)theEObject;
-				T result = caseResponseDeclaringContext(responseDeclaringContext);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -588,21 +580,6 @@ public class CoreSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseParameterContext(ParameterContext object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Response Context</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Response Context</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseResponseContext(ResponseContext object) {
 		return null;
 	}
 

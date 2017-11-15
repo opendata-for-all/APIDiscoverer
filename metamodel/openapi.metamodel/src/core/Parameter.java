@@ -20,7 +20,7 @@ package core;
  *   <li>{@link core.Parameter#getDeclaringContext <em>Declaring Context</em>}</li>
  * </ul>
  *
- * @see core.CorePackage#getParameter()
+ * @see core.OpenAPIPackage#getParameter()
  * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='requiredName requiredLocation'"
  *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL requiredName='not name.oclIsUndefined()' requiredLocation='not location = ParameterLocation::unspecified'"
  * @generated
@@ -36,7 +36,7 @@ public interface Parameter extends SchemaDeclaringContext, SchemaContext, JSONSc
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
-	 * @see core.CorePackage#getParameter_Name()
+	 * @see core.OpenAPIPackage#getParameter_Name()
 	 * @model
 	 * @generated
 	 */
@@ -64,7 +64,7 @@ public interface Parameter extends SchemaDeclaringContext, SchemaContext, JSONSc
 	 * @return the value of the '<em>Location</em>' attribute.
 	 * @see core.ParameterLocation
 	 * @see #setLocation(ParameterLocation)
-	 * @see core.CorePackage#getParameter_Location()
+	 * @see core.OpenAPIPackage#getParameter_Location()
 	 * @model
 	 * @generated
 	 */
@@ -91,7 +91,7 @@ public interface Parameter extends SchemaDeclaringContext, SchemaContext, JSONSc
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Required</em>' attribute.
 	 * @see #setRequired(Boolean)
-	 * @see core.CorePackage#getParameter_Required()
+	 * @see core.OpenAPIPackage#getParameter_Required()
 	 * @model
 	 * @generated
 	 */
@@ -117,7 +117,7 @@ public interface Parameter extends SchemaDeclaringContext, SchemaContext, JSONSc
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Allow Emply Value</em>' attribute.
 	 * @see #setAllowEmplyValue(Boolean)
-	 * @see core.CorePackage#getParameter_AllowEmplyValue()
+	 * @see core.OpenAPIPackage#getParameter_AllowEmplyValue()
 	 * @model
 	 * @generated
 	 */
@@ -143,7 +143,7 @@ public interface Parameter extends SchemaDeclaringContext, SchemaContext, JSONSc
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Reference Name</em>' attribute.
 	 * @see #setReferenceName(String)
-	 * @see core.CorePackage#getParameter_ReferenceName()
+	 * @see core.OpenAPIPackage#getParameter_ReferenceName()
 	 * @model
 	 * @generated
 	 */
@@ -169,7 +169,7 @@ public interface Parameter extends SchemaDeclaringContext, SchemaContext, JSONSc
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Declaring Context</em>' reference.
 	 * @see #setDeclaringContext(ParamterDeclaringContext)
-	 * @see core.CorePackage#getParameter_DeclaringContext()
+	 * @see core.OpenAPIPackage#getParameter_DeclaringContext()
 	 * @model
 	 * @generated
 	 */

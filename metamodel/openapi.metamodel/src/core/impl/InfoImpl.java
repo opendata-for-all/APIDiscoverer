@@ -3,10 +3,10 @@
 package core.impl;
 
 import core.Contact;
-import core.CorePackage;
 import core.Info;
 import core.License;
 
+import core.OpenAPIPackage;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -151,7 +151,7 @@ public class InfoImpl extends MinimalEObjectImpl.Container implements Info {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return CorePackage.Literals.INFO;
+		return OpenAPIPackage.Literals.INFO;
 	}
 
 	/**
@@ -172,7 +172,7 @@ public class InfoImpl extends MinimalEObjectImpl.Container implements Info {
 		String oldTitle = title;
 		title = newTitle;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.INFO__TITLE, oldTitle, title));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.INFO__TITLE, oldTitle, title));
 	}
 
 	/**
@@ -193,7 +193,7 @@ public class InfoImpl extends MinimalEObjectImpl.Container implements Info {
 		String oldDescription = description;
 		description = newDescription;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.INFO__DESCRIPTION, oldDescription, description));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.INFO__DESCRIPTION, oldDescription, description));
 	}
 
 	/**
@@ -214,7 +214,7 @@ public class InfoImpl extends MinimalEObjectImpl.Container implements Info {
 		String oldTermsOfServices = termsOfServices;
 		termsOfServices = newTermsOfServices;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.INFO__TERMS_OF_SERVICES, oldTermsOfServices, termsOfServices));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.INFO__TERMS_OF_SERVICES, oldTermsOfServices, termsOfServices));
 	}
 
 	/**
@@ -235,7 +235,7 @@ public class InfoImpl extends MinimalEObjectImpl.Container implements Info {
 		Contact oldContact = contact;
 		contact = newContact;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorePackage.INFO__CONTACT, oldContact, newContact);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OpenAPIPackage.INFO__CONTACT, oldContact, newContact);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -250,14 +250,14 @@ public class InfoImpl extends MinimalEObjectImpl.Container implements Info {
 		if (newContact != contact) {
 			NotificationChain msgs = null;
 			if (contact != null)
-				msgs = ((InternalEObject)contact).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CorePackage.INFO__CONTACT, null, msgs);
+				msgs = ((InternalEObject)contact).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OpenAPIPackage.INFO__CONTACT, null, msgs);
 			if (newContact != null)
-				msgs = ((InternalEObject)newContact).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CorePackage.INFO__CONTACT, null, msgs);
+				msgs = ((InternalEObject)newContact).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OpenAPIPackage.INFO__CONTACT, null, msgs);
 			msgs = basicSetContact(newContact, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.INFO__CONTACT, newContact, newContact));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.INFO__CONTACT, newContact, newContact));
 	}
 
 	/**
@@ -278,7 +278,7 @@ public class InfoImpl extends MinimalEObjectImpl.Container implements Info {
 		License oldLicense = license;
 		license = newLicense;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorePackage.INFO__LICENSE, oldLicense, newLicense);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OpenAPIPackage.INFO__LICENSE, oldLicense, newLicense);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -293,14 +293,14 @@ public class InfoImpl extends MinimalEObjectImpl.Container implements Info {
 		if (newLicense != license) {
 			NotificationChain msgs = null;
 			if (license != null)
-				msgs = ((InternalEObject)license).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CorePackage.INFO__LICENSE, null, msgs);
+				msgs = ((InternalEObject)license).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OpenAPIPackage.INFO__LICENSE, null, msgs);
 			if (newLicense != null)
-				msgs = ((InternalEObject)newLicense).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CorePackage.INFO__LICENSE, null, msgs);
+				msgs = ((InternalEObject)newLicense).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OpenAPIPackage.INFO__LICENSE, null, msgs);
 			msgs = basicSetLicense(newLicense, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.INFO__LICENSE, newLicense, newLicense));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.INFO__LICENSE, newLicense, newLicense));
 	}
 
 	/**
@@ -321,7 +321,7 @@ public class InfoImpl extends MinimalEObjectImpl.Container implements Info {
 		String oldVersion = version;
 		version = newVersion;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.INFO__VERSION, oldVersion, version));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.INFO__VERSION, oldVersion, version));
 	}
 
 	/**
@@ -332,9 +332,9 @@ public class InfoImpl extends MinimalEObjectImpl.Container implements Info {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case CorePackage.INFO__CONTACT:
+			case OpenAPIPackage.INFO__CONTACT:
 				return basicSetContact(null, msgs);
-			case CorePackage.INFO__LICENSE:
+			case OpenAPIPackage.INFO__LICENSE:
 				return basicSetLicense(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -348,17 +348,17 @@ public class InfoImpl extends MinimalEObjectImpl.Container implements Info {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CorePackage.INFO__TITLE:
+			case OpenAPIPackage.INFO__TITLE:
 				return getTitle();
-			case CorePackage.INFO__DESCRIPTION:
+			case OpenAPIPackage.INFO__DESCRIPTION:
 				return getDescription();
-			case CorePackage.INFO__TERMS_OF_SERVICES:
+			case OpenAPIPackage.INFO__TERMS_OF_SERVICES:
 				return getTermsOfServices();
-			case CorePackage.INFO__CONTACT:
+			case OpenAPIPackage.INFO__CONTACT:
 				return getContact();
-			case CorePackage.INFO__LICENSE:
+			case OpenAPIPackage.INFO__LICENSE:
 				return getLicense();
-			case CorePackage.INFO__VERSION:
+			case OpenAPIPackage.INFO__VERSION:
 				return getVersion();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -372,22 +372,22 @@ public class InfoImpl extends MinimalEObjectImpl.Container implements Info {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CorePackage.INFO__TITLE:
+			case OpenAPIPackage.INFO__TITLE:
 				setTitle((String)newValue);
 				return;
-			case CorePackage.INFO__DESCRIPTION:
+			case OpenAPIPackage.INFO__DESCRIPTION:
 				setDescription((String)newValue);
 				return;
-			case CorePackage.INFO__TERMS_OF_SERVICES:
+			case OpenAPIPackage.INFO__TERMS_OF_SERVICES:
 				setTermsOfServices((String)newValue);
 				return;
-			case CorePackage.INFO__CONTACT:
+			case OpenAPIPackage.INFO__CONTACT:
 				setContact((Contact)newValue);
 				return;
-			case CorePackage.INFO__LICENSE:
+			case OpenAPIPackage.INFO__LICENSE:
 				setLicense((License)newValue);
 				return;
-			case CorePackage.INFO__VERSION:
+			case OpenAPIPackage.INFO__VERSION:
 				setVersion((String)newValue);
 				return;
 		}
@@ -402,22 +402,22 @@ public class InfoImpl extends MinimalEObjectImpl.Container implements Info {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CorePackage.INFO__TITLE:
+			case OpenAPIPackage.INFO__TITLE:
 				setTitle(TITLE_EDEFAULT);
 				return;
-			case CorePackage.INFO__DESCRIPTION:
+			case OpenAPIPackage.INFO__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
 				return;
-			case CorePackage.INFO__TERMS_OF_SERVICES:
+			case OpenAPIPackage.INFO__TERMS_OF_SERVICES:
 				setTermsOfServices(TERMS_OF_SERVICES_EDEFAULT);
 				return;
-			case CorePackage.INFO__CONTACT:
+			case OpenAPIPackage.INFO__CONTACT:
 				setContact((Contact)null);
 				return;
-			case CorePackage.INFO__LICENSE:
+			case OpenAPIPackage.INFO__LICENSE:
 				setLicense((License)null);
 				return;
-			case CorePackage.INFO__VERSION:
+			case OpenAPIPackage.INFO__VERSION:
 				setVersion(VERSION_EDEFAULT);
 				return;
 		}
@@ -432,17 +432,17 @@ public class InfoImpl extends MinimalEObjectImpl.Container implements Info {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CorePackage.INFO__TITLE:
+			case OpenAPIPackage.INFO__TITLE:
 				return TITLE_EDEFAULT == null ? title != null : !TITLE_EDEFAULT.equals(title);
-			case CorePackage.INFO__DESCRIPTION:
+			case OpenAPIPackage.INFO__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-			case CorePackage.INFO__TERMS_OF_SERVICES:
+			case OpenAPIPackage.INFO__TERMS_OF_SERVICES:
 				return TERMS_OF_SERVICES_EDEFAULT == null ? termsOfServices != null : !TERMS_OF_SERVICES_EDEFAULT.equals(termsOfServices);
-			case CorePackage.INFO__CONTACT:
+			case OpenAPIPackage.INFO__CONTACT:
 				return contact != null;
-			case CorePackage.INFO__LICENSE:
+			case OpenAPIPackage.INFO__LICENSE:
 				return license != null;
-			case CorePackage.INFO__VERSION:
+			case OpenAPIPackage.INFO__VERSION:
 				return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
 		}
 		return super.eIsSet(featureID);

@@ -3,8 +3,7 @@
 package core.impl;
 
 import core.Contact;
-import core.CorePackage;
-
+import core.OpenAPIPackage;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -104,7 +103,7 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return CorePackage.Literals.CONTACT;
+		return OpenAPIPackage.Literals.CONTACT;
 	}
 
 	/**
@@ -125,7 +124,7 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.CONTACT__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.CONTACT__NAME, oldName, name));
 	}
 
 	/**
@@ -146,7 +145,7 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 		String oldUrl = url;
 		url = newUrl;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.CONTACT__URL, oldUrl, url));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.CONTACT__URL, oldUrl, url));
 	}
 
 	/**
@@ -167,7 +166,7 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 		String oldEmail = email;
 		email = newEmail;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.CONTACT__EMAIL, oldEmail, email));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.CONTACT__EMAIL, oldEmail, email));
 	}
 
 	/**
@@ -178,11 +177,11 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CorePackage.CONTACT__NAME:
+			case OpenAPIPackage.CONTACT__NAME:
 				return getName();
-			case CorePackage.CONTACT__URL:
+			case OpenAPIPackage.CONTACT__URL:
 				return getUrl();
-			case CorePackage.CONTACT__EMAIL:
+			case OpenAPIPackage.CONTACT__EMAIL:
 				return getEmail();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -196,13 +195,13 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CorePackage.CONTACT__NAME:
+			case OpenAPIPackage.CONTACT__NAME:
 				setName((String)newValue);
 				return;
-			case CorePackage.CONTACT__URL:
+			case OpenAPIPackage.CONTACT__URL:
 				setUrl((String)newValue);
 				return;
-			case CorePackage.CONTACT__EMAIL:
+			case OpenAPIPackage.CONTACT__EMAIL:
 				setEmail((String)newValue);
 				return;
 		}
@@ -217,13 +216,13 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CorePackage.CONTACT__NAME:
+			case OpenAPIPackage.CONTACT__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case CorePackage.CONTACT__URL:
+			case OpenAPIPackage.CONTACT__URL:
 				setUrl(URL_EDEFAULT);
 				return;
-			case CorePackage.CONTACT__EMAIL:
+			case OpenAPIPackage.CONTACT__EMAIL:
 				setEmail(EMAIL_EDEFAULT);
 				return;
 		}
@@ -238,11 +237,11 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CorePackage.CONTACT__NAME:
+			case OpenAPIPackage.CONTACT__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case CorePackage.CONTACT__URL:
+			case OpenAPIPackage.CONTACT__URL:
 				return URL_EDEFAULT == null ? url != null : !URL_EDEFAULT.equals(url);
-			case CorePackage.CONTACT__EMAIL:
+			case OpenAPIPackage.CONTACT__EMAIL:
 				return EMAIL_EDEFAULT == null ? email != null : !EMAIL_EDEFAULT.equals(email);
 		}
 		return super.eIsSet(featureID);

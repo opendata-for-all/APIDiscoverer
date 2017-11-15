@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link core.ParameterContext#getParameters <em>Parameters</em>}</li>
  * </ul>
  *
- * @see core.CorePackage#getParameterContext()
+ * @see core.OpenAPIPackage#getParameterContext()
  * @model abstract="true"
  * @generated
  */
@@ -33,7 +33,7 @@ public interface ParameterContext extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Parameters</em>' reference list.
-	 * @see core.CorePackage#getParameterContext_Parameters()
+	 * @see core.OpenAPIPackage#getParameterContext_Parameters()
 	 * @model
 	 * @generated
 	 */

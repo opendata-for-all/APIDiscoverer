@@ -2,8 +2,8 @@
  */
 package core.tests;
 
-import core.CoreFactory;
 import core.Header;
+import core.OpenAPIFactory;
 import junit.textui.TestRunner;
 
 /**
@@ -52,7 +52,7 @@ public class HeaderTest extends JSONSchemaSubsetTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(CoreFactory.eINSTANCE.createHeader());
+		setFixture(OpenAPIFactory.eINSTANCE.createHeader());
 	}
 
 	/**

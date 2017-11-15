@@ -27,13 +27,13 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link core.API#getTags <em>Tags</em>}</li>
  * </ul>
  *
- * @see core.CorePackage#getAPI()
+ * @see core.OpenAPIPackage#getAPI()
  * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='requiredSwaggerVersion correctSwaggerVersion requiredInfoReference requiredPaths'"
  *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL requiredSwaggerVersion='not self.swagger.oclIsUndefined()' requiredInfoReference='not self.info.oclIsUndefined()' correctSwaggerVersion='self.swagger = \'2.0\'' requiredPaths='pathsIsSet()'"
  *        extendedMetaData="name='API'"
  * @generated
  */
-public interface API extends ParamterDeclaringContext, ResponseContext, SchemaDeclaringContext, JSONPointer, SecurityContext, ParameterContext, ExternalDocsContext, ResponseDeclaringContext {
+public interface API extends ParamterDeclaringContext, SchemaDeclaringContext, JSONPointer, SecurityContext, ParameterContext, ExternalDocsContext, ResponseDeclaringContext {
 	/**
 	 * Returns the value of the '<em><b>Swagger</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -44,7 +44,7 @@ public interface API extends ParamterDeclaringContext, ResponseContext, SchemaDe
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Swagger</em>' attribute.
 	 * @see #setSwagger(String)
-	 * @see core.CorePackage#getAPI_Swagger()
+	 * @see core.OpenAPIPackage#getAPI_Swagger()
 	 * @model
 	 * @generated
 	 */
@@ -70,7 +70,7 @@ public interface API extends ParamterDeclaringContext, ResponseContext, SchemaDe
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Info</em>' containment reference.
 	 * @see #setInfo(Info)
-	 * @see core.CorePackage#getAPI_Info()
+	 * @see core.OpenAPIPackage#getAPI_Info()
 	 * @model containment="true"
 	 * @generated
 	 */
@@ -96,7 +96,7 @@ public interface API extends ParamterDeclaringContext, ResponseContext, SchemaDe
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Host</em>' attribute.
 	 * @see #setHost(String)
-	 * @see core.CorePackage#getAPI_Host()
+	 * @see core.OpenAPIPackage#getAPI_Host()
 	 * @model
 	 * @generated
 	 */
@@ -122,7 +122,7 @@ public interface API extends ParamterDeclaringContext, ResponseContext, SchemaDe
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Base Path</em>' attribute.
 	 * @see #setBasePath(String)
-	 * @see core.CorePackage#getAPI_BasePath()
+	 * @see core.OpenAPIPackage#getAPI_BasePath()
 	 * @model
 	 * @generated
 	 */
@@ -150,7 +150,7 @@ public interface API extends ParamterDeclaringContext, ResponseContext, SchemaDe
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Schemes</em>' attribute list.
 	 * @see core.SchemeType
-	 * @see core.CorePackage#getAPI_Schemes()
+	 * @see core.OpenAPIPackage#getAPI_Schemes()
 	 * @model
 	 * @generated
 	 */
@@ -166,7 +166,7 @@ public interface API extends ParamterDeclaringContext, ResponseContext, SchemaDe
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Consumes</em>' attribute list.
-	 * @see core.CorePackage#getAPI_Consumes()
+	 * @see core.OpenAPIPackage#getAPI_Consumes()
 	 * @model
 	 * @generated
 	 */
@@ -182,7 +182,7 @@ public interface API extends ParamterDeclaringContext, ResponseContext, SchemaDe
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Produces</em>' attribute list.
-	 * @see core.CorePackage#getAPI_Produces()
+	 * @see core.OpenAPIPackage#getAPI_Produces()
 	 * @model
 	 * @generated
 	 */
@@ -200,7 +200,7 @@ public interface API extends ParamterDeclaringContext, ResponseContext, SchemaDe
 	 * @return the value of the '<em>Paths</em>' containment reference list.
 	 * @see #isSetPaths()
 	 * @see #unsetPaths()
-	 * @see core.CorePackage#getAPI_Paths()
+	 * @see core.OpenAPIPackage#getAPI_Paths()
 	 * @model containment="true" unsettable="true"
 	 * @generated
 	 */
@@ -237,7 +237,7 @@ public interface API extends ParamterDeclaringContext, ResponseContext, SchemaDe
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Definitions</em>' reference list.
-	 * @see core.CorePackage#getAPI_Definitions()
+	 * @see core.OpenAPIPackage#getAPI_Definitions()
 	 * @model
 	 * @generated
 	 */
@@ -253,7 +253,7 @@ public interface API extends ParamterDeclaringContext, ResponseContext, SchemaDe
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Responses</em>' containment reference list.
-	 * @see core.CorePackage#getAPI_Responses()
+	 * @see core.OpenAPIPackage#getAPI_Responses()
 	 * @model containment="true"
 	 * @generated
 	 */
@@ -269,7 +269,7 @@ public interface API extends ParamterDeclaringContext, ResponseContext, SchemaDe
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Security Definitions</em>' containment reference list.
-	 * @see core.CorePackage#getAPI_SecurityDefinitions()
+	 * @see core.OpenAPIPackage#getAPI_SecurityDefinitions()
 	 * @model containment="true"
 	 * @generated
 	 */
@@ -285,7 +285,7 @@ public interface API extends ParamterDeclaringContext, ResponseContext, SchemaDe
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Tags</em>' containment reference list.
-	 * @see core.CorePackage#getAPI_Tags()
+	 * @see core.OpenAPIPackage#getAPI_Tags()
 	 * @model containment="true"
 	 * @generated
 	 */

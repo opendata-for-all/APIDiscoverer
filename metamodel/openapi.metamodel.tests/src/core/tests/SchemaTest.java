@@ -2,7 +2,7 @@
  */
 package core.tests;
 
-import core.CoreFactory;
+import core.OpenAPIFactory;
 import core.Schema;
 import junit.textui.TestRunner;
 
@@ -58,7 +58,7 @@ public class SchemaTest extends JSONSchemaSubsetTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(CoreFactory.eINSTANCE.createSchema());
+		setFixture(OpenAPIFactory.eINSTANCE.createSchema());
 	}
 
 	/**

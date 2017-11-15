@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link core.SchemaContext#getSchema <em>Schema</em>}</li>
  * </ul>
  *
- * @see core.CorePackage#getSchemaContext()
+ * @see core.OpenAPIPackage#getSchemaContext()
  * @model abstract="true"
  * @generated
  */
@@ -32,7 +32,7 @@ public interface SchemaContext extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Schema</em>' reference.
 	 * @see #setSchema(Schema)
-	 * @see core.CorePackage#getSchemaContext_Schema()
+	 * @see core.OpenAPIPackage#getSchemaContext_Schema()
 	 * @model
 	 * @generated
 	 */

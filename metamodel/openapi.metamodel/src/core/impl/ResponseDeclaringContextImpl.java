@@ -2,7 +2,7 @@
  */
 package core.impl;
 
-import core.CorePackage;
+import core.OpenAPIPackage;
 import core.ResponseDeclaringContext;
 
 import org.eclipse.emf.ecore.EClass;
@@ -33,7 +33,7 @@ public abstract class ResponseDeclaringContextImpl extends MinimalEObjectImpl.Co
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return CorePackage.Literals.RESPONSE_DECLARING_CONTEXT;
+		return OpenAPIPackage.Literals.RESPONSE_DECLARING_CONTEXT;
 	}
 
 } //ResponseDeclaringContextImpl

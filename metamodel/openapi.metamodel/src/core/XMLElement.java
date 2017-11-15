@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link core.XMLElement#isWrapped <em>Wrapped</em>}</li>
  * </ul>
  *
- * @see core.CorePackage#getXMLElement()
+ * @see core.OpenAPIPackage#getXMLElement()
  * @model
  * @generated
  */
@@ -35,7 +35,7 @@ public interface XMLElement extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
-	 * @see core.CorePackage#getXMLElement_Name()
+	 * @see core.OpenAPIPackage#getXMLElement_Name()
 	 * @model
 	 * @generated
 	 */
@@ -61,7 +61,7 @@ public interface XMLElement extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Namespace</em>' attribute.
 	 * @see #setNamespace(String)
-	 * @see core.CorePackage#getXMLElement_Namespace()
+	 * @see core.OpenAPIPackage#getXMLElement_Namespace()
 	 * @model
 	 * @generated
 	 */
@@ -87,7 +87,7 @@ public interface XMLElement extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Prefix</em>' attribute.
 	 * @see #setPrefix(String)
-	 * @see core.CorePackage#getXMLElement_Prefix()
+	 * @see core.OpenAPIPackage#getXMLElement_Prefix()
 	 * @model
 	 * @generated
 	 */
@@ -113,7 +113,7 @@ public interface XMLElement extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Attribute</em>' attribute.
 	 * @see #setAttribute(boolean)
-	 * @see core.CorePackage#getXMLElement_Attribute()
+	 * @see core.OpenAPIPackage#getXMLElement_Attribute()
 	 * @model
 	 * @generated
 	 */
@@ -139,7 +139,7 @@ public interface XMLElement extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Wrapped</em>' attribute.
 	 * @see #setWrapped(boolean)
-	 * @see core.CorePackage#getXMLElement_Wrapped()
+	 * @see core.OpenAPIPackage#getXMLElement_Wrapped()
 	 * @model
 	 * @generated
 	 */

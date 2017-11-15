@@ -10,7 +10,7 @@ import org.eclipse.emf.ecore.EObject;
  * <!-- end-user-doc -->
  *
  *
- * @see core.CorePackage#getParamterDeclaringContext()
+ * @see core.OpenAPIPackage#getParamterDeclaringContext()
  * @model abstract="true"
  * @generated
  */

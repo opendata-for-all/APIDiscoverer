@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link core.SecurityContext#getSecurityRequirement <em>Security Requirement</em>}</li>
  * </ul>
  *
- * @see core.CorePackage#getSecurityContext()
+ * @see core.OpenAPIPackage#getSecurityContext()
  * @model abstract="true"
  * @generated
  */
@@ -33,7 +33,7 @@ public interface SecurityContext extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Security Requirement</em>' reference list.
-	 * @see core.CorePackage#getSecurityContext_SecurityRequirement()
+	 * @see core.OpenAPIPackage#getSecurityContext_SecurityRequirement()
 	 * @model
 	 * @generated
 	 */

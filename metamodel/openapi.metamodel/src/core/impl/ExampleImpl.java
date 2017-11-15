@@ -2,9 +2,9 @@
  */
 package core.impl;
 
-import core.CorePackage;
 import core.Example;
 
+import core.OpenAPIPackage;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -83,7 +83,7 @@ public class ExampleImpl extends MinimalEObjectImpl.Container implements Example
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return CorePackage.Literals.EXAMPLE;
+		return OpenAPIPackage.Literals.EXAMPLE;
 	}
 
 	/**
@@ -104,7 +104,7 @@ public class ExampleImpl extends MinimalEObjectImpl.Container implements Example
 		String oldMimeType = mimeType;
 		mimeType = newMimeType;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.EXAMPLE__MIME_TYPE, oldMimeType, mimeType));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.EXAMPLE__MIME_TYPE, oldMimeType, mimeType));
 	}
 
 	/**
@@ -125,7 +125,7 @@ public class ExampleImpl extends MinimalEObjectImpl.Container implements Example
 		String oldValue = value;
 		value = newValue;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.EXAMPLE__VALUE, oldValue, value));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.EXAMPLE__VALUE, oldValue, value));
 	}
 
 	/**
@@ -136,9 +136,9 @@ public class ExampleImpl extends MinimalEObjectImpl.Container implements Example
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CorePackage.EXAMPLE__MIME_TYPE:
+			case OpenAPIPackage.EXAMPLE__MIME_TYPE:
 				return getMimeType();
-			case CorePackage.EXAMPLE__VALUE:
+			case OpenAPIPackage.EXAMPLE__VALUE:
 				return getValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -152,10 +152,10 @@ public class ExampleImpl extends MinimalEObjectImpl.Container implements Example
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CorePackage.EXAMPLE__MIME_TYPE:
+			case OpenAPIPackage.EXAMPLE__MIME_TYPE:
 				setMimeType((String)newValue);
 				return;
-			case CorePackage.EXAMPLE__VALUE:
+			case OpenAPIPackage.EXAMPLE__VALUE:
 				setValue((String)newValue);
 				return;
 		}
@@ -170,10 +170,10 @@ public class ExampleImpl extends MinimalEObjectImpl.Container implements Example
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CorePackage.EXAMPLE__MIME_TYPE:
+			case OpenAPIPackage.EXAMPLE__MIME_TYPE:
 				setMimeType(MIME_TYPE_EDEFAULT);
 				return;
-			case CorePackage.EXAMPLE__VALUE:
+			case OpenAPIPackage.EXAMPLE__VALUE:
 				setValue(VALUE_EDEFAULT);
 				return;
 		}
@@ -188,9 +188,9 @@ public class ExampleImpl extends MinimalEObjectImpl.Container implements Example
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CorePackage.EXAMPLE__MIME_TYPE:
+			case OpenAPIPackage.EXAMPLE__MIME_TYPE:
 				return MIME_TYPE_EDEFAULT == null ? mimeType != null : !MIME_TYPE_EDEFAULT.equals(mimeType);
-			case CorePackage.EXAMPLE__VALUE:
+			case OpenAPIPackage.EXAMPLE__VALUE:
 				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
 		}
 		return super.eIsSet(featureID);

@@ -2,7 +2,7 @@
  */
 package core.impl;
 
-import core.CorePackage;
+import core.OpenAPIPackage;
 import core.Operation;
 import core.Parameter;
 import core.ParameterContext;
@@ -159,7 +159,7 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return CorePackage.Literals.PATH;
+		return OpenAPIPackage.Literals.PATH;
 	}
 
 	/**
@@ -180,7 +180,7 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 		String oldPattern = pattern;
 		pattern = newPattern;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.PATH__PATTERN, oldPattern, pattern));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.PATH__PATTERN, oldPattern, pattern));
 	}
 
 	/**
@@ -190,7 +190,7 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 	 */
 	public EList<Parameter> getParameters() {
 		if (parameters == null) {
-			parameters = new EObjectResolvingEList<Parameter>(Parameter.class, this, CorePackage.PATH__PARAMETERS);
+			parameters = new EObjectResolvingEList<Parameter>(Parameter.class, this, OpenAPIPackage.PATH__PARAMETERS);
 		}
 		return parameters;
 	}
@@ -213,7 +213,7 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 		Operation oldGet = get;
 		get = newGet;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorePackage.PATH__GET, oldGet, newGet);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OpenAPIPackage.PATH__GET, oldGet, newGet);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -228,14 +228,14 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 		if (newGet != get) {
 			NotificationChain msgs = null;
 			if (get != null)
-				msgs = ((InternalEObject)get).eInverseRemove(this, CorePackage.OPERATION__PATH, Operation.class, msgs);
+				msgs = ((InternalEObject)get).eInverseRemove(this, OpenAPIPackage.OPERATION__PATH, Operation.class, msgs);
 			if (newGet != null)
-				msgs = ((InternalEObject)newGet).eInverseAdd(this, CorePackage.OPERATION__PATH, Operation.class, msgs);
+				msgs = ((InternalEObject)newGet).eInverseAdd(this, OpenAPIPackage.OPERATION__PATH, Operation.class, msgs);
 			msgs = basicSetGet(newGet, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.PATH__GET, newGet, newGet));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.PATH__GET, newGet, newGet));
 	}
 
 	/**
@@ -256,7 +256,7 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 		Operation oldPut = put;
 		put = newPut;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorePackage.PATH__PUT, oldPut, newPut);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OpenAPIPackage.PATH__PUT, oldPut, newPut);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -271,14 +271,14 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 		if (newPut != put) {
 			NotificationChain msgs = null;
 			if (put != null)
-				msgs = ((InternalEObject)put).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CorePackage.PATH__PUT, null, msgs);
+				msgs = ((InternalEObject)put).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OpenAPIPackage.PATH__PUT, null, msgs);
 			if (newPut != null)
-				msgs = ((InternalEObject)newPut).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CorePackage.PATH__PUT, null, msgs);
+				msgs = ((InternalEObject)newPut).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OpenAPIPackage.PATH__PUT, null, msgs);
 			msgs = basicSetPut(newPut, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.PATH__PUT, newPut, newPut));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.PATH__PUT, newPut, newPut));
 	}
 
 	/**
@@ -299,7 +299,7 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 		Operation oldPost = post;
 		post = newPost;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorePackage.PATH__POST, oldPost, newPost);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OpenAPIPackage.PATH__POST, oldPost, newPost);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -314,14 +314,14 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 		if (newPost != post) {
 			NotificationChain msgs = null;
 			if (post != null)
-				msgs = ((InternalEObject)post).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CorePackage.PATH__POST, null, msgs);
+				msgs = ((InternalEObject)post).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OpenAPIPackage.PATH__POST, null, msgs);
 			if (newPost != null)
-				msgs = ((InternalEObject)newPost).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CorePackage.PATH__POST, null, msgs);
+				msgs = ((InternalEObject)newPost).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OpenAPIPackage.PATH__POST, null, msgs);
 			msgs = basicSetPost(newPost, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.PATH__POST, newPost, newPost));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.PATH__POST, newPost, newPost));
 	}
 
 	/**
@@ -342,7 +342,7 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 		Operation oldDelete = delete;
 		delete = newDelete;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorePackage.PATH__DELETE, oldDelete, newDelete);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OpenAPIPackage.PATH__DELETE, oldDelete, newDelete);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -357,14 +357,14 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 		if (newDelete != delete) {
 			NotificationChain msgs = null;
 			if (delete != null)
-				msgs = ((InternalEObject)delete).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CorePackage.PATH__DELETE, null, msgs);
+				msgs = ((InternalEObject)delete).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OpenAPIPackage.PATH__DELETE, null, msgs);
 			if (newDelete != null)
-				msgs = ((InternalEObject)newDelete).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CorePackage.PATH__DELETE, null, msgs);
+				msgs = ((InternalEObject)newDelete).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OpenAPIPackage.PATH__DELETE, null, msgs);
 			msgs = basicSetDelete(newDelete, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.PATH__DELETE, newDelete, newDelete));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.PATH__DELETE, newDelete, newDelete));
 	}
 
 	/**
@@ -385,7 +385,7 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 		Operation oldOptions = options;
 		options = newOptions;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorePackage.PATH__OPTIONS, oldOptions, newOptions);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OpenAPIPackage.PATH__OPTIONS, oldOptions, newOptions);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -400,14 +400,14 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 		if (newOptions != options) {
 			NotificationChain msgs = null;
 			if (options != null)
-				msgs = ((InternalEObject)options).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CorePackage.PATH__OPTIONS, null, msgs);
+				msgs = ((InternalEObject)options).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OpenAPIPackage.PATH__OPTIONS, null, msgs);
 			if (newOptions != null)
-				msgs = ((InternalEObject)newOptions).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CorePackage.PATH__OPTIONS, null, msgs);
+				msgs = ((InternalEObject)newOptions).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OpenAPIPackage.PATH__OPTIONS, null, msgs);
 			msgs = basicSetOptions(newOptions, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.PATH__OPTIONS, newOptions, newOptions));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.PATH__OPTIONS, newOptions, newOptions));
 	}
 
 	/**
@@ -428,7 +428,7 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 		Operation oldHead = head;
 		head = newHead;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorePackage.PATH__HEAD, oldHead, newHead);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OpenAPIPackage.PATH__HEAD, oldHead, newHead);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -443,14 +443,14 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 		if (newHead != head) {
 			NotificationChain msgs = null;
 			if (head != null)
-				msgs = ((InternalEObject)head).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CorePackage.PATH__HEAD, null, msgs);
+				msgs = ((InternalEObject)head).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OpenAPIPackage.PATH__HEAD, null, msgs);
 			if (newHead != null)
-				msgs = ((InternalEObject)newHead).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CorePackage.PATH__HEAD, null, msgs);
+				msgs = ((InternalEObject)newHead).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OpenAPIPackage.PATH__HEAD, null, msgs);
 			msgs = basicSetHead(newHead, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.PATH__HEAD, newHead, newHead));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.PATH__HEAD, newHead, newHead));
 	}
 
 	/**
@@ -471,7 +471,7 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 		Operation oldPatch = patch;
 		patch = newPatch;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorePackage.PATH__PATCH, oldPatch, newPatch);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OpenAPIPackage.PATH__PATCH, oldPatch, newPatch);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -486,14 +486,14 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 		if (newPatch != patch) {
 			NotificationChain msgs = null;
 			if (patch != null)
-				msgs = ((InternalEObject)patch).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CorePackage.PATH__PATCH, null, msgs);
+				msgs = ((InternalEObject)patch).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OpenAPIPackage.PATH__PATCH, null, msgs);
 			if (newPatch != null)
-				msgs = ((InternalEObject)newPatch).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CorePackage.PATH__PATCH, null, msgs);
+				msgs = ((InternalEObject)newPatch).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OpenAPIPackage.PATH__PATCH, null, msgs);
 			msgs = basicSetPatch(newPatch, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.PATH__PATCH, newPatch, newPatch));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.PATH__PATCH, newPatch, newPatch));
 	}
 
 	/**
@@ -504,9 +504,9 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case CorePackage.PATH__GET:
+			case OpenAPIPackage.PATH__GET:
 				if (get != null)
-					msgs = ((InternalEObject)get).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CorePackage.PATH__GET, null, msgs);
+					msgs = ((InternalEObject)get).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OpenAPIPackage.PATH__GET, null, msgs);
 				return basicSetGet((Operation)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -520,19 +520,19 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case CorePackage.PATH__GET:
+			case OpenAPIPackage.PATH__GET:
 				return basicSetGet(null, msgs);
-			case CorePackage.PATH__PUT:
+			case OpenAPIPackage.PATH__PUT:
 				return basicSetPut(null, msgs);
-			case CorePackage.PATH__POST:
+			case OpenAPIPackage.PATH__POST:
 				return basicSetPost(null, msgs);
-			case CorePackage.PATH__DELETE:
+			case OpenAPIPackage.PATH__DELETE:
 				return basicSetDelete(null, msgs);
-			case CorePackage.PATH__OPTIONS:
+			case OpenAPIPackage.PATH__OPTIONS:
 				return basicSetOptions(null, msgs);
-			case CorePackage.PATH__HEAD:
+			case OpenAPIPackage.PATH__HEAD:
 				return basicSetHead(null, msgs);
-			case CorePackage.PATH__PATCH:
+			case OpenAPIPackage.PATH__PATCH:
 				return basicSetPatch(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -546,23 +546,23 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CorePackage.PATH__PARAMETERS:
+			case OpenAPIPackage.PATH__PARAMETERS:
 				return getParameters();
-			case CorePackage.PATH__PATTERN:
+			case OpenAPIPackage.PATH__PATTERN:
 				return getPattern();
-			case CorePackage.PATH__GET:
+			case OpenAPIPackage.PATH__GET:
 				return getGet();
-			case CorePackage.PATH__PUT:
+			case OpenAPIPackage.PATH__PUT:
 				return getPut();
-			case CorePackage.PATH__POST:
+			case OpenAPIPackage.PATH__POST:
 				return getPost();
-			case CorePackage.PATH__DELETE:
+			case OpenAPIPackage.PATH__DELETE:
 				return getDelete();
-			case CorePackage.PATH__OPTIONS:
+			case OpenAPIPackage.PATH__OPTIONS:
 				return getOptions();
-			case CorePackage.PATH__HEAD:
+			case OpenAPIPackage.PATH__HEAD:
 				return getHead();
-			case CorePackage.PATH__PATCH:
+			case OpenAPIPackage.PATH__PATCH:
 				return getPatch();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -577,32 +577,32 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CorePackage.PATH__PARAMETERS:
+			case OpenAPIPackage.PATH__PARAMETERS:
 				getParameters().clear();
 				getParameters().addAll((Collection<? extends Parameter>)newValue);
 				return;
-			case CorePackage.PATH__PATTERN:
+			case OpenAPIPackage.PATH__PATTERN:
 				setPattern((String)newValue);
 				return;
-			case CorePackage.PATH__GET:
+			case OpenAPIPackage.PATH__GET:
 				setGet((Operation)newValue);
 				return;
-			case CorePackage.PATH__PUT:
+			case OpenAPIPackage.PATH__PUT:
 				setPut((Operation)newValue);
 				return;
-			case CorePackage.PATH__POST:
+			case OpenAPIPackage.PATH__POST:
 				setPost((Operation)newValue);
 				return;
-			case CorePackage.PATH__DELETE:
+			case OpenAPIPackage.PATH__DELETE:
 				setDelete((Operation)newValue);
 				return;
-			case CorePackage.PATH__OPTIONS:
+			case OpenAPIPackage.PATH__OPTIONS:
 				setOptions((Operation)newValue);
 				return;
-			case CorePackage.PATH__HEAD:
+			case OpenAPIPackage.PATH__HEAD:
 				setHead((Operation)newValue);
 				return;
-			case CorePackage.PATH__PATCH:
+			case OpenAPIPackage.PATH__PATCH:
 				setPatch((Operation)newValue);
 				return;
 		}
@@ -617,31 +617,31 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CorePackage.PATH__PARAMETERS:
+			case OpenAPIPackage.PATH__PARAMETERS:
 				getParameters().clear();
 				return;
-			case CorePackage.PATH__PATTERN:
+			case OpenAPIPackage.PATH__PATTERN:
 				setPattern(PATTERN_EDEFAULT);
 				return;
-			case CorePackage.PATH__GET:
+			case OpenAPIPackage.PATH__GET:
 				setGet((Operation)null);
 				return;
-			case CorePackage.PATH__PUT:
+			case OpenAPIPackage.PATH__PUT:
 				setPut((Operation)null);
 				return;
-			case CorePackage.PATH__POST:
+			case OpenAPIPackage.PATH__POST:
 				setPost((Operation)null);
 				return;
-			case CorePackage.PATH__DELETE:
+			case OpenAPIPackage.PATH__DELETE:
 				setDelete((Operation)null);
 				return;
-			case CorePackage.PATH__OPTIONS:
+			case OpenAPIPackage.PATH__OPTIONS:
 				setOptions((Operation)null);
 				return;
-			case CorePackage.PATH__HEAD:
+			case OpenAPIPackage.PATH__HEAD:
 				setHead((Operation)null);
 				return;
-			case CorePackage.PATH__PATCH:
+			case OpenAPIPackage.PATH__PATCH:
 				setPatch((Operation)null);
 				return;
 		}
@@ -656,23 +656,23 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CorePackage.PATH__PARAMETERS:
+			case OpenAPIPackage.PATH__PARAMETERS:
 				return parameters != null && !parameters.isEmpty();
-			case CorePackage.PATH__PATTERN:
+			case OpenAPIPackage.PATH__PATTERN:
 				return PATTERN_EDEFAULT == null ? pattern != null : !PATTERN_EDEFAULT.equals(pattern);
-			case CorePackage.PATH__GET:
+			case OpenAPIPackage.PATH__GET:
 				return get != null;
-			case CorePackage.PATH__PUT:
+			case OpenAPIPackage.PATH__PUT:
 				return put != null;
-			case CorePackage.PATH__POST:
+			case OpenAPIPackage.PATH__POST:
 				return post != null;
-			case CorePackage.PATH__DELETE:
+			case OpenAPIPackage.PATH__DELETE:
 				return delete != null;
-			case CorePackage.PATH__OPTIONS:
+			case OpenAPIPackage.PATH__OPTIONS:
 				return options != null;
-			case CorePackage.PATH__HEAD:
+			case OpenAPIPackage.PATH__HEAD:
 				return head != null;
-			case CorePackage.PATH__PATCH:
+			case OpenAPIPackage.PATH__PATCH:
 				return patch != null;
 		}
 		return super.eIsSet(featureID);
@@ -687,7 +687,7 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == ParameterContext.class) {
 			switch (derivedFeatureID) {
-				case CorePackage.PATH__PARAMETERS: return CorePackage.PARAMETER_CONTEXT__PARAMETERS;
+				case OpenAPIPackage.PATH__PARAMETERS: return OpenAPIPackage.PARAMETER_CONTEXT__PARAMETERS;
 				default: return -1;
 			}
 		}
@@ -703,7 +703,7 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == ParameterContext.class) {
 			switch (baseFeatureID) {
-				case CorePackage.PARAMETER_CONTEXT__PARAMETERS: return CorePackage.PATH__PARAMETERS;
+				case OpenAPIPackage.PARAMETER_CONTEXT__PARAMETERS: return OpenAPIPackage.PATH__PARAMETERS;
 				default: return -1;
 			}
 		}

@@ -4,8 +4,8 @@ package core.impl;
 
 import core.ArrayContext;
 import core.CollectionFormat;
-import core.CorePackage;
 import core.ItemsDefinition;
+import core.OpenAPIPackage;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -75,7 +75,7 @@ public class ItemsDefinitionImpl extends JSONSchemaSubsetImpl implements ItemsDe
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return CorePackage.Literals.ITEMS_DEFINITION;
+		return OpenAPIPackage.Literals.ITEMS_DEFINITION;
 	}
 
 	/**
@@ -96,7 +96,7 @@ public class ItemsDefinitionImpl extends JSONSchemaSubsetImpl implements ItemsDe
 		ItemsDefinition oldItems = items;
 		items = newItems;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorePackage.ITEMS_DEFINITION__ITEMS, oldItems, newItems);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OpenAPIPackage.ITEMS_DEFINITION__ITEMS, oldItems, newItems);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -111,14 +111,14 @@ public class ItemsDefinitionImpl extends JSONSchemaSubsetImpl implements ItemsDe
 		if (newItems != items) {
 			NotificationChain msgs = null;
 			if (items != null)
-				msgs = ((InternalEObject)items).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CorePackage.ITEMS_DEFINITION__ITEMS, null, msgs);
+				msgs = ((InternalEObject)items).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OpenAPIPackage.ITEMS_DEFINITION__ITEMS, null, msgs);
 			if (newItems != null)
-				msgs = ((InternalEObject)newItems).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CorePackage.ITEMS_DEFINITION__ITEMS, null, msgs);
+				msgs = ((InternalEObject)newItems).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OpenAPIPackage.ITEMS_DEFINITION__ITEMS, null, msgs);
 			msgs = basicSetItems(newItems, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.ITEMS_DEFINITION__ITEMS, newItems, newItems));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.ITEMS_DEFINITION__ITEMS, newItems, newItems));
 	}
 
 	/**
@@ -139,7 +139,7 @@ public class ItemsDefinitionImpl extends JSONSchemaSubsetImpl implements ItemsDe
 		CollectionFormat oldCollectionFormat = collectionFormat;
 		collectionFormat = newCollectionFormat == null ? COLLECTION_FORMAT_EDEFAULT : newCollectionFormat;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.ITEMS_DEFINITION__COLLECTION_FORMAT, oldCollectionFormat, collectionFormat));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.ITEMS_DEFINITION__COLLECTION_FORMAT, oldCollectionFormat, collectionFormat));
 	}
 
 	/**
@@ -150,7 +150,7 @@ public class ItemsDefinitionImpl extends JSONSchemaSubsetImpl implements ItemsDe
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case CorePackage.ITEMS_DEFINITION__ITEMS:
+			case OpenAPIPackage.ITEMS_DEFINITION__ITEMS:
 				return basicSetItems(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -164,9 +164,9 @@ public class ItemsDefinitionImpl extends JSONSchemaSubsetImpl implements ItemsDe
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CorePackage.ITEMS_DEFINITION__COLLECTION_FORMAT:
+			case OpenAPIPackage.ITEMS_DEFINITION__COLLECTION_FORMAT:
 				return getCollectionFormat();
-			case CorePackage.ITEMS_DEFINITION__ITEMS:
+			case OpenAPIPackage.ITEMS_DEFINITION__ITEMS:
 				return getItems();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -180,10 +180,10 @@ public class ItemsDefinitionImpl extends JSONSchemaSubsetImpl implements ItemsDe
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CorePackage.ITEMS_DEFINITION__COLLECTION_FORMAT:
+			case OpenAPIPackage.ITEMS_DEFINITION__COLLECTION_FORMAT:
 				setCollectionFormat((CollectionFormat)newValue);
 				return;
-			case CorePackage.ITEMS_DEFINITION__ITEMS:
+			case OpenAPIPackage.ITEMS_DEFINITION__ITEMS:
 				setItems((ItemsDefinition)newValue);
 				return;
 		}
@@ -198,10 +198,10 @@ public class ItemsDefinitionImpl extends JSONSchemaSubsetImpl implements ItemsDe
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CorePackage.ITEMS_DEFINITION__COLLECTION_FORMAT:
+			case OpenAPIPackage.ITEMS_DEFINITION__COLLECTION_FORMAT:
 				setCollectionFormat(COLLECTION_FORMAT_EDEFAULT);
 				return;
-			case CorePackage.ITEMS_DEFINITION__ITEMS:
+			case OpenAPIPackage.ITEMS_DEFINITION__ITEMS:
 				setItems((ItemsDefinition)null);
 				return;
 		}
@@ -216,9 +216,9 @@ public class ItemsDefinitionImpl extends JSONSchemaSubsetImpl implements ItemsDe
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CorePackage.ITEMS_DEFINITION__COLLECTION_FORMAT:
+			case OpenAPIPackage.ITEMS_DEFINITION__COLLECTION_FORMAT:
 				return collectionFormat != COLLECTION_FORMAT_EDEFAULT;
-			case CorePackage.ITEMS_DEFINITION__ITEMS:
+			case OpenAPIPackage.ITEMS_DEFINITION__ITEMS:
 				return items != null;
 		}
 		return super.eIsSet(featureID);
@@ -233,8 +233,8 @@ public class ItemsDefinitionImpl extends JSONSchemaSubsetImpl implements ItemsDe
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == ArrayContext.class) {
 			switch (derivedFeatureID) {
-				case CorePackage.ITEMS_DEFINITION__COLLECTION_FORMAT: return CorePackage.ARRAY_CONTEXT__COLLECTION_FORMAT;
-				case CorePackage.ITEMS_DEFINITION__ITEMS: return CorePackage.ARRAY_CONTEXT__ITEMS;
+				case OpenAPIPackage.ITEMS_DEFINITION__COLLECTION_FORMAT: return OpenAPIPackage.ARRAY_CONTEXT__COLLECTION_FORMAT;
+				case OpenAPIPackage.ITEMS_DEFINITION__ITEMS: return OpenAPIPackage.ARRAY_CONTEXT__ITEMS;
 				default: return -1;
 			}
 		}
@@ -250,8 +250,8 @@ public class ItemsDefinitionImpl extends JSONSchemaSubsetImpl implements ItemsDe
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == ArrayContext.class) {
 			switch (baseFeatureID) {
-				case CorePackage.ARRAY_CONTEXT__COLLECTION_FORMAT: return CorePackage.ITEMS_DEFINITION__COLLECTION_FORMAT;
-				case CorePackage.ARRAY_CONTEXT__ITEMS: return CorePackage.ITEMS_DEFINITION__ITEMS;
+				case OpenAPIPackage.ARRAY_CONTEXT__COLLECTION_FORMAT: return OpenAPIPackage.ITEMS_DEFINITION__COLLECTION_FORMAT;
+				case OpenAPIPackage.ARRAY_CONTEXT__ITEMS: return OpenAPIPackage.ITEMS_DEFINITION__ITEMS;
 				default: return -1;
 			}
 		}

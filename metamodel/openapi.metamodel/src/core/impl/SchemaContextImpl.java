@@ -2,7 +2,7 @@
  */
 package core.impl;
 
-import core.CorePackage;
+import core.OpenAPIPackage;
 import core.Schema;
 import core.SchemaContext;
 
@@ -53,7 +53,7 @@ public abstract class SchemaContextImpl extends MinimalEObjectImpl.Container imp
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return CorePackage.Literals.SCHEMA_CONTEXT;
+		return OpenAPIPackage.Literals.SCHEMA_CONTEXT;
 	}
 
 	/**
@@ -67,7 +67,7 @@ public abstract class SchemaContextImpl extends MinimalEObjectImpl.Container imp
 			schema = (Schema)eResolveProxy(oldSchema);
 			if (schema != oldSchema) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CorePackage.SCHEMA_CONTEXT__SCHEMA, oldSchema, schema));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, OpenAPIPackage.SCHEMA_CONTEXT__SCHEMA, oldSchema, schema));
 			}
 		}
 		return schema;
@@ -91,7 +91,7 @@ public abstract class SchemaContextImpl extends MinimalEObjectImpl.Container imp
 		Schema oldSchema = schema;
 		schema = newSchema;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.SCHEMA_CONTEXT__SCHEMA, oldSchema, schema));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.SCHEMA_CONTEXT__SCHEMA, oldSchema, schema));
 	}
 
 	/**
@@ -102,7 +102,7 @@ public abstract class SchemaContextImpl extends MinimalEObjectImpl.Container imp
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CorePackage.SCHEMA_CONTEXT__SCHEMA:
+			case OpenAPIPackage.SCHEMA_CONTEXT__SCHEMA:
 				if (resolve) return getSchema();
 				return basicGetSchema();
 		}
@@ -117,7 +117,7 @@ public abstract class SchemaContextImpl extends MinimalEObjectImpl.Container imp
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CorePackage.SCHEMA_CONTEXT__SCHEMA:
+			case OpenAPIPackage.SCHEMA_CONTEXT__SCHEMA:
 				setSchema((Schema)newValue);
 				return;
 		}
@@ -132,7 +132,7 @@ public abstract class SchemaContextImpl extends MinimalEObjectImpl.Container imp
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CorePackage.SCHEMA_CONTEXT__SCHEMA:
+			case OpenAPIPackage.SCHEMA_CONTEXT__SCHEMA:
 				setSchema((Schema)null);
 				return;
 		}
@@ -147,7 +147,7 @@ public abstract class SchemaContextImpl extends MinimalEObjectImpl.Container imp
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CorePackage.SCHEMA_CONTEXT__SCHEMA:
+			case OpenAPIPackage.SCHEMA_CONTEXT__SCHEMA:
 				return schema != null;
 		}
 		return super.eIsSet(featureID);

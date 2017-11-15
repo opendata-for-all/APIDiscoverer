@@ -2,7 +2,7 @@
  */
 package core.impl;
 
-import core.CorePackage;
+import core.OpenAPIPackage;
 import core.SchemaDeclaringContext;
 
 import org.eclipse.emf.ecore.EClass;
@@ -33,7 +33,7 @@ public abstract class SchemaDeclaringContextImpl extends MinimalEObjectImpl.Cont
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return CorePackage.Literals.SCHEMA_DECLARING_CONTEXT;
+		return OpenAPIPackage.Literals.SCHEMA_DECLARING_CONTEXT;
 	}
 
 } //SchemaDeclaringContextImpl

@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link core.Info#getVersion <em>Version</em>}</li>
  * </ul>
  *
- * @see core.CorePackage#getInfo()
+ * @see core.OpenAPIPackage#getInfo()
  * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='requiredTitle requiredAPIVerison'"
  *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL requiredTitle='not self.title.oclIsUndefined()' requiredAPIVerison='not self.version.oclIsUndefined()'"
  * @generated
@@ -37,7 +37,7 @@ public interface Info extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Title</em>' attribute.
 	 * @see #setTitle(String)
-	 * @see core.CorePackage#getInfo_Title()
+	 * @see core.OpenAPIPackage#getInfo_Title()
 	 * @model
 	 * @generated
 	 */
@@ -63,7 +63,7 @@ public interface Info extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Description</em>' attribute.
 	 * @see #setDescription(String)
-	 * @see core.CorePackage#getInfo_Description()
+	 * @see core.OpenAPIPackage#getInfo_Description()
 	 * @model
 	 * @generated
 	 */
@@ -89,7 +89,7 @@ public interface Info extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Terms Of Services</em>' attribute.
 	 * @see #setTermsOfServices(String)
-	 * @see core.CorePackage#getInfo_TermsOfServices()
+	 * @see core.OpenAPIPackage#getInfo_TermsOfServices()
 	 * @model
 	 * @generated
 	 */
@@ -115,7 +115,7 @@ public interface Info extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Contact</em>' containment reference.
 	 * @see #setContact(Contact)
-	 * @see core.CorePackage#getInfo_Contact()
+	 * @see core.OpenAPIPackage#getInfo_Contact()
 	 * @model containment="true"
 	 * @generated
 	 */
@@ -141,7 +141,7 @@ public interface Info extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>License</em>' containment reference.
 	 * @see #setLicense(License)
-	 * @see core.CorePackage#getInfo_License()
+	 * @see core.OpenAPIPackage#getInfo_License()
 	 * @model containment="true"
 	 * @generated
 	 */
@@ -167,7 +167,7 @@ public interface Info extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Version</em>' attribute.
 	 * @see #setVersion(String)
-	 * @see core.CorePackage#getInfo_Version()
+	 * @see core.OpenAPIPackage#getInfo_Version()
 	 * @model
 	 * @generated
 	 */

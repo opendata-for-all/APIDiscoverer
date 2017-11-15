@@ -3,8 +3,7 @@
 package core.provider;
 
 
-import core.CorePackage;
-
+import core.OpenAPIPackage;
 import java.util.Collection;
 import java.util.List;
 
@@ -75,7 +74,7 @@ public class SecurityContextItemProvider
 				 getResourceLocator(),
 				 getString("_UI_SecurityContext_securityRequirement_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_SecurityContext_securityRequirement_feature", "_UI_SecurityContext_type"),
-				 CorePackage.Literals.SECURITY_CONTEXT__SECURITY_REQUIREMENT,
+				 OpenAPIPackage.Literals.SECURITY_CONTEXT__SECURITY_REQUIREMENT,
 				 true,
 				 false,
 				 true,

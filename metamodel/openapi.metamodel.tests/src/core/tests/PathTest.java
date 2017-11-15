@@ -2,7 +2,7 @@
  */
 package core.tests;
 
-import core.CoreFactory;
+import core.OpenAPIFactory;
 import core.Path;
 import junit.textui.TestRunner;
 
@@ -52,7 +52,7 @@ public class PathTest extends ParamterDeclaringContextTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(CoreFactory.eINSTANCE.createPath());
+		setFixture(OpenAPIFactory.eINSTANCE.createPath());
 	}
 
 	/**

@@ -2,7 +2,7 @@
  */
 package core.tests;
 
-import core.CoreFactory;
+import core.OpenAPIFactory;
 import core.Operation;
 
 import junit.textui.TestRunner;
@@ -53,7 +53,7 @@ public class OperationTest extends ParamterDeclaringContextTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(CoreFactory.eINSTANCE.createOperation());
+		setFixture(OpenAPIFactory.eINSTANCE.createOperation());
 	}
 
 	/**

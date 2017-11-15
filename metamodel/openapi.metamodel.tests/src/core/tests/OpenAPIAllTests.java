@@ -31,7 +31,7 @@ public class OpenAPIAllTests extends TestSuite {
 	 */
 	public static Test suite() {
 		TestSuite suite = new OpenAPIAllTests("OpenAPI Tests");
-		suite.addTest(CoreTests.suite());
+		suite.addTest(OpenAPITests.suite());
 		return suite;
 	}
 

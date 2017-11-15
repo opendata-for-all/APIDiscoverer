@@ -2,7 +2,7 @@
  */
 package core.impl;
 
-import core.CorePackage;
+import core.OpenAPIPackage;
 import core.SecurityContext;
 import core.SecurityScope;
 
@@ -56,7 +56,7 @@ public abstract class SecurityContextImpl extends MinimalEObjectImpl.Container i
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return CorePackage.Literals.SECURITY_CONTEXT;
+		return OpenAPIPackage.Literals.SECURITY_CONTEXT;
 	}
 
 	/**
@@ -66,7 +66,7 @@ public abstract class SecurityContextImpl extends MinimalEObjectImpl.Container i
 	 */
 	public EList<SecurityScope> getSecurityRequirement() {
 		if (securityRequirement == null) {
-			securityRequirement = new EObjectResolvingEList<SecurityScope>(SecurityScope.class, this, CorePackage.SECURITY_CONTEXT__SECURITY_REQUIREMENT);
+			securityRequirement = new EObjectResolvingEList<SecurityScope>(SecurityScope.class, this, OpenAPIPackage.SECURITY_CONTEXT__SECURITY_REQUIREMENT);
 		}
 		return securityRequirement;
 	}
@@ -79,7 +79,7 @@ public abstract class SecurityContextImpl extends MinimalEObjectImpl.Container i
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CorePackage.SECURITY_CONTEXT__SECURITY_REQUIREMENT:
+			case OpenAPIPackage.SECURITY_CONTEXT__SECURITY_REQUIREMENT:
 				return getSecurityRequirement();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -94,7 +94,7 @@ public abstract class SecurityContextImpl extends MinimalEObjectImpl.Container i
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CorePackage.SECURITY_CONTEXT__SECURITY_REQUIREMENT:
+			case OpenAPIPackage.SECURITY_CONTEXT__SECURITY_REQUIREMENT:
 				getSecurityRequirement().clear();
 				getSecurityRequirement().addAll((Collection<? extends SecurityScope>)newValue);
 				return;
@@ -110,7 +110,7 @@ public abstract class SecurityContextImpl extends MinimalEObjectImpl.Container i
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CorePackage.SECURITY_CONTEXT__SECURITY_REQUIREMENT:
+			case OpenAPIPackage.SECURITY_CONTEXT__SECURITY_REQUIREMENT:
 				getSecurityRequirement().clear();
 				return;
 		}
@@ -125,7 +125,7 @@ public abstract class SecurityContextImpl extends MinimalEObjectImpl.Container i
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CorePackage.SECURITY_CONTEXT__SECURITY_REQUIREMENT:
+			case OpenAPIPackage.SECURITY_CONTEXT__SECURITY_REQUIREMENT:
 				return securityRequirement != null && !securityRequirement.isEmpty();
 		}
 		return super.eIsSet(featureID);

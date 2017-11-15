@@ -3,7 +3,7 @@
 package core.provider;
 
 
-import core.CorePackage;
+import core.OpenAPIPackage;
 import core.XMLElement;
 
 import java.util.Collection;
@@ -82,7 +82,7 @@ public class XMLElementItemProvider
 				 getResourceLocator(),
 				 getString("_UI_XMLElement_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_XMLElement_name_feature", "_UI_XMLElement_type"),
-				 CorePackage.Literals.XML_ELEMENT__NAME,
+				 OpenAPIPackage.Literals.XML_ELEMENT__NAME,
 				 true,
 				 false,
 				 false,
@@ -104,7 +104,7 @@ public class XMLElementItemProvider
 				 getResourceLocator(),
 				 getString("_UI_XMLElement_namespace_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_XMLElement_namespace_feature", "_UI_XMLElement_type"),
-				 CorePackage.Literals.XML_ELEMENT__NAMESPACE,
+				 OpenAPIPackage.Literals.XML_ELEMENT__NAMESPACE,
 				 true,
 				 false,
 				 false,
@@ -126,7 +126,7 @@ public class XMLElementItemProvider
 				 getResourceLocator(),
 				 getString("_UI_XMLElement_prefix_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_XMLElement_prefix_feature", "_UI_XMLElement_type"),
-				 CorePackage.Literals.XML_ELEMENT__PREFIX,
+				 OpenAPIPackage.Literals.XML_ELEMENT__PREFIX,
 				 true,
 				 false,
 				 false,
@@ -148,7 +148,7 @@ public class XMLElementItemProvider
 				 getResourceLocator(),
 				 getString("_UI_XMLElement_attribute_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_XMLElement_attribute_feature", "_UI_XMLElement_type"),
-				 CorePackage.Literals.XML_ELEMENT__ATTRIBUTE,
+				 OpenAPIPackage.Literals.XML_ELEMENT__ATTRIBUTE,
 				 true,
 				 false,
 				 false,
@@ -170,7 +170,7 @@ public class XMLElementItemProvider
 				 getResourceLocator(),
 				 getString("_UI_XMLElement_wrapped_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_XMLElement_wrapped_feature", "_UI_XMLElement_type"),
-				 CorePackage.Literals.XML_ELEMENT__WRAPPED,
+				 OpenAPIPackage.Literals.XML_ELEMENT__WRAPPED,
 				 true,
 				 false,
 				 false,
@@ -217,11 +217,11 @@ public class XMLElementItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(XMLElement.class)) {
-			case CorePackage.XML_ELEMENT__NAME:
-			case CorePackage.XML_ELEMENT__NAMESPACE:
-			case CorePackage.XML_ELEMENT__PREFIX:
-			case CorePackage.XML_ELEMENT__ATTRIBUTE:
-			case CorePackage.XML_ELEMENT__WRAPPED:
+			case OpenAPIPackage.XML_ELEMENT__NAME:
+			case OpenAPIPackage.XML_ELEMENT__NAMESPACE:
+			case OpenAPIPackage.XML_ELEMENT__PREFIX:
+			case OpenAPIPackage.XML_ELEMENT__ATTRIBUTE:
+			case OpenAPIPackage.XML_ELEMENT__WRAPPED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

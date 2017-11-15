@@ -3,9 +3,9 @@
 package core.provider;
 
 
-import core.CorePackage;
 import core.ExternalDocs;
 
+import core.OpenAPIPackage;
 import java.util.Collection;
 import java.util.List;
 
@@ -79,7 +79,7 @@ public class ExternalDocsItemProvider
 				 getResourceLocator(),
 				 getString("_UI_ExternalDocs_description_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ExternalDocs_description_feature", "_UI_ExternalDocs_type"),
-				 CorePackage.Literals.EXTERNAL_DOCS__DESCRIPTION,
+				 OpenAPIPackage.Literals.EXTERNAL_DOCS__DESCRIPTION,
 				 true,
 				 false,
 				 false,
@@ -101,7 +101,7 @@ public class ExternalDocsItemProvider
 				 getResourceLocator(),
 				 getString("_UI_ExternalDocs_url_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ExternalDocs_url_feature", "_UI_ExternalDocs_type"),
-				 CorePackage.Literals.EXTERNAL_DOCS__URL,
+				 OpenAPIPackage.Literals.EXTERNAL_DOCS__URL,
 				 true,
 				 false,
 				 false,
@@ -148,8 +148,8 @@ public class ExternalDocsItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ExternalDocs.class)) {
-			case CorePackage.EXTERNAL_DOCS__DESCRIPTION:
-			case CorePackage.EXTERNAL_DOCS__URL:
+			case OpenAPIPackage.EXTERNAL_DOCS__DESCRIPTION:
+			case OpenAPIPackage.EXTERNAL_DOCS__URL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

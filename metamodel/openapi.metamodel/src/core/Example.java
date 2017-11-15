@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link core.Example#getValue <em>Value</em>}</li>
  * </ul>
  *
- * @see core.CorePackage#getExample()
+ * @see core.OpenAPIPackage#getExample()
  * @model
  * @generated
  */
@@ -32,7 +32,7 @@ public interface Example extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Mime Type</em>' attribute.
 	 * @see #setMimeType(String)
-	 * @see core.CorePackage#getExample_MimeType()
+	 * @see core.OpenAPIPackage#getExample_MimeType()
 	 * @model
 	 * @generated
 	 */
@@ -58,7 +58,7 @@ public interface Example extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Value</em>' attribute.
 	 * @see #setValue(String)
-	 * @see core.CorePackage#getExample_Value()
+	 * @see core.OpenAPIPackage#getExample_Value()
 	 * @model
 	 * @generated
 	 */

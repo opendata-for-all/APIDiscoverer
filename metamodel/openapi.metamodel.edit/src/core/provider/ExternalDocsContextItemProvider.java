@@ -3,10 +3,10 @@
 package core.provider;
 
 
-import core.CoreFactory;
-import core.CorePackage;
 import core.ExternalDocsContext;
 
+import core.OpenAPIFactory;
+import core.OpenAPIPackage;
 import java.util.Collection;
 import java.util.List;
 
@@ -77,7 +77,7 @@ public class ExternalDocsContextItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(CorePackage.Literals.EXTERNAL_DOCS_CONTEXT__EXTERNAL_DOCS);
+			childrenFeatures.add(OpenAPIPackage.Literals.EXTERNAL_DOCS_CONTEXT__EXTERNAL_DOCS);
 		}
 		return childrenFeatures;
 	}
@@ -119,7 +119,7 @@ public class ExternalDocsContextItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ExternalDocsContext.class)) {
-			case CorePackage.EXTERNAL_DOCS_CONTEXT__EXTERNAL_DOCS:
+			case OpenAPIPackage.EXTERNAL_DOCS_CONTEXT__EXTERNAL_DOCS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -139,8 +139,8 @@ public class ExternalDocsContextItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.Literals.EXTERNAL_DOCS_CONTEXT__EXTERNAL_DOCS,
-				 CoreFactory.eINSTANCE.createExternalDocs()));
+				(OpenAPIPackage.Literals.EXTERNAL_DOCS_CONTEXT__EXTERNAL_DOCS,
+				 OpenAPIFactory.eINSTANCE.createExternalDocs()));
 	}
 
 	/**

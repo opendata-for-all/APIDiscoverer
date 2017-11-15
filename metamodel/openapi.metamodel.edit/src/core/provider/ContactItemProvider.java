@@ -4,8 +4,7 @@ package core.provider;
 
 
 import core.Contact;
-import core.CorePackage;
-
+import core.OpenAPIPackage;
 import java.util.Collection;
 import java.util.List;
 
@@ -80,7 +79,7 @@ public class ContactItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Contact_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Contact_name_feature", "_UI_Contact_type"),
-				 CorePackage.Literals.CONTACT__NAME,
+				 OpenAPIPackage.Literals.CONTACT__NAME,
 				 true,
 				 false,
 				 false,
@@ -102,7 +101,7 @@ public class ContactItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Contact_url_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Contact_url_feature", "_UI_Contact_type"),
-				 CorePackage.Literals.CONTACT__URL,
+				 OpenAPIPackage.Literals.CONTACT__URL,
 				 true,
 				 false,
 				 false,
@@ -124,7 +123,7 @@ public class ContactItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Contact_email_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Contact_email_feature", "_UI_Contact_type"),
-				 CorePackage.Literals.CONTACT__EMAIL,
+				 OpenAPIPackage.Literals.CONTACT__EMAIL,
 				 true,
 				 false,
 				 false,
@@ -171,9 +170,9 @@ public class ContactItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Contact.class)) {
-			case CorePackage.CONTACT__NAME:
-			case CorePackage.CONTACT__URL:
-			case CorePackage.CONTACT__EMAIL:
+			case OpenAPIPackage.CONTACT__NAME:
+			case OpenAPIPackage.CONTACT__URL:
+			case OpenAPIPackage.CONTACT__EMAIL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

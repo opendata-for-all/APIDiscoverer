@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link core.JSONPointer#getRef <em>Ref</em>}</li>
  * </ul>
  *
- * @see core.CorePackage#getJSONPointer()
+ * @see core.OpenAPIPackage#getJSONPointer()
  * @model abstract="true"
  * @generated
  */
@@ -30,7 +30,7 @@ public interface JSONPointer extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Ref</em>' attribute.
-	 * @see core.CorePackage#getJSONPointer_Ref()
+	 * @see core.OpenAPIPackage#getJSONPointer_Ref()
 	 * @model transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */

@@ -2,7 +2,7 @@
  */
 package core.impl;
 
-import core.CorePackage;
+import core.OpenAPIPackage;
 import core.Parameter;
 import core.ParameterContext;
 
@@ -53,7 +53,7 @@ public abstract class ParameterContextImpl extends MinimalEObjectImpl.Container 
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return CorePackage.Literals.PARAMETER_CONTEXT;
+		return OpenAPIPackage.Literals.PARAMETER_CONTEXT;
 	}
 
 	/**
@@ -63,7 +63,7 @@ public abstract class ParameterContextImpl extends MinimalEObjectImpl.Container 
 	 */
 	public EList<Parameter> getParameters() {
 		if (parameters == null) {
-			parameters = new EObjectResolvingEList<Parameter>(Parameter.class, this, CorePackage.PARAMETER_CONTEXT__PARAMETERS);
+			parameters = new EObjectResolvingEList<Parameter>(Parameter.class, this, OpenAPIPackage.PARAMETER_CONTEXT__PARAMETERS);
 		}
 		return parameters;
 	}
@@ -76,7 +76,7 @@ public abstract class ParameterContextImpl extends MinimalEObjectImpl.Container 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CorePackage.PARAMETER_CONTEXT__PARAMETERS:
+			case OpenAPIPackage.PARAMETER_CONTEXT__PARAMETERS:
 				return getParameters();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -91,7 +91,7 @@ public abstract class ParameterContextImpl extends MinimalEObjectImpl.Container 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CorePackage.PARAMETER_CONTEXT__PARAMETERS:
+			case OpenAPIPackage.PARAMETER_CONTEXT__PARAMETERS:
 				getParameters().clear();
 				getParameters().addAll((Collection<? extends Parameter>)newValue);
 				return;
@@ -107,7 +107,7 @@ public abstract class ParameterContextImpl extends MinimalEObjectImpl.Container 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CorePackage.PARAMETER_CONTEXT__PARAMETERS:
+			case OpenAPIPackage.PARAMETER_CONTEXT__PARAMETERS:
 				getParameters().clear();
 				return;
 		}
@@ -122,7 +122,7 @@ public abstract class ParameterContextImpl extends MinimalEObjectImpl.Container 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CorePackage.PARAMETER_CONTEXT__PARAMETERS:
+			case OpenAPIPackage.PARAMETER_CONTEXT__PARAMETERS:
 				return parameters != null && !parameters.isEmpty();
 		}
 		return super.eIsSet(featureID);

@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link core.Contact#getEmail <em>Email</em>}</li>
  * </ul>
  *
- * @see core.CorePackage#getContact()
+ * @see core.OpenAPIPackage#getContact()
  * @model
  * @generated
  */
@@ -33,7 +33,7 @@ public interface Contact extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
-	 * @see core.CorePackage#getContact_Name()
+	 * @see core.OpenAPIPackage#getContact_Name()
 	 * @model
 	 * @generated
 	 */
@@ -59,7 +59,7 @@ public interface Contact extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Url</em>' attribute.
 	 * @see #setUrl(String)
-	 * @see core.CorePackage#getContact_Url()
+	 * @see core.OpenAPIPackage#getContact_Url()
 	 * @model
 	 * @generated
 	 */
@@ -85,7 +85,7 @@ public interface Contact extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Email</em>' attribute.
 	 * @see #setEmail(String)
-	 * @see core.CorePackage#getContact_Email()
+	 * @see core.OpenAPIPackage#getContact_Email()
 	 * @model
 	 * @generated
 	 */

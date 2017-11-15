@@ -2,9 +2,9 @@
  */
 package core.impl;
 
-import core.CorePackage;
 import core.ExternalDocs;
 
+import core.OpenAPIPackage;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -83,7 +83,7 @@ public class ExternalDocsImpl extends MinimalEObjectImpl.Container implements Ex
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return CorePackage.Literals.EXTERNAL_DOCS;
+		return OpenAPIPackage.Literals.EXTERNAL_DOCS;
 	}
 
 	/**
@@ -104,7 +104,7 @@ public class ExternalDocsImpl extends MinimalEObjectImpl.Container implements Ex
 		String oldDescription = description;
 		description = newDescription;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.EXTERNAL_DOCS__DESCRIPTION, oldDescription, description));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.EXTERNAL_DOCS__DESCRIPTION, oldDescription, description));
 	}
 
 	/**
@@ -125,7 +125,7 @@ public class ExternalDocsImpl extends MinimalEObjectImpl.Container implements Ex
 		String oldUrl = url;
 		url = newUrl;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.EXTERNAL_DOCS__URL, oldUrl, url));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.EXTERNAL_DOCS__URL, oldUrl, url));
 	}
 
 	/**
@@ -136,9 +136,9 @@ public class ExternalDocsImpl extends MinimalEObjectImpl.Container implements Ex
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CorePackage.EXTERNAL_DOCS__DESCRIPTION:
+			case OpenAPIPackage.EXTERNAL_DOCS__DESCRIPTION:
 				return getDescription();
-			case CorePackage.EXTERNAL_DOCS__URL:
+			case OpenAPIPackage.EXTERNAL_DOCS__URL:
 				return getUrl();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -152,10 +152,10 @@ public class ExternalDocsImpl extends MinimalEObjectImpl.Container implements Ex
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CorePackage.EXTERNAL_DOCS__DESCRIPTION:
+			case OpenAPIPackage.EXTERNAL_DOCS__DESCRIPTION:
 				setDescription((String)newValue);
 				return;
-			case CorePackage.EXTERNAL_DOCS__URL:
+			case OpenAPIPackage.EXTERNAL_DOCS__URL:
 				setUrl((String)newValue);
 				return;
 		}
@@ -170,10 +170,10 @@ public class ExternalDocsImpl extends MinimalEObjectImpl.Container implements Ex
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CorePackage.EXTERNAL_DOCS__DESCRIPTION:
+			case OpenAPIPackage.EXTERNAL_DOCS__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
 				return;
-			case CorePackage.EXTERNAL_DOCS__URL:
+			case OpenAPIPackage.EXTERNAL_DOCS__URL:
 				setUrl(URL_EDEFAULT);
 				return;
 		}
@@ -188,9 +188,9 @@ public class ExternalDocsImpl extends MinimalEObjectImpl.Container implements Ex
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CorePackage.EXTERNAL_DOCS__DESCRIPTION:
+			case OpenAPIPackage.EXTERNAL_DOCS__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-			case CorePackage.EXTERNAL_DOCS__URL:
+			case OpenAPIPackage.EXTERNAL_DOCS__URL:
 				return URL_EDEFAULT == null ? url != null : !URL_EDEFAULT.equals(url);
 		}
 		return super.eIsSet(featureID);

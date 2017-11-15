@@ -2,10 +2,10 @@
  */
 package core.impl;
 
-import core.CorePackage;
 import core.ExternalDocs;
 import core.ExternalDocsContext;
 import core.JSONPointer;
+import core.OpenAPIPackage;
 import core.Schema;
 import core.SchemaDeclaringContext;
 import core.XMLElement;
@@ -21,8 +21,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
@@ -39,7 +37,6 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *   <li>{@link core.impl.SchemaImpl#getTitle <em>Title</em>}</li>
  *   <li>{@link core.impl.SchemaImpl#getMaxProperties <em>Max Properties</em>}</li>
  *   <li>{@link core.impl.SchemaImpl#getMinProperties <em>Min Properties</em>}</li>
- *   <li>{@link core.impl.SchemaImpl#getRequired <em>Required</em>}</li>
  *   <li>{@link core.impl.SchemaImpl#getExample <em>Example</em>}</li>
  *   <li>{@link core.impl.SchemaImpl#getDiscriminator <em>Discriminator</em>}</li>
  *   <li>{@link core.impl.SchemaImpl#getReadOnly <em>Read Only</em>}</li>
@@ -49,6 +46,9 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *   <li>{@link core.impl.SchemaImpl#getXml <em>Xml</em>}</li>
  *   <li>{@link core.impl.SchemaImpl#getAdditonalProperties <em>Additonal Properties</em>}</li>
  *   <li>{@link core.impl.SchemaImpl#getDeclaringContext <em>Declaring Context</em>}</li>
+ *   <li>{@link core.impl.SchemaImpl#getRequired <em>Required</em>}</li>
+ *   <li>{@link core.impl.SchemaImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link core.impl.SchemaImpl#isAdditonalPropertiesAllowed <em>Additonal Properties Allowed</em>}</li>
  * </ul>
  *
  * @generated
@@ -153,16 +153,6 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	 * @ordered
 	 */
 	protected Integer minProperties = MIN_PROPERTIES_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getRequired() <em>Required</em>}' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRequired()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<String> required;
 
 	/**
 	 * The default value of the '{@link #getExample() <em>Example</em>}' attribute.
@@ -285,6 +275,46 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	protected SchemaDeclaringContext declaringContext;
 
 	/**
+	 * The cached value of the '{@link #getRequired() <em>Required</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRequired()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Schema> required;
+
+	/**
+	 * The cached value of the '{@link #getValue() <em>Value</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected Schema value;
+
+	/**
+	 * The default value of the '{@link #isAdditonalPropertiesAllowed() <em>Additonal Properties Allowed</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isAdditonalPropertiesAllowed()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean ADDITONAL_PROPERTIES_ALLOWED_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isAdditonalPropertiesAllowed() <em>Additonal Properties Allowed</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isAdditonalPropertiesAllowed()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean additonalPropertiesAllowed = ADDITONAL_PROPERTIES_ALLOWED_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -300,7 +330,7 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return CorePackage.Literals.SCHEMA;
+		return OpenAPIPackage.Literals.SCHEMA;
 	}
 
 	/**
@@ -341,7 +371,7 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 		ExternalDocs oldExternalDocs = externalDocs;
 		externalDocs = newExternalDocs;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorePackage.SCHEMA__EXTERNAL_DOCS, oldExternalDocs, newExternalDocs);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OpenAPIPackage.SCHEMA__EXTERNAL_DOCS, oldExternalDocs, newExternalDocs);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -356,14 +386,14 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 		if (newExternalDocs != externalDocs) {
 			NotificationChain msgs = null;
 			if (externalDocs != null)
-				msgs = ((InternalEObject)externalDocs).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CorePackage.SCHEMA__EXTERNAL_DOCS, null, msgs);
+				msgs = ((InternalEObject)externalDocs).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OpenAPIPackage.SCHEMA__EXTERNAL_DOCS, null, msgs);
 			if (newExternalDocs != null)
-				msgs = ((InternalEObject)newExternalDocs).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CorePackage.SCHEMA__EXTERNAL_DOCS, null, msgs);
+				msgs = ((InternalEObject)newExternalDocs).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OpenAPIPackage.SCHEMA__EXTERNAL_DOCS, null, msgs);
 			msgs = basicSetExternalDocs(newExternalDocs, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.SCHEMA__EXTERNAL_DOCS, newExternalDocs, newExternalDocs));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.SCHEMA__EXTERNAL_DOCS, newExternalDocs, newExternalDocs));
 	}
 
 	/**
@@ -384,7 +414,7 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.SCHEMA__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.SCHEMA__NAME, oldName, name));
 	}
 
 	/**
@@ -405,7 +435,7 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 		String oldTitle = title;
 		title = newTitle;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.SCHEMA__TITLE, oldTitle, title));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.SCHEMA__TITLE, oldTitle, title));
 	}
 
 	/**
@@ -426,7 +456,7 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 		Integer oldMaxProperties = maxProperties;
 		maxProperties = newMaxProperties;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.SCHEMA__MAX_PROPERTIES, oldMaxProperties, maxProperties));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.SCHEMA__MAX_PROPERTIES, oldMaxProperties, maxProperties));
 	}
 
 	/**
@@ -447,7 +477,7 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 		Integer oldMinProperties = minProperties;
 		minProperties = newMinProperties;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.SCHEMA__MIN_PROPERTIES, oldMinProperties, minProperties));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.SCHEMA__MIN_PROPERTIES, oldMinProperties, minProperties));
 	}
 
 	/**
@@ -455,11 +485,70 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<String> getRequired() {
+	public EList<Schema> getRequired() {
 		if (required == null) {
-			required = new EDataTypeUniqueEList<String>(String.class, this, CorePackage.SCHEMA__REQUIRED);
+			required = new EObjectResolvingEList<Schema>(Schema.class, this, OpenAPIPackage.SCHEMA__REQUIRED);
 		}
 		return required;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Schema getValue() {
+		if (value != null && value.eIsProxy()) {
+			InternalEObject oldValue = (InternalEObject)value;
+			value = (Schema)eResolveProxy(oldValue);
+			if (value != oldValue) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, OpenAPIPackage.SCHEMA__VALUE, oldValue, value));
+			}
+		}
+		return value;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Schema basicGetValue() {
+		return value;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setValue(Schema newValue) {
+		Schema oldValue = value;
+		value = newValue;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.SCHEMA__VALUE, oldValue, value));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isAdditonalPropertiesAllowed() {
+		return additonalPropertiesAllowed;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAdditonalPropertiesAllowed(boolean newAdditonalPropertiesAllowed) {
+		boolean oldAdditonalPropertiesAllowed = additonalPropertiesAllowed;
+		additonalPropertiesAllowed = newAdditonalPropertiesAllowed;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.SCHEMA__ADDITONAL_PROPERTIES_ALLOWED, oldAdditonalPropertiesAllowed, additonalPropertiesAllowed));
 	}
 
 	/**
@@ -480,7 +569,7 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 		String oldExample = example;
 		example = newExample;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.SCHEMA__EXAMPLE, oldExample, example));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.SCHEMA__EXAMPLE, oldExample, example));
 	}
 
 	/**
@@ -501,7 +590,7 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 		String oldDiscriminator = discriminator;
 		discriminator = newDiscriminator;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.SCHEMA__DISCRIMINATOR, oldDiscriminator, discriminator));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.SCHEMA__DISCRIMINATOR, oldDiscriminator, discriminator));
 	}
 
 	/**
@@ -522,7 +611,7 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 		Boolean oldReadOnly = readOnly;
 		readOnly = newReadOnly;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.SCHEMA__READ_ONLY, oldReadOnly, readOnly));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.SCHEMA__READ_ONLY, oldReadOnly, readOnly));
 	}
 
 	/**
@@ -532,7 +621,7 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	 */
 	public EList<Schema> getProperties() {
 		if (properties == null) {
-			properties = new EObjectResolvingEList<Schema>(Schema.class, this, CorePackage.SCHEMA__PROPERTIES);
+			properties = new EObjectResolvingEList<Schema>(Schema.class, this, OpenAPIPackage.SCHEMA__PROPERTIES);
 		}
 		return properties;
 	}
@@ -544,7 +633,7 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	 */
 	public EList<Schema> getAllOf() {
 		if (allOf == null) {
-			allOf = new EObjectResolvingEList<Schema>(Schema.class, this, CorePackage.SCHEMA__ALL_OF);
+			allOf = new EObjectResolvingEList<Schema>(Schema.class, this, OpenAPIPackage.SCHEMA__ALL_OF);
 		}
 		return allOf;
 	}
@@ -560,7 +649,7 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 			items = (Schema)eResolveProxy(oldItems);
 			if (items != oldItems) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CorePackage.SCHEMA__ITEMS, oldItems, items));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, OpenAPIPackage.SCHEMA__ITEMS, oldItems, items));
 			}
 		}
 		return items;
@@ -584,7 +673,7 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 		Schema oldItems = items;
 		items = newItems;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.SCHEMA__ITEMS, oldItems, items));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.SCHEMA__ITEMS, oldItems, items));
 	}
 
 	/**
@@ -605,7 +694,7 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 		XMLElement oldXml = xml;
 		xml = newXml;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorePackage.SCHEMA__XML, oldXml, newXml);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OpenAPIPackage.SCHEMA__XML, oldXml, newXml);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -620,14 +709,14 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 		if (newXml != xml) {
 			NotificationChain msgs = null;
 			if (xml != null)
-				msgs = ((InternalEObject)xml).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CorePackage.SCHEMA__XML, null, msgs);
+				msgs = ((InternalEObject)xml).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OpenAPIPackage.SCHEMA__XML, null, msgs);
 			if (newXml != null)
-				msgs = ((InternalEObject)newXml).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CorePackage.SCHEMA__XML, null, msgs);
+				msgs = ((InternalEObject)newXml).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OpenAPIPackage.SCHEMA__XML, null, msgs);
 			msgs = basicSetXml(newXml, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.SCHEMA__XML, newXml, newXml));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.SCHEMA__XML, newXml, newXml));
 	}
 
 	/**
@@ -641,7 +730,7 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 			additonalProperties = (Schema)eResolveProxy(oldAdditonalProperties);
 			if (additonalProperties != oldAdditonalProperties) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CorePackage.SCHEMA__ADDITONAL_PROPERTIES, oldAdditonalProperties, additonalProperties));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, OpenAPIPackage.SCHEMA__ADDITONAL_PROPERTIES, oldAdditonalProperties, additonalProperties));
 			}
 		}
 		return additonalProperties;
@@ -665,7 +754,7 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 		Schema oldAdditonalProperties = additonalProperties;
 		additonalProperties = newAdditonalProperties;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.SCHEMA__ADDITONAL_PROPERTIES, oldAdditonalProperties, additonalProperties));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.SCHEMA__ADDITONAL_PROPERTIES, oldAdditonalProperties, additonalProperties));
 	}
 
 	/**
@@ -679,7 +768,7 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 			declaringContext = (SchemaDeclaringContext)eResolveProxy(oldDeclaringContext);
 			if (declaringContext != oldDeclaringContext) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CorePackage.SCHEMA__DECLARING_CONTEXT, oldDeclaringContext, declaringContext));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, OpenAPIPackage.SCHEMA__DECLARING_CONTEXT, oldDeclaringContext, declaringContext));
 			}
 		}
 		return declaringContext;
@@ -703,7 +792,7 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 		SchemaDeclaringContext oldDeclaringContext = declaringContext;
 		declaringContext = newDeclaringContext;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.SCHEMA__DECLARING_CONTEXT, oldDeclaringContext, declaringContext));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.SCHEMA__DECLARING_CONTEXT, oldDeclaringContext, declaringContext));
 	}
 
 	/**
@@ -714,9 +803,9 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case CorePackage.SCHEMA__EXTERNAL_DOCS:
+			case OpenAPIPackage.SCHEMA__EXTERNAL_DOCS:
 				return basicSetExternalDocs(null, msgs);
-			case CorePackage.SCHEMA__XML:
+			case OpenAPIPackage.SCHEMA__XML:
 				return basicSetXml(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -730,41 +819,46 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CorePackage.SCHEMA__REF:
+			case OpenAPIPackage.SCHEMA__REF:
 				return getRef();
-			case CorePackage.SCHEMA__EXTERNAL_DOCS:
+			case OpenAPIPackage.SCHEMA__EXTERNAL_DOCS:
 				return getExternalDocs();
-			case CorePackage.SCHEMA__NAME:
+			case OpenAPIPackage.SCHEMA__NAME:
 				return getName();
-			case CorePackage.SCHEMA__TITLE:
+			case OpenAPIPackage.SCHEMA__TITLE:
 				return getTitle();
-			case CorePackage.SCHEMA__MAX_PROPERTIES:
+			case OpenAPIPackage.SCHEMA__MAX_PROPERTIES:
 				return getMaxProperties();
-			case CorePackage.SCHEMA__MIN_PROPERTIES:
+			case OpenAPIPackage.SCHEMA__MIN_PROPERTIES:
 				return getMinProperties();
-			case CorePackage.SCHEMA__REQUIRED:
-				return getRequired();
-			case CorePackage.SCHEMA__EXAMPLE:
+			case OpenAPIPackage.SCHEMA__EXAMPLE:
 				return getExample();
-			case CorePackage.SCHEMA__DISCRIMINATOR:
+			case OpenAPIPackage.SCHEMA__DISCRIMINATOR:
 				return getDiscriminator();
-			case CorePackage.SCHEMA__READ_ONLY:
+			case OpenAPIPackage.SCHEMA__READ_ONLY:
 				return getReadOnly();
-			case CorePackage.SCHEMA__PROPERTIES:
+			case OpenAPIPackage.SCHEMA__PROPERTIES:
 				return getProperties();
-			case CorePackage.SCHEMA__ALL_OF:
+			case OpenAPIPackage.SCHEMA__ALL_OF:
 				return getAllOf();
-			case CorePackage.SCHEMA__ITEMS:
+			case OpenAPIPackage.SCHEMA__ITEMS:
 				if (resolve) return getItems();
 				return basicGetItems();
-			case CorePackage.SCHEMA__XML:
+			case OpenAPIPackage.SCHEMA__XML:
 				return getXml();
-			case CorePackage.SCHEMA__ADDITONAL_PROPERTIES:
+			case OpenAPIPackage.SCHEMA__ADDITONAL_PROPERTIES:
 				if (resolve) return getAdditonalProperties();
 				return basicGetAdditonalProperties();
-			case CorePackage.SCHEMA__DECLARING_CONTEXT:
+			case OpenAPIPackage.SCHEMA__DECLARING_CONTEXT:
 				if (resolve) return getDeclaringContext();
 				return basicGetDeclaringContext();
+			case OpenAPIPackage.SCHEMA__REQUIRED:
+				return getRequired();
+			case OpenAPIPackage.SCHEMA__VALUE:
+				if (resolve) return getValue();
+				return basicGetValue();
+			case OpenAPIPackage.SCHEMA__ADDITONAL_PROPERTIES_ALLOWED:
+				return isAdditonalPropertiesAllowed();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -778,53 +872,59 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CorePackage.SCHEMA__EXTERNAL_DOCS:
+			case OpenAPIPackage.SCHEMA__EXTERNAL_DOCS:
 				setExternalDocs((ExternalDocs)newValue);
 				return;
-			case CorePackage.SCHEMA__NAME:
+			case OpenAPIPackage.SCHEMA__NAME:
 				setName((String)newValue);
 				return;
-			case CorePackage.SCHEMA__TITLE:
+			case OpenAPIPackage.SCHEMA__TITLE:
 				setTitle((String)newValue);
 				return;
-			case CorePackage.SCHEMA__MAX_PROPERTIES:
+			case OpenAPIPackage.SCHEMA__MAX_PROPERTIES:
 				setMaxProperties((Integer)newValue);
 				return;
-			case CorePackage.SCHEMA__MIN_PROPERTIES:
+			case OpenAPIPackage.SCHEMA__MIN_PROPERTIES:
 				setMinProperties((Integer)newValue);
 				return;
-			case CorePackage.SCHEMA__REQUIRED:
-				getRequired().clear();
-				getRequired().addAll((Collection<? extends String>)newValue);
-				return;
-			case CorePackage.SCHEMA__EXAMPLE:
+			case OpenAPIPackage.SCHEMA__EXAMPLE:
 				setExample((String)newValue);
 				return;
-			case CorePackage.SCHEMA__DISCRIMINATOR:
+			case OpenAPIPackage.SCHEMA__DISCRIMINATOR:
 				setDiscriminator((String)newValue);
 				return;
-			case CorePackage.SCHEMA__READ_ONLY:
+			case OpenAPIPackage.SCHEMA__READ_ONLY:
 				setReadOnly((Boolean)newValue);
 				return;
-			case CorePackage.SCHEMA__PROPERTIES:
+			case OpenAPIPackage.SCHEMA__PROPERTIES:
 				getProperties().clear();
 				getProperties().addAll((Collection<? extends Schema>)newValue);
 				return;
-			case CorePackage.SCHEMA__ALL_OF:
+			case OpenAPIPackage.SCHEMA__ALL_OF:
 				getAllOf().clear();
 				getAllOf().addAll((Collection<? extends Schema>)newValue);
 				return;
-			case CorePackage.SCHEMA__ITEMS:
+			case OpenAPIPackage.SCHEMA__ITEMS:
 				setItems((Schema)newValue);
 				return;
-			case CorePackage.SCHEMA__XML:
+			case OpenAPIPackage.SCHEMA__XML:
 				setXml((XMLElement)newValue);
 				return;
-			case CorePackage.SCHEMA__ADDITONAL_PROPERTIES:
+			case OpenAPIPackage.SCHEMA__ADDITONAL_PROPERTIES:
 				setAdditonalProperties((Schema)newValue);
 				return;
-			case CorePackage.SCHEMA__DECLARING_CONTEXT:
+			case OpenAPIPackage.SCHEMA__DECLARING_CONTEXT:
 				setDeclaringContext((SchemaDeclaringContext)newValue);
+				return;
+			case OpenAPIPackage.SCHEMA__REQUIRED:
+				getRequired().clear();
+				getRequired().addAll((Collection<? extends Schema>)newValue);
+				return;
+			case OpenAPIPackage.SCHEMA__VALUE:
+				setValue((Schema)newValue);
+				return;
+			case OpenAPIPackage.SCHEMA__ADDITONAL_PROPERTIES_ALLOWED:
+				setAdditonalPropertiesAllowed((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -838,50 +938,56 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CorePackage.SCHEMA__EXTERNAL_DOCS:
+			case OpenAPIPackage.SCHEMA__EXTERNAL_DOCS:
 				setExternalDocs((ExternalDocs)null);
 				return;
-			case CorePackage.SCHEMA__NAME:
+			case OpenAPIPackage.SCHEMA__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case CorePackage.SCHEMA__TITLE:
+			case OpenAPIPackage.SCHEMA__TITLE:
 				setTitle(TITLE_EDEFAULT);
 				return;
-			case CorePackage.SCHEMA__MAX_PROPERTIES:
+			case OpenAPIPackage.SCHEMA__MAX_PROPERTIES:
 				setMaxProperties(MAX_PROPERTIES_EDEFAULT);
 				return;
-			case CorePackage.SCHEMA__MIN_PROPERTIES:
+			case OpenAPIPackage.SCHEMA__MIN_PROPERTIES:
 				setMinProperties(MIN_PROPERTIES_EDEFAULT);
 				return;
-			case CorePackage.SCHEMA__REQUIRED:
-				getRequired().clear();
-				return;
-			case CorePackage.SCHEMA__EXAMPLE:
+			case OpenAPIPackage.SCHEMA__EXAMPLE:
 				setExample(EXAMPLE_EDEFAULT);
 				return;
-			case CorePackage.SCHEMA__DISCRIMINATOR:
+			case OpenAPIPackage.SCHEMA__DISCRIMINATOR:
 				setDiscriminator(DISCRIMINATOR_EDEFAULT);
 				return;
-			case CorePackage.SCHEMA__READ_ONLY:
+			case OpenAPIPackage.SCHEMA__READ_ONLY:
 				setReadOnly(READ_ONLY_EDEFAULT);
 				return;
-			case CorePackage.SCHEMA__PROPERTIES:
+			case OpenAPIPackage.SCHEMA__PROPERTIES:
 				getProperties().clear();
 				return;
-			case CorePackage.SCHEMA__ALL_OF:
+			case OpenAPIPackage.SCHEMA__ALL_OF:
 				getAllOf().clear();
 				return;
-			case CorePackage.SCHEMA__ITEMS:
+			case OpenAPIPackage.SCHEMA__ITEMS:
 				setItems((Schema)null);
 				return;
-			case CorePackage.SCHEMA__XML:
+			case OpenAPIPackage.SCHEMA__XML:
 				setXml((XMLElement)null);
 				return;
-			case CorePackage.SCHEMA__ADDITONAL_PROPERTIES:
+			case OpenAPIPackage.SCHEMA__ADDITONAL_PROPERTIES:
 				setAdditonalProperties((Schema)null);
 				return;
-			case CorePackage.SCHEMA__DECLARING_CONTEXT:
+			case OpenAPIPackage.SCHEMA__DECLARING_CONTEXT:
 				setDeclaringContext((SchemaDeclaringContext)null);
+				return;
+			case OpenAPIPackage.SCHEMA__REQUIRED:
+				getRequired().clear();
+				return;
+			case OpenAPIPackage.SCHEMA__VALUE:
+				setValue((Schema)null);
+				return;
+			case OpenAPIPackage.SCHEMA__ADDITONAL_PROPERTIES_ALLOWED:
+				setAdditonalPropertiesAllowed(ADDITONAL_PROPERTIES_ALLOWED_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -895,38 +1001,42 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CorePackage.SCHEMA__REF:
+			case OpenAPIPackage.SCHEMA__REF:
 				return REF_EDEFAULT == null ? getRef() != null : !REF_EDEFAULT.equals(getRef());
-			case CorePackage.SCHEMA__EXTERNAL_DOCS:
+			case OpenAPIPackage.SCHEMA__EXTERNAL_DOCS:
 				return externalDocs != null;
-			case CorePackage.SCHEMA__NAME:
+			case OpenAPIPackage.SCHEMA__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case CorePackage.SCHEMA__TITLE:
+			case OpenAPIPackage.SCHEMA__TITLE:
 				return TITLE_EDEFAULT == null ? title != null : !TITLE_EDEFAULT.equals(title);
-			case CorePackage.SCHEMA__MAX_PROPERTIES:
+			case OpenAPIPackage.SCHEMA__MAX_PROPERTIES:
 				return MAX_PROPERTIES_EDEFAULT == null ? maxProperties != null : !MAX_PROPERTIES_EDEFAULT.equals(maxProperties);
-			case CorePackage.SCHEMA__MIN_PROPERTIES:
+			case OpenAPIPackage.SCHEMA__MIN_PROPERTIES:
 				return MIN_PROPERTIES_EDEFAULT == null ? minProperties != null : !MIN_PROPERTIES_EDEFAULT.equals(minProperties);
-			case CorePackage.SCHEMA__REQUIRED:
-				return required != null && !required.isEmpty();
-			case CorePackage.SCHEMA__EXAMPLE:
+			case OpenAPIPackage.SCHEMA__EXAMPLE:
 				return EXAMPLE_EDEFAULT == null ? example != null : !EXAMPLE_EDEFAULT.equals(example);
-			case CorePackage.SCHEMA__DISCRIMINATOR:
+			case OpenAPIPackage.SCHEMA__DISCRIMINATOR:
 				return DISCRIMINATOR_EDEFAULT == null ? discriminator != null : !DISCRIMINATOR_EDEFAULT.equals(discriminator);
-			case CorePackage.SCHEMA__READ_ONLY:
+			case OpenAPIPackage.SCHEMA__READ_ONLY:
 				return READ_ONLY_EDEFAULT == null ? readOnly != null : !READ_ONLY_EDEFAULT.equals(readOnly);
-			case CorePackage.SCHEMA__PROPERTIES:
+			case OpenAPIPackage.SCHEMA__PROPERTIES:
 				return properties != null && !properties.isEmpty();
-			case CorePackage.SCHEMA__ALL_OF:
+			case OpenAPIPackage.SCHEMA__ALL_OF:
 				return allOf != null && !allOf.isEmpty();
-			case CorePackage.SCHEMA__ITEMS:
+			case OpenAPIPackage.SCHEMA__ITEMS:
 				return items != null;
-			case CorePackage.SCHEMA__XML:
+			case OpenAPIPackage.SCHEMA__XML:
 				return xml != null;
-			case CorePackage.SCHEMA__ADDITONAL_PROPERTIES:
+			case OpenAPIPackage.SCHEMA__ADDITONAL_PROPERTIES:
 				return additonalProperties != null;
-			case CorePackage.SCHEMA__DECLARING_CONTEXT:
+			case OpenAPIPackage.SCHEMA__DECLARING_CONTEXT:
 				return declaringContext != null;
+			case OpenAPIPackage.SCHEMA__REQUIRED:
+				return required != null && !required.isEmpty();
+			case OpenAPIPackage.SCHEMA__VALUE:
+				return value != null;
+			case OpenAPIPackage.SCHEMA__ADDITONAL_PROPERTIES_ALLOWED:
+				return additonalPropertiesAllowed != ADDITONAL_PROPERTIES_ALLOWED_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -945,13 +1055,13 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 		}
 		if (baseClass == JSONPointer.class) {
 			switch (derivedFeatureID) {
-				case CorePackage.SCHEMA__REF: return CorePackage.JSON_POINTER__REF;
+				case OpenAPIPackage.SCHEMA__REF: return OpenAPIPackage.JSON_POINTER__REF;
 				default: return -1;
 			}
 		}
 		if (baseClass == ExternalDocsContext.class) {
 			switch (derivedFeatureID) {
-				case CorePackage.SCHEMA__EXTERNAL_DOCS: return CorePackage.EXTERNAL_DOCS_CONTEXT__EXTERNAL_DOCS;
+				case OpenAPIPackage.SCHEMA__EXTERNAL_DOCS: return OpenAPIPackage.EXTERNAL_DOCS_CONTEXT__EXTERNAL_DOCS;
 				default: return -1;
 			}
 		}
@@ -972,13 +1082,13 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 		}
 		if (baseClass == JSONPointer.class) {
 			switch (baseFeatureID) {
-				case CorePackage.JSON_POINTER__REF: return CorePackage.SCHEMA__REF;
+				case OpenAPIPackage.JSON_POINTER__REF: return OpenAPIPackage.SCHEMA__REF;
 				default: return -1;
 			}
 		}
 		if (baseClass == ExternalDocsContext.class) {
 			switch (baseFeatureID) {
-				case CorePackage.EXTERNAL_DOCS_CONTEXT__EXTERNAL_DOCS: return CorePackage.SCHEMA__EXTERNAL_DOCS;
+				case OpenAPIPackage.EXTERNAL_DOCS_CONTEXT__EXTERNAL_DOCS: return OpenAPIPackage.SCHEMA__EXTERNAL_DOCS;
 				default: return -1;
 			}
 		}
@@ -1003,14 +1113,14 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 		result.append(maxProperties);
 		result.append(", minProperties: ");
 		result.append(minProperties);
-		result.append(", required: ");
-		result.append(required);
 		result.append(", example: ");
 		result.append(example);
 		result.append(", discriminator: ");
 		result.append(discriminator);
 		result.append(", readOnly: ");
 		result.append(readOnly);
+		result.append(", additonalPropertiesAllowed: ");
+		result.append(additonalPropertiesAllowed);
 		result.append(')');
 		return result.toString();
 	}

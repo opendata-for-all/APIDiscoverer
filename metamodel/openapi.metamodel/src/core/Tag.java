@@ -15,7 +15,7 @@ package core;
  *   <li>{@link core.Tag#getDescription <em>Description</em>}</li>
  * </ul>
  *
- * @see core.CorePackage#getTag()
+ * @see core.OpenAPIPackage#getTag()
  * @model
  * @generated
  */
@@ -30,7 +30,7 @@ public interface Tag extends ExternalDocsContext {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
-	 * @see core.CorePackage#getTag_Name()
+	 * @see core.OpenAPIPackage#getTag_Name()
 	 * @model
 	 * @generated
 	 */
@@ -56,7 +56,7 @@ public interface Tag extends ExternalDocsContext {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Description</em>' attribute.
 	 * @see #setDescription(String)
-	 * @see core.CorePackage#getTag_Description()
+	 * @see core.OpenAPIPackage#getTag_Description()
 	 * @model
 	 * @generated
 	 */

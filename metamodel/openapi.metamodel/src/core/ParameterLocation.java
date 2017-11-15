@@ -13,7 +13,7 @@ import org.eclipse.emf.common.util.Enumerator;
  * A representation of the literals of the enumeration '<em><b>Parameter Location</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- * @see core.CorePackage#getParameterLocation()
+ * @see core.OpenAPIPackage#getParameterLocation()
  * @model
  * @generated
  */

@@ -3,9 +3,9 @@
 package core.provider;
 
 
-import core.CorePackage;
 import core.Example;
 
+import core.OpenAPIPackage;
 import java.util.Collection;
 import java.util.List;
 
@@ -79,7 +79,7 @@ public class ExampleItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Example_mimeType_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Example_mimeType_feature", "_UI_Example_type"),
-				 CorePackage.Literals.EXAMPLE__MIME_TYPE,
+				 OpenAPIPackage.Literals.EXAMPLE__MIME_TYPE,
 				 true,
 				 false,
 				 false,
@@ -101,7 +101,7 @@ public class ExampleItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Example_value_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Example_value_feature", "_UI_Example_type"),
-				 CorePackage.Literals.EXAMPLE__VALUE,
+				 OpenAPIPackage.Literals.EXAMPLE__VALUE,
 				 true,
 				 false,
 				 false,
@@ -148,8 +148,8 @@ public class ExampleItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Example.class)) {
-			case CorePackage.EXAMPLE__MIME_TYPE:
-			case CorePackage.EXAMPLE__VALUE:
+			case OpenAPIPackage.EXAMPLE__MIME_TYPE:
+			case OpenAPIPackage.EXAMPLE__VALUE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

@@ -2,7 +2,7 @@
  */
 package core.tests;
 
-import core.CoreFactory;
+import core.OpenAPIFactory;
 import core.Root;
 
 import junit.framework.TestCase;
@@ -72,7 +72,7 @@ public class RootTest extends TestCase {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(CoreFactory.eINSTANCE.createRoot());
+		setFixture(OpenAPIFactory.eINSTANCE.createRoot());
 	}
 
 	/**

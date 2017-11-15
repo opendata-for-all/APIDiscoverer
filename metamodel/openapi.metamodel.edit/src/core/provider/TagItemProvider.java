@@ -3,7 +3,7 @@
 package core.provider;
 
 
-import core.CorePackage;
+import core.OpenAPIPackage;
 import core.Tag;
 
 import java.util.Collection;
@@ -64,7 +64,7 @@ public class TagItemProvider extends ExternalDocsContextItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_Tag_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Tag_name_feature", "_UI_Tag_type"),
-				 CorePackage.Literals.TAG__NAME,
+				 OpenAPIPackage.Literals.TAG__NAME,
 				 true,
 				 false,
 				 false,
@@ -86,7 +86,7 @@ public class TagItemProvider extends ExternalDocsContextItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_Tag_description_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Tag_description_feature", "_UI_Tag_type"),
-				 CorePackage.Literals.TAG__DESCRIPTION,
+				 OpenAPIPackage.Literals.TAG__DESCRIPTION,
 				 true,
 				 false,
 				 false,
@@ -133,8 +133,8 @@ public class TagItemProvider extends ExternalDocsContextItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Tag.class)) {
-			case CorePackage.TAG__NAME:
-			case CorePackage.TAG__DESCRIPTION:
+			case OpenAPIPackage.TAG__NAME:
+			case OpenAPIPackage.TAG__DESCRIPTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

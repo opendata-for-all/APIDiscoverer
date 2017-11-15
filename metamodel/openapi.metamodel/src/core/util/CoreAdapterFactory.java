@@ -148,12 +148,12 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 				return createParamterDeclaringContextAdapter();
 			}
 			@Override
-			public Adapter caseResponseContext(ResponseContext object) {
-				return createResponseContextAdapter();
-			}
-			@Override
 			public Adapter caseSchemaDeclaringContext(SchemaDeclaringContext object) {
 				return createSchemaDeclaringContextAdapter();
+			}
+			@Override
+			public Adapter caseResponseDeclaringContext(ResponseDeclaringContext object) {
+				return createResponseDeclaringContextAdapter();
 			}
 			@Override
 			public Adapter caseJSONPointer(JSONPointer object) {
@@ -178,10 +178,6 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseArrayContext(ArrayContext object) {
 				return createArrayContextAdapter();
-			}
-			@Override
-			public Adapter caseResponseDeclaringContext(ResponseDeclaringContext object) {
-				return createResponseDeclaringContextAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -494,20 +490,6 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createParameterContextAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link core.ResponseContext <em>Response Context</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see core.ResponseContext
-	 * @generated
-	 */
-	public Adapter createResponseContextAdapter() {
 		return null;
 	}
 

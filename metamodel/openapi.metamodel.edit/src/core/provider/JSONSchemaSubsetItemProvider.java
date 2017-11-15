@@ -3,10 +3,10 @@
 package core.provider;
 
 
-import core.CorePackage;
 import core.JSONDataType;
 import core.JSONSchemaSubset;
 
+import core.OpenAPIPackage;
 import java.util.Collection;
 import java.util.List;
 
@@ -94,7 +94,7 @@ public class JSONSchemaSubsetItemProvider
 				 getResourceLocator(),
 				 getString("_UI_JSONSchemaSubset_type_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_JSONSchemaSubset_type_feature", "_UI_JSONSchemaSubset_type"),
-				 CorePackage.Literals.JSON_SCHEMA_SUBSET__TYPE,
+				 OpenAPIPackage.Literals.JSON_SCHEMA_SUBSET__TYPE,
 				 true,
 				 false,
 				 false,
@@ -116,7 +116,7 @@ public class JSONSchemaSubsetItemProvider
 				 getResourceLocator(),
 				 getString("_UI_JSONSchemaSubset_format_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_JSONSchemaSubset_format_feature", "_UI_JSONSchemaSubset_type"),
-				 CorePackage.Literals.JSON_SCHEMA_SUBSET__FORMAT,
+				 OpenAPIPackage.Literals.JSON_SCHEMA_SUBSET__FORMAT,
 				 true,
 				 false,
 				 false,
@@ -138,7 +138,7 @@ public class JSONSchemaSubsetItemProvider
 				 getResourceLocator(),
 				 getString("_UI_JSONSchemaSubset_description_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_JSONSchemaSubset_description_feature", "_UI_JSONSchemaSubset_type"),
-				 CorePackage.Literals.JSON_SCHEMA_SUBSET__DESCRIPTION,
+				 OpenAPIPackage.Literals.JSON_SCHEMA_SUBSET__DESCRIPTION,
 				 true,
 				 false,
 				 false,
@@ -160,7 +160,7 @@ public class JSONSchemaSubsetItemProvider
 				 getResourceLocator(),
 				 getString("_UI_JSONSchemaSubset_maximum_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_JSONSchemaSubset_maximum_feature", "_UI_JSONSchemaSubset_type"),
-				 CorePackage.Literals.JSON_SCHEMA_SUBSET__MAXIMUM,
+				 OpenAPIPackage.Literals.JSON_SCHEMA_SUBSET__MAXIMUM,
 				 true,
 				 false,
 				 false,
@@ -182,7 +182,7 @@ public class JSONSchemaSubsetItemProvider
 				 getResourceLocator(),
 				 getString("_UI_JSONSchemaSubset_exclusiveMaximum_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_JSONSchemaSubset_exclusiveMaximum_feature", "_UI_JSONSchemaSubset_type"),
-				 CorePackage.Literals.JSON_SCHEMA_SUBSET__EXCLUSIVE_MAXIMUM,
+				 OpenAPIPackage.Literals.JSON_SCHEMA_SUBSET__EXCLUSIVE_MAXIMUM,
 				 true,
 				 false,
 				 false,
@@ -204,7 +204,7 @@ public class JSONSchemaSubsetItemProvider
 				 getResourceLocator(),
 				 getString("_UI_JSONSchemaSubset_minimum_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_JSONSchemaSubset_minimum_feature", "_UI_JSONSchemaSubset_type"),
-				 CorePackage.Literals.JSON_SCHEMA_SUBSET__MINIMUM,
+				 OpenAPIPackage.Literals.JSON_SCHEMA_SUBSET__MINIMUM,
 				 true,
 				 false,
 				 false,
@@ -226,7 +226,7 @@ public class JSONSchemaSubsetItemProvider
 				 getResourceLocator(),
 				 getString("_UI_JSONSchemaSubset_exclusiveMinimum_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_JSONSchemaSubset_exclusiveMinimum_feature", "_UI_JSONSchemaSubset_type"),
-				 CorePackage.Literals.JSON_SCHEMA_SUBSET__EXCLUSIVE_MINIMUM,
+				 OpenAPIPackage.Literals.JSON_SCHEMA_SUBSET__EXCLUSIVE_MINIMUM,
 				 true,
 				 false,
 				 false,
@@ -248,7 +248,7 @@ public class JSONSchemaSubsetItemProvider
 				 getResourceLocator(),
 				 getString("_UI_JSONSchemaSubset_maxLength_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_JSONSchemaSubset_maxLength_feature", "_UI_JSONSchemaSubset_type"),
-				 CorePackage.Literals.JSON_SCHEMA_SUBSET__MAX_LENGTH,
+				 OpenAPIPackage.Literals.JSON_SCHEMA_SUBSET__MAX_LENGTH,
 				 true,
 				 false,
 				 false,
@@ -270,7 +270,7 @@ public class JSONSchemaSubsetItemProvider
 				 getResourceLocator(),
 				 getString("_UI_JSONSchemaSubset_minLength_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_JSONSchemaSubset_minLength_feature", "_UI_JSONSchemaSubset_type"),
-				 CorePackage.Literals.JSON_SCHEMA_SUBSET__MIN_LENGTH,
+				 OpenAPIPackage.Literals.JSON_SCHEMA_SUBSET__MIN_LENGTH,
 				 true,
 				 false,
 				 false,
@@ -292,7 +292,7 @@ public class JSONSchemaSubsetItemProvider
 				 getResourceLocator(),
 				 getString("_UI_JSONSchemaSubset_pattern_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_JSONSchemaSubset_pattern_feature", "_UI_JSONSchemaSubset_type"),
-				 CorePackage.Literals.JSON_SCHEMA_SUBSET__PATTERN,
+				 OpenAPIPackage.Literals.JSON_SCHEMA_SUBSET__PATTERN,
 				 true,
 				 false,
 				 false,
@@ -314,7 +314,7 @@ public class JSONSchemaSubsetItemProvider
 				 getResourceLocator(),
 				 getString("_UI_JSONSchemaSubset_maxItems_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_JSONSchemaSubset_maxItems_feature", "_UI_JSONSchemaSubset_type"),
-				 CorePackage.Literals.JSON_SCHEMA_SUBSET__MAX_ITEMS,
+				 OpenAPIPackage.Literals.JSON_SCHEMA_SUBSET__MAX_ITEMS,
 				 true,
 				 false,
 				 false,
@@ -336,7 +336,7 @@ public class JSONSchemaSubsetItemProvider
 				 getResourceLocator(),
 				 getString("_UI_JSONSchemaSubset_minItems_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_JSONSchemaSubset_minItems_feature", "_UI_JSONSchemaSubset_type"),
-				 CorePackage.Literals.JSON_SCHEMA_SUBSET__MIN_ITEMS,
+				 OpenAPIPackage.Literals.JSON_SCHEMA_SUBSET__MIN_ITEMS,
 				 true,
 				 false,
 				 false,
@@ -358,7 +358,7 @@ public class JSONSchemaSubsetItemProvider
 				 getResourceLocator(),
 				 getString("_UI_JSONSchemaSubset_uniqueItems_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_JSONSchemaSubset_uniqueItems_feature", "_UI_JSONSchemaSubset_type"),
-				 CorePackage.Literals.JSON_SCHEMA_SUBSET__UNIQUE_ITEMS,
+				 OpenAPIPackage.Literals.JSON_SCHEMA_SUBSET__UNIQUE_ITEMS,
 				 true,
 				 false,
 				 false,
@@ -380,7 +380,7 @@ public class JSONSchemaSubsetItemProvider
 				 getResourceLocator(),
 				 getString("_UI_JSONSchemaSubset_enum_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_JSONSchemaSubset_enum_feature", "_UI_JSONSchemaSubset_type"),
-				 CorePackage.Literals.JSON_SCHEMA_SUBSET__ENUM,
+				 OpenAPIPackage.Literals.JSON_SCHEMA_SUBSET__ENUM,
 				 true,
 				 false,
 				 false,
@@ -402,7 +402,7 @@ public class JSONSchemaSubsetItemProvider
 				 getResourceLocator(),
 				 getString("_UI_JSONSchemaSubset_default_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_JSONSchemaSubset_default_feature", "_UI_JSONSchemaSubset_type"),
-				 CorePackage.Literals.JSON_SCHEMA_SUBSET__DEFAULT,
+				 OpenAPIPackage.Literals.JSON_SCHEMA_SUBSET__DEFAULT,
 				 true,
 				 false,
 				 false,
@@ -424,7 +424,7 @@ public class JSONSchemaSubsetItemProvider
 				 getResourceLocator(),
 				 getString("_UI_JSONSchemaSubset_multipleOf_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_JSONSchemaSubset_multipleOf_feature", "_UI_JSONSchemaSubset_type"),
-				 CorePackage.Literals.JSON_SCHEMA_SUBSET__MULTIPLE_OF,
+				 OpenAPIPackage.Literals.JSON_SCHEMA_SUBSET__MULTIPLE_OF,
 				 true,
 				 false,
 				 false,
@@ -461,22 +461,22 @@ public class JSONSchemaSubsetItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(JSONSchemaSubset.class)) {
-			case CorePackage.JSON_SCHEMA_SUBSET__TYPE:
-			case CorePackage.JSON_SCHEMA_SUBSET__FORMAT:
-			case CorePackage.JSON_SCHEMA_SUBSET__DESCRIPTION:
-			case CorePackage.JSON_SCHEMA_SUBSET__MAXIMUM:
-			case CorePackage.JSON_SCHEMA_SUBSET__EXCLUSIVE_MAXIMUM:
-			case CorePackage.JSON_SCHEMA_SUBSET__MINIMUM:
-			case CorePackage.JSON_SCHEMA_SUBSET__EXCLUSIVE_MINIMUM:
-			case CorePackage.JSON_SCHEMA_SUBSET__MAX_LENGTH:
-			case CorePackage.JSON_SCHEMA_SUBSET__MIN_LENGTH:
-			case CorePackage.JSON_SCHEMA_SUBSET__PATTERN:
-			case CorePackage.JSON_SCHEMA_SUBSET__MAX_ITEMS:
-			case CorePackage.JSON_SCHEMA_SUBSET__MIN_ITEMS:
-			case CorePackage.JSON_SCHEMA_SUBSET__UNIQUE_ITEMS:
-			case CorePackage.JSON_SCHEMA_SUBSET__ENUM:
-			case CorePackage.JSON_SCHEMA_SUBSET__DEFAULT:
-			case CorePackage.JSON_SCHEMA_SUBSET__MULTIPLE_OF:
+			case OpenAPIPackage.JSON_SCHEMA_SUBSET__TYPE:
+			case OpenAPIPackage.JSON_SCHEMA_SUBSET__FORMAT:
+			case OpenAPIPackage.JSON_SCHEMA_SUBSET__DESCRIPTION:
+			case OpenAPIPackage.JSON_SCHEMA_SUBSET__MAXIMUM:
+			case OpenAPIPackage.JSON_SCHEMA_SUBSET__EXCLUSIVE_MAXIMUM:
+			case OpenAPIPackage.JSON_SCHEMA_SUBSET__MINIMUM:
+			case OpenAPIPackage.JSON_SCHEMA_SUBSET__EXCLUSIVE_MINIMUM:
+			case OpenAPIPackage.JSON_SCHEMA_SUBSET__MAX_LENGTH:
+			case OpenAPIPackage.JSON_SCHEMA_SUBSET__MIN_LENGTH:
+			case OpenAPIPackage.JSON_SCHEMA_SUBSET__PATTERN:
+			case OpenAPIPackage.JSON_SCHEMA_SUBSET__MAX_ITEMS:
+			case OpenAPIPackage.JSON_SCHEMA_SUBSET__MIN_ITEMS:
+			case OpenAPIPackage.JSON_SCHEMA_SUBSET__UNIQUE_ITEMS:
+			case OpenAPIPackage.JSON_SCHEMA_SUBSET__ENUM:
+			case OpenAPIPackage.JSON_SCHEMA_SUBSET__DEFAULT:
+			case OpenAPIPackage.JSON_SCHEMA_SUBSET__MULTIPLE_OF:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

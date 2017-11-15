@@ -2,9 +2,9 @@
  */
 package core.impl;
 
-import core.CorePackage;
 import core.JSONPointer;
 
+import core.OpenAPIPackage;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
@@ -49,7 +49,7 @@ public abstract class JSONPointerImpl extends MinimalEObjectImpl.Container imple
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return CorePackage.Literals.JSON_POINTER;
+		return OpenAPIPackage.Literals.JSON_POINTER;
 	}
 
 	/**
@@ -71,7 +71,7 @@ public abstract class JSONPointerImpl extends MinimalEObjectImpl.Container imple
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CorePackage.JSON_POINTER__REF:
+			case OpenAPIPackage.JSON_POINTER__REF:
 				return getRef();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -85,7 +85,7 @@ public abstract class JSONPointerImpl extends MinimalEObjectImpl.Container imple
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CorePackage.JSON_POINTER__REF:
+			case OpenAPIPackage.JSON_POINTER__REF:
 				return REF_EDEFAULT == null ? getRef() != null : !REF_EDEFAULT.equals(getRef());
 		}
 		return super.eIsSet(featureID);

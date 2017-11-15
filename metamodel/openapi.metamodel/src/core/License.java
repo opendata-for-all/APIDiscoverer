@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link core.License#getUrl <em>Url</em>}</li>
  * </ul>
  *
- * @see core.CorePackage#getLicense()
+ * @see core.OpenAPIPackage#getLicense()
  * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='requiredName'"
  *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL requiredName='not self.name.oclIsUndefined()'"
  * @generated
@@ -33,7 +33,7 @@ public interface License extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
-	 * @see core.CorePackage#getLicense_Name()
+	 * @see core.OpenAPIPackage#getLicense_Name()
 	 * @model
 	 * @generated
 	 */
@@ -59,7 +59,7 @@ public interface License extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Url</em>' attribute.
 	 * @see #setUrl(String)
-	 * @see core.CorePackage#getLicense_Url()
+	 * @see core.OpenAPIPackage#getLicense_Url()
 	 * @model
 	 * @generated
 	 */

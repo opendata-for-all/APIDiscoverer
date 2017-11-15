@@ -14,7 +14,7 @@ package core;
  *   <li>{@link core.Header#getName <em>Name</em>}</li>
  * </ul>
  *
- * @see core.CorePackage#getHeader()
+ * @see core.OpenAPIPackage#getHeader()
  * @model
  * @generated
  */
@@ -29,7 +29,7 @@ public interface Header extends JSONSchemaSubset, ArrayContext {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
-	 * @see core.CorePackage#getHeader_Name()
+	 * @see core.OpenAPIPackage#getHeader_Name()
 	 * @model
 	 * @generated
 	 */

@@ -26,7 +26,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link core.SecuritySchema#getScopes <em>Scopes</em>}</li>
  * </ul>
  *
- * @see core.CorePackage#getSecuritySchema()
+ * @see core.OpenAPIPackage#getSecuritySchema()
  * @model
  * @generated
  */
@@ -43,7 +43,7 @@ public interface SecuritySchema extends EObject {
 	 * @return the value of the '<em>Type</em>' attribute.
 	 * @see core.SecuritySchemeType
 	 * @see #setType(SecuritySchemeType)
-	 * @see core.CorePackage#getSecuritySchema_Type()
+	 * @see core.OpenAPIPackage#getSecuritySchema_Type()
 	 * @model
 	 * @generated
 	 */
@@ -70,7 +70,7 @@ public interface SecuritySchema extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Description</em>' attribute.
 	 * @see #setDescription(String)
-	 * @see core.CorePackage#getSecuritySchema_Description()
+	 * @see core.OpenAPIPackage#getSecuritySchema_Description()
 	 * @model
 	 * @generated
 	 */
@@ -96,7 +96,7 @@ public interface SecuritySchema extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
-	 * @see core.CorePackage#getSecuritySchema_Name()
+	 * @see core.OpenAPIPackage#getSecuritySchema_Name()
 	 * @model
 	 * @generated
 	 */
@@ -124,7 +124,7 @@ public interface SecuritySchema extends EObject {
 	 * @return the value of the '<em>Location</em>' attribute.
 	 * @see core.APIKeyLocation
 	 * @see #setLocation(APIKeyLocation)
-	 * @see core.CorePackage#getSecuritySchema_Location()
+	 * @see core.OpenAPIPackage#getSecuritySchema_Location()
 	 * @model
 	 * @generated
 	 */
@@ -153,7 +153,7 @@ public interface SecuritySchema extends EObject {
 	 * @return the value of the '<em>Flow</em>' attribute.
 	 * @see core.OAuth2FlowType
 	 * @see #setFlow(OAuth2FlowType)
-	 * @see core.CorePackage#getSecuritySchema_Flow()
+	 * @see core.OpenAPIPackage#getSecuritySchema_Flow()
 	 * @model
 	 * @generated
 	 */
@@ -180,7 +180,7 @@ public interface SecuritySchema extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Authorization Url</em>' attribute.
 	 * @see #setAuthorizationUrl(String)
-	 * @see core.CorePackage#getSecuritySchema_AuthorizationUrl()
+	 * @see core.OpenAPIPackage#getSecuritySchema_AuthorizationUrl()
 	 * @model
 	 * @generated
 	 */
@@ -206,7 +206,7 @@ public interface SecuritySchema extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Token Url</em>' attribute.
 	 * @see #setTokenUrl(String)
-	 * @see core.CorePackage#getSecuritySchema_TokenUrl()
+	 * @see core.OpenAPIPackage#getSecuritySchema_TokenUrl()
 	 * @model
 	 * @generated
 	 */
@@ -232,7 +232,7 @@ public interface SecuritySchema extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Global Name</em>' attribute.
 	 * @see #setGlobalName(String)
-	 * @see core.CorePackage#getSecuritySchema_GlobalName()
+	 * @see core.OpenAPIPackage#getSecuritySchema_GlobalName()
 	 * @model
 	 * @generated
 	 */
@@ -258,7 +258,7 @@ public interface SecuritySchema extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Scopes</em>' containment reference list.
-	 * @see core.CorePackage#getSecuritySchema_Scopes()
+	 * @see core.OpenAPIPackage#getSecuritySchema_Scopes()
 	 * @model containment="true"
 	 * @generated
 	 */

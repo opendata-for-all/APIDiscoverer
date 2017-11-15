@@ -3,8 +3,8 @@
 package core.provider;
 
 
-import core.CoreFactory;
-import core.CorePackage;
+import core.OpenAPIFactory;
+import core.OpenAPIPackage;
 import core.Root;
 
 import java.util.Collection;
@@ -77,10 +77,10 @@ public class RootItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(CorePackage.Literals.ROOT__API);
-			childrenFeatures.add(CorePackage.Literals.ROOT__PARAMTERS);
-			childrenFeatures.add(CorePackage.Literals.ROOT__SCHEMAS);
-			childrenFeatures.add(CorePackage.Literals.ROOT__RESPONSES);
+			childrenFeatures.add(OpenAPIPackage.Literals.ROOT__API);
+			childrenFeatures.add(OpenAPIPackage.Literals.ROOT__PARAMTERS);
+			childrenFeatures.add(OpenAPIPackage.Literals.ROOT__SCHEMAS);
+			childrenFeatures.add(OpenAPIPackage.Literals.ROOT__RESPONSES);
 		}
 		return childrenFeatures;
 	}
@@ -133,10 +133,10 @@ public class RootItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Root.class)) {
-			case CorePackage.ROOT__API:
-			case CorePackage.ROOT__PARAMTERS:
-			case CorePackage.ROOT__SCHEMAS:
-			case CorePackage.ROOT__RESPONSES:
+			case OpenAPIPackage.ROOT__API:
+			case OpenAPIPackage.ROOT__PARAMTERS:
+			case OpenAPIPackage.ROOT__SCHEMAS:
+			case OpenAPIPackage.ROOT__RESPONSES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -156,23 +156,23 @@ public class RootItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.Literals.ROOT__API,
-				 CoreFactory.eINSTANCE.createAPI()));
+				(OpenAPIPackage.Literals.ROOT__API,
+				 OpenAPIFactory.eINSTANCE.createAPI()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.Literals.ROOT__PARAMTERS,
-				 CoreFactory.eINSTANCE.createParameter()));
+				(OpenAPIPackage.Literals.ROOT__PARAMTERS,
+				 OpenAPIFactory.eINSTANCE.createParameter()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.Literals.ROOT__SCHEMAS,
-				 CoreFactory.eINSTANCE.createSchema()));
+				(OpenAPIPackage.Literals.ROOT__SCHEMAS,
+				 OpenAPIFactory.eINSTANCE.createSchema()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CorePackage.Literals.ROOT__RESPONSES,
-				 CoreFactory.eINSTANCE.createResponse()));
+				(OpenAPIPackage.Literals.ROOT__RESPONSES,
+				 OpenAPIFactory.eINSTANCE.createResponse()));
 	}
 
 	/**
