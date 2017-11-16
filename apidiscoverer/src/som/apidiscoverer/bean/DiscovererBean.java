@@ -52,16 +52,21 @@ public class DiscovererBean implements Serializable {
 	private TreeNode apiTree;
 	private JSONAPICallExample jsonCallExample;
 	private String rowJsonCallExample;
+	private String schemaName = "";
 	private Gson gson;
+	private String bodySchema = "";
 
 	@PostConstruct
 	public void init() {
 		GsonBuilder builder = new GsonBuilder().setPrettyPrinting();
 		gson = builder.create();
 		jsonCallExample = new JSONAPICallExample();
+		schemaName = "";
+		setBodySchema("");
 		newAPIRequest = new APIRequest();
 		response = new Response();
 		discoverer = new Discoverer();
+		
 		setRecords(new ArrayList<APIRequest>());
 	}
 
@@ -273,13 +278,15 @@ public class DiscovererBean implements Serializable {
 		jsonCallExample = gson.fromJson(rowJsonCallExample, JSONAPICallExample.class);
 		newAPIRequest = getAPIRequestFromAPICallExample(jsonCallExample);
 		newAPIRequest.decode();
-		discoverer.discover(newAPIRequest);
+		discoverer.discover(newAPIRequest,schemaName,bodySchema);
 		records.add(newAPIRequest);
 		 FacesContext.getCurrentInstance().addMessage(null,
 	                new FacesMessage("API call example added"));
 		newAPIRequest = new APIRequest();
 		jsonCallExample = new JSONAPICallExample();
 		rowJsonCallExample = "";
+		schemaName = "";
+		bodySchema = "";
 		response = new Response();
 		
 
@@ -307,6 +314,7 @@ public class DiscovererBean implements Serializable {
 	public void cleanForms() {
 		newAPIRequest = new APIRequest();
 		response = new Response();
+		schemaName = "";
 
 	}
 
@@ -358,6 +366,22 @@ public class DiscovererBean implements Serializable {
 
 	public void setRowJsonCallExample(String rowJsonCallExample) {
 		this.rowJsonCallExample = rowJsonCallExample;
+	}
+
+	public String getSchemaName() {
+		return schemaName;
+	}
+
+	public void setSchemaName(String schemaName) {
+		this.schemaName = schemaName;
+	}
+
+	public String getBodySchema() {
+		return bodySchema;
+	}
+
+	public void setBodySchema(String bodySchema) {
+		this.bodySchema = bodySchema;
 	}
 
 }

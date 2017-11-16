@@ -102,9 +102,9 @@ body {
 
 				</p:treeTable>
 			</p:layoutUnit>
-<h:form id="mainForm" prependId="false">
-			<p:layoutUnit id="center" position="center">
-				
+			<h:form id="mainForm" prependId="false">
+				<p:layoutUnit id="center" position="center">
+
 					<p:layout>
 						<p:layoutUnit id="center-north" position="north"
 							header="Collect examples" resizable="true" size="30"
@@ -140,11 +140,10 @@ body {
 								<f:facet name="footer">
 									<p:commandButton id="btn_send" value="Send"
 										process="requestPanelGrid"
-										
 										update="requestPanelGrid responsePanelGrid growl"
 										actionListener="#{discovererBean.sendRequest}"
 										style="float:right">
- <p:resetInput target="responsePanelGrid" />
+										<p:resetInput target="responsePanelGrid" />
 									</p:commandButton>
 								</f:facet>
 
@@ -164,16 +163,16 @@ body {
 								<p:inputTextarea id="response_body" rows="8"
 									style="width: 100%;"
 									value="#{discovererBean.jsonCallExample.jsonResponse.body}" />
-									<f:facet name="footer">
-				<p style="text-align: right; margin: 0px 0px 0px 0px;">
-				<p:commandButton id="btn_extractExample"
-									update="jsonPanelGrid responsePanelGrid requestPanelGrid growl"
-									process="responsePanelGrid,requestPanelGrid"
-									value="Extract example"
-									actionListener="#{discovererBean.extractExample}">
-								</p:commandButton>
-				</p>
-				</f:facet>
+								<f:facet name="footer">
+									<p style="text-align: right; margin: 0px 0px 0px 0px;">
+										<p:commandButton id="btn_extractExample"
+											update="jsonPanelGrid responsePanelGrid requestPanelGrid growl"
+											process="responsePanelGrid,requestPanelGrid"
+											value="Extract example"
+											actionListener="#{discovererBean.extractExample}">
+										</p:commandButton>
+									</p>
+								</f:facet>
 							</p:panelGrid>
 
 
@@ -185,10 +184,10 @@ body {
 
 
 
-			
+
 						</p:layoutUnit>
 						<p:layoutUnit id="center-east" position="east" resizable="true"
-							 collapsible="false" size="500">
+							collapsible="false" size="500">
 							<h4 style="margin: 0 0">API call example (JSON)</h4>
 							<p:separator />
 
@@ -201,27 +200,36 @@ body {
 									value="#{discovererBean.rowJsonCallExample}"
 									requiredMessage="Please enter a JSON" required="true">
 								</p:inputTextarea>
+								<p:outputLabel for="bodySchema" value="Body schema name" />
+								<p:inputText id="bodySchema"
+									value="#{discovererBean.bodySchema}"
+									/>
+								<p:outputLabel for="schema" value="Response Schema name" />
+								<p:inputText id="schema"
+									value="#{discovererBean.schemaName}"
+									/>
 
 								<f:facet name="footer">
-								<p style="text-align: right; margin: 0px 0px 0px 0px;">
-									<p:commandButton id="btn_discover" value="Discover" process="jsonPanelGrid"
-										actionListener="#{discovererBean.discover}"
-										update="requestPanelGrid responsePanelGrid recordsTable jsonPanelGrid modelTree growl">
+									<p style="text-align: right; margin: 0px 0px 0px 0px;">
+										<p:commandButton id="btn_discover" value="Discover"
+											process="jsonPanelGrid"
+											actionListener="#{discovererBean.discover}"
+											update="requestPanelGrid responsePanelGrid recordsTable jsonPanelGrid modelTree growl">
 
-									</p:commandButton>
-								</p>
-							</f:facet>
+										</p:commandButton>
+									</p>
+								</f:facet>
 
 							</p:panelGrid>
-
 							
+
 						</p:layoutUnit>
 
 
 					</p:layout>
-			
-			</p:layoutUnit>
-	</h:form>
+
+				</p:layoutUnit>
+			</h:form>
 		</p:layout>
 
 

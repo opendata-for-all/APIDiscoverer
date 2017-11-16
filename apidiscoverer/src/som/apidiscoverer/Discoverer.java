@@ -68,9 +68,9 @@ public class Discoverer {
 		
 	}
 
-	public void discover(APIRequest apiResquest) throws MalformedURLException, URISyntaxException, UnsupportedEncodingException {
+	public void discover(APIRequest apiResquest, String schemaName, String bodySchema) throws MalformedURLException, URISyntaxException, UnsupportedEncodingException {
 		discoverBasicInfo(apiResquest);
-		discoverPaths(apiResquest);
+		discoverPaths(apiResquest,schemaName,bodySchema);
 	
 	}
 public void mergePaths() throws UnsupportedEncodingException {
@@ -113,7 +113,7 @@ public void mergePaths() throws UnsupportedEncodingException {
 	
 	}
 
-	private void discoverPaths(APIRequest apiResquest) throws URISyntaxException {
+	private void discoverPaths(APIRequest apiResquest, String schemaName, String bodySchema) throws URISyntaxException {
 		Path path = pathsMap.get(apiResquest.getOpenAPIPath());
 		if (path == null) {
 			path = factory.createPath();
@@ -121,11 +121,11 @@ public void mergePaths() throws UnsupportedEncodingException {
 			api.getPaths().add(path);
 			pathsMap.put(path.getPattern(), path);
 		}
-		discoverOperations(path, apiResquest);
+		discoverOperations(path, apiResquest, schemaName, bodySchema);
 
 	}
 
-	private void discoverOperations(Path path, APIRequest apiResquest) throws URISyntaxException {
+	private void discoverOperations(Path path, APIRequest apiResquest, String schemaName, String bodySchema) throws URISyntaxException {
 		switch (apiResquest.getHttpMethod()) {
 		case GET:
 			Operation getOperation = path.getGet();
@@ -137,8 +137,8 @@ public void mergePaths() throws UnsupportedEncodingException {
 					getOperation.getConsumes().add("application/json");
 				path.setGet(getOperation);
 			}
-			discoverPrameters(getOperation, apiResquest);
-			discoverResponses(getOperation, apiResquest);
+			discoverPrameters(getOperation, apiResquest, bodySchema);
+			discoverResponses(getOperation, apiResquest, schemaName);
 
 			break;
 		case POST:
@@ -151,8 +151,8 @@ public void mergePaths() throws UnsupportedEncodingException {
 				postOperation.getProduces().add("application/json");
 				path.setPost(postOperation);
 			}
-			discoverPrameters(postOperation, apiResquest);
-			discoverResponses(postOperation, apiResquest);
+			discoverPrameters(postOperation, apiResquest, bodySchema);
+			discoverResponses(postOperation, apiResquest, schemaName);
 
 			break;
 		case PUT:
@@ -165,8 +165,8 @@ public void mergePaths() throws UnsupportedEncodingException {
 				putOperation.getProduces().add("application/json");
 				path.setPut(putOperation);
 			}
-			discoverPrameters(putOperation, apiResquest);
-			discoverResponses(putOperation, apiResquest);
+			discoverPrameters(putOperation, apiResquest,bodySchema);
+			discoverResponses(putOperation, apiResquest,schemaName);
 
 			break;
 		case DELETE:
@@ -179,8 +179,8 @@ public void mergePaths() throws UnsupportedEncodingException {
 					deleteOperation.getConsumes().add("application/json");
 				path.setDelete(deleteOperation);
 			}
-			discoverPrameters(deleteOperation, apiResquest);
-			discoverResponses(deleteOperation, apiResquest);
+			discoverPrameters(deleteOperation, apiResquest, bodySchema);
+			discoverResponses(deleteOperation, apiResquest, schemaName);
 
 			break;
 		default:
@@ -189,7 +189,7 @@ public void mergePaths() throws UnsupportedEncodingException {
 
 	}
 
-	private void discoverPrameters(Operation apiOperation, APIRequest apiResquest) throws URISyntaxException {
+	private void discoverPrameters(Operation apiOperation, APIRequest apiResquest, String bodySchema) throws URISyntaxException {
 		for (Parameter parameter : apiResquest.getQueryParameters()) {
 			String parameterKey = apiResquest.getOpenAPIPath() + apiResquest.getHttpMethod() + parameter.getName()
 					+ ParameterLocation.QUERY;
@@ -257,6 +257,7 @@ public void mergePaths() throws UnsupportedEncodingException {
 			String parameterKey = apiResquest.getOpenAPIPath() + apiResquest.getHttpMethod() + "body"
 					+ ParameterLocation.BODY;
 			core.Parameter apiParameter = parametersMap.get(parameterKey);
+			String newSchemaName = (!bodySchema.equals(""))?bodySchema:apiResquest.getSchemaName();
 			if (apiParameter == null) {
 				apiParameter = factory.createParameter();
 				apiParameter.setLocation(ParameterLocation.BODY);
@@ -269,23 +270,23 @@ public void mergePaths() throws UnsupportedEncodingException {
 				JsonParser parser = new JsonParser();
 				JsonElement jsonSchemaInstance = parser.parse(body);
 				if (jsonSchemaInstance.isJsonArray()) {
-					Schema schemaArray = schemaMap.get(apiResquest.getSchemaName().substring(0, 1).toUpperCase()
-							+ apiResquest.getSchemaName().substring(1) + "List");
-					Schema schema = schemaMap.get(apiResquest.getSchemaName().substring(0, 1).toUpperCase()
-							+ apiResquest.getSchemaName().substring(1));
+					Schema schemaArray = schemaMap.get(newSchemaName.substring(0, 1).toUpperCase()
+							+ newSchemaName.substring(1) + "List");
+					Schema schema = schemaMap.get(newSchemaName.substring(0, 1).toUpperCase()
+							+ newSchemaName.substring(1));
 
 					if (schemaArray == null) {
 
 						schemaArray = factory.createSchema();
 						schemaArray.setType(JSONDataType.ARRAY);
-						schemaArray.setName(apiResquest.getSchemaName().substring(0, 1).toUpperCase()
-								+ apiResquest.getSchemaName().substring(1) + "List");
-						schemaMap.put(apiResquest.getSchemaName().substring(0, 1).toUpperCase()
-								+ apiResquest.getSchemaName().substring(1) + "List", schemaArray);
+						schemaArray.setName(newSchemaName.substring(0, 1).toUpperCase()
+								+ newSchemaName.substring(1) + "List");
+						schemaMap.put(newSchemaName.substring(0, 1).toUpperCase()
+								+ newSchemaName.substring(1) + "List", schemaArray);
 						if (schema == null) {
 							schema = factory.createSchema();
-							schema.setName(apiResquest.getSchemaName().substring(0, 1).toUpperCase()
-									+ apiResquest.getSchemaName().substring(1));
+							schema.setName(newSchemaName.substring(0, 1).toUpperCase()
+									+ newSchemaName.substring(1));
 							schema.setType(JSONDataType.OBJECT);
 							schemaMap.put(schema.getName(), schema);
 							schema.setDeclaringContext(api);
@@ -293,8 +294,8 @@ public void mergePaths() throws UnsupportedEncodingException {
 							api.getDefinitions().add(schema);
 							discoverSchema(schemaArray.getName(),
 									jsonSchemaInstance.getAsJsonArray().get(0).getAsString());
-							schemaMap.put(apiResquest.getSchemaName().substring(0, 1).toUpperCase()
-									+ apiResquest.getSchemaName().substring(1), schema);
+							schemaMap.put(newSchemaName.substring(0, 1).toUpperCase()
+									+ newSchemaName.substring(1), schema);
 
 						}
 						schemaArray.setItems(schema);
@@ -307,12 +308,12 @@ public void mergePaths() throws UnsupportedEncodingException {
 					}
 
 				} else {
-					Schema schema = schemaMap.get(apiResquest.getSchemaName().substring(0, 1).toUpperCase()
-							+ apiResquest.getSchemaName().substring(1));
+					Schema schema = schemaMap.get(newSchemaName.substring(0, 1).toUpperCase()
+							+ newSchemaName.substring(1));
 					if (schema == null) {
 						schema = factory.createSchema();
-						schema.setName(apiResquest.getSchemaName().substring(0, 1).toUpperCase()
-								+ apiResquest.getSchemaName().substring(1));
+						schema.setName(newSchemaName.substring(0, 1).toUpperCase()
+								+ newSchemaName.substring(1));
 						schema.setType(JSONDataType.OBJECT);
 						schemaMap.put(schema.getName(), schema);
 						apiRoot.getSchemas().add(schema);
@@ -330,9 +331,10 @@ public void mergePaths() throws UnsupportedEncodingException {
 
 	}
 
-	private void discoverResponses(Operation operation, APIRequest apiResquest) throws URISyntaxException {
-		String responseKey = apiResquest.getOpenAPIPath() + apiResquest.getHttpMethod()
+	private void discoverResponses(Operation operation, APIRequest apiResquest, String schemaName) throws URISyntaxException {
+		String responseKey = (!schemaName.equals(""))?schemaName:apiResquest.getOpenAPIPath() + apiResquest.getHttpMethod()
 				+ apiResquest.getResponse().getStatus() + ParameterLocation.BODY;
+		String newSchemaName = (!schemaName.equals(""))?schemaName:apiResquest.getSchemaName();
 		Response response = responsesMap.get(responseKey);
 		if (response == null) {
 			response = factory.createResponse();
@@ -342,36 +344,38 @@ public void mergePaths() throws UnsupportedEncodingException {
 			response.setDescription("");
 			apiRoot.getResponses().add(response);
 			responsesMap.put(responseKey, response);
+		
 			if (apiResquest.getResponse().getStatus() == 200) {
 				if (apiResquest.getResponse().getBody() != null && !apiResquest.getResponse().getBody().equals("")) {
 					JsonParser parser = new JsonParser();
 					JsonElement jsonSchemaInstance = parser.parse(apiResquest.getResponse().getBody());
 					if (jsonSchemaInstance.isJsonArray()) {
-						Schema schemaArray = schemaMap.get(apiResquest.getSchemaName().substring(0, 1).toUpperCase()
-								+ apiResquest.getSchemaName().substring(1) + "List");
-						Schema schema = schemaMap.get(apiResquest.getSchemaName().substring(0, 1).toUpperCase()
-								+ apiResquest.getSchemaName().substring(1));
+						
+						Schema schemaArray = schemaMap.get(newSchemaName.substring(0, 1).toUpperCase()
+								+ newSchemaName.substring(1) + "List");
+						Schema schema = schemaMap.get(newSchemaName.substring(0, 1).toUpperCase()
+								+ newSchemaName.substring(1));
 
 						if (schemaArray == null) {
 
 							schemaArray = factory.createSchema();
 							schemaArray.setType(JSONDataType.ARRAY);
-							schemaArray.setName(apiResquest.getSchemaName().substring(0, 1).toUpperCase()
-									+ apiResquest.getSchemaName().substring(1) + "List");
-							schemaMap.put(apiResquest.getSchemaName().substring(0, 1).toUpperCase()
-									+ apiResquest.getSchemaName().substring(1) + "List", schemaArray);
+							schemaArray.setName(newSchemaName.substring(0, 1).toUpperCase()
+									+ newSchemaName.substring(1) + "List");
+							schemaMap.put(newSchemaName.substring(0, 1).toUpperCase()
+									+ newSchemaName.substring(1) + "List", schemaArray);
 							if (schema == null) {
 								schema = factory.createSchema();
-								schema.setName(apiResquest.getSchemaName().substring(0, 1).toUpperCase()
-										+ apiResquest.getSchemaName().substring(1));
+								schema.setName(newSchemaName.substring(0, 1).toUpperCase()
+										+ newSchemaName.substring(1));
 								schema.setType(JSONDataType.OBJECT);
 								schemaMap.put(schema.getName(), schema);
 								apiRoot.getSchemas().add(schema);
 								schema.setDeclaringContext(api);
 								api.getDefinitions().add(schema);
 								discoverSchema(schema.getName(), jsonSchemaInstance.getAsJsonArray().get(0).toString());
-								schemaMap.put(apiResquest.getSchemaName().substring(0, 1).toUpperCase()
-										+ apiResquest.getSchemaName().substring(1), schema);
+								schemaMap.put(newSchemaName.substring(0, 1).toUpperCase()
+										+ newSchemaName.substring(1), schema);
 
 							}
 							schemaArray.setItems(schema);
@@ -384,12 +388,12 @@ public void mergePaths() throws UnsupportedEncodingException {
 						}
 
 					} else {
-						Schema schema = schemaMap.get(apiResquest.getSchemaName().substring(0, 1).toUpperCase()
-								+ apiResquest.getSchemaName().substring(1));
+						Schema schema = schemaMap.get(newSchemaName.substring(0, 1).toUpperCase()
+								+ newSchemaName.substring(1));
 						if (schema == null) {
 							schema = factory.createSchema();
-							schema.setName(apiResquest.getSchemaName().substring(0, 1).toUpperCase()
-									+ apiResquest.getSchemaName().substring(1));
+							schema.setName(newSchemaName.substring(0, 1).toUpperCase()
+									+ newSchemaName.substring(1));
 							schema.setType(JSONDataType.OBJECT);
 							schemaMap.put(schema.getName(), schema);
 							api.getDefinitions().add(schema);
@@ -402,12 +406,12 @@ public void mergePaths() throws UnsupportedEncodingException {
 					}
 				}
 			} else {
-				Schema schema = schemaMap.get(apiResquest.getSchemaName().substring(0, 1).toUpperCase()
-						+ apiResquest.getSchemaName().substring(1) + "_" + apiResquest.getResponse().getStatus());
+				Schema schema = schemaMap.get(newSchemaName.substring(0, 1).toUpperCase()
+						+ newSchemaName.substring(1) + "_" + apiResquest.getResponse().getStatus());
 				if (schema == null) {
 					schema = factory.createSchema();
-					schema.setName(apiResquest.getSchemaName().substring(0, 1).toUpperCase()
-							+ apiResquest.getSchemaName().substring(1) + "_" + apiResquest.getResponse().getStatus());
+					schema.setName(newSchemaName.substring(0, 1).toUpperCase()
+							+ newSchemaName.substring(1) + "_" + apiResquest.getResponse().getStatus());
 					schema.setType(JSONDataType.OBJECT);
 					schemaMap.put(schema.getName(), schema);
 
