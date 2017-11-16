@@ -63,58 +63,7 @@ public class Discoverer {
 		apiRoot.setApi(api);
 		
 		
-		Path path= factory.createPath();
-		Operation operation = factory.createOperation();
-		path.setPattern("/alpha/es");
-		path.setGet(operation);
-		api.getPaths().add(path);
 		
-		path= factory.createPath();
-		path.setPattern("/alpha/fr");
-		
-		operation = factory.createOperation();
-		path.setGet(operation);
-		api.getPaths().add(path);
-		
-		
-		path= factory.createPath();
-		path.setPattern("/alpha/gr");
-		operation = factory.createOperation();
-		path.setGet(operation);
-		api.getPaths().add(path);
-		
-		path= factory.createPath();
-		path.setPattern("/alpha/ma");
-		operation = factory.createOperation();
-		path.setGet(operation);
-		api.getPaths().add(path);
-		
-		path= factory.createPath();
-		path.setPattern("/alpha/br");
-		operation = factory.createOperation();
-		path.setGet(operation);
-		api.getPaths().add(path);
-		
-		path= factory.createPath();
-		path.setPattern("/alpha/mn");
-		operation = factory.createOperation();
-		path.setGet(operation);
-		api.getPaths().add(path);
-
-		path= factory.createPath();
-		path.setPattern("/to/ma");
-		operation = factory.createOperation();
-		path.setGet(operation);
-		api.getPaths().add(path);
-		
-		path= factory.createPath();
-		path.setPattern("/ba3");
-		operation = factory.createOperation();
-		path.setGet(operation);
-		api.getPaths().add(path);
-		
-//		DiscoveryUtil.discoverPathParameters(apiRoot);
-
 		
 		
 	}
