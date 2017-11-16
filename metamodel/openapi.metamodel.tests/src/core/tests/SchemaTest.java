@@ -4,6 +4,7 @@ package core.tests;
 
 import core.OpenAPIFactory;
 import core.Schema;
+
 import junit.textui.TestRunner;
 
 /**

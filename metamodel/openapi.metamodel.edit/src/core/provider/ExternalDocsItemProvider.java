@@ -4,8 +4,8 @@ package core.provider;
 
 
 import core.ExternalDocs;
-
 import core.OpenAPIPackage;
+
 import java.util.Collection;
 import java.util.List;
 

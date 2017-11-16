@@ -3,8 +3,8 @@
 package core.tests;
 
 import core.ItemsDefinition;
-
 import core.OpenAPIFactory;
+
 import junit.textui.TestRunner;
 
 /**

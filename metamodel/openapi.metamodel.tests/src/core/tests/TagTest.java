@@ -4,6 +4,7 @@ package core.tests;
 
 import core.OpenAPIFactory;
 import core.Tag;
+
 import junit.textui.TestRunner;
 
 /**

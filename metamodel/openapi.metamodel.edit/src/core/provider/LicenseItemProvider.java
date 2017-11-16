@@ -4,8 +4,8 @@ package core.provider;
 
 
 import core.License;
-
 import core.OpenAPIPackage;
+
 import java.util.Collection;
 import java.util.List;
 

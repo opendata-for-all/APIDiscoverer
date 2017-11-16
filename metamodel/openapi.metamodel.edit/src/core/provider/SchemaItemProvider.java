@@ -177,72 +177,6 @@ public class SchemaItemProvider extends JSONSchemaSubsetItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Required feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addRequiredPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Schema_required_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Schema_required_feature", "_UI_Schema_type"),
-				 OpenAPIPackage.Literals.SCHEMA__REQUIRED,
-				 true,
-				 false,
-				 false,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Value feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addValuePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Schema_value_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Schema_value_feature", "_UI_Schema_type"),
-				 OpenAPIPackage.Literals.SCHEMA__VALUE,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Additonal Properties Allowed feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addAdditonalPropertiesAllowedPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Schema_additonalPropertiesAllowed_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Schema_additonalPropertiesAllowed_feature", "_UI_Schema_type"),
-				 OpenAPIPackage.Literals.SCHEMA__ADDITONAL_PROPERTIES_ALLOWED,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Example feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -370,6 +304,72 @@ public class SchemaItemProvider extends JSONSchemaSubsetItemProvider {
 				 false,
 				 true,
 				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Required feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRequiredPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Schema_required_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Schema_required_feature", "_UI_Schema_type"),
+				 OpenAPIPackage.Literals.SCHEMA__REQUIRED,
+				 true,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Value feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addValuePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Schema_value_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Schema_value_feature", "_UI_Schema_type"),
+				 OpenAPIPackage.Literals.SCHEMA__VALUE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Additonal Properties Allowed feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAdditonalPropertiesAllowedPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Schema_additonalPropertiesAllowed_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Schema_additonalPropertiesAllowed_feature", "_UI_Schema_type"),
+				 OpenAPIPackage.Literals.SCHEMA__ADDITONAL_PROPERTIES_ALLOWED,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
 	}
