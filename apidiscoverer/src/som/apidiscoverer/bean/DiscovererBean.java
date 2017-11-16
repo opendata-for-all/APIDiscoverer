@@ -60,17 +60,6 @@ public class DiscovererBean implements Serializable {
 		gson = builder.create();
 		jsonCallExample = new JSONAPICallExample();
 		newAPIRequest = new APIRequest();
-		APIRequest temp = new APIRequest();
-		temp.setUrl("http://petstore.swagger.io/v2/pet");
-		temp.setHttpMethod(HttpMethod.POST);
-		temp.setBody(
-				"{\"id\": 123,\"category\": {\"id\": 1,\"name\": \"dogs\"},\"name\": \"doggie\",\"photoUrls\": [\"http://example.com\"],\"tags\": [{\"id\": 1,\"name\": \"black\"}],\"status\": \"available\"}");
-		try {
-			RESTClient.send(temp);
-		} catch (UnirestException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		response = new Response();
 		discoverer = new Discoverer();
 		setRecords(new ArrayList<APIRequest>());
@@ -81,7 +70,6 @@ public class DiscovererBean implements Serializable {
 	}
 
 	public DefaultStreamedContent getDownload() throws Exception {
-		System.out.println("GET = " + download.getName());
 		return download;
 	}
 
@@ -251,6 +239,7 @@ public class DiscovererBean implements Serializable {
 	}
 
 	public void prepDownload() throws Exception {
+		discoverer.mergePaths();
 		File temp = File.createTempFile("swagger", ".json");
 		FileWriter fileWritter = new FileWriter(temp.getPath(), true);
 		BufferedWriter bufferWritter = new BufferedWriter(fileWritter);

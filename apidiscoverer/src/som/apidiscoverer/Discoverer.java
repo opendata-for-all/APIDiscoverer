@@ -1,6 +1,7 @@
 package som.apidiscoverer;
 
 import java.io.StringReader;
+import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
@@ -13,17 +14,19 @@ import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 
 import core.Root;
 import core.API;
 import core.CollectionFormat;
-import core.CoreFactory;
-import core.CorePackage;
 import core.Info;
 import core.ItemsDefinition;
 import core.JSONDataType;
+import core.OpenAPIFactory;
+import core.OpenAPIPackage;
 import core.Operation;
 import core.ParameterLocation;
 import core.Path;
@@ -35,9 +38,11 @@ import jsondiscoverer.JsonSource;
 import jsondiscoverer.JsonSourceSet;
 import som.apidiscoverer.model.APIRequest;
 import som.apidiscoverer.model.Parameter;
+import som.apidiscoverer.util.DiscoveryUtil;
+import som.apidiscoverer.util.OpenAPIUtils;
 
 public class Discoverer {
-	CoreFactory factory;
+	OpenAPIFactory factory;
 	private Root apiRoot;
 	private API api;
 	private List<EPackage> dataModelList = new ArrayList<EPackage>();
@@ -49,21 +54,91 @@ public class Discoverer {
 
 	public Discoverer() {
 		// Initialize the model
-		CorePackage.eINSTANCE.eClass();
+		OpenAPIPackage.eINSTANCE.eClass();
 		// Retrieve the default factory singleton
-		factory = CoreFactory.eINSTANCE;
+		factory = OpenAPIFactory.eINSTANCE;
 		apiRoot = factory.createRoot();
 		
 		api = factory.createAPI();
 		apiRoot.setApi(api);
+		
+		
+		Path path= factory.createPath();
+		Operation operation = factory.createOperation();
+		path.setPattern("/alpha/es");
+		path.setGet(operation);
+		api.getPaths().add(path);
+		
+		path= factory.createPath();
+		path.setPattern("/alpha/fr");
+		
+		operation = factory.createOperation();
+		path.setGet(operation);
+		api.getPaths().add(path);
+		
+		
+		path= factory.createPath();
+		path.setPattern("/alpha/gr");
+		operation = factory.createOperation();
+		path.setGet(operation);
+		api.getPaths().add(path);
+		
+		path= factory.createPath();
+		path.setPattern("/alpha/ma");
+		operation = factory.createOperation();
+		path.setGet(operation);
+		api.getPaths().add(path);
+		
+		path= factory.createPath();
+		path.setPattern("/alpha/br");
+		operation = factory.createOperation();
+		path.setGet(operation);
+		api.getPaths().add(path);
+		
+		path= factory.createPath();
+		path.setPattern("/alpha/mn");
+		operation = factory.createOperation();
+		path.setGet(operation);
+		api.getPaths().add(path);
+
+		path= factory.createPath();
+		path.setPattern("/to/ma");
+		operation = factory.createOperation();
+		path.setGet(operation);
+		api.getPaths().add(path);
+		
+		path= factory.createPath();
+		path.setPattern("/ba3");
+		operation = factory.createOperation();
+		path.setGet(operation);
+		api.getPaths().add(path);
+		
+//		DiscoveryUtil.discoverPathParameters(apiRoot);
+
+		
+		
 	}
 
-	public void discover(APIRequest apiResquest) throws MalformedURLException, URISyntaxException {
+	public void discover(APIRequest apiResquest) throws MalformedURLException, URISyntaxException, UnsupportedEncodingException {
 		discoverBasicInfo(apiResquest);
-
-		// discoverSchema(apiResquest);
+		discoverPaths(apiResquest);
+	
 	}
-
+public void mergePaths() throws UnsupportedEncodingException {
+	List<List<Path>> duplicatedPaths = DiscoveryUtil.discoverPathParameters(apiRoot);
+	if(!duplicatedPaths.isEmpty()) {
+		for(List<Path> cluster: duplicatedPaths) {
+		List<Boolean> segmentCompare = DiscoveryUtil.discoverCommonSergments(cluster, cluster.get(0).getPattern().substring(1).split("/").length);
+		Path path = OpenAPIUtils.mergePaths(cluster);
+		for(Path p: cluster) {
+			if(p != path)
+				EcoreUtil.remove(p);
+		}
+		OpenAPIUtils.replaceSegementByPathParameter(path, segmentCompare.lastIndexOf(false), factory, apiRoot);
+		
+	}
+	}
+}
 	private void discoverBasicInfo(APIRequest apiResquest) throws URISyntaxException {
 		if (api.getHost() == null)
 			api.setHost(apiResquest.getHost());
@@ -86,7 +161,7 @@ public class Discoverer {
 			info.setVersion("0.0");
 			api.setInfo(info);
 		}
-		discoverPaths(apiResquest);
+	
 	}
 
 	private void discoverPaths(APIRequest apiResquest) throws URISyntaxException {
@@ -315,7 +390,7 @@ public class Discoverer {
 			response.setCode(String.valueOf(apiResquest.getResponse().getStatus()));
 			response.setDescription(apiResquest.getResponse().getStatusText());
 			response.setDeclaringContext(operation);
-			response.setDescription("<Add response description>");
+			response.setDescription("");
 			apiRoot.getResponses().add(response);
 			responsesMap.put(responseKey, response);
 			if (apiResquest.getResponse().getStatus() == 200) {
