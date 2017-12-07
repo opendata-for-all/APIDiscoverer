@@ -75,6 +75,7 @@ public class OpenAPIFactoryImpl extends EFactoryImpl implements OpenAPIFactory {
 			case OpenAPIPackage.EXAMPLE: return createExample();
 			case OpenAPIPackage.XML_ELEMENT: return createXMLElement();
 			case OpenAPIPackage.SECURITY_SCOPE: return createSecurityScope();
+			case OpenAPIPackage.SECURITY_REQUIREMENT: return createSecurityRequirement();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -312,6 +313,16 @@ public class OpenAPIFactoryImpl extends EFactoryImpl implements OpenAPIFactory {
 	public SecurityScope createSecurityScope() {
 		SecurityScopeImpl securityScope = new SecurityScopeImpl();
 		return securityScope;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SecurityRequirement createSecurityRequirement() {
+		SecurityRequirementImpl securityRequirement = new SecurityRequirementImpl();
+		return securityRequirement;
 	}
 
 	/**

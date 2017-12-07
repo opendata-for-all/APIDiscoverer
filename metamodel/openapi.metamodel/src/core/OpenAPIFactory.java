@@ -184,6 +184,15 @@ public interface OpenAPIFactory extends EFactory {
 	SecurityScope createSecurityScope();
 
 	/**
+	 * Returns a new object of class '<em>Security Requirement</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Security Requirement</em>'.
+	 * @generated
+	 */
+	SecurityRequirement createSecurityRequirement();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

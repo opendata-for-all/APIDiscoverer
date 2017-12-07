@@ -17,8 +17,8 @@ import core.Schema;
 import core.SchemaDeclaringContext;
 import core.SchemeType;
 import core.SecurityContext;
+import core.SecurityRequirement;
 import core.SecuritySchema;
-import core.SecurityScope;
 import core.Tag;
 
 import java.lang.reflect.InvocationTargetException;
@@ -49,7 +49,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link core.impl.APIImpl#getRef <em>Ref</em>}</li>
- *   <li>{@link core.impl.APIImpl#getSecurityRequirement <em>Security Requirement</em>}</li>
+ *   <li>{@link core.impl.APIImpl#getSecurityRequirements <em>Security Requirements</em>}</li>
  *   <li>{@link core.impl.APIImpl#getParameters <em>Parameters</em>}</li>
  *   <li>{@link core.impl.APIImpl#getExternalDocs <em>External Docs</em>}</li>
  *   <li>{@link core.impl.APIImpl#getSwagger <em>Swagger</em>}</li>
@@ -80,14 +80,14 @@ public class APIImpl extends ParamterDeclaringContextImpl implements API {
 	protected static final String REF_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getSecurityRequirement() <em>Security Requirement</em>}' reference list.
+	 * The cached value of the '{@link #getSecurityRequirements() <em>Security Requirements</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSecurityRequirement()
+	 * @see #getSecurityRequirements()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<SecurityScope> securityRequirement;
+	protected EList<SecurityRequirement> securityRequirements;
 
 	/**
 	 * The cached value of the '{@link #getParameters() <em>Parameters</em>}' reference list.
@@ -292,11 +292,11 @@ public class APIImpl extends ParamterDeclaringContextImpl implements API {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<SecurityScope> getSecurityRequirement() {
-		if (securityRequirement == null) {
-			securityRequirement = new EObjectResolvingEList<SecurityScope>(SecurityScope.class, this, OpenAPIPackage.API__SECURITY_REQUIREMENT);
+	public EList<SecurityRequirement> getSecurityRequirements() {
+		if (securityRequirements == null) {
+			securityRequirements = new EObjectContainmentEList<SecurityRequirement>(SecurityRequirement.class, this, OpenAPIPackage.API__SECURITY_REQUIREMENTS);
 		}
-		return securityRequirement;
+		return securityRequirements;
 	}
 
 	/**
@@ -591,6 +591,8 @@ public class APIImpl extends ParamterDeclaringContextImpl implements API {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case OpenAPIPackage.API__SECURITY_REQUIREMENTS:
+				return ((InternalEList<?>)getSecurityRequirements()).basicRemove(otherEnd, msgs);
 			case OpenAPIPackage.API__EXTERNAL_DOCS:
 				return basicSetExternalDocs(null, msgs);
 			case OpenAPIPackage.API__INFO:
@@ -617,8 +619,8 @@ public class APIImpl extends ParamterDeclaringContextImpl implements API {
 		switch (featureID) {
 			case OpenAPIPackage.API__REF:
 				return getRef();
-			case OpenAPIPackage.API__SECURITY_REQUIREMENT:
-				return getSecurityRequirement();
+			case OpenAPIPackage.API__SECURITY_REQUIREMENTS:
+				return getSecurityRequirements();
 			case OpenAPIPackage.API__PARAMETERS:
 				return getParameters();
 			case OpenAPIPackage.API__EXTERNAL_DOCS:
@@ -660,9 +662,9 @@ public class APIImpl extends ParamterDeclaringContextImpl implements API {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case OpenAPIPackage.API__SECURITY_REQUIREMENT:
-				getSecurityRequirement().clear();
-				getSecurityRequirement().addAll((Collection<? extends SecurityScope>)newValue);
+			case OpenAPIPackage.API__SECURITY_REQUIREMENTS:
+				getSecurityRequirements().clear();
+				getSecurityRequirements().addAll((Collection<? extends SecurityRequirement>)newValue);
 				return;
 			case OpenAPIPackage.API__PARAMETERS:
 				getParameters().clear();
@@ -727,8 +729,8 @@ public class APIImpl extends ParamterDeclaringContextImpl implements API {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case OpenAPIPackage.API__SECURITY_REQUIREMENT:
-				getSecurityRequirement().clear();
+			case OpenAPIPackage.API__SECURITY_REQUIREMENTS:
+				getSecurityRequirements().clear();
 				return;
 			case OpenAPIPackage.API__PARAMETERS:
 				getParameters().clear();
@@ -786,8 +788,8 @@ public class APIImpl extends ParamterDeclaringContextImpl implements API {
 		switch (featureID) {
 			case OpenAPIPackage.API__REF:
 				return REF_EDEFAULT == null ? getRef() != null : !REF_EDEFAULT.equals(getRef());
-			case OpenAPIPackage.API__SECURITY_REQUIREMENT:
-				return securityRequirement != null && !securityRequirement.isEmpty();
+			case OpenAPIPackage.API__SECURITY_REQUIREMENTS:
+				return securityRequirements != null && !securityRequirements.isEmpty();
 			case OpenAPIPackage.API__PARAMETERS:
 				return parameters != null && !parameters.isEmpty();
 			case OpenAPIPackage.API__EXTERNAL_DOCS:
@@ -840,7 +842,7 @@ public class APIImpl extends ParamterDeclaringContextImpl implements API {
 		}
 		if (baseClass == SecurityContext.class) {
 			switch (derivedFeatureID) {
-				case OpenAPIPackage.API__SECURITY_REQUIREMENT: return OpenAPIPackage.SECURITY_CONTEXT__SECURITY_REQUIREMENT;
+				case OpenAPIPackage.API__SECURITY_REQUIREMENTS: return OpenAPIPackage.SECURITY_CONTEXT__SECURITY_REQUIREMENTS;
 				default: return -1;
 			}
 		}
@@ -884,7 +886,7 @@ public class APIImpl extends ParamterDeclaringContextImpl implements API {
 		}
 		if (baseClass == SecurityContext.class) {
 			switch (baseFeatureID) {
-				case OpenAPIPackage.SECURITY_CONTEXT__SECURITY_REQUIREMENT: return OpenAPIPackage.API__SECURITY_REQUIREMENT;
+				case OpenAPIPackage.SECURITY_CONTEXT__SECURITY_REQUIREMENTS: return OpenAPIPackage.API__SECURITY_REQUIREMENTS;
 				default: return -1;
 			}
 		}

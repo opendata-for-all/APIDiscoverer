@@ -15,55 +15,55 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link core.SecurityRequirement#getName <em>Name</em>}</li>
- *   <li>{@link core.SecurityRequirement#getValues <em>Values</em>}</li>
+ *   <li>{@link core.SecurityRequirement#getSecurityScopes <em>Security Scopes</em>}</li>
+ *   <li>{@link core.SecurityRequirement#getSecuritySchema <em>Security Schema</em>}</li>
  * </ul>
  *
- * @see core.CorePackage#getSecurityRequirement()
+ * @see core.OpenAPIPackage#getSecurityRequirement()
  * @model
  * @generated
  */
 public interface SecurityRequirement extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * Returns the value of the '<em><b>Security Scopes</b></em>' reference list.
+	 * The list contents are of type {@link core.SecurityScope}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Security Scopes</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
-	 * @see core.CorePackage#getSecurityRequirement_Name()
+	 * @return the value of the '<em>Security Scopes</em>' reference list.
+	 * @see core.OpenAPIPackage#getSecurityRequirement_SecurityScopes()
 	 * @model
 	 * @generated
 	 */
-	String getName();
+	EList<SecurityScope> getSecurityScopes();
 
 	/**
-	 * Sets the value of the '{@link core.SecurityRequirement#getName <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
-	 * @see #getName()
-	 * @generated
-	 */
-	void setName(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Values</b></em>' attribute list.
-	 * The list contents are of type {@link java.lang.String}.
+	 * Returns the value of the '<em><b>Security Schema</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Values</em>' attribute list isn't clear,
+	 * If the meaning of the '<em>Security Schema</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Values</em>' attribute list.
-	 * @see core.CorePackage#getSecurityRequirement_Values()
+	 * @return the value of the '<em>Security Schema</em>' reference.
+	 * @see #setSecuritySchema(SecuritySchema)
+	 * @see core.OpenAPIPackage#getSecurityRequirement_SecuritySchema()
 	 * @model
 	 * @generated
 	 */
-	EList<String> getValues();
+	SecuritySchema getSecuritySchema();
+
+	/**
+	 * Sets the value of the '{@link core.SecurityRequirement#getSecuritySchema <em>Security Schema</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Security Schema</em>' reference.
+	 * @see #getSecuritySchema()
+	 * @generated
+	 */
+	void setSecuritySchema(SecuritySchema value);
 
 } // SecurityRequirement

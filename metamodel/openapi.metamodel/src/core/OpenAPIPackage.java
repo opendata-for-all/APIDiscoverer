@@ -342,13 +342,13 @@ public interface OpenAPIPackage extends EPackage {
 	int API__REF = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Security Requirement</b></em>' reference list.
+	 * The feature id for the '<em><b>Security Requirements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int API__SECURITY_REQUIREMENT = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 1;
+	int API__SECURITY_REQUIREMENTS = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Parameters</b></em>' reference list.
@@ -815,13 +815,13 @@ public interface OpenAPIPackage extends EPackage {
 	int OPERATION = 7;
 
 	/**
-	 * The feature id for the '<em><b>Security Requirement</b></em>' reference list.
+	 * The feature id for the '<em><b>Security Requirements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION__SECURITY_REQUIREMENT = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 0;
+	int OPERATION__SECURITY_REQUIREMENTS = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Parameters</b></em>' reference list.
@@ -2550,13 +2550,13 @@ public interface OpenAPIPackage extends EPackage {
 	int SECURITY_CONTEXT = 23;
 
 	/**
-	 * The feature id for the '<em><b>Security Requirement</b></em>' reference list.
+	 * The feature id for the '<em><b>Security Requirements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SECURITY_CONTEXT__SECURITY_REQUIREMENT = 0;
+	int SECURITY_CONTEXT__SECURITY_REQUIREMENTS = 0;
 
 	/**
 	 * The number of structural features of the '<em>Security Context</em>' class.
@@ -2697,6 +2697,52 @@ public interface OpenAPIPackage extends EPackage {
 	int ARRAY_CONTEXT_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link core.impl.SecurityRequirementImpl <em>Security Requirement</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see core.impl.SecurityRequirementImpl
+	 * @see core.impl.OpenAPIPackageImpl#getSecurityRequirement()
+	 * @generated
+	 */
+	int SECURITY_REQUIREMENT = 28;
+
+	/**
+	 * The feature id for the '<em><b>Security Scopes</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECURITY_REQUIREMENT__SECURITY_SCOPES = 0;
+
+	/**
+	 * The feature id for the '<em><b>Security Schema</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECURITY_REQUIREMENT__SECURITY_SCHEMA = 1;
+
+	/**
+	 * The number of structural features of the '<em>Security Requirement</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECURITY_REQUIREMENT_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Security Requirement</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECURITY_REQUIREMENT_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link core.SchemeType <em>Scheme Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2704,7 +2750,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @see core.impl.OpenAPIPackageImpl#getSchemeType()
 	 * @generated
 	 */
-	int SCHEME_TYPE = 28;
+	int SCHEME_TYPE = 29;
 
 	/**
 	 * The meta object id for the '{@link core.ParameterLocation <em>Parameter Location</em>}' enum.
@@ -2714,7 +2760,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @see core.impl.OpenAPIPackageImpl#getParameterLocation()
 	 * @generated
 	 */
-	int PARAMETER_LOCATION = 29;
+	int PARAMETER_LOCATION = 30;
 
 	/**
 	 * The meta object id for the '{@link core.CollectionFormat <em>Collection Format</em>}' enum.
@@ -2724,7 +2770,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @see core.impl.OpenAPIPackageImpl#getCollectionFormat()
 	 * @generated
 	 */
-	int COLLECTION_FORMAT = 30;
+	int COLLECTION_FORMAT = 31;
 
 	/**
 	 * The meta object id for the '{@link core.OAuth2FlowType <em>OAuth2 Flow Type</em>}' enum.
@@ -2734,7 +2780,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @see core.impl.OpenAPIPackageImpl#getOAuth2FlowType()
 	 * @generated
 	 */
-	int OAUTH2_FLOW_TYPE = 31;
+	int OAUTH2_FLOW_TYPE = 32;
 
 	/**
 	 * The meta object id for the '{@link core.APIKeyLocation <em>API Key Location</em>}' enum.
@@ -2744,7 +2790,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @see core.impl.OpenAPIPackageImpl#getAPIKeyLocation()
 	 * @generated
 	 */
-	int API_KEY_LOCATION = 32;
+	int API_KEY_LOCATION = 33;
 
 	/**
 	 * The meta object id for the '{@link core.SecuritySchemeType <em>Security Scheme Type</em>}' enum.
@@ -2754,7 +2800,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @see core.impl.OpenAPIPackageImpl#getSecuritySchemeType()
 	 * @generated
 	 */
-	int SECURITY_SCHEME_TYPE = 33;
+	int SECURITY_SCHEME_TYPE = 34;
 
 	/**
 	 * The meta object id for the '{@link core.JSONDataType <em>JSON Data Type</em>}' enum.
@@ -2764,7 +2810,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @see core.impl.OpenAPIPackageImpl#getJSONDataType()
 	 * @generated
 	 */
-	int JSON_DATA_TYPE = 34;
+	int JSON_DATA_TYPE = 35;
 
 
 	/**
@@ -4281,15 +4327,15 @@ public interface OpenAPIPackage extends EPackage {
 	EClass getSecurityContext();
 
 	/**
-	 * Returns the meta object for the reference list '{@link core.SecurityContext#getSecurityRequirement <em>Security Requirement</em>}'.
+	 * Returns the meta object for the containment reference list '{@link core.SecurityContext#getSecurityRequirements <em>Security Requirements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Security Requirement</em>'.
-	 * @see core.SecurityContext#getSecurityRequirement()
+	 * @return the meta object for the containment reference list '<em>Security Requirements</em>'.
+	 * @see core.SecurityContext#getSecurityRequirements()
 	 * @see #getSecurityContext()
 	 * @generated
 	 */
-	EReference getSecurityContext_SecurityRequirement();
+	EReference getSecurityContext_SecurityRequirements();
 
 	/**
 	 * Returns the meta object for class '{@link core.ParameterContext <em>Parameter Context</em>}'.
@@ -4385,6 +4431,38 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getArrayContext_Items();
+
+	/**
+	 * Returns the meta object for class '{@link core.SecurityRequirement <em>Security Requirement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Security Requirement</em>'.
+	 * @see core.SecurityRequirement
+	 * @generated
+	 */
+	EClass getSecurityRequirement();
+
+	/**
+	 * Returns the meta object for the reference list '{@link core.SecurityRequirement#getSecurityScopes <em>Security Scopes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Security Scopes</em>'.
+	 * @see core.SecurityRequirement#getSecurityScopes()
+	 * @see #getSecurityRequirement()
+	 * @generated
+	 */
+	EReference getSecurityRequirement_SecurityScopes();
+
+	/**
+	 * Returns the meta object for the reference '{@link core.SecurityRequirement#getSecuritySchema <em>Security Schema</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Security Schema</em>'.
+	 * @see core.SecurityRequirement#getSecuritySchema()
+	 * @see #getSecurityRequirement()
+	 * @generated
+	 */
+	EReference getSecurityRequirement_SecuritySchema();
 
 	/**
 	 * Returns the meta object for enum '{@link core.SchemeType <em>Scheme Type</em>}'.
@@ -5648,12 +5726,12 @@ public interface OpenAPIPackage extends EPackage {
 		EClass SECURITY_CONTEXT = eINSTANCE.getSecurityContext();
 
 		/**
-		 * The meta object literal for the '<em><b>Security Requirement</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Security Requirements</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SECURITY_CONTEXT__SECURITY_REQUIREMENT = eINSTANCE.getSecurityContext_SecurityRequirement();
+		EReference SECURITY_CONTEXT__SECURITY_REQUIREMENTS = eINSTANCE.getSecurityContext_SecurityRequirements();
 
 		/**
 		 * The meta object literal for the '{@link core.impl.ParameterContextImpl <em>Parameter Context</em>}' class.
@@ -5734,6 +5812,32 @@ public interface OpenAPIPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ARRAY_CONTEXT__ITEMS = eINSTANCE.getArrayContext_Items();
+
+		/**
+		 * The meta object literal for the '{@link core.impl.SecurityRequirementImpl <em>Security Requirement</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see core.impl.SecurityRequirementImpl
+		 * @see core.impl.OpenAPIPackageImpl#getSecurityRequirement()
+		 * @generated
+		 */
+		EClass SECURITY_REQUIREMENT = eINSTANCE.getSecurityRequirement();
+
+		/**
+		 * The meta object literal for the '<em><b>Security Scopes</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SECURITY_REQUIREMENT__SECURITY_SCOPES = eINSTANCE.getSecurityRequirement_SecurityScopes();
+
+		/**
+		 * The meta object literal for the '<em><b>Security Schema</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SECURITY_REQUIREMENT__SECURITY_SCHEMA = eINSTANCE.getSecurityRequirement_SecuritySchema();
 
 		/**
 		 * The meta object literal for the '{@link core.SchemeType <em>Scheme Type</em>}' enum.

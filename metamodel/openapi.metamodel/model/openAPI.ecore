@@ -255,8 +255,8 @@
         changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SecurityContext" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="securityRequirement" upperBound="-1"
-        eType="#//SecurityScope"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="securityRequirements" upperBound="-1"
+        eType="#//SecurityRequirement" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ParameterContext" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
@@ -324,5 +324,10 @@
     <eLiterals name="array" value="6" literal="array"/>
     <eLiterals name="file" value="8"/>
     <eLiterals name="null" value="7"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SecurityRequirement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="securityScopes" upperBound="-1"
+        eType="#//SecurityScope"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="securitySchema" eType="#//SecuritySchema"/>
   </eClassifiers>
 </ecore:EPackage>

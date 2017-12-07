@@ -8,6 +8,7 @@ import core.Parameter;
 import core.ParameterLocation;
 import core.Path;
 import core.Root;
+import core.Schema;
 
 public class OpenAPIUtils {
 	

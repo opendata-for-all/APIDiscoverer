@@ -260,6 +260,8 @@ public class OpenAPIValidator extends EObjectValidator {
 				return validateExternalDocsContext((ExternalDocsContext)value, diagnostics, context);
 			case OpenAPIPackage.ARRAY_CONTEXT:
 				return validateArrayContext((ArrayContext)value, diagnostics, context);
+			case OpenAPIPackage.SECURITY_REQUIREMENT:
+				return validateSecurityRequirement((SecurityRequirement)value, diagnostics, context);
 			case OpenAPIPackage.SCHEME_TYPE:
 				return validateSchemeType((SchemeType)value, diagnostics, context);
 			case OpenAPIPackage.PARAMETER_LOCATION:
@@ -1183,6 +1185,15 @@ public class OpenAPIValidator extends EObjectValidator {
 	 */
 	public boolean validateArrayContext(ArrayContext arrayContext, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(arrayContext, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateSecurityRequirement(SecurityRequirement securityRequirement, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(securityRequirement, diagnostics, context);
 	}
 
 	/**

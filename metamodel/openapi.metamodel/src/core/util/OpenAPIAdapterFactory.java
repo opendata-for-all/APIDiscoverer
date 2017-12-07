@@ -180,6 +180,10 @@ public class OpenAPIAdapterFactory extends AdapterFactoryImpl {
 				return createArrayContextAdapter();
 			}
 			@Override
+			public Adapter caseSecurityRequirement(SecurityRequirement object) {
+				return createSecurityRequirementAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -588,6 +592,20 @@ public class OpenAPIAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createArrayContextAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link core.SecurityRequirement <em>Security Requirement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see core.SecurityRequirement
+	 * @generated
+	 */
+	public Adapter createSecurityRequirementAdapter() {
 		return null;
 	}
 

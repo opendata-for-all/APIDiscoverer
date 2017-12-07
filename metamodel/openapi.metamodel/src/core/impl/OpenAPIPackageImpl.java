@@ -33,6 +33,7 @@ import core.SchemaContext;
 import core.SchemaDeclaringContext;
 import core.SchemeType;
 import core.SecurityContext;
+import core.SecurityRequirement;
 import core.SecuritySchema;
 import core.SecuritySchemeType;
 import core.SecurityScope;
@@ -253,6 +254,13 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * @generated
 	 */
 	private EClass arrayContextEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass securityRequirementEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1638,7 +1646,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSecurityContext_SecurityRequirement() {
+	public EReference getSecurityContext_SecurityRequirements() {
 		return (EReference)securityContextEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -1721,6 +1729,33 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 */
 	public EReference getArrayContext_Items() {
 		return (EReference)arrayContextEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSecurityRequirement() {
+		return securityRequirementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSecurityRequirement_SecurityScopes() {
+		return (EReference)securityRequirementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSecurityRequirement_SecuritySchema() {
+		return (EReference)securityRequirementEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1977,7 +2012,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 		createEAttribute(jsonPointerEClass, JSON_POINTER__REF);
 
 		securityContextEClass = createEClass(SECURITY_CONTEXT);
-		createEReference(securityContextEClass, SECURITY_CONTEXT__SECURITY_REQUIREMENT);
+		createEReference(securityContextEClass, SECURITY_CONTEXT__SECURITY_REQUIREMENTS);
 
 		parameterContextEClass = createEClass(PARAMETER_CONTEXT);
 		createEReference(parameterContextEClass, PARAMETER_CONTEXT__PARAMETERS);
@@ -1991,6 +2026,10 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 		arrayContextEClass = createEClass(ARRAY_CONTEXT);
 		createEAttribute(arrayContextEClass, ARRAY_CONTEXT__COLLECTION_FORMAT);
 		createEReference(arrayContextEClass, ARRAY_CONTEXT__ITEMS);
+
+		securityRequirementEClass = createEClass(SECURITY_REQUIREMENT);
+		createEReference(securityRequirementEClass, SECURITY_REQUIREMENT__SECURITY_SCOPES);
+		createEReference(securityRequirementEClass, SECURITY_REQUIREMENT__SECURITY_SCHEMA);
 
 		// Create enums
 		schemeTypeEEnum = createEEnum(SCHEME_TYPE);
@@ -2228,7 +2267,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 		initEAttribute(getJSONPointer_Ref(), ecorePackage.getEString(), "ref", null, 0, 1, JSONPointer.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(securityContextEClass, SecurityContext.class, "SecurityContext", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSecurityContext_SecurityRequirement(), this.getSecurityScope(), null, "securityRequirement", null, 0, -1, SecurityContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSecurityContext_SecurityRequirements(), this.getSecurityRequirement(), null, "securityRequirements", null, 0, -1, SecurityContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(parameterContextEClass, ParameterContext.class, "ParameterContext", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getParameterContext_Parameters(), this.getParameter(), null, "parameters", null, 0, -1, ParameterContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2242,6 +2281,10 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 		initEClass(arrayContextEClass, ArrayContext.class, "ArrayContext", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getArrayContext_CollectionFormat(), this.getCollectionFormat(), "collectionFormat", null, 0, 1, ArrayContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getArrayContext_Items(), this.getItemsDefinition(), null, "items", null, 0, 1, ArrayContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(securityRequirementEClass, SecurityRequirement.class, "SecurityRequirement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSecurityRequirement_SecurityScopes(), this.getSecurityScope(), null, "securityScopes", null, 0, -1, SecurityRequirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSecurityRequirement_SecuritySchema(), this.getSecuritySchema(), null, "securitySchema", null, 0, 1, SecurityRequirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(schemeTypeEEnum, SchemeType.class, "SchemeType");
