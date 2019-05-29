@@ -3,7 +3,7 @@ APIDiscoverer generates an OpenAPI description (version 2.0) by examining and an
 
 ## Using the tool
 
-You can download the file [apidiscoverer.war](https://github.com/SOM-Research/APIDiscoverer/raw/master/apidiscoverer/apidiscoverer.war "apidiscoverer.war") and deploy it in a servlet container such as [Apache Tomcat](http://tomcat.apache.org/ "Apache Tomcat") then you're ready to use APIDiscoverer.
+You can download the file [apidiscoverer.war](https://github.com/opendata-for-all/APIDiscoverer/raw/master/apidiscoverer/apidiscoverer.war "apidiscoverer.war") and deploy it in a servlet container such as [Apache Tomcat](http://tomcat.apache.org/ "Apache Tomcat") then you're ready to use APIDiscoverer.
 
 You can access the tool from: http://localhost:8080/apidiscoverer (using the default Tomcat configuration). 
 
